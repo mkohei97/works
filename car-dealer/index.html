@@ -211,6 +211,17 @@ html{-webkit-text-size-adjust:100%}
 </div>
 </section>
 
+<section id="group" style="scroll-margin-top: 12px; background: #EEF4FB">
+<div style="max-width: 1100px; margin: 0 auto; padding: 52px 16px">
+<h2 style="margin: 0 0 24px; text-align: center; font-weight: 500; color: #717171"><span style="display: block; font-size: 26px; letter-spacing: .45em; line-height: 1.4"><span style="color: #004D9F">G</span>ROUP</span><span style="display: block; font-size: 15px; letter-spacing: .35em">- グループ会社 -</span></h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px">
+<sc-for list="{{group}}" as="g" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border: 1px solid #B9CCE4; padding: 16px 18px; display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Noto Sans JP', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .1em; color: #004D9F">{{g.k}}</span><span style="font-size: 18px; font-weight: 700; color: #191877; line-height: 1.5">{{g.name}}</span><span style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.6; color: #444444">{{g.v}}</span></div>
+</sc-for>
+</div>
+</div>
+</section>
+
 </main>
 </sc-if>
 
@@ -295,6 +306,10 @@ html{-webkit-text-size-adjust:100%}
 <div style="margin-top: 24px; background: #EEF4FB; border-left: 4px solid #004D9F; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
 <h2 style="margin: 0; font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 700; color: #004D9F">変えていないもの</h2>
 <p style="margin: 0; font-size: 16px; line-height: 1.8">青を基調にした色、明朝体の見出し、英字と和文を重ねた見出しの形、店舗の写真を大きく使う最初の画面。掲載している内容（各サービス、トラックのご案内、新着情報、会社案内、採用情報）も、そのまま引き継いでいます。</p>
+</div>
+<div style="margin-top: 14px; background: #FFFFFF; border: 1px solid #B9CCE4; border-left: 4px solid #191877; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 700; color: #191877">次の段階：グループ全体へ</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.8">同じ考え方は、グループ本社とグループ各社のホームページにも広げられます。お知らせを1か所で更新すると各社のページとグループのトップに出る形、採用の入口をグループでそろえる形、見出しや色の決まりを各社でそろえる形です。まずはこの1社から始め、ご要望に応じて広げます。</p>
 </div>
 <div style="margin-top: 24px; text-align: center">
 <button type="button" onClick="{{go.site}}" style="box-sizing: border-box; min-width: 240px; min-height: 52px; border: 1px solid #004D9F; border-radius: 3px; background: #004D9F; color: #FFFFFF; font-size: 16px; font-weight: 700">提案するサイトを見る</button>
@@ -427,6 +442,7 @@ prices: [{ k: '軽自動車', v: '38,500円〜' }, { k: '乗用車（小型・�
 flow: [{ n: 'STEP 1', k: 'ご予約', v: 'お電話か、このページから。' }, { n: 'STEP 2', k: 'お預かり', v: '代車のご用意もできます。' }, { n: 'STEP 3', k: 'お渡し', v: '整備の内容をご説明します。' }],
 stockTabs: [['all', 'すべて'], ['car', '乗用車'], ['truck', 'トラック']].map(function (t) { var c = chip(st.stock === t[0]); return { label: t[1], bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ stock: t[0] }); } }; }),
 stock: STOCK.filter(function (c) { return st.stock === 'all' || c[0] === st.stock; }).map(function (c) { return { kind: c[1], name: c[2], year: c[3], km: c[4], shaken: c[5], price: c[6], ask: reserve(c[0] === 'truck' ? 'トラック・架装' : '新車・中古車', '') }; }),
+group: [{ k: 'グループ本社', name: 'ときわ坂ホールディングス', v: 'グループ全体の経営と採用の窓口です。' }, { k: '運送', name: 'ときわ坂運輸', v: '大型車を中心に、荷物をお届けします。' }, { k: 'トラックボデーの修理・架装', name: 'ときわ坂ボデー工業', v: '荷台の製作と修理を行います。' }],
 news: [{ d: '2026/11/10', tag: 'お知らせ', t: '年末年始の営業日のお知らせ' }, { d: '2026/11/01', tag: '入庫', t: 'すぐにお渡しできるアルミバンが入庫しました' }, { d: '2026/10/20', tag: 'お知らせ', t: '冬用タイヤへの交換のご予約を受け付けています' }, { d: '2026/10/01', tag: '採用', t: '採用情報を更新しました' }],
 svcChips: SVCS.map(function (s) { var c = chip(st.svc === s); return { label: s, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ svc: s }); } }; }),
 carChips: CARS.map(function (s) { var c = chip(st.car === s); return { label: s, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ car: st.car === s ? '' : s }); } }; }),
@@ -439,7 +455,7 @@ points: [
 ['3　メニューの数', '14のサービスが、同じ大きさで縦に並んでいます。', '「車を買う・借りる」「車を整える」「はたらく車」「安心のために」の4つに分けます。'],
 ['4　車検・点検', '料金の目安、ご利用の流れ、予約の方法が載っていません。', '料金の目安と流れを載せ、ページから予約できるようにします。'],
 ['5　在庫車', '乗用車の掲載は1台で、金額は「お問い合わせください」です。', '一覧にして、年式、走行距離、支払総額を1台ごとに載せます。乗用車とトラックで絞り込めます。'],
-['6　新着情報', '枠の中に別のページを読み込む形で、スマホでは枠の中をさらにスクロールします。', 'ページの文字として並べ、新しい順にそのまま読めるようにします。'],
+['6　新着情報', '枠の中に別のページを読み込む形で、スマホでは枠の中をさらにスクロールします。', '今の更新のしかたはそのままに、ページの中へ新しい順に並べて表示します。グループ全体のお知らせとのつながりも保ちます。'],
 ['7　問い合わせ', '電話とメールフォームの2つで、上の小さなアイコンから進みます。', 'スマホの下に「電話する」「相談・予約」を固定します。予約のフォームは、ご用件を選ぶところから始まります。'],
 ['8　字の大きさと拡大', 'スマホでは約15pxの字が中心で、画面を拡大できない設定です。', '16px以上を基本にし、拡大もできるようにします。押せる範囲は44px以上にします。']
 ].map(function (x) { return { k: x[0], a: x[1], b: x[2] }; }),

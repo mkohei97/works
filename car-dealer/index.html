@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="自動車の販売・整備会社のホームページの見本です。会社名は架空で、フォームは送信されません。">
+<style>body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>車の販売・整備会社のサイトの見本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#004D9F}a:hover{color:#191877}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #E39A2D;outline-offset:2px}
+@media (max-width:759px){.pc-only{display:none !important}}
+@media (min-width:760px){.sp-only{display:none !important}}
+</style>
+<style>
+:root{color-scheme:light}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="background: #FFFFFF; color: #222222; font-family: 'Noto Serif JP', 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', serif; font-weight: 500; font-size: 17px; line-height: 1.8; line-break: strict; overflow-x: hidden">
+
+<div style="background: #444444; color: #FFFFFF; font-family: 'Noto Sans JP', sans-serif">
+<div style="max-width: 1100px; margin: 0 auto; padding: 8px 16px">
+<div role="group" aria-label="表示の切り替え" style="display: flex; max-width: 360px; margin: 0 auto; border: 1px solid #FFFFFF; border-radius: 3px; overflow: hidden">
+<button type="button" onClick="{{go.site}}" aria-pressed="{{tab.site.pressed}}" style="flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0 4px; border: 0; background: {{tab.site.bg}}; color: {{tab.site.fg}}; font-size: 14px; font-weight: {{tab.site.fw}}; white-space: nowrap">提案するサイト</button>
+<button type="button" onClick="{{go.points}}" aria-pressed="{{tab.points.pressed}}" style="flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0 4px; border: 0; border-left: 1px solid #FFFFFF; background: {{tab.points.bg}}; color: {{tab.points.fg}}; font-size: 14px; font-weight: {{tab.points.fw}}; white-space: nowrap">提案ポイント</button>
+</div>
+</div>
+</div>
+
+<header style="background: #004D9F; color: #FFFFFF">
+<div style="max-width: 1100px; margin: 0 auto; padding: 0 16px; min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button type="button" onClick="{{go.home}}" aria-label="トップページへ" style="display: flex; align-items: center; gap: 10px; min-height: 48px; min-width: 0; padding: 0; border: 0; background: transparent; color: #FFFFFF; text-align: left">
+<svg viewBox="0 0 40 40" aria-hidden="true" style="width: 40px; height: 40px; flex: 0 0 auto"><circle cx="20" cy="20" r="17.5" fill="none" stroke="#FFFFFF" stroke-width="2"></circle><path d="M9 25c6-9 16-9 22 0M14 15h12M20 15v13" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path></svg>
+<span style="display: flex; flex-direction: column; min-width: 0"><span style="font-size: 17px; font-weight: 700; line-height: 1.3; letter-spacing: .08em; white-space: nowrap">ときわ坂自動車販売</span><span style="font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 400; line-height: 1.3; letter-spacing: .2em">株式会社</span></span>
+</button>
+<nav class="pc-only" aria-label="主なメニュー" style="display: flex; align-items: center; gap: 4px; font-size: 15px">
+<button type="button" onClick="{{go.services}}" style="min-height: 44px; padding: 0 10px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px">ご用件から探す</button>
+<button type="button" onClick="{{go.shaken}}" style="min-height: 44px; padding: 0 10px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px">車検・点検</button>
+<button type="button" onClick="{{go.stock}}" style="min-height: 44px; padding: 0 10px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px">在庫車</button>
+<button type="button" onClick="{{go.company}}" style="min-height: 44px; padding: 0 10px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px">会社案内・採用</button>
+</nav>
+<div class="pc-only" style="display: flex; align-items: center; gap: 14px; font-family: 'Noto Sans JP', sans-serif">
+<span style="display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3"><span style="font-size: 19px; font-weight: 700; letter-spacing: .04em">00-0000-0000</span><span style="font-size: 12px">受付 9:00〜18:00</span></span>
+<button type="button" onClick="{{go.reserve}}" style="min-height: 44px; padding: 0 16px; border: 1px solid #FFFFFF; border-radius: 3px; background: #FFFFFF; color: #004D9F; font-size: 14px; font-weight: 700">相談・予約</button>
+</div>
+<button type="button" class="sp-only" onClick="{{go.menu}}" aria-expanded="{{menuOpen}}" style="flex: 0 0 auto; min-width: 76px; min-height: 44px; border: 1px solid #FFFFFF; border-radius: 3px; background: transparent; color: #FFFFFF; font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 700">{{menuLabel}}</button>
+</div>
+<sc-if value="{{is.menu}}" hint-placeholder-val="{{false}}">
+<nav class="sp-only" aria-label="メニュー" style="display: flex; flex-wrap: wrap; border-top: 1px solid rgba(255, 255, 255, .4)">
+<button type="button" onClick="{{go.services}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 52px; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .25); background: transparent; color: #FFFFFF; font-size: 16px">ご用件から探す</button>
+<button type="button" onClick="{{go.shaken}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 52px; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .25); border-left: 1px solid rgba(255, 255, 255, .25); background: transparent; color: #FFFFFF; font-size: 16px">車検・点検</button>
+<button type="button" onClick="{{go.stock}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 52px; border: 0; background: transparent; color: #FFFFFF; font-size: 16px">在庫車</button>
+<button type="button" onClick="{{go.company}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 52px; border: 0; border-left: 1px solid rgba(255, 255, 255, .25); background: transparent; color: #FFFFFF; font-size: 16px">会社案内・採用</button>
+</nav>
+</sc-if>
+</header>
+
+<sc-if value="{{is.home}}" hint-placeholder-val="{{true}}">
+<main>
+
+<section style="position: relative; background: #0B2A52">
+<img src="img/exterior.jpg" alt="店舗の外観。ガラス張りのショールームの前に、軽自動車とアルミバンが並んでいる" style="display: block; width: 100%; height: clamp(240px, 42vw, 520px); object-fit: cover">
+<div style="max-width: 1100px; margin: 0 auto; padding: 0 16px">
+<div style="position: relative; margin-top: -72px; background: rgba(255, 255, 255, .96); border-top: 4px solid #004D9F; padding: 24px clamp(18px, 4vw, 40px) 28px; display: flex; flex-direction: column; gap: 14px">
+<h1 style="margin: 0; font-size: clamp(24px, 3.6vw, 38px); font-weight: 700; line-height: 1.45; letter-spacing: .06em; color: #004D9F">軽自動車から大型トラックまで。<br>車のことを、一か所で。</h1>
+<p style="margin: 0; max-width: 40em">販売、車検、整備、鈑金、架装、保険まで。国家資格を持つ整備士と、専任の担当がお応えします。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; font-family: 'Noto Sans JP', sans-serif">
+<button type="button" onClick="{{go.services}}" style="box-sizing: border-box; min-width: 200px; min-height: 52px; padding: 0 20px; border: 1px solid #004D9F; border-radius: 3px; background: #004D9F; color: #FFFFFF; font-size: 16px; font-weight: 700">ご用件から探す</button>
+<button type="button" onClick="{{go.reserveShaken}}" style="box-sizing: border-box; min-width: 200px; min-height: 52px; padding: 0 20px; border: 1px solid #004D9F; border-radius: 3px; background: #FFFFFF; color: #004D9F; font-size: 16px; font-weight: 700">車検・点検を予約する</button>
+</div>
+</div>
+</div>
+<div style="height: 28px"></div>
+</section>
+
+<section aria-label="当社について" style="background: #EEF4FB">
+<div style="max-width: 1100px; margin: 0 auto; padding: 22px 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 24px">
+<sc-for list="{{facts}}" as="f" hint-placeholder-count="3">
+<div style="display: flex; align-items: baseline; gap: 12px; border-left: 3px solid #004D9F; padding-left: 14px"><span style="font-size: 20px; font-weight: 700; color: #004D9F; white-space: nowrap">{{f.k}}</span><span style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.6">{{f.v}}</span></div>
+</sc-for>
+</div>
+</section>
+
+<section id="services" style="scroll-margin-top: 12px">
+<div style="max-width: 1100px; margin: 0 auto; padding: 64px 16px 24px">
+<h2 style="margin: 0 0 30px; text-align: center; font-weight: 500; color: #717171"><span style="display: block; font-size: 26px; letter-spacing: .45em; line-height: 1.4"><span style="color: #004D9F">S</span>ERVICE</span><span style="display: block; font-size: 15px; letter-spacing: .35em">- ご用件から探す -</span></h2>
+<div style="display: flex; flex-direction: column; gap: 26px">
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="4">
+<div>
+<h3 style="margin: 0 0 12px; font-size: 19px; font-weight: 700; color: #004D9F; border-bottom: 1px solid #004D9F; padding-bottom: 6px; letter-spacing: .08em">{{g.name}}</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, max(150px, 22%)), 1fr)); gap: 10px">
+<sc-for list="{{g.items}}" as="s" hint-placeholder-count="3">
+<button type="button" onClick="{{s.go}}" style="box-sizing: border-box; min-width: 0; min-height: 92px; padding: 14px clamp(10px, 3vw, 16px); border: 1px solid #B9CCE4; border-radius: 3px; background: #FFFFFF; color: #222222; text-align: left; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 18px; font-weight: 700; line-height: 1.4; color: #191877">{{s.name}}</span>
+<span style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.6; color: #444444">{{s.line}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section aria-label="トラックのご案内">
+<div style="max-width: 1100px; margin: 0 auto; padding: 40px 16px">
+<div style="display: flex; flex-wrap: wrap; background: #004D9F; color: #FFFFFF">
+<img src="img/truck.jpg" alt="白いアルミバンのトラック" style="flex: 1 1 320px; min-width: 0; width: 100%; height: 280px; object-fit: cover">
+<div style="flex: 1 1 360px; min-width: 0; box-sizing: border-box; padding: 26px clamp(18px, 4vw, 36px); display: flex; flex-direction: column; gap: 12px; justify-content: center">
+<h2 style="margin: 0; font-size: clamp(22px, 3vw, 28px); font-weight: 700; line-height: 1.45; letter-spacing: .06em">トラックをお探しですか</h2>
+<p style="margin: 0">すぐにお渡しできる車両をご用意しています。掲載していない車両も、ご希望に合わせてお探しします。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; font-family: 'Noto Sans JP', sans-serif">
+<button type="button" onClick="{{go.stockTruck}}" style="box-sizing: border-box; min-height: 50px; padding: 0 20px; border: 1px solid #FFFFFF; border-radius: 3px; background: #FFFFFF; color: #004D9F; font-size: 15px; font-weight: 700">トラックの在庫を見る</button>
+<button type="button" onClick="{{go.reserveTruck}}" style="box-sizing: border-box; min-height: 50px; padding: 0 20px; border: 1px solid #FFFFFF; border-radius: 3px; background: transparent; color: #FFFFFF; font-size: 15px; font-weight: 700">車両を探してもらう</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="shaken" style="scroll-margin-top: 12px; background: #F6F8FB">
+<div style="max-width: 1100px; margin: 0 auto; padding: 60px 16px">
+<h2 style="margin: 0 0 30px; text-align: center; font-weight: 500; color: #717171"><span style="display: block; font-size: 26px; letter-spacing: .45em; line-height: 1.4"><span style="color: #004D9F">M</span>AINTENANCE</span><span style="display: block; font-size: 15px; letter-spacing: .35em">- 車検・点検 -</span></h2>
+<div style="display: flex; flex-wrap: wrap; gap: 28px">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<img src="img/workshop.jpg" alt="整備工場。小型トラックをリフトで上げている" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover">
+<p style="margin: 0">国の指定を受けた自社の工場で、国家資格を持つ整備士が整備します。これまでの整備の記録をもとに、ご予算に合わせた内容をご提案します。</p>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px; font-family: 'Noto Sans JP', sans-serif">
+<h3 style="margin: 0; font-family: 'Noto Serif JP', serif; font-size: 19px; font-weight: 700; color: #004D9F">車検の料金の目安</h3>
+<div style="border-top: 1px solid #004D9F; background: #FFFFFF">
+<sc-for list="{{prices}}" as="p" hint-placeholder-count="4">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #C9D6E8"><span style="font-size: 16px">{{p.k}}</span><span style="font-size: 18px; font-weight: 700; color: #191877; white-space: nowrap; font-variant-numeric: tabular-nums">{{p.v}}</span></div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #444444">※金額は、見本のために置いた数字です。税金や保険料などの法定費用は別にかかります。</p>
+<h3 style="margin: 6px 0 0; font-family: 'Noto Serif JP', serif; font-size: 19px; font-weight: 700; color: #004D9F">ご利用の流れ</h3>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px">
+<sc-for list="{{flow}}" as="w" hint-placeholder-count="3">
+<li style="background: #FFFFFF; border: 1px solid #C9D6E8; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 700; letter-spacing: .1em; color: #004D9F">{{w.n}}</span><span style="font-size: 16px; font-weight: 700">{{w.k}}</span><span style="font-size: 14px; line-height: 1.6; color: #444444">{{w.v}}</span></li>
+</sc-for>
+</ol>
+<button type="button" onClick="{{go.reserveShaken}}" style="align-self: flex-start; box-sizing: border-box; min-width: 240px; min-height: 52px; padding: 0 22px; border: 1px solid #004D9F; border-radius: 3px; background: #004D9F; color: #FFFFFF; font-size: 16px; font-weight: 700">車検・点検を予約する</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="stock" style="scroll-margin-top: 12px">
+<div style="max-width: 1100px; margin: 0 auto; padding: 60px 16px">
+<h2 style="margin: 0 0 24px; text-align: center; font-weight: 500; color: #717171"><span style="display: block; font-size: 26px; letter-spacing: .45em; line-height: 1.4"><span style="color: #004D9F">S</span>TOCK</span><span style="display: block; font-size: 15px; letter-spacing: .35em">- 在庫車 -</span></h2>
+<div role="group" aria-label="在庫車の絞り込み" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 20px; font-family: 'Noto Sans JP', sans-serif">
+<sc-for list="{{stockTabs}}" as="t" hint-placeholder-count="3">
+<button type="button" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 104px; min-height: 44px; padding: 0 16px; border: 1px solid #004D9F; border-radius: 22px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; font-family: 'Noto Sans JP', sans-serif">
+<sc-for list="{{stock}}" as="c" hint-placeholder-count="4">
+<article style="border: 1px solid #B9CCE4; background: #FFFFFF; display: flex; flex-direction: column">
+<div style="background: #004D9F; color: #FFFFFF; padding: 6px 14px; font-size: 13px; font-weight: 700; letter-spacing: .1em">{{c.kind}}</div>
+<div style="padding: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1">
+<h3 style="margin: 0; font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 700; line-height: 1.45; color: #191877">{{c.name}}</h3>
+<div style="display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; font-size: 14px; line-height: 1.7"><span style="color: #5A5A5A">年式</span><span>{{c.year}}</span><span style="color: #5A5A5A">走行距離</span><span>{{c.km}}</span><span style="color: #5A5A5A">車検</span><span>{{c.shaken}}</span></div>
+<div style="margin-top: auto; padding-top: 8px; border-top: 1px solid #C9D6E8; display: flex; justify-content: space-between; align-items: baseline; gap: 10px"><span style="font-size: 13px; color: #5A5A5A">支払総額（税込）</span><span style="font-size: 22px; font-weight: 700; color: #191877; font-variant-numeric: tabular-nums">{{c.price}}</span></div>
+<button type="button" onClick="{{c.ask}}" style="min-height: 44px; border: 1px solid #004D9F; border-radius: 3px; background: #FFFFFF; color: #004D9F; font-size: 14px; font-weight: 700">この車について問い合わせる</button>
+</div>
+</article>
+</sc-for>
+</div>
+<p style="margin: 14px 0 0; font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #444444">※車両と金額は、見本のために置いたものです。</p>
+</div>
+</section>
+
+<section id="news" style="scroll-margin-top: 12px; background: #F6F8FB">
+<div style="max-width: 900px; margin: 0 auto; padding: 60px 16px">
+<h2 style="margin: 0 0 24px; text-align: center; font-weight: 500; color: #717171"><span style="display: block; font-size: 26px; letter-spacing: .45em; line-height: 1.4"><span style="color: #004D9F">N</span>EWS</span><span style="display: block; font-size: 15px; letter-spacing: .35em">- 新着情報 -</span></h2>
+<ul style="margin: 0; padding: 0; list-style: none; background: #FFFFFF; border-top: 1px solid #C9D6E8">
+<sc-for list="{{news}}" as="n" hint-placeholder-count="4">
+<li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: 14px 16px; border-bottom: 1px dotted #9FB3CF"><span style="font-family: 'Noto Sans JP', sans-serif; font-size: 15px; font-variant-numeric: tabular-nums">{{n.d}}</span><span style="font-family: 'Noto Sans JP', sans-serif; font-size: 12px; font-weight: 700; color: #A04A12; border: 1px solid #A04A12; padding: 0 12px; line-height: 1.8">{{n.tag}}</span><span style="flex: 1 1 260px; min-width: 0; color: #004D9F">{{n.t}}</span></li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<section id="company" style="scroll-margin-top: 12px">
+<div style="max-width: 1100px; margin: 0 auto; padding: 60px 16px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<div style="border: 1px solid #B9CCE4; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-weight: 500; color: #717171"><span style="display: block; font-size: 22px; letter-spacing: .4em"><span style="color: #004D9F">C</span>OMPANY</span><span style="display: block; font-size: 14px; letter-spacing: .3em">- 会社案内 -</span></h2>
+<p style="margin: 0">創業から40年あまり。軽自動車から大型車、トラックまで、車に関わるご相談を一か所でお受けしています。</p>
+<div style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.8; color: #444444">拠点：本社／支店／営業所／修理工場</div>
+</div>
+<div style="border: 1px solid #B9CCE4; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-weight: 500; color: #717171"><span style="display: block; font-size: 22px; letter-spacing: .4em"><span style="color: #004D9F">R</span>ECRUIT</span><span style="display: block; font-size: 14px; letter-spacing: .3em">- 採用情報 -</span></h2>
+<p style="margin: 0">整備士、営業、事務のスタッフを募集しています。仕事の内容と募集要項をご案内します。</p>
+<div style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.8; color: #444444">募集職種：整備士／営業／事務</div>
+</div>
+</div>
+<div style="max-width: 1100px; margin: 0 auto; padding: 0 16px 60px">
+<div style="border: 1px dashed #9FB3CF; padding: 18px; text-align: center; font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #5A5A5A">取扱メーカーと保険会社のロゴを、ここに並べます。</div>
+</div>
+</section>
+
+</main>
+</sc-if>
+
+<sc-if value="{{is.reserve}}" hint-placeholder-val="{{false}}">
+<main style="background: #F6F8FB">
+<div style="max-width: 760px; margin: 0 auto; padding: 44px 16px 60px; font-family: 'Noto Sans JP', sans-serif">
+<h1 style="margin: 0 0 8px; text-align: center; font-family: 'Noto Serif JP', serif; font-weight: 500; color: #717171"><span style="display: block; font-size: 26px; letter-spacing: .45em; line-height: 1.4"><span style="color: #004D9F">C</span>ONTACT</span><span style="display: block; font-size: 15px; letter-spacing: .35em">- ご相談・ご予約 -</span></h1>
+<p style="margin: 0 0 24px; text-align: center; font-size: 15px">受付の時間（9:00〜18:00）に、担当からお電話でご連絡します。</p>
+<div style="background: #FFFFFF; border-top: 4px solid #004D9F; padding: 24px clamp(16px, 4vw, 32px); display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span id="l-svc" style="font-size: 16px; font-weight: 700">ご用件</span>
+<div role="group" aria-labelledby="l-svc" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{svcChips}}" as="c" hint-placeholder-count="6">
+<button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="min-height: 46px; padding: 0 16px; border: 1px solid #004D9F; border-radius: 3px; background: {{c.bg}}; color: {{c.fg}}; font-size: 15px; font-weight: 700">{{c.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span id="l-car" style="font-size: 16px; font-weight: 700">お車の種類</span>
+<div role="group" aria-labelledby="l-car" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{carChips}}" as="c" hint-placeholder-count="4">
+<button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="min-height: 46px; padding: 0 16px; border: 1px solid #004D9F; border-radius: 3px; background: {{c.bg}}; color: {{c.fg}}; font-size: 15px; font-weight: 700">{{c.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-name" style="font-size: 16px; font-weight: 700">お名前<span style="margin-left: 8px; font-size: 12px; color: #B3261E">必須</span></label>
+<input id="f-name" type="text" autocomplete="name" onChange="{{f.name}}" style="box-sizing: border-box; width: 100%; min-height: 50px; padding: 8px 12px; border: 1px solid #767676; border-radius: 3px; font-size: 17px">
+<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 14px; font-weight: 700; color: #B3261E">お名前をご入力ください。</span></sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-tel" style="font-size: 16px; font-weight: 700">お電話番号<span style="margin-left: 8px; font-size: 12px; color: #B3261E">必須</span></label>
+<input id="f-tel" type="tel" inputmode="tel" autocomplete="tel" onChange="{{f.tel}}" style="box-sizing: border-box; width: 100%; min-height: 50px; padding: 8px 12px; border: 1px solid #767676; border-radius: 3px; font-size: 17px">
+<sc-if value="{{ferr.tel}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 14px; font-weight: 700; color: #B3261E">お電話番号をご入力ください。</span></sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-date" style="font-size: 16px; font-weight: 700">ご希望の日（決まっていれば）</label>
+<input id="f-date" type="text" onChange="{{f.date}}" placeholder="例：12月の第2週、午前" style="box-sizing: border-box; width: 100%; min-height: 50px; padding: 8px 12px; border: 1px solid #767676; border-radius: 3px; font-size: 17px">
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="f-note" style="font-size: 16px; font-weight: 700">ご相談の内容</label>
+<textarea id="f-note" rows="4" onChange="{{f.note}}" style="box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #767676; border-radius: 3px; font-size: 17px; line-height: 1.7"></textarea>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<button type="button" onClick="{{go.submit}}" style="flex: 1 1 240px; box-sizing: border-box; min-height: 54px; border: 1px solid #004D9F; border-radius: 3px; background: #004D9F; color: #FFFFFF; font-size: 17px; font-weight: 700">この内容で送る</button>
+<button type="button" onClick="{{go.home}}" style="flex: 0 1 160px; box-sizing: border-box; min-height: 54px; border: 1px solid #767676; border-radius: 3px; background: #FFFFFF; color: #222222; font-size: 15px">トップへ戻る</button>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #444444">※見本のため、入力した内容はどこにも送信しておりません。</p>
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{is.done}}" hint-placeholder-val="{{false}}">
+<main style="background: #F6F8FB">
+<div style="max-width: 760px; margin: 0 auto; padding: 60px 16px 80px; font-family: 'Noto Sans JP', sans-serif">
+<div style="background: #FFFFFF; border-top: 4px solid #004D9F; padding: 32px clamp(16px, 4vw, 32px); display: flex; flex-direction: column; gap: 14px; align-items: flex-start">
+<h1 style="margin: 0; font-family: 'Noto Serif JP', serif; font-size: 24px; font-weight: 700; color: #004D9F; line-height: 1.5">ご相談を受け付けました</h1>
+<p style="margin: 0; font-size: 16px">ご用件：{{svc}}　{{carLabel}}</p>
+<p style="margin: 0; font-size: 16px">受付の時間（9:00〜18:00）に、担当からお電話でご連絡します。</p>
+<p style="margin: 0; font-size: 14px; color: #444444">※見本のため、実際には送信しておりません。実際のページでは、担当へのお知らせと、お客様への控えのメールが届きます。</p>
+<button type="button" onClick="{{go.home}}" style="box-sizing: border-box; min-width: 220px; min-height: 52px; border: 1px solid #004D9F; border-radius: 3px; background: #004D9F; color: #FFFFFF; font-size: 16px; font-weight: 700">トップへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{is.points}}" hint-placeholder-val="{{false}}">
+<main>
+<div style="max-width: 900px; margin: 0 auto; padding: 44px 16px 60px; font-family: 'Noto Sans JP', sans-serif">
+<h1 style="margin: 0 0 14px; text-align: center; font-family: 'Noto Serif JP', serif; font-weight: 500; color: #717171"><span style="display: block; font-size: 26px; letter-spacing: .45em; line-height: 1.4"><span style="color: #004D9F">P</span>OINT</span><span style="display: block; font-size: 15px; letter-spacing: .35em">- 提案ポイント -</span></h1>
+<p style="margin: 0 0 24px; font-size: 16px">今のホームページの色と掲載している内容はそのままに、探しやすさと問い合わせのしやすさを上げる提案です。違いは次の8つです。</p>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<sc-for list="{{points}}" as="x" hint-placeholder-count="8">
+<div style="border: 1px solid #B9CCE4">
+<h2 style="margin: 0; padding: 8px 14px; background: #004D9F; color: #FFFFFF; font-size: 16px; font-weight: 700; line-height: 1.5">{{x.k}}</h2>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid #C9D6E8"><span style="flex: 1 0 96px; box-sizing: border-box; padding: 10px 14px; background: #F0F0F0; font-size: 14px; font-weight: 700; color: #444444">今</span><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 10px 14px; font-size: 16px; line-height: 1.75">{{x.a}}</span></div>
+<div style="display: flex; flex-wrap: wrap"><span style="flex: 1 0 96px; box-sizing: border-box; padding: 10px 14px; background: #EEF4FB; font-size: 14px; font-weight: 700; color: #004D9F">提案</span><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 10px 14px; font-size: 16px; line-height: 1.75">{{x.b}}</span></div>
+</div>
+</sc-for>
+</div>
+<div style="margin-top: 24px; background: #EEF4FB; border-left: 4px solid #004D9F; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 700; color: #004D9F">変えていないもの</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.8">青を基調にした色、明朝体の見出し、英字と和文を重ねた見出しの形、店舗の写真を大きく使う最初の画面。掲載している内容（各サービス、トラックのご案内、新着情報、会社案内、採用情報）も、そのまま引き継いでいます。</p>
+</div>
+<div style="margin-top: 24px; text-align: center">
+<button type="button" onClick="{{go.site}}" style="box-sizing: border-box; min-width: 240px; min-height: 52px; border: 1px solid #004D9F; border-radius: 3px; background: #004D9F; color: #FFFFFF; font-size: 16px; font-weight: 700">提案するサイトを見る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<footer style="background: #191877; color: #FFFFFF; font-family: 'Noto Sans JP', sans-serif">
+<div style="max-width: 1100px; margin: 0 auto; padding: 36px 16px 20px; display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+<span style="font-family: 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; letter-spacing: .08em">ときわ坂自動車販売株式会社</span>
+<span style="font-size: 15px; line-height: 1.8">大阪府（見本のための架空の会社です）</span>
+<span id="tel" style="font-size: 22px; font-weight: 700; letter-spacing: .04em">00-0000-0000</span>
+<span style="font-size: 14px">受付 9:00〜18:00</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 4px 20px; align-content: flex-start; max-width: 520px">
+<button type="button" onClick="{{go.services}}" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px; text-decoration: underline">ご用件から探す</button>
+<button type="button" onClick="{{go.shaken}}" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px; text-decoration: underline">車検・点検</button>
+<button type="button" onClick="{{go.stock}}" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px; text-decoration: underline">在庫車</button>
+<button type="button" onClick="{{go.news}}" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px; text-decoration: underline">新着情報</button>
+<button type="button" onClick="{{go.company}}" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px; text-decoration: underline">会社案内・採用</button>
+<button type="button" onClick="{{go.reserve}}" style="min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: #FFFFFF; font-size: 15px; text-decoration: underline">ご相談・ご予約</button>
+</div>
+</div>
+<div style="max-width: 1100px; margin: 0 auto; padding: 0 16px 14px; font-size: 13px; line-height: 1.7; color: #D5DBF0">写真は、見本のために作成した画像です。</div>
+<div style="border-top: 1px solid rgba(255, 255, 255, .25); text-align: center; font-size: 12px; padding: 12px 16px {{footPad}}">Copyright © ときわ坂自動車販売株式会社（見本）</div>
+</footer>
+
+<sc-if value="{{is.fab}}" hint-placeholder-val="{{false}}">
+<div class="sp-only" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background: rgba(255, 255, 255, .97); border-top: 1px solid #B9CCE4; font-family: 'Noto Sans JP', sans-serif">
+<button type="button" onClick="{{go.tel}}" aria-label="電話する（電話番号の欄へ移ります）" style="flex: 1 1 0; min-height: 50px; border: 1px solid #004D9F; border-radius: 3px; background: #FFFFFF; color: #004D9F; font-size: 16px; font-weight: 700">電話する</button>
+<button type="button" onClick="{{go.reserve}}" style="flex: 1 1 0; min-height: 50px; border: 1px solid #004D9F; border-radius: 3px; background: #004D9F; color: #FFFFFF; font-size: 16px; font-weight: 700">相談・予約</button>
+</div>
+</sc-if>
+
+</div>
+</template>
+<script>
+(function(){
+var PROPS={};
+function DCLogic(){this.props={};this.state={};}
+DCLogic.prototype.setState=function(o){var p=typeof o==='function'?o(this.state):o;for(var k in p){this.state[k]=p[k];}render();};
+DCLogic.prototype.forceUpdate=function(){render();};
+window.DCLogic=DCLogic;
+var WH=/^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/,HOLE=/\{\{\s*([^}]+?)\s*\}\}/g;
+function lookup(path,sc){path=path.trim();if(path==='true')return true;if(path==='false')return false;if(/^-?\d+(\.\d+)?$/.test(path))return Number(path);var ps=path.split('.');for(var i=sc.length-1;i>=0;i--){if(sc[i]!=null&&ps[0] in sc[i]){var v=sc[i];for(var j=0;j<ps.length;j++){if(v==null)return undefined;v=v[ps[j]];}return v;}}return undefined;}
+function interp(s,sc){return s.replace(HOLE,function(_,p){var v=lookup(p,sc);return v==null?'':String(v);});}
+function kids(n,sc,parent){for(var c=n.firstChild;c;c=c.nextSibling)build(c,sc,parent);}
+function build(n,sc,parent){
+ if(n.nodeType===3){parent.appendChild(document.createTextNode(interp(n.nodeValue,sc)));return;}
+ if(n.nodeType!==1)return;
+ var tag=n.localName;
+ if(tag==='sc-if'){var m0=WH.exec(n.getAttribute('value')||'');if(m0&&lookup(m0[1],sc))kids(n,sc,parent);return;}
+ if(tag==='sc-for'){var m1=WH.exec(n.getAttribute('list')||'');var list=(m1&&lookup(m1[1],sc))||[];var as=n.getAttribute('as');list.forEach(function(it,i){var s={};s[as]=it;s.$index=i;kids(n,sc.concat([s]),parent);});return;}
+ var el=document.createElementNS(n.namespaceURI,tag);
+ for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i],name=a.name,val=a.value;
+  if(name.indexOf('hint-')===0)continue;
+  var m=WH.exec(val);
+  if(/^on[a-z]/i.test(name)){if(m){var fn=lookup(m[1],sc);if(typeof fn==='function'){var ev=name.slice(2).toLowerCase();if(ev==='change'&&(tag==='textarea'||(tag==='input'&&n.getAttribute('type')!=='checkbox')))ev='input';el.addEventListener(ev,fn);}}continue;}
+  if(m){var v=lookup(m[1],sc);if(v===false||v==null)continue;el.setAttribute(name,v===true?'':String(v));continue;}
+  el.setAttribute(name,interp(val,sc));}
+ kids(n,sc,el);parent.appendChild(el);}
+function pathOf(el,root){var p=[];while(el&&el!==root){var par=el.parentNode;if(!par)return null;p.unshift(Array.prototype.indexOf.call(par.childNodes,el));el=par;}return el===root?p:null;}
+var comp,tpl,root;
+function render(){
+ var saved={},det=[],path=pathOf(document.activeElement,root);
+ root.querySelectorAll('input[id],textarea[id]').forEach(function(e){saved[e.id]=e.type==='checkbox'?e.checked:e.value;});
+ root.querySelectorAll('details').forEach(function(d){det.push(d.open);});
+ var frag=document.createDocumentFragment();kids(tpl.content,[comp.renderVals()],frag);
+ var y=window.scrollY;root.replaceChildren(frag);
+ for(var id in saved){var e=document.getElementById(id);if(e){if(e.type==='checkbox')e.checked=saved[id];else e.value=saved[id];}}
+ var ds=root.querySelectorAll('details');if(ds.length===det.length)ds.forEach(function(d,i){d.open=det[i];});
+ window.scrollTo(0,y);
+ if(path&&path.length){var el=root;for(var i=0;i<path.length&&el;i++)el=el.childNodes[path[i]];if(el&&el.focus&&el.nodeType===1){try{el.focus({preventScroll:true});}catch(_){}}}
+}
+window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.getElementById('app');comp=new C();comp.props=PROPS;if(!comp.state)comp.state={};render();if(comp.componentDidMount)comp.componentDidMount();};
+})();
+
+class Component extends DCLogic {
+st() {
+return Object.assign({ screen: 'home', menu: false, stock: 'all', svc: '車検・点検', car: '', ferr: {} }, this.state || {});
+}
+jump(id) {
+setTimeout(function () {
+try {
+var el = id ? document.getElementById(id) : null;
+if (el) { el.scrollIntoView({ block: 'start' }); } else { window.scrollTo(0, 0); }
+} catch (e) {}
+}, 80);
+}
+renderVals() {
+const self = this;
+const st = this.st();
+const sc = st.screen;
+const to = function (o, id) { return function () { self.setState(Object.assign({ menu: false }, o)); self.jump(id); }; };
+const reserve = function (svc, car) { return function () { self.form = {}; self.setState({ screen: 'reserve', svc: svc || st.svc, car: car || '', ferr: {}, menu: false }); self.jump(''); }; };
+const tabOf = function (on) { return on ? { bg: '#FFFFFF', fg: '#333333', fw: '700', pressed: 'true' } : { bg: 'transparent', fg: '#FFFFFF', fw: '400', pressed: 'false' }; };
+const chip = function (on) { return on ? { bg: '#004D9F', fg: '#FFFFFF', pressed: 'true' } : { bg: '#FFFFFF', fg: '#004D9F', pressed: 'false' }; };
+const G = [
+['車を買う・借りる', [['新車', '乗用車からトラックまで、各メーカーの新車をご用意します。', '新車・中古車'], ['中古車', '整備を済ませた車両を、支払総額でご案内します。', '新車・中古車'], ['カーリース', '月々の定額で、新車に乗れるプランです。', '新車・中古車'], ['レンタカー', '乗用車からトラックまで、短い期間のご利用に。', 'そのほか']]],
+['車を整える', [['車検・点検', '指定工場で、国家資格を持つ整備士が整備します。', '車検・点検'], ['修理・鈑金塗装', 'へこみやキズの修理から、塗装まで自社で行います。', '修理・鈑金塗装'], ['コーティング', '塗装を守り、洗車を楽にします。', '修理・鈑金塗装']]],
+['はたらく車', [['トラックの販売', 'すぐにお渡しできる車両をご用意しています。', 'トラック・架装'], ['ボデーの架装', 'お仕事に合わせて、荷台を製作・架装します。', 'トラック・架装'], ['普通免許で運転できるアルミバン', '普通免許で乗れる大きさの、荷室つきの車両です。', 'トラック・架装']]],
+['安心のために', [['自動車保険', '事故のときも、車をよく知る担当が対応します。', '保険'], ['EV充電スタンド', '店頭で、電気自動車の充電ができます。', 'そのほか']]]
+];
+const STOCK = [
+['car', '軽ワゴン', '軽ワゴン ターボ ハイルーフ', '2021年', '3.2万km', '2027年5月まで', '128.0万円'],
+['car', '軽トラック', '軽トラック 4WD エアコン・パワステ付', '2019年', '5.8万km', '車検整備付', '79.8万円'],
+['truck', '小型トラック', '2t アルミバン 普通免許で運転できます', '2022年', '4.1万km', '2027年2月まで', '358.0万円'],
+['truck', '中型トラック', '4t ウイング車 ワイド', '2018年', '21.5万km', '車検整備付', '498.0万円']
+];
+const SVCS = ['車検・点検', '修理・鈑金塗装', '新車・中古車', 'トラック・架装', '保険', 'そのほか'];
+const CARS = ['軽自動車', '乗用車', '小型トラック', '中型・大型トラック'];
+const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; }; };
+const submit = function () {
+const F = self.form || {};
+const ferr = { name: !String(F.name || '').trim(), tel: !String(F.tel || '').trim() };
+if (ferr.name || ferr.tel) { self.setState({ ferr: ferr }); return; }
+self.form = {}; self.setState({ screen: 'done', ferr: {} }); self.jump('');
+};
+const fab = sc === 'home';
+return {
+is: { home: sc === 'home', reserve: sc === 'reserve', done: sc === 'done', points: sc === 'points', menu: st.menu, fab: fab },
+tab: { site: tabOf(sc !== 'points'), points: tabOf(sc === 'points') },
+menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 'false',
+footPad: fab ? '84px' : '14px',
+facts: [{ k: '指定工場', v: '車検と整備を、自社の工場で行います。' }, { k: '創業40年以上', v: '地域の車を、長く見てきました。' }, { k: '軽から大型まで', v: '乗用車もトラックも、同じ窓口でお受けします。' }],
+groups: G.map(function (g) { return { name: g[0], items: g[1].map(function (s) { return { name: s[0], line: s[1], go: reserve(s[2], '') }; }) }; }),
+prices: [{ k: '軽自動車', v: '38,500円〜' }, { k: '乗用車（小型・普通）', v: '49,500円〜' }, { k: '小型トラック（2tクラス）', v: '66,000円〜' }, { k: '中型・大型トラック', v: 'お見積り' }],
+flow: [{ n: 'STEP 1', k: 'ご予約', v: 'お電話か、このページから。' }, { n: 'STEP 2', k: 'お預かり', v: '代車のご用意もできます。' }, { n: 'STEP 3', k: 'お渡し', v: '整備の内容をご説明します。' }],
+stockTabs: [['all', 'すべて'], ['car', '乗用車'], ['truck', 'トラック']].map(function (t) { var c = chip(st.stock === t[0]); return { label: t[1], bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ stock: t[0] }); } }; }),
+stock: STOCK.filter(function (c) { return st.stock === 'all' || c[0] === st.stock; }).map(function (c) { return { kind: c[1], name: c[2], year: c[3], km: c[4], shaken: c[5], price: c[6], ask: reserve(c[0] === 'truck' ? 'トラック・架装' : '新車・中古車', '') }; }),
+news: [{ d: '2026/11/10', tag: 'お知らせ', t: '年末年始の営業日のお知らせ' }, { d: '2026/11/01', tag: '入庫', t: 'すぐにお渡しできるアルミバンが入庫しました' }, { d: '2026/10/20', tag: 'お知らせ', t: '冬用タイヤへの交換のご予約を受け付けています' }, { d: '2026/10/01', tag: '採用', t: '採用情報を更新しました' }],
+svcChips: SVCS.map(function (s) { var c = chip(st.svc === s); return { label: s, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ svc: s }); } }; }),
+carChips: CARS.map(function (s) { var c = chip(st.car === s); return { label: s, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ car: st.car === s ? '' : s }); } }; }),
+svc: st.svc, carLabel: st.car ? '（' + st.car + '）' : '',
+f: { name: setF('name'), tel: setF('tel'), date: setF('date'), note: setF('note') },
+ferr: st.ferr || {},
+points: [
+['1　スマホの最初の画面', 'サービスの一覧はメニューの中にあり、トップページには出ていません。', 'ご用件ごとにまとめた一覧を、トップページに置きます。1回押すだけで、目的のサービスに届きます。'],
+['2　大事な言葉', '会社名、キャッチコピー、電話番号が、画像の中に入っています。', '文字として置きます。検索と読み上げに伝わり、字の大きさも読む人に合わせて変わります。'],
+['3　メニューの数', '14のサービスが、同じ大きさで縦に並んでいます。', '「車を買う・借りる」「車を整える」「はたらく車」「安心のために」の4つに分けます。'],
+['4　車検・点検', '料金の目安、ご利用の流れ、予約の方法が載っていません。', '料金の目安と流れを載せ、ページから予約できるようにします。'],
+['5　在庫車', '乗用車の掲載は1台で、金額は「お問い合わせください」です。', '一覧にして、年式、走行距離、支払総額を1台ごとに載せます。乗用車とトラックで絞り込めます。'],
+['6　新着情報', '枠の中に別のページを読み込む形で、スマホでは枠の中をさらにスクロールします。', 'ページの文字として並べ、新しい順にそのまま読めるようにします。'],
+['7　問い合わせ', '電話とメールフォームの2つで、上の小さなアイコンから進みます。', 'スマホの下に「電話する」「相談・予約」を固定します。予約のフォームは、ご用件を選ぶところから始まります。'],
+['8　字の大きさと拡大', 'スマホでは約15pxの字が中心で、画面を拡大できない設定です。', '16px以上を基本にし、拡大もできるようにします。押せる範囲は44px以上にします。']
+].map(function (x) { return { k: x[0], a: x[1], b: x[2] }; }),
+go: {
+site: to({ screen: 'home' }, ''), points: to({ screen: 'points' }, ''), home: to({ screen: 'home' }, ''),
+menu: function () { self.setState({ menu: !st.menu }); },
+services: to({ screen: 'home' }, 'services'), shaken: to({ screen: 'home' }, 'shaken'), stock: to({ screen: 'home' }, 'stock'), news: to({ screen: 'home' }, 'news'), company: to({ screen: 'home' }, 'company'),
+stockTruck: to({ screen: 'home', stock: 'truck' }, 'stock'), tel: to({ screen: 'home' }, 'tel'),
+reserve: reserve('', ''), reserveShaken: reserve('車検・点検', ''), reserveTruck: reserve('トラック・架装', '小型トラック'),
+submit: submit
+}
+};
+}
+}
+window.__dcBoot(Component);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="クリニックの採用サイトの見本です。院名は架空で、応募フォームは送信されません。">
+<style>body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>クリニックの採用サイトの見本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Serif+JP:wght@600;700&amp;family=Zen+Maru+Gothic:wght@500;700&amp;family=Roboto:wght@400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#007C36}a:hover{color:#00632B}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+summary{cursor:pointer}
+:focus-visible{outline:3px solid #E39A2D;outline-offset:2px}
+@media (max-width:699px){.pc-only{display:none !important}}
+@media (min-width:700px){.sp-only{display:none !important}}
+</style>
+<style>
+:root{color-scheme:light}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="background: #FFFFFF; color: #444444; font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, 'Noto Sans JP', sans-serif; font-size: 16px; line-height: 1.6; line-break: strict; overflow-x: hidden">
+
+<div style="background: #444444; color: #FFFFFF">
+<div style="max-width: 950px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 8px">
+<div role="group" aria-label="表示の切り替え" style="display: flex; max-width: 480px; margin: 0 auto; border: 1px solid #FFFFFF; border-radius: 3px; overflow: hidden">
+<button type="button" onClick="{{go.showSame}}" aria-pressed="{{tab.same.pressed}}" style="flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0 4px; border: 0; background: {{tab.same.bg}}; color: {{tab.same.fg}}; font-size: 14px; font-weight: {{tab.same.fw}}; white-space: nowrap">現行の意匠</button>
+<button type="button" onClick="{{go.showBetter}}" aria-pressed="{{tab.better.pressed}}" style="flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0 4px; border: 0; border-left: 1px solid #FFFFFF; background: {{tab.better.bg}}; color: {{tab.better.fg}}; font-size: 14px; font-weight: {{tab.better.fw}}; white-space: nowrap">提案する意匠</button>
+<button type="button" onClick="{{go.points}}" aria-pressed="{{tab.points.pressed}}" style="flex: 1 1 0; min-width: 0; min-height: 44px; padding: 0 4px; border: 0; border-left: 1px solid #FFFFFF; background: {{tab.points.bg}}; color: {{tab.points.fg}}; font-size: 14px; font-weight: {{tab.points.fw}}; white-space: nowrap">提案ポイント</button>
+</div>
+</div>
+</div>
+
+<div class="{{hdrCls}}" style="background: #FFFFFF">
+<div style="max-width: 950px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 26px; display: flex; justify-content: center">
+<button type="button" onClick="{{go.home}}" aria-label="採用情報のトップへ" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px; padding: 0; border: 0; background: transparent; color: #444444">
+<svg aria-hidden="true" width="84" height="84" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="25" stroke="#007C36" stroke-width="1.2"></circle><path d="M12 24c4-4 8-4 12 0s8 4 12 0c2-2 3-2.4 4-2.6" stroke="#007C36" stroke-width="2.2" stroke-linecap="round"></path><path d="M12 32c4-4 8-4 12 0s8 4 12 0c2-2 3-2.4 4-2.6" stroke="#8FC31F" stroke-width="2.2" stroke-linecap="round"></path></svg>
+<span style="display: flex; flex-direction: column; align-items: center; gap: 8px"><span style="font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: clamp(22px, 4.6vw, 38px); font-weight: 700; line-height: 1.25; letter-spacing: .08em; color: #007C36">あさなぎ皮フ科クリニック</span><span style="display: flex; flex-wrap: wrap; justify-content: center; gap: 6px"><span style="padding: 0 16px; border-radius: 999px; background: #37821E; color: #FFFFFF; font-size: 13px; line-height: 1.7; letter-spacing: .3em">皮フ科</span><span style="padding: 0 16px; border-radius: 999px; background: #37821E; color: #FFFFFF; font-size: 13px; line-height: 1.7; letter-spacing: .3em">形成外科</span><span style="padding: 0 16px; border-radius: 999px; background: #37821E; color: #FFFFFF; font-size: 13px; line-height: 1.7; letter-spacing: .3em">採用情報</span></span></span>
+</button>
+</div>
+<div>
+<div style="max-width: 970px; margin: 0 auto; padding-left: max(4px, env(safe-area-inset-left, 0px)); padding-right: max(4px, env(safe-area-inset-right, 0px)); padding-block: 0 13px; display: flex; flex-wrap: wrap; justify-content: center">
+<button type="button" onClick="{{go.home}}" style="flex: 1 1 118px; max-width: 170px; min-height: 63px; padding: 8px 2px 5px; border: 0; border-left: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px; line-height: 1.4">ホーム</button>
+<button type="button" onClick="{{go.jobs}}" style="flex: 1 1 118px; max-width: 170px; min-height: 63px; padding: 8px 2px 5px; border: 0; border-left: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px; line-height: 1.4">募集職種</button>
+<button type="button" onClick="{{go.places}}" style="flex: 1 1 118px; max-width: 170px; min-height: 63px; padding: 8px 2px 5px; border: 0; border-left: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px; line-height: 1.4">勤務地のご案内</button>
+<button type="button" onClick="{{go.env}}" style="flex: 1 1 118px; max-width: 170px; min-height: 63px; padding: 8px 2px 5px; border: 0; border-left: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px; line-height: 1.4">働く環境</button>
+<button type="button" onClick="{{go.faq}}" style="flex: 1 1 118px; max-width: 170px; min-height: 63px; padding: 8px 2px 5px; border: 0; border-left: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px; line-height: 1.4">よくある質問</button>
+<button type="button" onClick="{{go.apply}}" style="flex: 1 1 118px; max-width: 170px; min-height: 63px; padding: 8px 2px 5px; border: 0; border-left: 1px dotted #A89C90; border-right: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px; line-height: 1.4">ご応募フォーム</button>
+</div>
+</div>
+</div>
+<sc-if value="{{is.better}}" hint-placeholder-val="{{false}}">
+<div class="sp-only" style="background: #FFFFFF; border-bottom: 1px solid #E6E6E6">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px max(12px, env(safe-area-inset-right, 0px)) 8px max(12px, env(safe-area-inset-left, 0px))">
+<button type="button" onClick="{{go.home}}" aria-label="採用情報のトップへ" style="display: flex; align-items: center; gap: 10px; min-height: 48px; min-width: 0; padding: 0; border: 0; background: transparent; text-align: left">
+<svg aria-hidden="true" width="40" height="40" viewBox="0 0 52 52" fill="none" style="flex: 0 0 40px"><circle cx="26" cy="26" r="25" stroke="#007C36" stroke-width="1.2"></circle><path d="M12 24c4-4 8-4 12 0s8 4 12 0c2-2 3-2.4 4-2.6" stroke="#007C36" stroke-width="2.2" stroke-linecap="round"></path><path d="M12 32c4-4 8-4 12 0s8 4 12 0c2-2 3-2.4 4-2.6" stroke="#8FC31F" stroke-width="2.2" stroke-linecap="round"></path></svg>
+<span style="display: flex; flex-direction: column; min-width: 0"><span style="font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: clamp(15px, 4.6vw, 19px); font-weight: 700; line-height: 1.3; letter-spacing: .04em; color: #007C36">あさなぎ皮フ科クリニック</span><span style="font-size: 12px; line-height: 1.4; color: #614D3F">採用情報</span></span>
+</button>
+<button type="button" onClick="{{go.menu}}" aria-expanded="{{menuOpen}}" style="flex: 0 0 auto; min-width: 72px; min-height: 48px; border: 1px solid #007C36; border-radius: 3px; background: #FFFFFF; color: #007C36; font-size: 13px; font-weight: 700">{{menuLabel}}</button>
+</div>
+<div style="display: {{menuD}}; flex-wrap: wrap; border-top: 1px solid #E6E6E6">
+<button type="button" onClick="{{go.home}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 50px; padding: 0 8px; border: 0; border-bottom: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px">ホーム</button><button type="button" onClick="{{go.jobs}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 50px; padding: 0 8px; border: 0; border-bottom: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px">募集職種</button><button type="button" onClick="{{go.places}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 50px; padding: 0 8px; border: 0; border-bottom: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px">勤務地のご案内</button><button type="button" onClick="{{go.env}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 50px; padding: 0 8px; border: 0; border-bottom: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px">働く環境</button><button type="button" onClick="{{go.faq}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 50px; padding: 0 8px; border: 0; border-bottom: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px">よくある質問</button><button type="button" onClick="{{go.apply}}" style="flex: 1 1 50%; box-sizing: border-box; min-height: 50px; padding: 0 8px; border: 0; border-bottom: 1px dotted #A89C90; background: transparent; color: #614D3F; font-size: 15px">ご応募フォーム</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{is.sub}}" hint-placeholder-val="{{false}}">
+<div>
+<div style="background: rgba(93, 163, 77, .2); border-bottom: 1px solid #E5E5E5; box-shadow: inset 0 1px 5px rgba(0, 0, 0, .2); padding: 10px 16px">
+<h1 style="margin: 25px 0 21px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 26px; font-weight: 500; line-height: 1.1; text-align: center; color: #444444">{{page.title}}</h1>
+</div>
+<div style="max-width: 950px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; font-size: {{c.fsCrumb}}; color: #777777">
+<button type="button" onClick="{{go.home}}" style="min-height: {{c.hCrumb}}; padding: 0; border: 0; background: transparent; color: #007C36; font-size: {{c.fsCrumb}}">ホーム</button><span>»</span><span>{{page.crumb}}</span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{is.home}}" hint-placeholder-val="{{true}}">
+<div>
+
+<div style="position: relative; overflow: hidden; background: #26241F">
+<img src="img/room.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .22">
+<div style="position: relative; max-width: 1024px; box-sizing: border-box; margin: 0 auto; padding: 50px max(30px, env(safe-area-inset-right, 0px)) 50px max(30px, env(safe-area-inset-left, 0px)); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 36px 0">
+<div style="flex: 1 1 320px; max-width: 530px; min-width: 0; box-sizing: border-box; padding-right: 14px; padding-bottom: 14px">
+<img src="img/reception.jpg" alt="白いカウンターと待合の椅子が並ぶ、明るい受付" style="display: block; box-sizing: border-box; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 1px solid rgba(255, 255, 255, .32); border-radius: 4px; box-shadow: 14px 14px 0 #007C36">
+<p style="margin: 25px 0 0; padding: 10px 5px; background: rgba(255, 255, 255, .82); border-radius: 4px; text-align: center; font-size: 20px; font-weight: 700; line-height: 1.05; letter-spacing: .02em; color: {{c.or}}">看護師・受付スタッフ 募集中!!</p>
+</div>
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; align-items: center; text-align: center; color: #FFFFFF">
+<p style="margin: 0 0 36px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 400; line-height: 1.4; word-break: keep-all; overflow-wrap: anywhere">通いやすい院で、<wbr>長く続けられる仕事を…</p>
+<div style="width: min(100%, 291px); padding: 20px 0; border-top: 1px dashed #FFFFFF; border-bottom: 1px dashed #FFFFFF">
+<p style="margin: 0; font-size: 14px; line-height: 1.6">関西・東海・関東<br>全{{stats.clinics}}院で募集中</p>
+</div>
+<sc-if value="{{is.better}}" hint-placeholder-val="{{false}}">
+<div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center">
+<button type="button" onClick="{{go.jobs}}" style="box-sizing: border-box; min-width: 190px; min-height: 50px; padding: 0 18px; border: 1px solid #007C36; border-radius: 3px; background: #007C36; color: #FFFFFF; font-size: 16px; font-weight: 700">募集職種を見る</button>
+<button type="button" onClick="{{go.places}}" style="box-sizing: border-box; min-width: 190px; min-height: 50px; padding: 0 18px; border: 1px solid #007C36; border-radius: 3px; background: #FFFFFF; color: #007C36; font-size: 16px; font-weight: 700">勤務地から探す</button>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+
+<div style="background-color: #FAF7F4; background-image: repeating-linear-gradient(45deg, rgba(170, 150, 120, .07) 0 1px, transparent 1px 7px), repeating-linear-gradient(-45deg, rgba(170, 150, 120, .07) 0 1px, transparent 1px 7px)">
+<div style="max-width: 950px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 33px 40px">
+<h2 style="margin: 0; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 25.6px; font-weight: 700; line-height: 1.6; text-align: center">お知らせ</h2><span aria-hidden="true" style="display: block; width: 40px; height: 1px; margin: 10px auto 0; background: #37821E"></span>
+<div style="margin-top: 20px; background: #FFFFFF; border: 1px solid #37821E; border-radius: 10px; padding: clamp(16px, 4vw, 40px)">
+<div style="display: flex; flex-wrap: wrap; gap: 2px 16px; padding: 12px 0; border-bottom: 1px solid #E6E6E6; font-size: 16px; line-height: 1.4"><span style="flex: 0 0 140px; font-family: Roboto, 'Noto Sans JP', sans-serif; font-size: 15px; letter-spacing: 1.5px">2026年11月15日</span><span style="flex: 1 1 260px; min-width: 0; color: #333333; letter-spacing: .8px">看護師・受付スタッフの募集要項を更新いたしました</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 2px 16px; padding: 12px 0; border-bottom: 1px solid #E6E6E6; font-size: 16px; line-height: 1.4"><span style="flex: 0 0 140px; font-family: Roboto, 'Noto Sans JP', sans-serif; font-size: 15px; letter-spacing: 1.5px">2026年11月1日</span><span style="flex: 1 1 260px; min-width: 0; color: #333333; letter-spacing: .8px">採用情報のページを公開いたしました</span></div>
+</div>
+</div>
+</div>
+
+<div id="jobs" style="max-width: 950px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 44px 20px">
+<h2 style="margin: 0; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 25.6px; font-weight: 700; line-height: 1.6; text-align: center">現在募集中の職種</h2><span aria-hidden="true" style="display: block; width: 40px; height: 1px; margin: 10px auto 0; background: #37821E"></span>
+<p style="margin: 20px 0 0; text-align: center; font-size: 20px; font-weight: 700; line-height: 1.4; color: {{c.co}}">当法人では、看護師・准看護師、受付スタッフの募集を行っております。<br>ご一緒に働きませんか？</p>
+<div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 20px">
+<sc-for list="{{jobs}}" as="j" hint-placeholder-count="2">
+<div style="box-sizing: border-box; flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 24px clamp(16px, 4vw, 30px) 28px; background: #FFFFFF; border: 1px solid #37821E; border-radius: 10px">
+<div style="display: flex; align-items: center; justify-content: center; gap: 20px"><span aria-hidden="true" style="flex: 0 0 40px; border-bottom: 3px double #007C36"></span><h3 style="margin: 0; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 20px; font-weight: 700; line-height: 1.3; color: #007C36; text-align: center">{{j.name}}</h3><span aria-hidden="true" style="flex: 0 0 40px; border-bottom: 3px double #007C36"></span></div>
+<p style="margin: 0; text-align: center"><span style="padding: 8px; background: {{j.tagBg}}; color: #333333; font-size: {{c.fsTag}}; line-height: 1">{{j.tag}}</span></p>
+<p style="margin: 0; padding: 0 5px">{{j.lead}}</p>
+<ul style="margin: 0; padding: 0 0 0 26px">
+<sc-for list="{{j.tasks}}" as="t" hint-placeholder-count="4">
+<li style="margin: 0 0 6px">{{t.label}}</li>
+</sc-for>
+</ul>
+<button type="button" onClick="{{j.go}}" style="align-self: center; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: min(100%, 296px); min-height: 53px; padding: 12px 25px 12px 15px; border: 1px solid #007C36; border-radius: 3px; background: #007C36; color: #FFFFFF; font-size: 17px; font-weight: 700; line-height: 1.5">{{j.name}}<span style="margin-left: 14px; font-size: 14px">募集要項</span></button>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div id="places" style="margin-top: 40px; background: #FAF7F4">
+<div style="max-width: 960px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 40px 60px">
+<h2 style="margin: 0 0 25px; padding: 0 0 10px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: clamp(22px, 3.4vw, 27px); font-weight: 700; line-height: 1.8; text-align: center; word-break: keep-all; overflow-wrap: anywhere">医療法人あさなぎ会<wbr>　勤務地のご案内</h2>
+<p style="margin: 0; text-align: center; font-size: 14px; line-height: 1.8; color: {{c.lg}}">お住まいの地方をお選びください。</p>
+<div role="group" aria-label="地方" style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center">
+<sc-for list="{{areas}}" as="a" hint-placeholder-count="4">
+<button type="button" onClick="{{a.pick}}" aria-pressed="{{a.pressed}}" style="min-height: 44px; padding: 0 18px; border: 1px solid {{a.bd}}; border-radius: 22px; background: {{a.bg}}; color: {{a.fg}}; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; font-weight: 500">{{a.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{is.better}}" hint-placeholder-val="{{false}}">
+<div style="margin-top: 14px; display: flex; justify-content: center">
+<button type="button" onClick="{{go.onlyOpen}}" aria-pressed="{{only.pressed}}" style="min-height: 44px; padding: 0 16px; border: 1px solid #007C36; border-radius: 3px; background: {{only.bg}}; color: {{only.fg}}; font-size: 14px">{{only.label}}</button>
+</div>
+</sc-if>
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+<div style="padding: 36px 0 8px; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding: 0 0 12px; margin: 0 0 16px; border-bottom: 1px solid #C2E0CF">
+<h3 style="margin: 0; font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif; font-size: clamp(23px, 3.4vw, 28px); font-weight: 600; line-height: 1.3; letter-spacing: .05em; color: #007C36">{{g.label}}</h3>
+<span style="font-size: 12.5px; color: {{c.lg}}">{{g.count}}院</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D5D5D5; padding: 8px">
+<div class="pc-only" style="display: flex; gap: 20px; padding: 20px; border-top: 1px solid #333333; font-size: 18px; font-weight: 700; line-height: 1.8">
+<span style="flex: 0 0 150px">院</span><span style="flex: 0 0 170px">住所</span><span style="flex: 1 1 240px">アクセス</span><span style="flex: 0 0 270px">募集中の職種</span>
+</div>
+<sc-for list="{{g.rows}}" as="c" hint-placeholder-count="4">
+<div style="display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; padding: 10px; margin-top: -1px; background: {{c.bg}}; border-top: 1px solid #007C36; border-bottom: 1px solid #007C36">
+<h4 style="flex: 1 0 150px; margin: 0; font-size: 18px; font-weight: 700; line-height: 1.8">{{c.name}}</h4>
+<span style="flex: 1 0 170px; min-width: 0"><span class="sp-only" style="display: {{lab.d}}; font-size: 14px; color: #666666">住所：</span>{{c.addr}}</span>
+<span style="flex: 100 1 240px; min-width: 0"><span class="sp-only" style="display: {{lab.d}}; font-size: 14px; color: #666666">アクセス：</span>{{c.access}}</span>
+<span style="flex: 1 0 270px; display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{c.links}}" as="l" hint-placeholder-count="2">
+<button type="button" onClick="{{l.go}}" style="min-height: 44px; padding: 0 14px; border: 1px solid #007C36; border-radius: 3px; background: #FFFFFF; color: #007C36; font-size: 14px">{{l.label}}</button>
+</sc-for>
+<sc-if value="{{c.none}}" hint-placeholder-val="{{false}}">
+<span style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; color: #666666">現在、募集はございません</span>
+</sc-if>
+</span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div id="env" style="max-width: 950px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 44px 20px">
+<h2 style="margin: 0; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 25.6px; font-weight: 700; line-height: 1.6; text-align: center">働く環境</h2><span aria-hidden="true" style="display: block; width: 40px; height: 1px; margin: 10px auto 0; background: #37821E"></span>
+<div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 24px 32px; align-items: flex-start">
+<div style="flex: 1 1 300px; min-width: 0; display: flex; gap: 10px">
+<img src="img/room.jpg" alt="施術用のベッドと器具のワゴンがある処置室" style="display: block; width: 50%; flex: 1 1 0; min-width: 0; aspect-ratio: 3 / 4; object-fit: cover">
+<img src="img/staff.jpg" alt="ロッカーと小さなテーブルがあるスタッフの休憩室" style="display: block; width: 50%; flex: 1 1 0; min-width: 0; aspect-ratio: 3 / 4; object-fit: cover">
+</div>
+<div style="flex: 1 1 380px; min-width: 0">
+<h3 style="margin: 0 0 12px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">入職後の研修</h3>
+<p style="margin: 0 0 22px; padding: 0 5px">最初の1か月は、先輩と同じシフトで勤務いたします。機器の扱いと受付の手順は、院ごとの手順書に沿って順に覚えていただきます。</p>
+<h3 style="margin: 0 0 12px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">シフトの決め方</h3>
+<p style="margin: 0 0 22px; padding: 0 5px">翌月の希望を毎月15日までにお出しいただき、20日に確定いたします。パートは曜日と時間帯を固定することもできます。</p>
+<h3 style="margin: 0 0 12px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">休憩と設備</h3>
+<p style="margin: 0; padding: 0 5px">全院にスタッフ用の休憩室とロッカーがございます。休憩は交代で取り、診察の合間に持ち越しません。</p>
+</div>
+</div>
+
+<div style="margin: 44px 0 16px; display: flex; align-items: center; justify-content: center; gap: 20px"><span aria-hidden="true" style="flex: 0 0 40px; border-bottom: 3px double #007C36"></span><h3 style="margin: 0; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 20px; font-weight: 700; line-height: 1.3; color: #007C36">1日の流れ</h3><span aria-hidden="true" style="flex: 0 0 40px; border-bottom: 3px double #007C36"></span></div>
+<div role="group" aria-label="職種" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center">
+<sc-for list="{{dayTabs}}" as="d" hint-placeholder-count="2">
+<button type="button" onClick="{{d.pick}}" aria-pressed="{{d.pressed}}" style="min-height: 44px; padding: 0 18px; border: 1px solid {{d.bd}}; border-radius: 22px; background: {{d.bg}}; color: {{d.fg}}; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; font-weight: 500">{{d.label}}</button>
+</sc-for>
+</div>
+<div style="margin-top: 14px; border: 1px solid rgba(143, 195, 31, .7); border-bottom: 0; background: #FFFFFF">
+<sc-for list="{{day}}" as="s" hint-placeholder-count="6">
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)">
+<span style="flex: 1 0 100px; box-sizing: border-box; padding: 8px 15px; background: rgba(143, 195, 31, .1); text-align: center; font-variant-numeric: tabular-nums">{{s.t}}</span>
+<span style="flex: 100 1 240px; min-width: 0; box-sizing: border-box; padding: 8px 15px">{{s.d}}</span>
+</div>
+</sc-for>
+</div>
+<p style="margin: 8px 0 0; padding: 0 5px; font-size: 14px">※正職員が平日に勤務する日の例です。</p>
+
+<div style="margin-top: 32px; padding: 20px; background: rgba(222, 129, 146, .05)">
+<p style="margin: 0 0 12px; padding: 5px 10px 3px; border: 1px solid rgba(236, 109, 86, .5); font-weight: 700; color: {{c.co}}">■ スタッフの声</p>
+<p style="margin: 0; padding: 0 5px">この欄には、実際に働いているスタッフへの取材をもとにした声を掲載いたします。見本では空けております。</p>
+</div>
+</div>
+
+<div style="max-width: 950px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 44px 20px">
+<h2 style="margin: 0; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 25.6px; font-weight: 700; line-height: 1.6; text-align: center">ご応募から入職まで</h2><span aria-hidden="true" style="display: block; width: 40px; height: 1px; margin: 10px auto 0; background: #37821E"></span>
+<div style="margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px">
+<div style="box-sizing: border-box; min-width: 0; padding: 20px; background: #FFFFFF; border: 1px solid #37821E; border-radius: 10px"><p style="margin: 0 0 8px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 17px; font-weight: 700; line-height: 1.4; color: #007C36; text-align: center">① ご応募フォームの送信</p><p style="margin: 0; font-size: 15px">ご希望の職種と院を選び、ご連絡先を入力していただきます。</p></div>
+<div style="box-sizing: border-box; min-width: 0; padding: 20px; background: #FFFFFF; border: 1px solid #37821E; border-radius: 10px"><p style="margin: 0 0 8px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 17px; font-weight: 700; line-height: 1.4; color: #007C36; text-align: center">② 採用担当よりご連絡</p><p style="margin: 0; font-size: 15px">3営業日以内に、お電話またはメールで面接の日程をご相談いたします。</p></div>
+<div style="box-sizing: border-box; min-width: 0; padding: 20px; background: #FFFFFF; border: 1px solid #37821E; border-radius: 10px"><p style="margin: 0 0 8px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 17px; font-weight: 700; line-height: 1.4; color: #007C36; text-align: center">③ 面接・院内のご見学</p><p style="margin: 0; font-size: 15px">ご希望の院で面接を行います。院内と休憩室もご見学いただけます。</p></div>
+<div style="box-sizing: border-box; min-width: 0; padding: 20px; background: #FFFFFF; border: 1px solid #37821E; border-radius: 10px"><p style="margin: 0 0 8px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 17px; font-weight: 700; line-height: 1.4; color: #007C36; text-align: center">④ 条件のご確認・入職</p><p style="margin: 0; font-size: 15px">勤務の条件を書面でお渡しいたします。内容をご確認のうえ、入職日を決めます。</p></div>
+</div>
+</div>
+
+<div id="faq" style="max-width: 950px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 44px 20px">
+<h2 style="margin: 0; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 25.6px; font-weight: 700; line-height: 1.6; text-align: center">よくある質問</h2><span aria-hidden="true" style="display: block; width: 40px; height: 1px; margin: 10px auto 0; background: #37821E"></span>
+<div style="margin-top: 20px; background: #FFFFFF; border: 1px solid #37821E; border-radius: 10px; padding: 8px clamp(16px, 4vw, 40px)">
+<details style="border-bottom: 1px solid #E6E6E6"><summary style="padding: 14px 0; font-weight: 700; color: #333333; min-height: 44px; box-sizing: border-box">派遣会社や紹介会社を通す必要はありますか？</summary><p style="margin: 0; padding: 0 5px 16px">必要ございません。このページから直接ご応募いただけます。採用後は、医療法人あさなぎ会が直接雇用いたします。</p></details>
+<details style="border-bottom: 1px solid #E6E6E6"><summary style="padding: 14px 0; font-weight: 700; color: #333333; min-height: 44px; box-sizing: border-box">皮フ科の経験がなくても応募できますか？</summary><p style="margin: 0; padding: 0 5px 16px">ご応募いただけます。看護師は免許が必要ですが、診療科の経験は問いません。受付スタッフは、資格も経験も問いません。</p></details>
+<details style="border-bottom: 1px solid #E6E6E6"><summary style="padding: 14px 0; font-weight: 700; color: #333333; min-height: 44px; box-sizing: border-box">勤務する院は選べますか？</summary><p style="margin: 0; padding: 0 5px 16px">ご応募の際に、ご希望の院を3つまでお選びいただけます。入職後に院を変更するのは、ご本人の同意がある場合だけです。</p></details>
+<details style="border-bottom: 1px solid #E6E6E6"><summary style="padding: 14px 0; font-weight: 700; color: #333333; min-height: 44px; box-sizing: border-box">応募の前に、見学だけすることはできますか？</summary><p style="margin: 0; padding: 0 5px 16px">可能でございます。ご応募フォームのご質問の欄に「見学を希望」とご記入のうえ、お送りください。</p></details>
+<details><summary style="padding: 14px 0; font-weight: 700; color: #333333; min-height: 44px; box-sizing: border-box">扶養の範囲内で働けますか？</summary><p style="margin: 0; padding: 0 5px 16px">パートは週2日、1日4時間からご相談いただけます。ご希望の日数と時間を、面接でお聞かせください。</p></details>
+</div>
+<div style="margin-top: 40px; display: flex; justify-content: center">
+<button type="button" onClick="{{go.apply}}" style="display: inline-flex; align-items: center; justify-content: space-between; box-sizing: border-box; width: min(100%, 300px); min-height: 55px; padding: 18px 16px 18px 26px; border: 1px solid #007C36; border-radius: 3px; background: #FFFFFF; color: #007C36; font-size: 16px; line-height: 1.05; letter-spacing: .8px; box-shadow: 5px 5px 0 rgba(0, 0, 0, .1)">ご応募フォーム<svg aria-hidden="true" width="8" height="14" viewBox="0 0 8 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l6 6-6 6"></path></svg></button>
+</div>
+</div>
+
+</div>
+</sc-if>
+
+<sc-if value="{{is.job}}" hint-placeholder-val="{{false}}">
+<div style="max-width: 897px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 10px 30px">
+<p style="margin: 0 0 20px; padding: 15px 5px 0; font-size: 20px; font-weight: 700; line-height: 1.3; color: {{c.co}}">当法人では、{{jd.name}}の募集を行っております。<br>ご一緒に働きませんか？</p>
+<h2 style="margin: 0 0 15px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #007C36; border-top: 1px solid #8FC31F; border-bottom: 1px solid #8FC31F; padding: 13px 10px 13px 20px">雇用形態と勤務地</h2>
+<h3 style="margin: 30px 0 20px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">雇用形態</h3>
+<div role="group" aria-label="雇用形態" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 5px">
+<sc-for list="{{jd.emps}}" as="e" hint-placeholder-count="2">
+<button type="button" onClick="{{e.pick}}" aria-pressed="{{e.pressed}}" style="min-height: 44px; padding: 0 20px; border: 1px solid {{e.bd}}; border-radius: 22px; background: {{e.bg}}; color: {{e.fg}}; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; font-weight: 500">{{e.label}}</button>
+</sc-for>
+</div>
+<h3 style="margin: 30px 0 20px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">勤務地（現在募集中の院）</h3>
+<div role="group" aria-label="勤務地" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 5px">
+<sc-for list="{{jd.places}}" as="p" hint-placeholder-count="6">
+<button type="button" onClick="{{p.pick}}" aria-pressed="{{p.pressed}}" style="min-height: 44px; padding: 0 18px; border: 1px solid {{p.bd}}; border-radius: 22px; background: {{p.bg}}; color: {{p.fg}}; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; font-weight: 500">{{p.label}}</button>
+</sc-for>
+</div>
+
+<sc-if value="{{jd.has}}" hint-placeholder-val="{{true}}">
+<div>
+<h2 style="margin: 60px 0 15px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #007C36; border-top: 1px solid #8FC31F; border-bottom: 1px solid #8FC31F; padding: 13px 10px 13px 20px">募集要項</h2>
+<div style="margin: 50px 0 20px; display: flex; align-items: center; justify-content: center; gap: 20px"><span aria-hidden="true" style="flex: 0 0 40px; border-bottom: 3px double #007C36"></span><h3 style="margin: 0; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 20px; font-weight: 700; line-height: 1.3; color: #007C36; text-align: center">{{jd.head}}</h3><span aria-hidden="true" style="flex: 0 0 40px; border-bottom: 3px double #007C36"></span></div>
+<div data-table="spec" style="margin: 10px 0 24px; border: 1px solid rgba(143, 195, 31, .7); border-bottom: 0; background: #FFFFFF">
+<sc-for list="{{jd.rows}}" as="r" hint-placeholder-count="12">
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)">
+<span style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1); text-align: center">{{r.k}}</span>
+<span style="flex: 100 1 320px; min-width: 0; box-sizing: border-box; padding: 8px 15px; border-left: 1px solid rgba(143, 195, 31, .7); margin-left: -1px">{{r.v}}</span>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{jd.more}}" hint-placeholder-val="{{false}}">
+<div style="margin: -8px 0 20px; display: flex; justify-content: center">
+<button type="button" onClick="{{jd.toggleRows}}" aria-expanded="{{jd.expanded}}" style="min-height: 48px; padding: 0 22px; border: 1px solid #007C36; border-radius: 3px; background: #FFFFFF; color: #007C36; font-size: 15px; font-weight: 700">{{jd.moreLabel}}</button>
+</div>
+</sc-if>
+<p style="margin: 0 0 5px; padding: 0 5px">※金額と条件は、見本のために置いた数字です。</p>
+
+<h2 style="margin: 60px 0 15px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #007C36; border-top: 1px solid #8FC31F; border-bottom: 1px solid #8FC31F; padding: 13px 10px 13px 20px">応募方法</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 0.5%">
+<div style="box-sizing: border-box; flex: 1 1 290px; min-width: 0; padding: 20px; background: rgba(222, 129, 146, .05)">
+<p style="margin: 0 0 20px; padding: 5px 10px 3px; border: 1px solid rgba(236, 109, 86, .5); font-weight: 700; color: {{c.co}}">■ このページからのご応募</p>
+<p style="margin: 0 0 16px; padding: 0 5px">ご応募フォームより、ご応募・お問い合わせを受け付けております。</p>
+<button type="button" onClick="{{jd.apply}}" style="display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: min(100%, 296px); min-height: 53px; padding: 12px 25px 12px 15px; border: 1px solid #007C36; border-radius: 3px; background: #007C36; color: #FFFFFF; font-size: 17px; font-weight: 700; line-height: 1.5">ご応募フォーム<span style="margin-left: 14px; font-size: 14px">はこちらから</span></button>
+</div>
+<div style="box-sizing: border-box; flex: 1 1 290px; min-width: 0; padding: 20px; background: rgba(222, 129, 146, .05)">
+<p style="margin: 0 0 20px; padding: 5px 10px 3px; border: 1px solid rgba(236, 109, 86, .5); font-weight: 700; color: {{c.co}}">■ お電話でのお問い合わせ</p>
+<p style="margin: 0 0 20px; padding: 0 5px; font-size: 18px"><strong style="color: #007C36">00-0000-0000（見本）</strong></p>
+<ul style="margin: 0; padding: 0 0 0 26px"><li style="margin: 0 0 10px">受付時間は、平日の10時から18時です。</li><li style="margin: 0">見学のご希望も承っております。</li></ul>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{jd.empty}}" hint-placeholder-val="{{false}}">
+<p style="margin: 30px 0; padding: 0 5px">この職種は、現在どの院でも募集しておりません。</p>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{is.apply}}" hint-placeholder-val="{{false}}">
+<div style="max-width: 897px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 40px">
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{ap.steps}}" as="s" hint-placeholder-count="3">
+<span style="padding: 5px 16px; background: {{s.bg}}; color: {{s.fg}}; font-size: 14px; font-weight: 700">{{s.label}}</span>
+</sc-for>
+</div>
+
+<div style="display: {{ap.d1}}; flex-direction: column">
+<h2 style="margin: 24px 0 15px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #007C36; border-top: 1px solid #8FC31F; border-bottom: 1px solid #8FC31F; padding: 13px 10px 13px 20px">ご希望の職種と勤務地</h2>
+<h3 style="margin: 20px 0 16px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">ご希望の職種</h3>
+<div role="group" aria-label="ご希望の職種" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 5px">
+<sc-for list="{{ap.jobs}}" as="x" hint-placeholder-count="2">
+<button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="min-height: 46px; padding: 0 20px; border: 1px solid {{x.bd}}; border-radius: 23px; background: {{x.bg}}; color: {{x.fg}}; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 15px; font-weight: 500">{{x.label}}</button>
+</sc-for>
+</div>
+<h3 style="margin: 30px 0 16px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">ご希望の雇用形態</h3>
+<div role="group" aria-label="ご希望の雇用形態" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 5px">
+<sc-for list="{{ap.emps}}" as="x" hint-placeholder-count="2">
+<button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="min-height: 46px; padding: 0 20px; border: 1px solid {{x.bd}}; border-radius: 23px; background: {{x.bg}}; color: {{x.fg}}; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 15px; font-weight: 500">{{x.label}}</button>
+</sc-for>
+</div>
+<h3 style="margin: 30px 0 16px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">ご希望の院</h3>
+<p style="margin: 0 0 12px; padding: 0 5px">※3つまでお選びいただけます。現在募集中の院のみ表示しております。</p>
+<div role="group" aria-label="ご希望の院" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 5px">
+<sc-for list="{{ap.places}}" as="x" hint-placeholder-count="6">
+<button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="min-height: 46px; padding: 0 18px; border: 1px solid {{x.bd}}; border-radius: 23px; background: {{x.bg}}; color: {{x.fg}}; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 15px; font-weight: 500">{{x.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="display: {{ap.d2}}; flex-direction: column">
+<h2 style="margin: 24px 0 15px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #007C36; border-top: 1px solid #8FC31F; border-bottom: 1px solid #8FC31F; padding: 13px 10px 13px 20px">ご連絡先</h2>
+<div style="border: 1px solid rgba(143, 195, 31, .7); border-bottom: 0; background: #FFFFFF">
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><label for="f-name" style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 15px; background: rgba(143, 195, 31, .1)">お名前<span style="padding: 0 6px; background: #C8452C; color: #FFFFFF; font-size: 12px; font-weight: 700">必須</span></label><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 10px 15px"><input id="f-name" type="text" autocomplete="name" onChange="{{f.name}}" style="box-sizing: border-box; width: 100%; min-height: 48px; padding: 0 12px; border: 1px solid #8F8F8F; border-radius: 3px; background: #FFFFFF; color: #333333; font-size: 17px"><span style="display: {{ap.e.nameD}}; margin-top: 6px; color: #B3261E; font-size: 14px">{{ap.e.name}}</span></span></div>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><label for="f-kana" style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1)">ふりがな</label><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 10px 15px"><input id="f-kana" type="text" onChange="{{f.kana}}" style="box-sizing: border-box; width: 100%; min-height: 48px; padding: 0 12px; border: 1px solid #8F8F8F; border-radius: 3px; background: #FFFFFF; color: #333333; font-size: 17px"></span></div>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><label for="f-tel" style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 15px; background: rgba(143, 195, 31, .1)">お電話番号<span style="padding: 0 6px; background: #C8452C; color: #FFFFFF; font-size: 12px; font-weight: 700">必須</span></label><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 10px 15px"><input id="f-tel" type="tel" inputmode="tel" autocomplete="tel" onChange="{{f.tel}}" style="box-sizing: border-box; width: 100%; min-height: 48px; padding: 0 12px; border: 1px solid #8F8F8F; border-radius: 3px; background: #FFFFFF; color: #333333; font-size: 17px"><span style="display: {{ap.e.telD}}; margin-top: 6px; color: #B3261E; font-size: 14px">{{ap.e.tel}}</span></span></div>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><label for="f-mail" style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1)">メールアドレス</label><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 10px 15px"><input id="f-mail" type="email" inputmode="email" autocomplete="email" onChange="{{f.mail}}" style="box-sizing: border-box; width: 100%; min-height: 48px; padding: 0 12px; border: 1px solid #8F8F8F; border-radius: 3px; background: #FFFFFF; color: #333333; font-size: 17px"></span></div>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><span style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1); text-align: center">ご連絡のつきやすい時間帯</span><span role="group" aria-label="ご連絡のつきやすい時間帯" style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 10px 15px; display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{ap.times}}" as="x" hint-placeholder-count="4">
+<button type="button" onClick="{{x.pick}}" aria-pressed="{{x.pressed}}" style="min-height: 44px; padding: 0 16px; border: 1px solid {{x.bd}}; border-radius: 22px; background: {{x.bg}}; color: {{x.fg}}; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; font-weight: 500">{{x.label}}</button>
+</sc-for>
+</span></div>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><label for="f-note" style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1); text-align: center">ご質問・見学のご希望</label><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 10px 15px"><textarea id="f-note" rows="3" onChange="{{f.note}}" style="display: block; box-sizing: border-box; width: 100%; padding: 10px 12px; border: 1px solid #8F8F8F; border-radius: 3px; background: #FFFFFF; color: #333333; font-size: 17px; line-height: 1.6; resize: vertical"></textarea></span></div>
+</div>
+<div style="margin-top: 20px; display: flex; gap: 12px; align-items: flex-start; padding: 16px 20px; background: rgba(222, 129, 146, .05)">
+<input id="f-consent" type="checkbox" onChange="{{f.consent}}" style="flex: 0 0 24px; width: 24px; height: 24px; margin: 1px 0 0">
+<label for="f-consent" style="min-width: 0">入力した内容を、採用の選考とご連絡のためだけに使うことに同意します。<span style="margin-left: 8px; padding: 0 6px; background: #C8452C; color: #FFFFFF; font-size: 12px; font-weight: 700">必須</span></label>
+</div>
+<p style="display: {{ap.e.consentD}}; margin: 8px 0 0; padding: 0 5px; color: #B3261E; font-size: 14px">{{ap.e.consent}}</p>
+</div>
+
+<div style="display: {{ap.d3}}; flex-direction: column">
+<h2 style="margin: 24px 0 15px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #007C36; border-top: 1px solid #8FC31F; border-bottom: 1px solid #8FC31F; padding: 13px 10px 13px 20px">入力内容のご確認</h2>
+<div data-table="confirm" style="border: 1px solid rgba(143, 195, 31, .7); border-bottom: 0; background: #FFFFFF">
+<sc-for list="{{ap.confirm}}" as="r" hint-placeholder-count="8">
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)">
+<span style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1); text-align: center">{{r.k}}</span>
+<span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 8px 15px; overflow-wrap: anywhere">{{r.v}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+
+<sc-if value="{{ap.hasErr}}" hint-placeholder-val="{{false}}">
+<div role="alert" style="margin-top: 20px; padding: 14px 20px; background: #FDF1EC; border: 1px solid #C8452C; color: #7A2E0E; display: flex; flex-direction: column; gap: 2px">
+<sc-for list="{{ap.errs}}" as="m" hint-placeholder-count="1">
+<span>{{m.t}}</span>
+</sc-for>
+</div>
+</sc-if>
+
+<div style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center">
+<button type="button" onClick="{{ap.back}}" style="display: {{ap.dBack}}; align-items: center; justify-content: center; box-sizing: border-box; min-width: 140px; min-height: 53px; padding: 12px 20px; border: 1px solid #007C36; border-radius: 3px; background: #FFFFFF; color: #007C36; font-size: 17px; font-weight: 700">戻る</button>
+<button type="button" onClick="{{ap.next}}" style="display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: min(100%, 296px); min-height: 53px; padding: 12px 20px; border: 1px solid #007C36; border-radius: 3px; background: #007C36; color: #FFFFFF; font-size: 17px; font-weight: 700; line-height: 1.5">{{ap.nextLabel}}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{is.done}}" hint-placeholder-val="{{false}}">
+<div style="max-width: 897px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 10px 40px">
+<p style="margin: 0 0 20px; padding: 15px 5px 0; font-size: 20px; font-weight: 700; line-height: 1.3; color: {{c.co}}">ご応募ありがとうございました。</p>
+<p style="margin: 0 0 5px; padding: 0 5px">※見本のため、入力した内容はどこにも送信しておりません。実際のページでは、この画面のあとに次の3つが動きます。</p>
+<div style="margin: 16px 0 30px; border: 1px solid rgba(143, 195, 31, .7); border-bottom: 0; background: #FFFFFF">
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><span style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1)">ご応募された方へ</span><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 8px 15px">受け付けた内容と、ご連絡の目安を自動で返信いたします。</span></div>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><span style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1)">採用担当へ</span><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 8px 15px">ご希望の院と職種を付けて、その場で通知いたします。</span></div>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><span style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1)">応募の台帳へ</span><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 8px 15px">1行追加し、ご連絡と面接の進み具合を記録いたします。</span></div>
+</div>
+<button type="button" onClick="{{go.home}}" style="display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: min(100%, 296px); min-height: 53px; padding: 12px 20px; border: 1px solid #007C36; border-radius: 3px; background: #007C36; color: #FFFFFF; font-size: 17px; font-weight: 700; line-height: 1.5">採用情報のトップへ</button>
+</div>
+</sc-if>
+
+<sc-if value="{{is.admin}}" hint-placeholder-val="{{false}}">
+<div style="max-width: 897px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 40px">
+<p style="margin: 0 0 5px; padding: 0 5px">院の台帳を1か所直すと、ページの募集職種、勤務地のご案内、募集要項、ご応募フォームの選択肢に同時に反映されます。募集を止めたい院のボタンを押して、ページに戻って確かめてください。</p>
+<h2 style="margin: 30px 0 15px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #007C36; border-top: 1px solid #8FC31F; border-bottom: 1px solid #8FC31F; padding: 13px 10px 13px 20px">院ごとの募集の状況</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding: 14px 20px; background: #DEF2E7">
+<span style="font-weight: 700; color: #333333">ページに出ている募集　<span style="font-size: 24px; font-variant-numeric: tabular-nums">{{stats.open}}</span> 件</span>
+<button type="button" onClick="{{go.home}}" style="display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 48px; padding: 8px 20px; border: 1px solid #007C36; border-radius: 3px; background: #007C36; color: #FFFFFF; font-size: 15px; font-weight: 700">ページに戻って確かめる</button>
+<button type="button" onClick="{{go.points}}" style="display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 48px; padding: 8px 20px; border: 1px solid #007C36; border-radius: 3px; background: #FFFFFF; color: #007C36; font-size: 15px; font-weight: 700">提案ポイントに戻る</button>
+</div>
+<div style="margin-top: 16px; background: #FFFFFF; border: 1px solid #D5D5D5; padding: 8px">
+<sc-for list="{{admin.rows}}" as="r" hint-placeholder-count="13">
+<div style="display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 8px 10px; margin-top: -1px; background: {{r.bg}}; border-top: 1px solid #007C36; border-bottom: 1px solid #007C36">
+<span style="flex: 1 1 180px; min-width: 0; display: flex; gap: 12px; align-items: baseline"><span style="font-size: 18px; font-weight: 700">{{r.name}}</span><span style="font-size: 14px">{{r.area}}</span></span>
+<span style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" onClick="{{r.n.toggle}}" aria-pressed="{{r.n.pressed}}" aria-label="{{r.n.aria}}" style="min-height: 44px; width: 140px; border: 1px solid {{r.n.bd}}; border-radius: 3px; background: {{r.n.bg}}; color: {{r.n.fg}}; font-size: 14px; font-weight: 700">{{r.n.label}}</button>
+<button type="button" onClick="{{r.r.toggle}}" aria-pressed="{{r.r.pressed}}" aria-label="{{r.r.aria}}" style="min-height: 44px; width: 140px; border: 1px solid {{r.r.bd}}; border-radius: 3px; background: {{r.r.bg}}; color: {{r.r.fg}}; font-size: 14px; font-weight: 700">{{r.r.label}}</button>
+</span>
+</div>
+</sc-for>
+</div>
+<h2 style="margin: 60px 0 15px; font-family: 'Yu Mincho', '游明朝', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-size: 20px; font-weight: 700; line-height: 1.2; color: #007C36; border-top: 1px solid #8FC31F; border-bottom: 1px solid #8FC31F; padding: 13px 10px 13px 20px">求人検索に載せるためのデータ</h2>
+<p style="margin: 0 0 12px; padding: 0 5px">同じ台帳から、検索サービスが読み取る形式のデータも作ります。下は、今ページに出ている募集のうち1件ぶんの例です。</p>
+<pre style="margin: 0; padding: 16px; background: #F4F1EC; font-size: 13px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; font-family: ui-monospace, SFMono-Regular, Menlo, monospace">{{admin.jsonld}}</pre>
+</div>
+</sc-if>
+
+<sc-if value="{{is.changes}}" hint-placeholder-val="{{false}}">
+<div style="max-width: 897px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 40px">
+<p style="margin: 0 0 5px; padding: 0 5px">「現行の意匠」と「提案する意匠」の違いは、次の8つです。色・書体・箱やボタンの形は、どちらも同じです。上の切り替えで、同じページを見比べられます。</p>
+<sc-for list="{{changes}}" as="x" hint-placeholder-count="8">
+<div>
+<h2 style="margin: 30px 0 14px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">{{x.k}}</h2>
+<div style="border: 1px solid rgba(143, 195, 31, .7); border-bottom: 0; background: #FFFFFF">
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><span style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1); text-align: center">現行の意匠</span><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 8px 15px">{{x.a}}</span></div>
+<div style="display: flex; flex-wrap: wrap; border-bottom: 1px solid rgba(143, 195, 31, .7)"><span style="flex: 1 0 192px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; padding: 8px 15px; background: rgba(143, 195, 31, .1); text-align: center">提案する意匠</span><span style="flex: 100 1 300px; min-width: 0; box-sizing: border-box; padding: 8px 15px">{{x.b}}</span></div>
+</div>
+</div>
+</sc-for>
+<h2 style="margin: 30px 0 14px; font-family: 'Hiragino Maru Gothic ProN', 'ヒラギノ丸ゴ ProN W4', 'Zen Maru Gothic', sans-serif; font-size: 16px; font-weight: 700; line-height: 1.3; color: {{c.yg}}; border-bottom: 1px dashed #666666; padding: 8px 0 5px 10px">9　更新のしやすさ</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding: 14px 20px; background: #DEF2E7">
+<span style="flex: 1 1 280px; min-width: 0">院ごとの募集を、止めたり始めたりできる運用の画面を用意します。1か所を直すと、募集職種・勤務地のご案内・募集要項・ご応募フォームに同時に反映されます。</span>
+<button type="button" onClick="{{go.admin}}" style="display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 48px; padding: 8px 20px; border: 1px solid #007C36; border-radius: 3px; background: #007C36; color: #FFFFFF; font-size: 15px; font-weight: 700">運用の画面を見る</button>
+</div>
+</div>
+</sc-if>
+
+<div style="background: #FFFFFF; border-top: 1px solid #E6E6E6; margin-top: 30px">
+<div style="max-width: 950px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px; display: flex; flex-wrap: wrap; gap: 14px 40px; font-size: 14px">
+<div style="flex: 1 1 220px; min-width: 0">
+<p style="margin: 0 0 6px; font-weight: 700">医療法人あさなぎ会</p>
+<p style="margin: 0; font-size: {{c.fsTag}}; line-height: 1.7">見本のための架空の法人です。<br>写真は、見本のために作成した画像です。<br>掲載内容の更新日　{{stats.updated}}</p>
+</div>
+<div style="flex: 2 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 0 20px; align-content: flex-start">
+<button type="button" onClick="{{go.home}}" style="flex: 0 1 200px; min-height: {{c.hFoot}}; padding: 2px 20px 6px 0; border: 0; border-bottom: 1px solid #888888; background: transparent; color: #444444; font-size: {{c.fsFoot}}; text-align: left">ホーム</button>
+<button type="button" onClick="{{go.jobs}}" style="flex: 0 1 200px; min-height: {{c.hFoot}}; padding: 2px 20px 6px 0; border: 0; border-bottom: 1px solid #888888; background: transparent; color: #444444; font-size: {{c.fsFoot}}; text-align: left">募集職種</button>
+<button type="button" onClick="{{go.places}}" style="flex: 0 1 200px; min-height: {{c.hFoot}}; padding: 2px 20px 6px 0; border: 0; border-bottom: 1px solid #888888; background: transparent; color: #444444; font-size: {{c.fsFoot}}; text-align: left">勤務地のご案内</button>
+<button type="button" onClick="{{go.env}}" style="flex: 0 1 200px; min-height: {{c.hFoot}}; padding: 2px 20px 6px 0; border: 0; border-bottom: 1px solid #888888; background: transparent; color: #444444; font-size: {{c.fsFoot}}; text-align: left">働く環境</button>
+<button type="button" onClick="{{go.faq}}" style="flex: 0 1 200px; min-height: {{c.hFoot}}; padding: 2px 20px 6px 0; border: 0; border-bottom: 1px solid #888888; background: transparent; color: #444444; font-size: {{c.fsFoot}}; text-align: left">よくある質問</button>
+<button type="button" onClick="{{go.apply}}" style="flex: 0 1 200px; min-height: {{c.hFoot}}; padding: 2px 20px 6px 0; border: 0; border-bottom: 1px solid #888888; background: transparent; color: #444444; font-size: {{c.fsFoot}}; text-align: left">ご応募フォーム</button>
+</div>
+</div>
+<div style="background: #007C36; color: #FFFFFF; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 12.32px; line-height: 1.7; padding: 15px max(16px, env(safe-area-inset-right, 0px)) 20px max(16px, env(safe-area-inset-left, 0px))">Copyright © 2026 医療法人あさなぎ会（見本） All Rights Reserved.</div>
+</div>
+<sc-if value="{{is.fab}}" hint-placeholder-val="{{false}}">
+<div class="sp-only">
+<div style="height: 78px"></div>
+<div style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: rgba(255, 255, 255, .96); border-top: 1px solid #C2E0CF; padding: 8px max(12px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px))">
+<button type="button" onClick="{{go.apply}}" style="display: flex; align-items: center; justify-content: center; box-sizing: border-box; width: 100%; min-height: 52px; border: 1px solid #007C36; border-radius: 3px; background: #007C36; color: #FFFFFF; font-size: 17px; font-weight: 700">応募する</button>
+</div>
+</div>
+</sc-if>
+
+</div>
+</template>
+<script>
+(function(){
+var PROPS={};
+function DCLogic(){this.props={};this.state={};}
+DCLogic.prototype.setState=function(o){var p=typeof o==='function'?o(this.state):o;for(var k in p){this.state[k]=p[k];}render();};
+DCLogic.prototype.forceUpdate=function(){render();};
+window.DCLogic=DCLogic;
+var WH=/^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/,HOLE=/\{\{\s*([^}]+?)\s*\}\}/g;
+function lookup(path,sc){path=path.trim();if(path==='true')return true;if(path==='false')return false;if(/^-?\d+(\.\d+)?$/.test(path))return Number(path);var ps=path.split('.');for(var i=sc.length-1;i>=0;i--){if(sc[i]!=null&&ps[0] in sc[i]){var v=sc[i];for(var j=0;j<ps.length;j++){if(v==null)return undefined;v=v[ps[j]];}return v;}}return undefined;}
+function interp(s,sc){return s.replace(HOLE,function(_,p){var v=lookup(p,sc);return v==null?'':String(v);});}
+function kids(n,sc,parent){for(var c=n.firstChild;c;c=c.nextSibling)build(c,sc,parent);}
+function build(n,sc,parent){
+ if(n.nodeType===3){parent.appendChild(document.createTextNode(interp(n.nodeValue,sc)));return;}
+ if(n.nodeType!==1)return;
+ var tag=n.localName;
+ if(tag==='sc-if'){var m0=WH.exec(n.getAttribute('value')||'');if(m0&&lookup(m0[1],sc))kids(n,sc,parent);return;}
+ if(tag==='sc-for'){var m1=WH.exec(n.getAttribute('list')||'');var list=(m1&&lookup(m1[1],sc))||[];var as=n.getAttribute('as');list.forEach(function(it,i){var s={};s[as]=it;s.$index=i;kids(n,sc.concat([s]),parent);});return;}
+ var el=document.createElementNS(n.namespaceURI,tag);
+ for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i],name=a.name,val=a.value;
+  if(name.indexOf('hint-')===0)continue;
+  var m=WH.exec(val);
+  if(/^on[a-z]/i.test(name)){if(m){var fn=lookup(m[1],sc);if(typeof fn==='function'){var ev=name.slice(2).toLowerCase();if(ev==='change'&&(tag==='textarea'||(tag==='input'&&n.getAttribute('type')!=='checkbox')))ev='input';el.addEventListener(ev,fn);}}continue;}
+  if(m){var v=lookup(m[1],sc);if(v===false||v==null)continue;el.setAttribute(name,v===true?'':String(v));continue;}
+  el.setAttribute(name,interp(val,sc));}
+ kids(n,sc,el);parent.appendChild(el);}
+function pathOf(el,root){var p=[];while(el&&el!==root){var par=el.parentNode;if(!par)return null;p.unshift(Array.prototype.indexOf.call(par.childNodes,el));el=par;}return el===root?p:null;}
+var comp,tpl,root;
+function render(){
+ var saved={},det=[],path=pathOf(document.activeElement,root);
+ root.querySelectorAll('input[id],textarea[id]').forEach(function(e){saved[e.id]=e.type==='checkbox'?e.checked:e.value;});
+ root.querySelectorAll('details').forEach(function(d){det.push(d.open);});
+ var frag=document.createDocumentFragment();kids(tpl.content,[comp.renderVals()],frag);
+ var y=window.scrollY;root.replaceChildren(frag);
+ for(var id in saved){var e=document.getElementById(id);if(e){if(e.type==='checkbox')e.checked=saved[id];else e.value=saved[id];}}
+ var ds=root.querySelectorAll('details');if(ds.length===det.length)ds.forEach(function(d,i){d.open=det[i];});
+ window.scrollTo(0,y);
+ if(path&&path.length){var el=root;for(var i=0;i<path.length&&el;i++)el=el.childNodes[path[i]];if(el&&el.focus&&el.nodeType===1){try{el.focus({preventScroll:true});}catch(_){}}}
+}
+window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.getElementById('app');comp=new C();comp.props=PROPS;if(!comp.state)comp.state={};render();if(comp.componentDidMount)comp.componentDidMount();};
+})();
+
+class Component extends DCLogic {
+clinicsData() {
+return [
+{ id: 'k1', name: '天王寺院', area: 'kansai', pref: '大阪府', city: '大阪市阿倍野区', access: '各線「天王寺」駅近く', n: true, r: true },
+{ id: 'k2', name: '堺東院', area: 'kansai', pref: '大阪府', city: '堺市堺区', access: '南海「堺東」駅近く', n: true, r: false },
+{ id: 'k3', name: '枚方院', area: 'kansai', pref: '大阪府', city: '枚方市', access: '京阪「枚方市」駅近く', n: false, r: true },
+{ id: 'k4', name: '豊中院', area: 'kansai', pref: '大阪府', city: '豊中市', access: '阪急「豊中」駅近く', n: true, r: true },
+{ id: 'k5', name: '西宮北口院', area: 'kansai', pref: '兵庫県', city: '西宮市', access: '阪急「西宮北口」駅近く', n: false, r: false },
+{ id: 'k6', name: '明石院', area: 'kansai', pref: '兵庫県', city: '明石市', access: 'JR「明石」駅近く', n: true, r: false },
+{ id: 'k7', name: '烏丸院', area: 'kansai', pref: '京都府', city: '京都市下京区', access: '阪急「烏丸」駅近く', n: false, r: true },
+{ id: 'k8', name: '学園前院', area: 'kansai', pref: '奈良県', city: '奈良市', access: '近鉄「学園前」駅近く', n: true, r: true },
+{ id: 't1', name: '金山院', area: 'tokai', pref: '愛知県', city: '名古屋市中区', access: '各線「金山」駅近く', n: true, r: true },
+{ id: 't2', name: '東岡崎院', area: 'tokai', pref: '愛知県', city: '岡崎市', access: '名鉄「東岡崎」駅近く', n: false, r: true },
+{ id: 'e1', name: '吉祥寺院', area: 'kanto', pref: '東京都', city: '武蔵野市', access: '各線「吉祥寺」駅近く', n: true, r: true },
+{ id: 'e2', name: '北千住院', area: 'kanto', pref: '東京都', city: '足立区', access: '各線「北千住」駅近く', n: true, r: false },
+{ id: 'e3', name: '藤沢院', area: 'kanto', pref: '神奈川県', city: '藤沢市', access: '各線「藤沢」駅近く', n: false, r: true }
+];
+}
+jobsData() {
+return {
+n: { key: 'n', name: '看護師・准看護師', short: '看護師',
+lead: '診察と処置の介助、レーザーなどの施術の補助、患者様へのご説明を担当していただきます。',
+tasks: ['診察・処置の介助', '施術の準備と補助', '施術前後のご説明', '物品・機器の管理'],
+work: '診察・処置の介助、施術の準備と補助、施術前後のご説明、物品・機器の管理',
+change: '変更はございません（看護業務の範囲内）',
+qual: '看護師または准看護師 / 皮フ科・形成外科の経験は問いません / 未経験OK',
+wage: { full: ['月給 300,000円〜（基本給 265,000円〜、資格手当 35,000円）', '月給 320,000円〜（基本給 285,000円〜、資格手当 35,000円）'], part: ['時給 2,000円〜', '時給 2,200円〜'] },
+min: { full: [300000, 320000], part: [2000, 2200] } },
+r: { key: 'r', name: '受付スタッフ', short: '受付',
+lead: '受付と会計、ご予約の対応、診察前のご案内を担当していただきます。',
+tasks: ['受付・会計', 'ご予約とお電話の対応', '診察前のご案内', 'カルテ・書類の整理'],
+work: '受付・会計、ご予約とお電話の対応、診察前のご案内、カルテ・書類の整理',
+change: '受付・会計・事務の範囲内で変更する場合がございます',
+qual: '資格・経験は問いません / パソコンで文字を入力できる方 / 未経験OK',
+wage: { full: ['月給 230,000円〜', '月給 245,000円〜'], part: ['時給 1,400円〜', '時給 1,500円〜'] },
+min: { full: [230000, 245000], part: [1400, 1500] } }
+};
+}
+empsData() {
+return {
+full: { key: 'full', label: '正職員', term: '期間の定めなし', renew: '',
+trial: 'あり（3か月。条件は本採用後と同じです）',
+place: '通勤できる範囲にある当法人の院へ、ご本人の同意を得て変更する場合がございます',
+time: '平日（月曜日〜金曜日） 9:45〜19:15 / 土曜日・日曜日・祝日 9:45〜18:15（シフト制・実働8時間）',
+rest: '60分', over: 'あり（月平均5時間ほど）',
+holiday: '週休2日（シフト制） / 年間休日120日 / 年次有給休暇（入職6か月後に10日）',
+extra: '※固定残業代はございません。時間外の賃金は別に支給いたします。 / 賞与あり（年2回）',
+welfare: '健康保険 / 厚生年金 / 雇用保険 / 労災保険 / 通勤手当（月30,000円まで）' },
+part: { key: 'part', label: 'パート', term: '期間の定めあり（6か月）',
+renew: '更新する場合がございます。勤務の成績と院の体制をもとに判断いたします。通算の契約期間に上限はございません',
+trial: 'あり（1か月。条件は同じです）',
+place: '変更はございません',
+time: '週2日・1日4時間〜応相談 / 平日 9:45〜19:15、土曜日・日曜日・祝日 9:45〜18:15 の間',
+rest: '実働6時間を超える日は45分、8時間を超える日は60分', over: '原則なし',
+holiday: 'シフトによる / 年次有給休暇（勤務日数に応じて付与）',
+extra: '',
+welfare: '労災保険 / 勤務時間に応じて雇用保険・健康保険・厚生年金 / 通勤手当（実費・1日1,500円まで）' }
+};
+}
+st() {
+return Object.assign({ screen: 'home', area: 'all', job: 'n', emp: 'full', clinic: '', open: {}, day: 'n', step: 1, aJob: 'n', aEmp: 'full', aPlaces: [], aTime: 'いつでも', view: null, errs: [], mode: 'same', menu: false, onlyOpen: false, allRows: false, ferr: {} }, this.state || {});
+}
+jump(id) {
+setTimeout(function () {
+try {
+var el = id ? document.getElementById(id) : null;
+if (el) { el.scrollIntoView({ block: 'start' }); } else { window.scrollTo(0, 0); }
+} catch (e) {}
+}, 80);
+}
+renderVals() {
+const self = this;
+const st = this.st();
+const G = '#007C36';
+if (!this.form) { this.form = {}; }
+const CL = this.clinicsData();
+const JB = this.jobsData();
+const EM = this.empsData();
+const AREA = { kansai: '関西', tokai: '東海', kanto: '関東' };
+const UPDATED = '2026年11月15日';
+const isOpen = function (c, j) { const k = c.id + '_' + j; return (k in st.open) ? st.open[k] : c[j]; };
+const openOf = function (j) { return CL.filter(function (c) { return isOpen(c, j); }); };
+const chip = function (sel) { return sel ? { bg: G, fg: '#FFFFFF', bd: G, pressed: 'true' } : { bg: '#FFFFFF', fg: G, bd: '#C2E0CF', pressed: 'false' }; };
+const better = st.mode === 'better';
+const to = function (o, id) { return function () { self.setState(Object.assign({ menu: false }, o)); self.jump(id); }; };
+const openCount = openOf('n').length + openOf('r').length;
+
+const goJob = function (j, cid) { return to({ screen: 'job', job: j, clinic: cid || '', emp: 'full' }, ''); };
+const startApply = function (j, e, cid) {
+return function () { self.form = {}; self.setState({ screen: 'apply', step: 1, aJob: j, aEmp: e, aPlaces: cid ? [cid] : [], aTime: 'いつでも', view: null, errs: [], ferr: {}, menu: false }); self.jump(''); };
+};
+
+const jobs = ['n', 'r'].map(function (k) {
+const n = openOf(k).length;
+return { name: JB[k].name, lead: JB[k].lead,
+tasks: JB[k].tasks.map(function (t) { return { label: t }; }),
+tag: n ? '募集中　' + n + '院' : '現在、募集はございません', tagBg: n ? '#FFF53B' : '#EEEEEE',
+go: goJob(k, '') };
+});
+
+const areas = [['all', 'すべて'], ['kansai', '関西エリア'], ['tokai', '東海エリア'], ['kanto', '関東エリア']].map(function (a) {
+return Object.assign({ label: a[1], pick: function () { self.setState({ area: a[0] }); } }, chip(st.area === a[0]));
+});
+const groups = ['kansai', 'tokai', 'kanto'].filter(function (k) { return st.area === 'all' || st.area === k; }).map(function (k) {
+const rows = CL.filter(function (c) { return c.area === k; }).map(function (c, i) {
+const links = ['n', 'r'].filter(function (j) { return isOpen(c, j); }).map(function (j) { return { label: JB[j].name, go: goJob(j, c.id) }; });
+return { name: c.name, addr: c.pref + c.city, access: c.access, links: links, none: links.length === 0 };
+}).filter(function (r) { return !(better && st.onlyOpen) || !r.none; }).map(function (r, i) { r.bg = i % 2 ? '#DEF2E7' : '#FFFFFF'; return r; });
+return { label: AREA[k] + 'エリア', count: rows.length, rows: rows };
+});
+
+const DAY = {
+n: [['9:45', '出勤・物品と機器の確認'], ['10:00', '診察・処置の介助'], ['13:00', '交代で休憩（60分）'], ['14:00', '施術の準備と補助、施術後のご説明'], ['18:45', '片づけ・翌日の準備'], ['19:15', '退勤']],
+r: [['9:45', '出勤・受付の準備'], ['10:00', '受付・会計、ご予約の対応'], ['13:00', '交代で休憩（60分）'], ['14:00', '診察前のご案内、お電話の対応'], ['18:45', 'レジ締め・書類の整理'], ['19:15', '退勤']]
+};
+const dayTabs = ['n', 'r'].map(function (k) { return Object.assign({ label: JB[k].name, pick: function () { self.setState({ day: k }); } }, chip(st.day === k)); });
+const day = DAY[st.day].map(function (s) { return { t: s[0], d: s[1] }; });
+
+const jOpen = openOf(st.job);
+const cur = jOpen.filter(function (c) { return c.id === st.clinic; })[0] || jOpen[0] || null;
+const J = JB[st.job];
+const E = EM[st.emp];
+let rows = [];
+if (cur) {
+const hi = cur.area === 'kanto' ? 1 : 0;
+rows = [
+['仕事内容', J.work],
+['仕事内容の変更の範囲', J.change],
+['応募資格・条件', J.qual],
+['雇用形態', E.label + '（当法人が直接雇用いたします。派遣ではございません）'],
+['契約期間', E.term]
+];
+if (E.renew) { rows.push(['契約更新の基準', E.renew]); }
+rows = rows.concat([
+['試用期間', E.trial],
+['勤務地', '医療法人あさなぎ会 あさなぎ皮フ科クリニック ' + cur.name + '（' + cur.pref + cur.city + '） ※' + cur.access],
+['勤務地の変更の範囲', E.place],
+['勤務時間', E.time],
+['休憩時間', E.rest],
+['時間外労働', E.over],
+['給与', J.wage[st.emp][hi] + (E.extra ? ' ' + E.extra : '')],
+['休暇', E.holiday],
+['福利厚生', E.welfare],
+['受動喫煙防止措置', '院内全面禁煙'],
+['募集者', '医療法人あさなぎ会'],
+['掲載日', UPDATED + '（内容を変更した日に更新いたします）']
+]);
+}
+const MAIN = ['給与', '勤務時間', '休暇', '勤務地', '雇用形態', '仕事内容'];
+if (better) {
+const main = MAIN.map(function (k) { return rows.filter(function (r) { return r[0] === k; })[0]; }).filter(Boolean);
+const rest = rows.filter(function (r) { return MAIN.indexOf(r[0]) < 0; });
+var restN = rest.length;
+rows = st.allRows ? main.concat(rest) : main;
+}
+const jd = {
+more: better && !!cur, expanded: st.allRows ? 'true' : 'false',
+moreLabel: st.allRows ? '項目をたたむ' : 'すべての項目を見る（残り' + (restN || 0) + '項目）',
+toggleRows: function () { self.setState({ allRows: !st.allRows }); },
+name: J.name,
+emps: ['full', 'part'].map(function (k) { return Object.assign({ label: EM[k].label, pick: function () { self.setState({ emp: k }); } }, chip(st.emp === k)); }),
+places: jOpen.map(function (c) { return Object.assign({ label: c.name, pick: function () { self.setState({ clinic: c.id }); } }, chip(cur && c.id === cur.id)); }),
+has: !!cur, empty: !cur,
+head: cur ? J.name + '（' + cur.name + '・' + E.label + '）' : '',
+rows: rows.map(function (r) { return { k: r[0], v: r[1] }; }),
+apply: startApply(st.job, st.emp, cur ? cur.id : '')
+};
+
+const aOpen = openOf(st.aJob);
+const picked = st.aPlaces.filter(function (id) { return aOpen.some(function (c) { return c.id === id; }); });
+const F = this.form;
+const setF = function (k) { return function (e) { F[k] = (k === 'consent') ? e.target.checked : e.target.value; }; };
+const nameOf = function (id) { const c = CL.filter(function (x) { return x.id === id; })[0]; return c ? c.name : ''; };
+const next = function () {
+if (st.step === 1) {
+if (!picked.length) { self.setState({ errs: ['ご希望の院を1つ以上お選びください。'] }); return; }
+self.setState({ step: 2, errs: [] }); self.jump(''); return;
+}
+if (st.step === 2) {
+const errs = []; const fe = {};
+if (!(F.name || '').trim()) { fe.name = 'お名前をご入力ください。'; errs.push(fe.name); }
+if (!(F.tel || '').trim()) { fe.tel = 'お電話番号をご入力ください。'; errs.push(fe.tel); }
+if (!F.consent) { fe.consent = '入力した内容の使い方に、同意のチェックをお願いいたします。'; errs.push(fe.consent); }
+if (errs.length) { self.setState({ errs: errs, ferr: fe }); return; }
+self.setState({ step: 3, errs: [], ferr: {}, view: { name: F.name || '', kana: F.kana || '', tel: F.tel || '', mail: F.mail || '', note: F.note || '' } }); self.jump(''); return;
+}
+self.form = {}; self.setState({ screen: 'done', step: 1, errs: [], view: null }); self.jump('');
+};
+const back = function () { self.setState({ step: Math.max(1, st.step - 1), errs: [], ferr: {} }); self.jump(''); };
+const FE = better ? (st.ferr || {}) : {};
+const V = st.view || {};
+const ap = {
+steps: [[1, '1　ご希望'], [2, '2　ご連絡先'], [3, '3　ご確認']].map(function (s) { const on = st.step === s[0]; return { label: s[1], bg: on ? G : '#EEEEEE', fg: on ? '#FFFFFF' : '#555555' }; }),
+d1: st.step === 1 ? 'flex' : 'none', d2: st.step === 2 ? 'flex' : 'none', d3: st.step === 3 ? 'flex' : 'none',
+dBack: st.step > 1 ? 'inline-flex' : 'none',
+jobs: ['n', 'r'].map(function (k) { return Object.assign({ label: JB[k].name, pick: function () { self.setState({ aJob: k, aPlaces: [], errs: [] }); } }, chip(st.aJob === k)); }),
+emps: ['full', 'part'].map(function (k) { return Object.assign({ label: EM[k].label, pick: function () { self.setState({ aEmp: k }); } }, chip(st.aEmp === k)); }),
+places: aOpen.map(function (c) {
+const on = picked.indexOf(c.id) >= 0;
+return Object.assign({ label: c.name, pick: function () {
+const nx = on ? picked.filter(function (x) { return x !== c.id; }) : (picked.length < 3 ? picked.concat([c.id]) : picked);
+self.setState({ aPlaces: nx, errs: [] });
+} }, chip(on));
+}),
+times: ['午前', '午後', '夕方以降', 'いつでも'].map(function (t) { return Object.assign({ label: t, pick: function () { self.setState({ aTime: t }); } }, chip(st.aTime === t)); }),
+confirm: [
+['ご希望の職種', JB[st.aJob].name], ['ご希望の雇用形態', EM[st.aEmp].label],
+['ご希望の院', picked.map(nameOf).join('、')],
+['お名前', V.name || ''], ['ふりがな', V.kana || '（入力なし）'], ['お電話番号', V.tel || ''],
+['メールアドレス', V.mail || '（入力なし）'], ['ご連絡のつきやすい時間帯', st.aTime], ['ご質問・見学のご希望', V.note || '（入力なし）']
+].map(function (r) { return { k: r[0], v: r[1] }; }),
+e: { name: FE.name || '', nameD: FE.name ? 'block' : 'none', tel: FE.tel || '', telD: FE.tel ? 'block' : 'none', consent: FE.consent || '', consentD: FE.consent ? 'block' : 'none' },
+hasErr: st.errs.length > 0 && !(better && st.step === 2), errs: st.errs.map(function (t) { return { t: t }; }),
+next: next, back: back, nextLabel: st.step === 1 ? 'ご連絡先の入力へ' : (st.step === 2 ? '入力内容のご確認へ' : 'この内容で応募する')
+};
+
+const tog = function (c, j) {
+const on = isOpen(c, j);
+return { label: JB[j].short + (on ? ' 募集中' : ' 停止中'), pressed: on ? 'true' : 'false', aria: c.name + 'の' + JB[j].short + 'の募集を切り替える',
+bg: on ? '#007C36' : '#FFFFFF', fg: on ? '#FFFFFF' : '#555555', bd: on ? '#007C36' : '#BBBBBB',
+toggle: function () { const o = Object.assign({}, st.open); o[c.id + '_' + j] = !on; self.setState({ open: o }); } };
+};
+const first = openOf('n')[0] || openOf('r')[0] || null;
+const fj = openOf('n')[0] ? 'n' : 'r';
+const jsonld = first ? JSON.stringify({
+'@context': 'https://schema.org', '@type': 'JobPosting',
+title: JB[fj].name + '（正職員）', datePosted: '2026-11-15', employmentType: 'FULL_TIME', directApply: true,
+hiringOrganization: { '@type': 'Organization', name: '医療法人あさなぎ会' },
+jobLocation: { '@type': 'Place', name: 'あさなぎ皮フ科クリニック ' + first.name, address: { '@type': 'PostalAddress', addressRegion: first.pref, addressLocality: first.city, addressCountry: 'JP' } },
+baseSalary: { '@type': 'MonetaryAmount', currency: 'JPY', value: { '@type': 'QuantitativeValue', minValue: JB[fj].min.full[first.area === 'kanto' ? 1 : 0], unitText: 'MONTH' } }
+}, null, 2) : '今ページに出ている募集はありません。';
+const admin = {
+rows: CL.map(function (c, i) { return { name: c.name, area: AREA[c.area], n: tog(c, 'n'), r: tog(c, 'r'), bg: i % 2 ? '#DEF2E7' : '#FFFFFF' }; }),
+jsonld: jsonld
+};
+
+const sc = st.screen;
+const PAGE = { changes: ['提案ポイント', '提案ポイント'], job: ['募集要項', '採用情報 » ' + J.name + ' 募集要項'], apply: ['ご応募フォーム', '採用情報 » ご応募フォーム'], done: ['ご応募フォーム', '採用情報 » ご応募フォーム'], admin: ['運用の画面', '提案ポイント » 運用の画面'] };
+const pg = PAGE[sc] || ['', ''];
+const aside = sc === 'changes' || sc === 'admin';
+const tabOf = function (on) { return on ? { bg: '#FFFFFF', fg: '#333333', fw: '700', pressed: 'true' } : { bg: 'transparent', fg: '#FFFFFF', fw: '400', pressed: 'false' }; };
+const show = function (m) { return aside ? to({ mode: m, screen: 'home' }, '') : function () { self.setState({ mode: m, menu: false }); }; };
+return {
+is: { home: sc === 'home', sub: sc !== 'home', job: sc === 'job', apply: sc === 'apply', done: sc === 'done', admin: sc === 'admin', changes: sc === 'changes', better: better, fab: better && (sc === 'home' || sc === 'job') },
+tab: { same: tabOf(!aside && !better), better: tabOf(!aside && better), points: tabOf(aside) },
+hdrCls: better ? 'pc-only' : '', menuD: st.menu ? 'flex' : 'none', menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 'false',
+c: better ? { yg: '#55790A', co: '#C2402A', or: '#D8431A', lg: '#2A7A50', fsCrumb: '13px', hCrumb: '44px', hFoot: '44px', fsFoot: '14px', fsTag: '13px' } : { yg: '#8FC31F', co: '#EC6D56', or: '#FF5722', lg: '#46A26E', fsCrumb: '11px', hCrumb: '38px', hFoot: '36px', fsFoot: '12px', fsTag: '12px' },
+lab: { d: better ? 'inline' : 'none' },
+only: { label: st.onlyOpen ? '募集中の院だけを表示中（すべて表示に戻す）' : '募集中の院だけを表示する', bg: st.onlyOpen ? '#007C36' : '#FFFFFF', fg: st.onlyOpen ? '#FFFFFF' : '#007C36', pressed: st.onlyOpen ? 'true' : 'false' },
+changes: [
+['1　スマホのヘッダー', 'ロゴを中央に大きく置き、メニューを6つ並べます。スマホでは最初の画面の約半分を占めます。', 'スマホではロゴを横並びにし、メニューを畳みます。最初の画面の約1割に収まります。'],
+['2　最初の画面', '写真と一文です。', '「募集職種を見る」「勤務地から探す」のボタンを足し、次の行動を画面に置きます。'],
+['3　応募への近さ', 'メニューの「ご応募フォーム」から進みます。', 'スマホの下に「応募する」を1つだけ固定します。画面の約1割です。'],
+['4　見出しの色', '黄緑と珊瑚色は、今の色のままです。', '同じ色みのまま濃くし、白地でも読みやすくします。'],
+['5　字の大きさと押せる高さ', 'パンくず11px、札と注記12px、フッターのリンクの高さ36pxです。', '13〜14px、高さ44pxに底上げします。'],
+['6　勤務地のご案内', '院名・住所・アクセスを並べます。', 'スマホでは「住所」「アクセス」のラベルを付けます。「募集中の院だけ」に絞れます。'],
+['7　募集要項', 'すべての項目を1つの表に並べます。', '給与・勤務時間・休暇など6項目を先に出し、残りは「すべての項目を見る」で開きます。項目は減らしません。'],
+['8　ご応募フォーム', '入力の不足を、下にまとめて表示します。', '不足のある欄のすぐ下に表示します。']
+].map(function (x) { return { k: x[0], a: x[1], b: x[2] }; }),
+page: { title: pg[0], crumb: pg[1] },
+go: {
+showSame: show('same'), showBetter: show('better'), points: to({ screen: 'changes' }, ''), menu: function () { self.setState({ menu: !st.menu }); }, onlyOpen: function () { self.setState({ onlyOpen: !st.onlyOpen }); },
+home: to({ screen: 'home' }, ''), admin: to({ screen: 'admin' }, ''),
+jobs: to({ screen: 'home' }, 'jobs'), places: to({ screen: 'home' }, 'places'), env: to({ screen: 'home' }, 'env'), faq: to({ screen: 'home' }, 'faq'),
+apply: startApply(st.job, 'full', '')
+},
+stats: { clinics: CL.length, open: openCount, updated: UPDATED },
+jobs: jobs, areas: areas, groups: groups, dayTabs: dayTabs, day: day, jd: jd, ap: ap, f: { name: setF('name'), kana: setF('kana'), tel: setF('tel'), mail: setF('mail'), note: setF('note'), consent: setF('consent') }, admin: admin
+};
+}
+}
+window.__dcBoot(Component);
+</script>
+
+</body>
+</html>

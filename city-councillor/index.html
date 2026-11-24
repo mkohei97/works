@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<title>早瀬 まこと｜ホームページの見本</title>
+<meta name="description" content="市議会議員のホームページの見本です。お名前・市の名前・経歴は仮のものです。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="早瀬 まこと｜ホームページの見本">
+<meta property="og:description" content="市議会議員のホームページの見本です。お名前・市の名前・経歴は仮のものです。">
+<meta property="og:image" content="https://mkohei97.github.io/works/city-councillor/img/c_town.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#0B6CB3}a:hover{color:#102A4C}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #F5B800;outline-offset:2px}
+h1,h2,h3,dt,button{word-break:auto-phrase}
+p,li,dd{text-wrap:pretty}
+@media (max-width:759px){.pc-only{display:none !important}}
+@media (min-width:760px){.sp-only{display:none !important}}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes mk{from{background-size:0 100%}to{background-size:100% 100%}}
+.kb{animation:kb 24s ease-in-out infinite alternate;will-change:transform}
+.intro>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+.intro>*:nth-child(2){animation-delay:.1s}.intro>*:nth-child(3){animation-delay:.2s}.intro>*:nth-child(4){animation-delay:.3s}.intro>*:nth-child(5){animation-delay:.4s}
+.mk{animation:mk .9s .7s cubic-bezier(.2,.7,.2,1) both}
+.tap{transition:transform .15s,background-color .15s,color .15s}.tap:active{transform:scale(.97)}
+.card{transition:transform .3s,box-shadow .3s}
+@media (hover:hover){.card:hover{box-shadow:0 10px 24px rgba(16,42,76,.12)}}
+.fx .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.fx .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.fx .rv{opacity:1;transform:none}}
+</style>
+<style>
+:root{color-scheme:light}
+html{-webkit-text-size-adjust:100%;background:#FFFFFF}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div id="top" style="background: #FFFFFF; color: #102A4C; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.9; line-break: strict; overflow-x: hidden">
+
+<div style="background: #102A4C; color: #FFFFFF; padding: 8px 16px; font-size: 14px; line-height: 1.6; text-align: center">見本のページです。お名前・市の名前・経歴・連絡先は、仮のものです。</div>
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #C9DCEB">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button type="button" class="tap" onClick="{{go.home}}" aria-label="トップページへ" style="display: flex; flex-direction: column; justify-content: center; min-height: 48px; min-width: 0; padding: 0; border: 0; background: transparent; color: #102A4C; text-align: left">
+<span style="font-size: 13px; font-weight: 700; line-height: 1.4; letter-spacing: .12em; color: #0B6CB3">みどり野市議会議員</span>
+<span style="font-size: 24px; font-weight: 900; line-height: 1.3; letter-spacing: .08em; white-space: nowrap">早瀬 まこと</span>
+</button>
+<nav class="pc-only" aria-label="主なメニュー" style="display: flex; align-items: center; gap: 2px">
+<button type="button" class="tap" onClick="{{go.message}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #102A4C; font-size: 15px; font-weight: 500">メッセージ</button>
+<button type="button" class="tap" onClick="{{go.policy}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #102A4C; font-size: 15px; font-weight: 500">3つの政策</button>
+<button type="button" class="tap" onClick="{{go.activity}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #102A4C; font-size: 15px; font-weight: 500">活動</button>
+<button type="button" class="tap" onClick="{{go.report}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #102A4C; font-size: 15px; font-weight: 500">活動報告</button>
+<button type="button" class="tap" onClick="{{go.profile}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #102A4C; font-size: 15px; font-weight: 500">プロフィール</button>
+</nav>
+<button type="button" class="pc-only" onClick="{{go.ask}}" style="min-height: 46px; padding: 0 22px; border: 0; border-radius: 6px; background: #0B6CB3; color: #FFFFFF; font-size: 15px; font-weight: 700">ご意見・ご相談</button>
+<button type="button" class="sp-only" onClick="{{go.toggle}}" aria-expanded="{{menuOpen}}" style="flex: 0 0 auto; min-width: 84px; min-height: 44px; border: 1px solid #102A4C; border-radius: 6px; background: #FFFFFF; color: #102A4C; font-size: 14px; font-weight: 700">{{menuLabel}}</button>
+</div>
+<sc-if value="{{is.menu}}" hint-placeholder-val="{{false}}">
+<nav class="sp-only" aria-label="メニュー" style="display: flex; flex-direction: column; border-top: 1px solid #C9DCEB">
+<button type="button" class="tap" onClick="{{go.message}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E1ECF5; background: #FFFFFF; color: #102A4C; font-size: 16px; text-align: left">メッセージ</button>
+<button type="button" class="tap" onClick="{{go.policy}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E1ECF5; background: #FFFFFF; color: #102A4C; font-size: 16px; text-align: left">3つの政策</button>
+<button type="button" class="tap" onClick="{{go.activity}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E1ECF5; background: #FFFFFF; color: #102A4C; font-size: 16px; text-align: left">活動</button>
+<button type="button" class="tap" onClick="{{go.report}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E1ECF5; background: #FFFFFF; color: #102A4C; font-size: 16px; text-align: left">活動報告</button>
+<button type="button" class="tap" onClick="{{go.profile}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E1ECF5; background: #FFFFFF; color: #102A4C; font-size: 16px; text-align: left">プロフィール</button>
+<button type="button" class="tap" onClick="{{go.office}}" style="min-height: 54px; padding: 0 18px; border: 0; background: #FFFFFF; color: #102A4C; font-size: 16px; text-align: left">事務所のご案内</button>
+</nav>
+</sc-if>
+</header>
+
+<sc-if value="{{is.home}}" hint-placeholder-val="{{true}}">
+<main>
+
+<section style="background: #EAF4FB; padding-bottom: 56px">
+<div style="overflow: hidden"><img class="kb" src="img/c_town.jpg" alt="丘の上から見た住宅地。並木の道と公園があり、遠くに山並みが見える" style="display: block; width: 100%; aspect-ratio: 16 / 6; min-height: 200px; max-height: 460px; object-fit: cover; object-position: 50% 40%"></div>
+<div style="max-width: 1160px; margin: -72px auto 0; padding: 0 16px; position: relative">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; padding: 32px 28px; background: #FFFFFF; border-radius: 12px; border-top: 6px solid #0B6CB3">
+<div class="intro" style="flex: 1.4 1 340px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: .14em; color: #0B6CB3">みどり野市議会議員</p>
+<h1 style="margin: 0; font-size: clamp(40px, 7vw, 72px); font-weight: 900; line-height: 1.2; letter-spacing: .08em">早瀬 まこと</h1>
+<p style="margin: 0; font-size: clamp(22px, 3.2vw, 30px); font-weight: 700; line-height: 1.6"><span class="mk" style="background: linear-gradient(transparent 62%, #FBE08A 62%) no-repeat">暮らしの声を、市政へ。</span></p>
+<p style="margin: 0; max-width: 32em; font-size: 17px">地域を歩き、お一人おひとりの声を伺い、議会に届けます。活動の内容は、このページで随時ご報告します。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" class="tap" onClick="{{go.policy}}" style="min-height: 54px; padding: 0 28px; border: 0; border-radius: 6px; background: #0B6CB3; color: #FFFFFF; font-size: 17px; font-weight: 700">3つの政策を見る</button>
+<button type="button" class="tap" onClick="{{go.ask}}" style="min-height: 54px; padding: 0 28px; border: 1px solid #102A4C; border-radius: 6px; background: #FFFFFF; color: #102A4C; font-size: 17px; font-weight: 700">ご意見・ご相談</button>
+</div>
+</div>
+<div style="flex: 0 1 240px; min-width: 200px; margin-inline: auto; aspect-ratio: 4 / 5; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; border: 1px dashed #5F7A94; border-radius: 12px; background: #EAF4FB; color: #44566C; font-size: 15px; line-height: 1.7; text-align: center">ここに<br>ご本人のお写真が<br>入ります</div>
+</div>
+</div>
+</section>
+
+<section id="message" style="padding: 72px 0 64px">
+<div class="rv" style="max-width: 820px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #0B6CB3; font-size: 14px; font-weight: 700; letter-spacing: .16em">メッセージ</p>
+<h2 style="margin: 4px 0 20px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">ごあいさつ</h2>
+<p style="margin: 0 0 16px">みどり野市で生まれ育ち、この街で働き、子育てをしてきました。通学路のこと、買い物のこと、親の介護のこと。暮らしの中で出会う小さな困りごとは、一人で抱えるには重く、行政に届けるには遠いものです。</p>
+<p style="margin: 0 0 16px">その間に立ち、声を伺い、調べ、議会で問い、結果をお伝えする。この繰り返しが、私の仕事だと考えています。</p>
+<p style="margin: 0 0 24px">お気づきの点がありましたら、どうぞお気軽にお寄せください。</p>
+<p style="margin: 0; font-size: 18px; font-weight: 700; text-align: right">みどり野市議会議員　早瀬 まこと</p>
+</div>
+</section>
+
+<section id="policy" style="background: #EAF4FB; padding: 68px 0 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #0B6CB3; font-size: 14px; font-weight: 700; letter-spacing: .16em">政策</p>
+<h2 style="margin: 4px 0 28px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">3つの政策</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<sc-for list="{{policies}}" as="p" hint-placeholder-count="3">
+<article class="rv card" style="display: flex; flex-direction: column; gap: 12px; padding: 28px 24px; background: #FFFFFF; border-radius: 12px; transition-delay: {{p.dl}}">
+<p style="margin: 0; display: flex; align-items: baseline; gap: 10px; line-height: 1.3"><span style="font-size: 15px; font-weight: 700; letter-spacing: .1em; color: #0B6CB3">政策</span><span style="font-size: 44px; font-weight: 900; color: #0B6CB3">{{p.n}}</span></p>
+<h3 style="margin: 0; font-size: 23px; font-weight: 900; line-height: 1.5">{{p.k}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.8">{{p.v}}</p>
+<ul style="margin: 4px 0 0; padding: 14px 0 0; list-style: none; border-top: 1px solid #C9DCEB; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{p.items}}" as="i" hint-placeholder-count="3">
+<li style="display: flex; gap: 10px; font-size: 16px; line-height: 1.7"><span aria-hidden="true" style="flex: 0 0 auto; width: 10px; height: 10px; margin-top: 9px; border-radius: 50%; background: #F5B800"></span><span style="min-width: 0">{{i}}</span></li>
+</sc-for>
+</ul>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="activity" style="padding: 72px 0 64px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #0B6CB3; font-size: 14px; font-weight: 700; letter-spacing: .16em">活動</p>
+<h2 style="margin: 4px 0 28px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">地域での取り組み</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px">
+<article class="rv" style="display: flex; flex-direction: column; gap: 12px">
+<img src="img/c_hall.jpg" alt="集会所の一室。折りたたみ椅子が並び、正面に長机とホワイトボードがある" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px">
+<h3 style="margin: 4px 0 0; font-size: 23px; font-weight: 900; line-height: 1.5">市政報告会</h3>
+<p style="margin: 0; font-size: 16px">議会で取り上げたことと、その後の市の対応を、年に4回、地域の集会所でご報告しています。どなたでもご参加いただけます。</p>
+<p style="margin: 0; padding: 12px 16px; background: #EAF4FB; border-radius: 8px; font-size: 16px; line-height: 1.7"><span style="font-weight: 700">次回</span>　2027年1月24日（日）14:00〜　みどり野台集会所</p>
+</article>
+<article class="rv" style="display: flex; flex-direction: column; gap: 12px; transition-delay: .12s">
+<img src="img/c_street.jpg" alt="住宅地の通学路。横断歩道とカーブミラー、緑色に塗られた歩行者の通る帯がある" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px">
+<h3 style="margin: 4px 0 0; font-size: 23px; font-weight: 900; line-height: 1.5">通学路の安全点検</h3>
+<p style="margin: 0; font-size: 16px">保護者や見守りの皆さんと通学路を歩き、見通しの悪い交差点や、消えかけた横断歩道を確かめています。結果は市に伝え、対応をご報告します。</p>
+<p style="margin: 0; padding: 12px 16px; background: #EAF4FB; border-radius: 8px; font-size: 16px; line-height: 1.7"><span style="font-weight: 700">これまで</span>　3つの小学校区で実施</p>
+</article>
+</div>
+</div>
+</section>
+
+<section id="report" style="background: #EAF4FB; padding: 68px 0 72px">
+<div class="rv" style="max-width: 900px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #0B6CB3; font-size: 14px; font-weight: 700; letter-spacing: .16em">活動報告</p>
+<h2 style="margin: 4px 0 18px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">最近の活動</h2>
+<div role="group" aria-label="活動報告の絞り込み" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 46px; padding: 0 20px; border: 1px solid #102A4C; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{reports}}" as="r" hint-placeholder-count="5">
+<li style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; padding: 16px 20px; background: #FFFFFF; border-radius: 10px">
+<span style="flex: 0 0 auto; font-size: 15px; color: #44566C">{{r.d}}</span>
+<span style="flex: 0 0 auto; padding: 0 12px; border-radius: 999px; background: #102A4C; color: #FFFFFF; font-size: 14px; font-weight: 700; line-height: 1.9">{{r.c}}</span>
+<span style="flex: 1 1 300px; min-width: 0; font-size: 17px; font-weight: 500; line-height: 1.7">{{r.t}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<section id="sns" style="padding: 64px 0 56px">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px">
+<div style="min-width: 0">
+<p style="margin: 0; color: #0B6CB3; font-size: 14px; font-weight: 700; letter-spacing: .16em">Instagram</p>
+<h2 style="margin: 4px 0 0; font-size: clamp(24px, 3.2vw, 30px); font-weight: 900; line-height: 1.5">日々の活動を、写真でお伝えしています。</h2>
+</div>
+<span style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 1px solid #102A4C; border-radius: 6px; font-size: 16px; font-weight: 700">Instagramを見る（リンクが入ります）</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
+<sc-for list="{{tiles}}" as="t" hint-placeholder-count="4">
+<div style="aspect-ratio: 1 / 1; box-sizing: border-box; padding: 12px; display: flex; align-items: center; justify-content: center; border: 1px dashed #5F7A94; border-radius: 10px; background: #F4F9FD; color: #44566C; font-size: 15px; line-height: 1.6; text-align: center">{{t}}</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="profile" style="background: #EAF4FB; padding: 68px 0 72px">
+<div class="rv" style="max-width: 1000px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #0B6CB3; font-size: 14px; font-weight: 700; letter-spacing: .16em">プロフィール</p>
+<h2 style="margin: 4px 0 26px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">早瀬 まこと<span style="margin-left: 14px; font-size: 17px; font-weight: 500">はやせ まこと</span></h2>
+<div style="display: flex; flex-wrap: wrap; gap: 28px 44px; align-items: flex-start">
+<div style="flex: 0 1 260px; min-width: 200px; margin-inline: auto; aspect-ratio: 4 / 5; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; border: 1px dashed #5F7A94; border-radius: 12px; background: #FFFFFF; color: #44566C; font-size: 15px; line-height: 1.7; text-align: center">ここに<br>ご本人のお写真が<br>入ります</div>
+<dl style="flex: 1.6 1 380px; min-width: 0; margin: 0; padding: 6px 24px; background: #FFFFFF; border-radius: 12px">
+<sc-for list="{{profile}}" as="s" hint-placeholder-count="7">
+<div style="display: flex; flex-wrap: wrap; gap: 2px 20px; padding: 14px 0; border-bottom: 1px solid #E1ECF5">
+<dt style="flex: 0 0 6em; font-size: 16px; font-weight: 700; color: #0B6CB3">{{s.k}}</dt>
+<dd style="flex: 1 1 220px; min-width: 0; margin: 0; font-size: 16px">{{s.v}}</dd>
+</div>
+</sc-for>
+</dl>
+</div>
+</div>
+</section>
+
+<section id="office" style="padding: 68px 0 72px">
+<div class="rv" style="max-width: 1000px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 28px 44px; align-items: center">
+<div style="flex: 1 1 340px; min-width: 0">
+<p style="margin: 0; color: #0B6CB3; font-size: 14px; font-weight: 700; letter-spacing: .16em">事務所のご案内</p>
+<h2 style="margin: 4px 0 14px; font-size: clamp(24px, 3.2vw, 30px); font-weight: 900; line-height: 1.5">早瀬まこと事務所</h2>
+<p style="margin: 0; font-size: 17px">〒000-0000　◯◯県みどり野市みどり野台0-0-0<br>電話　00-0000-0000<br>受付　平日 10:00〜17:00</p>
+</div>
+<div style="flex: 1 1 340px; min-width: 0; padding: 28px 24px; background: #102A4C; color: #FFFFFF; border-radius: 12px">
+<h3 style="margin: 0 0 8px; font-size: 22px; font-weight: 900; line-height: 1.5">ご意見・ご相談をお寄せください。</h3>
+<p style="margin: 0 0 18px; font-size: 16px; color: #DCE8F3">市政へのご意見、地域の困りごと、市政報告会のお申し込みを、このページからお送りいただけます。</p>
+<button type="button" class="tap" onClick="{{go.ask}}" style="width: 100%; min-height: 54px; border: 0; border-radius: 6px; background: #FFFFFF; color: #102A4C; font-size: 17px; font-weight: 700">ご意見・ご相談のフォームへ</button>
+</div>
+</div>
+</section>
+
+</main>
+</sc-if>
+
+<sc-if value="{{is.contact}}" hint-placeholder-val="{{false}}">
+<main style="background: #EAF4FB; padding: 44px 0 72px">
+<div style="max-width: 720px; margin: 0 auto; padding: 0 16px">
+<h1 style="margin: 0 0 6px; font-size: clamp(28px, 4.4vw, 38px); font-weight: 900; line-height: 1.5">ご意見・ご相談</h1>
+<p style="margin: 0 0 24px; font-size: 16px">いただいた内容は、早瀬まこと本人が拝見します。お返事までに、数日いただくことがあります。</p>
+<div style="display: flex; flex-direction: column; gap: 18px">
+
+<section style="padding: 22px 20px; background: #FFFFFF; border-radius: 12px">
+<p id="l-topic" style="margin: 0 0 8px; font-size: 17px; font-weight: 700">内容の種類</p>
+<div role="group" aria-labelledby="l-topic" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{topics}}" as="t" hint-placeholder-count="4">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #102A4C; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<label for="f-body" style="display: block; margin: 18px 0 6px; font-size: 17px; font-weight: 700">内容<span style="margin-left: 8px; color: #B42318; font-size: 14px">必須</span></label>
+<textarea id="f-body" rows="6" onChange="{{f.body}}" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid #5F7A94; border-radius: 8px; background: #FFFFFF; color: #102A4C; font-size: 17px; line-height: 1.7"></textarea>
+<sc-if value="{{ferr.body}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #B42318; font-size: 15px; font-weight: 700">内容をご入力ください。</p></sc-if>
+<label for="f-area" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700">お住まいの地域（任意）</label>
+<input id="f-area" type="text" onChange="{{f.area}}" placeholder="例：みどり野台" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5F7A94; border-radius: 8px; background: #FFFFFF; color: #102A4C; font-size: 17px">
+</section>
+
+<section style="padding: 22px 20px; background: #FFFFFF; border-radius: 12px">
+<label for="f-name" style="display: block; margin: 0 0 6px; font-size: 17px; font-weight: 700">お名前<span style="margin-left: 8px; color: #B42318; font-size: 14px">必須</span></label>
+<input id="f-name" type="text" autocomplete="name" onChange="{{f.name}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5F7A94; border-radius: 8px; background: #FFFFFF; color: #102A4C; font-size: 17px">
+<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #B42318; font-size: 15px; font-weight: 700">お名前をご入力ください。</p></sc-if>
+<p id="l-reply" style="margin: 18px 0 8px; font-size: 17px; font-weight: 700">お返事</p>
+<div role="group" aria-labelledby="l-reply" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{replies}}" as="t" hint-placeholder-count="2">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #102A4C; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{is.reply}}" hint-placeholder-val="{{true}}">
+<label for="f-contact" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700">ご連絡先（お電話番号かメールアドレス）<span style="margin-left: 8px; color: #B42318; font-size: 14px">必須</span></label>
+<input id="f-contact" type="text" onChange="{{f.contact}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5F7A94; border-radius: 8px; background: #FFFFFF; color: #102A4C; font-size: 17px">
+<sc-if value="{{ferr.contact}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #B42318; font-size: 15px; font-weight: 700">ご連絡先をご入力ください。</p></sc-if>
+</sc-if>
+</section>
+
+<p style="margin: 0; font-size: 15px; color: #44566C">お預かりした個人情報は、お返事のためだけに使います。</p>
+<button type="button" class="tap" onClick="{{go.submit}}" style="min-height: 58px; border: 0; border-radius: 6px; background: #0B6CB3; color: #FFFFFF; font-size: 18px; font-weight: 700">この内容で送る</button>
+<button type="button" class="tap" onClick="{{go.home}}" style="min-height: 48px; border: 0; background: transparent; color: #102A4C; font-size: 16px; text-decoration: underline">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{is.done}}" hint-placeholder-val="{{false}}">
+<main style="background: #EAF4FB; padding: 56px 0 80px">
+<div style="max-width: 640px; margin: 0 auto; padding: 0 16px">
+<div style="padding: 32px 24px; background: #FFFFFF; border-radius: 12px; border-top: 6px solid #0B6CB3">
+<h1 style="margin: 0 0 10px; font-size: clamp(26px, 4vw, 34px); font-weight: 900; line-height: 1.5">お送りいただき、ありがとうございます。</h1>
+<p style="margin: 0 0 8px; font-size: 16px">内容を拝見し、お返事をご希望の方には、順にご連絡します。</p>
+<p style="margin: 0 0 22px; font-size: 14px; color: #44566C">見本のため、実際には送信されていません。</p>
+<button type="button" class="tap" onClick="{{go.home}}" style="width: 100%; min-height: 54px; border: 1px solid #102A4C; border-radius: 6px; background: #FFFFFF; color: #102A4C; font-size: 17px; font-weight: 700">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<footer style="background: #102A4C; color: #FFFFFF; padding: 40px 0 {{footPad}}">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 40px">
+<div style="min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .12em; color: #DCE8F3">みどり野市議会議員</p>
+<p style="margin: 2px 0 0; font-size: 26px; font-weight: 900; letter-spacing: .08em">早瀬 まこと</p>
+<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.8; color: #DCE8F3">早瀬まこと事務所　◯◯県みどり野市みどり野台0-0-0　電話 00-0000-0000</p>
+</div>
+<p style="margin: 0; font-size: 14px; color: #DCE8F3">© 早瀬まこと事務所（見本のための架空の人物です）</p>
+</div>
+</footer>
+
+<sc-if value="{{is.fab}}" hint-placeholder-val="{{false}}">
+<div class="sp-only" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: #FFFFFF; border-top: 1px solid #C9DCEB">
+<button type="button" class="tap" onClick="{{go.report}}" style="flex: 1 1 0; min-width: 0; min-height: 52px; border: 1px solid #102A4C; border-radius: 6px; background: #FFFFFF; color: #102A4C; font-size: 16px; font-weight: 700">活動報告</button>
+<button type="button" class="tap" onClick="{{go.ask}}" style="flex: 1.3 1 0; min-width: 0; min-height: 52px; border: 0; border-radius: 6px; background: #0B6CB3; color: #FFFFFF; font-size: 16px; font-weight: 700">ご意見・ご相談</button>
+</div>
+</sc-if>
+
+</div>
+</template>
+<script>
+(function(){
+var PROPS={};
+function DCLogic(){this.props={};this.state={};}
+DCLogic.prototype.setState=function(o){var p=typeof o==='function'?o(this.state):o;for(var k in p){this.state[k]=p[k];}render();};
+DCLogic.prototype.forceUpdate=function(){render();};
+window.DCLogic=DCLogic;
+var WH=/^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/,HOLE=/\{\{\s*([^}]+?)\s*\}\}/g;
+function lookup(path,sc){path=path.trim();if(path==='true')return true;if(path==='false')return false;if(/^-?\d+(\.\d+)?$/.test(path))return Number(path);var ps=path.split('.');for(var i=sc.length-1;i>=0;i--){if(sc[i]!=null&&ps[0] in sc[i]){var v=sc[i];for(var j=0;j<ps.length;j++){if(v==null)return undefined;v=v[ps[j]];}return v;}}return undefined;}
+function interp(s,sc){return s.replace(HOLE,function(_,p){var v=lookup(p,sc);return v==null?'':String(v);});}
+function kids(n,sc,parent){for(var c=n.firstChild;c;c=c.nextSibling)build(c,sc,parent);}
+function listen(el,ev){if(!el.__l)el.__l={};if(el.__l[ev])return;el.__l[ev]=1;el.addEventListener(ev,function(e){var f=el.__h&&el.__h[ev];if(f)return f(e);});}
+function build(n,sc,parent){
+ if(n.nodeType===3){parent.appendChild(document.createTextNode(interp(n.nodeValue,sc)));return;}
+ if(n.nodeType!==1)return;
+ var tag=n.localName;
+ if(tag==='sc-if'){var m0=WH.exec(n.getAttribute('value')||'');if(m0&&lookup(m0[1],sc))kids(n,sc,parent);return;}
+ if(tag==='sc-for'){var m1=WH.exec(n.getAttribute('list')||'');var list=(m1&&lookup(m1[1],sc))||[];var as=n.getAttribute('as');list.forEach(function(it,i){var s={};s[as]=it;s.$index=i;kids(n,sc.concat([s]),parent);});return;}
+ var el=document.createElementNS(n.namespaceURI,tag);el.__a={};el.__h={};
+ for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i],name=a.name,val=a.value;
+  if(name.indexOf('hint-')===0)continue;
+  var m=WH.exec(val);
+  if(/^on[a-z]/i.test(name)){if(m){var fn=lookup(m[1],sc);if(typeof fn==='function'){var ev=name.slice(2).toLowerCase();if(ev==='change'&&(tag==='textarea'||(tag==='input'&&n.getAttribute('type')!=='checkbox')))ev='input';el.__h[ev]=fn;}}continue;}
+  if(m){var v=lookup(m[1],sc);if(v===false||v==null)continue;el.__a[name]=v===true?'':String(v);continue;}
+  el.__a[name]=interp(val,sc);}
+ for(var k in el.__a)el.setAttribute(k,el.__a[k]);
+ for(var e2 in el.__h)listen(el,e2);
+ kids(n,sc,el);parent.appendChild(el);}
+// 前の画面の要素を残したまま、変わった所だけを書きかえる（動きが途切れない・入力した内容が残る）
+function sync(o,n){var oa=o.__a||{},na=n.__a||{},k;
+ for(k in oa){if(!(k in na))o.removeAttribute(k);}
+ for(k in na){if(oa[k]!==na[k])o.setAttribute(k,na[k]);}
+ o.__a=na;o.__h=n.__h||{};for(k in o.__h)listen(o,k);}
+function same(o,n){if(o.nodeType!==n.nodeType)return false;if(n.nodeType===3)return true;if(n.nodeType!==1)return false;return o.localName===n.localName&&o.namespaceURI===n.namespaceURI&&(o.id||'')===((n.__a&&n.__a.id)||'');}
+function morph(op,np){var o=op.firstChild,n=np.firstChild;
+ while(n){var nn=n.nextSibling;
+  if(!o){op.appendChild(n);}
+  else if(same(o,n)){if(n.nodeType===3){if(o.nodeValue!==n.nodeValue)o.nodeValue=n.nodeValue;}else{sync(o,n);morph(o,n);}o=o.nextSibling;}
+  else{var on=o.nextSibling;op.replaceChild(n,o);o=on;}
+  n=nn;}
+ while(o){var x=o.nextSibling;op.removeChild(o);o=x;}}
+var comp,tpl,root,booted=false;
+function render(){
+ var frag=document.createDocumentFragment();kids(tpl.content,[comp.renderVals()],frag);
+ if(!booted){root.appendChild(frag);booted=true;return;}
+ morph(root,frag);
+ if(comp.componentDidUpdate){try{comp.componentDidUpdate();}catch(_){}}
+}
+window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.getElementById('app');comp=new C();comp.props=PROPS;if(!comp.state)comp.state={};render();if(comp.componentDidMount)comp.componentDidMount();};
+})();
+
+class Component extends DCLogic {
+st() {
+return Object.assign({ screen: 'home', menu: false, cat: 'すべて', topic: '市政へのご意見', reply: '希望する', ferr: {} }, this.state || {});
+}
+componentDidMount() { this.fx(); }
+componentDidUpdate() { this.fx(); }
+fx() {
+try {
+var root = document.getElementById('top');
+if (!root || !('IntersectionObserver' in window)) { return; }
+var self = this;
+if (!this.io) {
+this.io = new IntersectionObserver(function (es) {
+es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); self.io.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+}
+root.classList.add('fx');
+var els = root.querySelectorAll('.rv:not(.in)');
+for (var i = 0; i < els.length; i++) { this.io.observe(els[i]); }
+} catch (e) {}
+}
+jump(id) {
+setTimeout(function () {
+try {
+var el = id ? document.getElementById(id) : null;
+if (el) { el.scrollIntoView({ block: 'start' }); } else { window.scrollTo(0, 0); }
+} catch (e) {}
+}, 80);
+}
+renderVals() {
+const self = this;
+const st = this.st();
+const sc = st.screen;
+const to = function (o, id) { return function () { self.setState(Object.assign({ menu: false }, o)); self.jump(id); }; };
+const chip = function (on) { return on ? { bg: '#102A4C', fg: '#FFFFFF', pressed: 'true' } : { bg: '#FFFFFF', fg: '#102A4C', pressed: 'false' }; };
+const REPORTS = [
+['2026年11月18日', '議会', '12月の定例会で、通学路の安全対策について質問します。'],
+['2026年11月9日', '地域', 'みどり野台の防災訓練に参加しました。'],
+['2026年10月25日', 'お知らせ', '市政報告会（秋）を開きました。当日の資料を公開しています。'],
+['2026年10月12日', '議会', '決算の審査で、子育て支援の予算の使われ方を確かめました。'],
+['2026年9月30日', '地域', '東小学校区で、通学路の安全点検を行いました。'],
+['2026年9月14日', 'お知らせ', '議会だより 第12号を発行しました。']
+];
+const needReply = st.reply === '希望する';
+const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if (st.ferr[k] && String(e.target.value).trim()) { var fe = Object.assign({}, st.ferr); fe[k] = false; self.setState({ ferr: fe }); } }; };
+const submit = function () {
+const F = self.form || {};
+const ferr = { body: !String(F.body || '').trim(), name: !String(F.name || '').trim(), contact: needReply && !String(F.contact || '').trim() };
+if (ferr.body || ferr.name || ferr.contact) { self.setState({ ferr: ferr }); return; }
+self.form = {}; self.setState({ screen: 'done', ferr: {} }); self.jump('');
+};
+const fab = sc === 'home';
+return {
+is: { home: sc === 'home', contact: sc === 'contact', done: sc === 'done', menu: st.menu, fab: fab, reply: needReply },
+menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 'false',
+footPad: fab ? '96px' : '28px',
+policies: [
+['1', '子育てと教育を支える', '働きながら子どもを育てる世帯が、安心して暮らせる街にします。', ['放課後の居場所を増やす', '通学路の安全対策を進める', '学校の施設の改修を計画的に行う']],
+['2', '災害に強い街をつくる', '地震や大雨のときに、だれも取り残さない備えを進めます。', ['避難所の設備を整える', '地域の防災訓練を支える', '浸水しやすい場所の対策を進める']],
+['3', '年を重ねても暮らしやすく', '買い物、通院、移動の心配を減らします。', ['バス路線と乗り合い交通を守る', '身近な相談窓口を広げる', '健康づくりの場を地域につくる']]
+].map(function (x, i) { return { n: x[0], k: x[1], v: x[2], items: x[3], dl: (i * 0.12) + 's' }; }),
+tabs: ['すべて', '議会', '地域', 'お知らせ'].map(function (t) { var c = chip(st.cat === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ cat: t }); } }; }),
+reports: REPORTS.filter(function (r) { return st.cat === 'すべて' || st.cat === r[1]; }).map(function (r) { return { d: r[0], c: r[1], t: r[2] }; }),
+tiles: ['投稿の写真', '投稿の写真', '投稿の写真', '投稿の写真'],
+profile: [
+['生まれ', '昭和◯年　みどり野市生まれ'],
+['学歴', '（最終学歴が入ります）'],
+['経歴', '（これまでのお仕事が入ります）'],
+['議員歴', 'みどり野市議会議員（◯期目）'],
+['所属', '（所属する会派・委員会が入ります）'],
+['地域の役', '（自治会、消防団、PTAなどが入ります）'],
+['家族・趣味', '（ご家族のこと、趣味などが入ります）']
+].map(function (x) { return { k: x[0], v: x[1] }; }),
+topics: ['市政へのご意見', '地域の困りごと', '市政報告会について', 'そのほか'].map(function (t) { var c = chip(st.topic === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ topic: t }); } }; }),
+replies: ['希望する', '希望しない'].map(function (t) { var c = chip(st.reply === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ reply: t }); } }; }),
+f: { body: setF('body'), area: setF('area'), name: setF('name'), contact: setF('contact') },
+ferr: { body: !!st.ferr.body, name: !!st.ferr.name, contact: !!st.ferr.contact },
+go: {
+home: to({ screen: 'home' }, ''), toggle: function () { self.setState({ menu: !st.menu }); },
+message: to({ screen: 'home' }, 'message'), policy: to({ screen: 'home' }, 'policy'), activity: to({ screen: 'home' }, 'activity'), report: to({ screen: 'home' }, 'report'), profile: to({ screen: 'home' }, 'profile'), office: to({ screen: 'home' }, 'office'),
+ask: function () { self.form = {}; self.setState({ screen: 'contact', menu: false, ferr: {} }); self.jump(''); },
+submit: submit
+}
+};
+}
+}
+window.__dcBoot(Component);
+</script>
+</body>
+</html>

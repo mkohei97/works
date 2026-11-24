@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<title>ゆのはな住器｜ホームページの見本</title>
+<meta name="description" content="給湯・浴室・水まわりの工事の会社のホームページの見本です。会社名・費用は仮のものです。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ゆのはな住器｜ホームページの見本">
+<meta property="og:description" content="給湯・浴室・水まわりの工事の会社のホームページの見本です。会社名・費用は仮のものです。">
+<meta property="og:image" content="https://mkohei97.github.io/works/mizumawari/img/m_hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#0B6470}a:hover{color:#17272B}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #F0A040;outline-offset:2px}
+h1,h2,h3,dt,button{word-break:auto-phrase}
+p,li,dd{text-wrap:pretty}
+@media (max-width:759px){.pc-only{display:none !important}
+.m-first{order:-1}
+.swipe{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:-16px !important;padding:4px 16px 14px !important;scroll-padding-inline:16px}
+.swipe::-webkit-scrollbar{display:none}
+.swipe>*{flex:0 0 80%;box-sizing:border-box;scroll-snap-align:start}}
+@media (min-width:760px){.sp-only{display:none !important}}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.kb{animation:kb 24s ease-in-out infinite alternate;will-change:transform}
+.intro>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+.intro>*:nth-child(2){animation-delay:.1s}.intro>*:nth-child(3){animation-delay:.2s}.intro>*:nth-child(4){animation-delay:.3s}
+.tap{transition:transform .15s,background-color .15s,color .15s}.tap:active{transform:scale(.97)}
+.card{transition:transform .3s,box-shadow .3s}
+.card img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.card:hover{box-shadow:0 10px 24px rgba(23,39,43,.14)}.card:hover img{transform:scale(1.05)}}
+.fx .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.fx .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.fx .rv{opacity:1;transform:none}}
+</style>
+<style>
+:root{color-scheme:light}
+html{-webkit-text-size-adjust:100%;background:#FFFFFF}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div id="top" style="background: #FFFFFF; color: #17272B; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.9; line-break: strict; overflow-x: hidden">
+
+<div style="background: #17272B; color: #FFFFFF; padding: 8px 16px; font-size: 14px; line-height: 1.6; text-align: center">見本のページです。会社名・施工事例・費用・住所・電話番号は、仮のものです。</div>
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #C6D8DB">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button type="button" class="tap" onClick="{{go.home}}" aria-label="トップページへ" style="display: flex; align-items: center; gap: 12px; min-height: 48px; min-width: 0; padding: 0; border: 0; background: transparent; color: #17272B; text-align: left">
+<svg viewBox="0 0 44 44" aria-hidden="true" style="width: 42px; height: 42px; flex: 0 0 auto"><rect x="2" y="2" width="40" height="40" rx="10" fill="#0B6470"></rect><path d="M22 9c5 6.5 8.5 11 8.5 15.5a8.5 8.5 0 0 1-17 0C13.5 20 17 15.5 22 9z" fill="#FFFFFF"></path></svg>
+<span style="display: flex; flex-direction: column; min-width: 0"><span style="font-size: 13px; line-height: 1.4; letter-spacing: .1em; color: #45585C">給湯・浴室・水まわりの工事</span><span style="font-size: 21px; font-weight: 900; line-height: 1.3; letter-spacing: .04em; white-space: nowrap">ゆのはな住器</span></span>
+</button>
+<nav class="pc-only" aria-label="主なメニュー" style="display: flex; align-items: center; gap: 2px">
+<button type="button" class="tap" onClick="{{go.works}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #17272B; font-size: 15px; font-weight: 500">対応工事</button>
+<button type="button" class="tap" onClick="{{go.cases}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #17272B; font-size: 15px; font-weight: 500">施工事例</button>
+<button type="button" class="tap" onClick="{{go.flow}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #17272B; font-size: 15px; font-weight: 500">ご相談の流れ</button>
+<button type="button" class="tap" onClick="{{go.company}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #17272B; font-size: 15px; font-weight: 500">会社概要</button>
+</nav>
+<div class="pc-only" style="display: flex; align-items: center; gap: 16px">
+<span style="display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3"><span style="font-size: 20px; font-weight: 700; letter-spacing: .04em">000-000-0000</span><span style="font-size: 13px; color: #45585C">受付 8:30〜18:00（日・祝日は休み）</span></span>
+<button type="button" class="tap" onClick="{{go.ask}}" style="min-height: 46px; padding: 0 22px; border: 0; border-radius: 6px; background: #B84A0E; color: #FFFFFF; font-size: 15px; font-weight: 700">相談・見積</button>
+</div>
+<button type="button" class="sp-only tap" onClick="{{go.toggle}}" aria-expanded="{{menuOpen}}" style="flex: 0 0 auto; min-width: 84px; min-height: 44px; border: 1px solid #17272B; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 14px; font-weight: 700">{{menuLabel}}</button>
+</div>
+<sc-if value="{{is.menu}}" hint-placeholder-val="{{false}}">
+<nav class="sp-only" aria-label="メニュー" style="display: flex; flex-direction: column; border-top: 1px solid #C6D8DB">
+<button type="button" onClick="{{go.call}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #DDE9EB; background: #FFFFFF; color: #17272B; font-size: 16px; text-align: left">お急ぎのとき</button>
+<button type="button" onClick="{{go.works}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #DDE9EB; background: #FFFFFF; color: #17272B; font-size: 16px; text-align: left">対応工事</button>
+<button type="button" onClick="{{go.cases}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #DDE9EB; background: #FFFFFF; color: #17272B; font-size: 16px; text-align: left">施工事例</button>
+<button type="button" onClick="{{go.guide}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #DDE9EB; background: #FFFFFF; color: #17272B; font-size: 16px; text-align: left">給湯器の交換の目安</button>
+<button type="button" onClick="{{go.flow}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #DDE9EB; background: #FFFFFF; color: #17272B; font-size: 16px; text-align: left">ご相談の流れ</button>
+<button type="button" onClick="{{go.faq}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #DDE9EB; background: #FFFFFF; color: #17272B; font-size: 16px; text-align: left">よくあるご質問</button>
+<button type="button" onClick="{{go.company}}" style="min-height: 54px; padding: 0 18px; border: 0; background: #FFFFFF; color: #17272B; font-size: 16px; text-align: left">会社概要</button>
+</nav>
+</sc-if>
+</header>
+
+<sc-if value="{{is.home}}" hint-placeholder-val="{{true}}">
+<main>
+
+<section style="background: #EDF5F6; display: flex; flex-wrap: wrap; align-items: stretch">
+<div class="intro" style="flex: 1 1 400px; min-width: 0; box-sizing: border-box; padding: clamp(24px, 5vw, 60px) 20px clamp(28px, 5vw, 56px) max(20px, calc((100vw - 1160px) / 2 + 16px)); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 14px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: .1em; color: #0B6470">◯◯市の、給湯と水まわりの設備会社</p>
+<h1 style="margin: 0; font-size: clamp(28px, 3.7vw, 42px); font-weight: 900; line-height: 1.45; letter-spacing: .02em">お湯が出ない、<br>水が漏れる。<br>まずお電話ください。</h1>
+<p style="margin: 0; max-width: 31em; font-size: 17px">給湯器の交換から、浴室・キッチン・トイレ・洗面所の工事、水漏れやつまりの修理まで。地元の設備会社が伺います。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" class="tap" onClick="{{go.call}}" style="min-height: 54px; padding: 0 28px; border: 0; border-radius: 6px; background: #B84A0E; color: #FFFFFF; font-size: 17px; font-weight: 700">電話で相談する</button>
+<button type="button" class="tap pc-only" onClick="{{go.ask}}" style="min-height: 54px; padding: 0 28px; border: 1px solid #17272B; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px; font-weight: 700">フォームで相談・見積</button>
+</div>
+</div>
+<div style="flex: 1.25 1 420px; min-width: 0; min-height: clamp(200px, 52vw, 320px); position: relative; overflow: hidden">
+<img class="kb" src="img/m_hero.jpg" alt="白い洗面化粧台のある洗面所と、その奥の明るい浴室" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%">
+</div>
+</section>
+
+<section aria-label="会社のこと" style="background: #0B6470; color: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 18px 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 28px">
+<sc-for list="{{facts}}" as="f" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; line-height: 1.6"><span style="font-size: 14px; letter-spacing: .08em; color: #D3E8EA">{{f.k}}</span><span style="font-size: 18px; font-weight: 700">{{f.v}}</span></div>
+</sc-for>
+</div>
+</section>
+
+<section id="call" style="padding: 60px 0 56px">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: stretch">
+<div style="flex: 1.3 1 400px; min-width: 0">
+<p style="margin: 0; color: #0B6470; font-size: 14px; font-weight: 700; letter-spacing: .14em">お急ぎのとき</p>
+<h2 style="margin: 4px 0 6px; font-size: clamp(26px, 3.6vw, 34px); font-weight: 900; line-height: 1.5">お電話の前に、3つだけ</h2>
+<p style="margin: 0 0 16px; font-size: 16px; color: #45585C">分かる範囲でかまいません。お伝えいただくと、部品や代わりの機器の手配が早くなります。</p>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{before}}" as="b" hint-placeholder-count="3">
+<li style="display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; border: 1px solid #C6D8DB; border-radius: 10px">
+<span aria-hidden="true" style="flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; background: #0B6470; color: #FFFFFF; font-size: 17px; font-weight: 700; line-height: 34px; text-align: center">{{b.n}}</span>
+<div style="min-width: 0"><h3 style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.6">{{b.k}}</h3><p style="margin: 2px 0 0; font-size: 16px; line-height: 1.8; color: #2A3B3F">{{b.v}}</p></div>
+</li>
+</sc-for>
+</ol>
+<p style="margin: 14px 0 0; font-size: 15px; color: #45585C">ガスのにおいがするときは、窓を開けて、すぐにご契約のガス会社へご連絡ください。</p>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 28px 24px; background: #17272B; color: #FFFFFF; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; gap: 6px">
+<p style="margin: 0; font-size: 15px; letter-spacing: .08em; color: #D3E8EA">お電話でのご相談</p>
+<p style="margin: 0; font-size: clamp(30px, 8vw, 40px); font-weight: 900; line-height: 1.3; letter-spacing: .04em; white-space: nowrap">000-000-0000</p>
+<p style="margin: 0 0 12px; font-size: 16px; color: #DCE7E9">受付 8:30〜18:00（日・祝日は休み）</p>
+<p style="margin: 0 0 14px; font-size: 15px; line-height: 1.8; color: #DCE7E9">スマートフォンでは、この番号を押すとそのまま電話がかかるようにします。</p>
+<button type="button" class="tap" onClick="{{go.askUrgent}}" style="min-height: 54px; border: 0; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px; font-weight: 700">フォームで相談する</button>
+<p style="margin: 8px 0 0; font-size: 14px; line-height: 1.7; color: #DCE7E9">受付時間の外は、フォームからお送りください。翌営業日にご連絡します。</p>
+</div>
+</div>
+</section>
+
+<section id="works" style="background: #EDF5F6; padding: 64px 0 60px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<div class="rv">
+<p style="margin: 0; color: #0B6470; font-size: 14px; font-weight: 700; letter-spacing: .14em">対応工事</p>
+<h2 style="margin: 4px 0 6px; font-size: clamp(26px, 3.6vw, 34px); font-weight: 900; line-height: 1.5">頼める工事</h2>
+<p style="margin: 0 0 24px; font-size: 16px; color: #45585C">蛇口1つの交換から、浴室の入替えまで。ここに無い工事も、まずはご相談ください。</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<sc-for list="{{works}}" as="w" hint-placeholder-count="6">
+<article class="rv" style="display: flex; flex-direction: column; gap: 8px; padding: 22px 22px 20px; background: #FFFFFF; border-radius: 10px; transition-delay: {{w.dl}}">
+<h3 style="margin: 0; display: flex; align-items: center; gap: 12px; font-size: 21px; font-weight: 900; line-height: 1.5"><span aria-hidden="true" style="flex: 0 0 auto; width: 10px; height: 26px; border-radius: 3px; background: #0B6470"></span>{{w.k}}</h3>
+<p style="margin: 0; flex: 1 1 auto; font-size: 16px; line-height: 1.8; color: #2A3B3F">{{w.v}}</p>
+<button type="button" class="tap" onClick="{{w.ask}}" style="align-self: flex-start; min-height: 46px; padding: 0 18px; border: 1px solid #0B6470; border-radius: 6px; background: #FFFFFF; color: #0B6470; font-size: 15px; font-weight: 700">この工事を相談する</button>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="cases" style="padding: 64px 0 60px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<div class="rv">
+<p style="margin: 0; color: #0B6470; font-size: 14px; font-weight: 700; letter-spacing: .14em">施工事例</p>
+<h2 style="margin: 4px 0 14px; font-size: clamp(26px, 3.6vw, 34px); font-weight: 900; line-height: 1.5">工期と費用の目安つきで、ご紹介します。</h2>
+<div role="group" aria-label="施工事例の絞り込み" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 46px; padding: 0 18px; border: 1px solid #17272B; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<p class="sp-only" style="margin: 10px 0 0; font-size: 14px; color: #45585C">横に動かして、ほかの事例もご覧ください。</p>
+</div>
+<div class="swipe" style="margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px">
+<sc-for list="{{cases}}" as="c" hint-placeholder-count="6">
+<article class="card" style="display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #C6D8DB; border-radius: 10px; overflow: hidden">
+<div style="overflow: hidden"><img src="{{c.img}}" alt="{{c.alt}}" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover"></div>
+<div style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 auto; padding: 18px 20px 20px">
+<p style="margin: 0; align-self: flex-start; padding: 0 12px; border-radius: 999px; background: #DFEEF0; color: #0B6470; font-size: 14px; font-weight: 700; line-height: 1.9">{{c.cat}}</p>
+<h3 style="margin: 0; font-size: 19px; font-weight: 700; line-height: 1.6">{{c.title}}</h3>
+<p style="margin: 0; flex: 1 1 auto; font-size: 16px; line-height: 1.8; color: #2A3B3F">{{c.body}}</p>
+<dl style="margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+<div style="padding: 8px 12px; background: #EDF5F6; border-radius: 6px; line-height: 1.5"><dt style="font-size: 14px; color: #45585C">工期</dt><dd style="margin: 0; font-size: 18px; font-weight: 700">{{c.term}}</dd></div>
+<div style="padding: 8px 12px; background: #EDF5F6; border-radius: 6px; line-height: 1.5"><dt style="font-size: 14px; color: #45585C">費用の目安（税込）</dt><dd style="margin: 0; font-size: 18px; font-weight: 700">{{c.cost}}</dd></div>
+</dl>
+<button type="button" class="tap" onClick="{{c.ask}}" style="min-height: 46px; border: 1px solid #0B6470; border-radius: 6px; background: #FFFFFF; color: #0B6470; font-size: 15px; font-weight: 700">同じような工事を相談する</button>
+</div>
+</article>
+</sc-for>
+</div>
+<p style="margin: 14px 0 0; font-size: 15px; color: #45585C">費用は、機器代と工事費を含む目安です。機種や現場の条件によって、費用と工期は変わります。</p>
+</div>
+</section>
+
+<section id="guide" style="background: #EDF5F6; padding: 60px 0 56px">
+<div class="rv" style="max-width: 1000px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 24px 44px; align-items: center">
+<div style="flex: 0 1 280px; min-width: 0; box-sizing: border-box; padding: 26px 22px; background: #FFFFFF; border-radius: 10px; border-top: 6px solid #0B6470; text-align: center">
+<p style="margin: 0; font-size: 15px; font-weight: 700; color: #45585C">家庭用の給湯器の、<br>設計上の標準使用期間</p>
+<p style="margin: 4px 0 0; font-size: 64px; font-weight: 900; line-height: 1.2; color: #0B6470">10<span style="font-size: 26px; margin-left: 4px">年</span></p>
+<p style="margin: 6px 0 0; font-size: 14px; line-height: 1.7; color: #45585C">多くのメーカーが、取扱説明書などに示している期間です。機種によって異なります。</p>
+</div>
+<div style="flex: 1.4 1 380px; min-width: 0">
+<p style="margin: 0; color: #0B6470; font-size: 14px; font-weight: 700; letter-spacing: .14em">給湯器の交換の目安</p>
+<h2 style="margin: 4px 0 12px; font-size: clamp(24px, 3.2vw, 30px); font-weight: 900; line-height: 1.5">こんな様子が出たら、止まる前にご相談ください。</h2>
+<ul style="margin: 0 0 14px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+<sc-for list="{{signs}}" as="s" hint-placeholder-count="4">
+<li style="display: flex; gap: 10px; align-items: flex-start; font-size: 16px; line-height: 1.8"><span aria-hidden="true" style="flex: 0 0 auto; margin-top: 11px; width: 8px; height: 8px; border-radius: 50%; background: #0B6470"></span><span style="min-width: 0">{{s.t}}</span></li>
+</sc-for>
+</ul>
+<p style="margin: 0 0 14px; font-size: 16px">急に止まると、機器が届くまでお湯が使えない日が出ます。早めにご相談いただくと、機種と費用を比べて選べます。高効率の給湯器への交換は、国や自治体の補助金の対象になる場合があります。対象になるかどうかも、当社で確かめます。</p>
+<button type="button" class="tap" onClick="{{go.askHeater}}" style="min-height: 48px; padding: 0 20px; border: 1px solid #0B6470; border-radius: 6px; background: #FFFFFF; color: #0B6470; font-size: 16px; font-weight: 700">給湯器の交換を相談する</button>
+</div>
+</div>
+</section>
+
+<section id="flow" style="padding: 64px 0 60px">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #0B6470; font-size: 14px; font-weight: 700; letter-spacing: .14em">ご相談の流れ</p>
+<h2 style="margin: 4px 0 6px; font-size: clamp(26px, 3.6vw, 34px); font-weight: 900; line-height: 1.5">ご相談から、お引き渡しまで</h2>
+<p class="sp-only" style="margin: 0; font-size: 14px; color: #45585C">横に動かして、順にご覧ください。</p>
+<ol class="swipe" style="margin: 18px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
+<sc-for list="{{flow}}" as="f" hint-placeholder-count="5">
+<li style="padding: 20px 18px; background: #EDF5F6; border-radius: 10px; border-top: 4px solid #0B6470">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: .1em; color: #0B6470">手順 {{f.n}}</p>
+<h3 style="margin: 2px 0 4px; font-size: 19px; font-weight: 700; line-height: 1.6">{{f.k}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #2A3B3F">{{f.v}}</p>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<section id="faq" style="padding: 8px 0 60px">
+<div class="rv" style="max-width: 860px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #0B6470; font-size: 14px; font-weight: 700; letter-spacing: .14em">よくあるご質問</p>
+<h2 style="margin: 4px 0 14px; font-size: clamp(26px, 3.6vw, 34px); font-weight: 900; line-height: 1.5">ご相談の前に</h2>
+<sc-for list="{{faq}}" as="q" hint-placeholder-count="5">
+<details style="border-bottom: 1px solid #C6D8DB">
+<summary style="display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 6px 0; cursor: pointer; font-size: 17px; font-weight: 700; line-height: 1.6; list-style: none"><span aria-hidden="true" style="flex: 0 0 auto; color: #0B6470; font-size: 20px; font-weight: 900">Q</span><span style="min-width: 0">{{q.q}}</span></summary>
+<p style="margin: 0; padding: 0 0 16px 32px; font-size: 16px">{{q.a}}</p>
+</details>
+</sc-for>
+</div>
+</section>
+
+<section id="company" style="background: #EDF5F6; padding: 64px 0 64px">
+<div class="rv" style="max-width: 1000px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #0B6470; font-size: 14px; font-weight: 700; letter-spacing: .14em">会社概要</p>
+<h2 style="margin: 4px 0 20px; font-size: clamp(26px, 3.6vw, 34px); font-weight: 900; line-height: 1.5">株式会社 ゆのはな住器</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 24px 36px; align-items: flex-start">
+<dl style="flex: 1.3 1 380px; min-width: 0; margin: 0; padding: 6px 22px; background: #FFFFFF; border-radius: 10px">
+<sc-for list="{{company}}" as="s" hint-placeholder-count="8">
+<div style="display: flex; flex-wrap: wrap; gap: 2px 20px; padding: 14px 0; border-bottom: 1px solid #DDE9EB">
+<dt style="flex: 0 0 6em; font-size: 16px; font-weight: 700; color: #0B6470">{{s.k}}</dt>
+<dd style="flex: 1 1 220px; min-width: 0; margin: 0; font-size: 16px">{{s.v}}</dd>
+</div>
+</sc-for>
+</dl>
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="min-height: 150px; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; border: 1px dashed #5B7175; border-radius: 10px; background: #FFFFFF; color: #45585C; font-size: 15px; text-align: center">ここに地図が入ります（Googleマップ）</div>
+<div style="padding: 24px 22px; background: #17272B; color: #FFFFFF; border-radius: 10px">
+<h3 style="margin: 0 0 6px; font-size: 20px; font-weight: 900; line-height: 1.5">工事のご相談・お見積り</h3>
+<p style="margin: 0 0 14px; font-size: 16px; color: #DCE7E9">お見積りは無料です。今お使いの機器の写真を添えていただくと、ご案内が早くなります。</p>
+<button type="button" class="tap" onClick="{{go.ask}}" style="width: 100%; min-height: 54px; border: 0; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px; font-weight: 700">相談・見積のフォームへ</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+</sc-if>
+
+<sc-if value="{{is.contact}}" hint-placeholder-val="{{false}}">
+<main style="background: #EDF5F6; padding: 44px 0 72px">
+<div class="intro" style="max-width: 720px; margin: 0 auto; padding: 0 16px">
+<div>
+<h1 style="margin: 0 0 6px; font-size: clamp(28px, 4.4vw, 38px); font-weight: 900; line-height: 1.5">ご相談・お見積り</h1>
+<p style="margin: 0 0 24px; font-size: 16px">お湯が出ない、水が止まらないなどお急ぎの場合は、受付時間内にお電話ください（8:30〜18:00。日・祝日は休み）。</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px">
+
+<section style="padding: 22px 20px; background: #FFFFFF; border-radius: 10px">
+<p id="l-kind" style="margin: 0 0 8px; font-size: 17px; font-weight: 700">工事の種類</p>
+<div role="group" aria-labelledby="l-kind" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{kinds}}" as="t" hint-placeholder-count="7">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #17272B; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<p id="l-want" style="margin: 18px 0 8px; font-size: 17px; font-weight: 700">お急ぎの度合い</p>
+<div role="group" aria-labelledby="l-want" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{wants}}" as="t" hint-placeholder-count="3">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #17272B; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<label for="f-area" style="display: block; margin: 18px 0 6px; font-size: 17px; font-weight: 700">現場の地域<span style="margin-left: 8px; color: #A32A14; font-size: 14px">必須</span></label>
+<input id="f-area" type="text" autocomplete="address-level2" onChange="{{f.area}}" placeholder="例：◯◯市◯◯町" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5B7175; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px">
+<sc-if value="{{ferr.area}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">現場の地域をご入力ください。</p></sc-if>
+<label for="f-body" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700">ご相談の内容（任意）</label>
+<textarea id="f-body" rows="4" onChange="{{f.body}}" placeholder="例：給湯器のリモコンに番号が出て、お湯が出ない。15年ほど使っている。" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid #5B7175; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px; line-height: 1.7"></textarea>
+<p style="margin: 10px 0 0; padding: 12px 14px; border: 1px dashed #5B7175; border-radius: 6px; font-size: 15px; color: #45585C">実際のページでは、ここから写真を添えて送れます（給湯器の本体に貼ってあるシールや、今の状態の写真があると、お見積りが早くなります）。</p>
+</section>
+
+<section style="padding: 22px 20px; background: #FFFFFF; border-radius: 10px">
+<label for="f-name" style="display: block; margin: 0 0 6px; font-size: 17px; font-weight: 700">お名前<span style="margin-left: 8px; color: #A32A14; font-size: 14px">必須</span></label>
+<input id="f-name" type="text" autocomplete="name" onChange="{{f.name}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5B7175; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px">
+<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">お名前をご入力ください。</p></sc-if>
+<label for="f-tel" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700">お電話番号<span style="margin-left: 8px; color: #A32A14; font-size: 14px">必須</span></label>
+<input id="f-tel" type="tel" autocomplete="tel" onChange="{{f.tel}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5B7175; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px">
+<sc-if value="{{ferr.tel}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">お電話番号をご入力ください。</p></sc-if>
+<label for="f-mail" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700">メールアドレス（任意）</label>
+<input id="f-mail" type="email" inputmode="email" autocomplete="email" onChange="{{f.mail}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5B7175; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px">
+</section>
+
+<p style="margin: 0; font-size: 15px; color: #45585C">お預かりした個人情報は、ご相談への対応のためだけに使います。</p>
+<button type="button" class="tap" onClick="{{go.submit}}" style="min-height: 58px; border: 0; border-radius: 6px; background: #B84A0E; color: #FFFFFF; font-size: 18px; font-weight: 700">この内容で送る</button>
+<button type="button" onClick="{{go.home}}" style="min-height: 48px; border: 0; background: transparent; color: #17272B; font-size: 16px; text-decoration: underline">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{is.done}}" hint-placeholder-val="{{false}}">
+<main style="background: #EDF5F6; padding: 56px 0 80px">
+<div style="max-width: 640px; margin: 0 auto; padding: 0 16px">
+<div class="intro" style="padding: 32px 24px; background: #FFFFFF; border-radius: 10px; border-top: 6px solid #0B6470">
+<h1 style="margin: 0 0 10px; font-size: clamp(26px, 4vw, 34px); font-weight: 900; line-height: 1.5">お送りいただき、ありがとうございます。</h1>
+<p style="margin: 0 0 8px; font-size: 16px">{{doneLine}}</p>
+<p style="margin: 0 0 22px; font-size: 14px; color: #45585C">見本のため、実際には送信されていません。</p>
+<button type="button" class="tap" onClick="{{go.home}}" style="width: 100%; min-height: 54px; border: 1px solid #17272B; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 17px; font-weight: 700">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<footer style="background: #17272B; color: #FFFFFF; padding: 40px 0 {{footPad}}">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 40px">
+<div style="min-width: 0">
+<p style="margin: 0; font-size: 22px; font-weight: 900; letter-spacing: .04em">株式会社 ゆのはな住器</p>
+<p style="margin: 6px 0 0; font-size: 15px; line-height: 1.8; color: #DCE7E9">◯◯府◯◯市◯◯0丁目0-0<br>給湯設備・浴室設備・水まわりの工事と修理・住宅リフォーム</p>
+</div>
+<div style="min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+<span style="font-size: 14px; color: #DCE7E9">受付 8:30〜18:00（日・祝日は休み）</span>
+<span style="font-size: 28px; font-weight: 700; line-height: 1.3; letter-spacing: .04em">000-000-0000</span>
+</div>
+</div>
+<p style="max-width: 1160px; margin: 26px auto 0; padding: 0 16px; font-size: 14px; color: #DCE7E9">© ゆのはな住器（見本のための架空の会社です）</p>
+</footer>
+
+<sc-if value="{{is.fab}}" hint-placeholder-val="{{false}}">
+<div class="sp-only" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: #FFFFFF; border-top: 1px solid #C6D8DB">
+<button type="button" class="tap" onClick="{{go.call}}" style="flex: 1.2 1 0; min-width: 0; min-height: 52px; border: 0; border-radius: 6px; background: #B84A0E; color: #FFFFFF; font-size: 16px; font-weight: 700">電話する</button>
+<button type="button" class="tap" onClick="{{go.ask}}" style="flex: 1 1 0; min-width: 0; min-height: 52px; border: 1px solid #17272B; border-radius: 6px; background: #FFFFFF; color: #17272B; font-size: 16px; font-weight: 700">相談・見積</button>
+</div>
+</sc-if>
+
+</div>
+</template>
+<script>
+(function(){
+var PROPS={};
+function DCLogic(){this.props={};this.state={};}
+DCLogic.prototype.setState=function(o){var p=typeof o==='function'?o(this.state):o;for(var k in p){this.state[k]=p[k];}render();};
+DCLogic.prototype.forceUpdate=function(){render();};
+window.DCLogic=DCLogic;
+var WH=/^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/,HOLE=/\{\{\s*([^}]+?)\s*\}\}/g;
+function lookup(path,sc){path=path.trim();if(path==='true')return true;if(path==='false')return false;if(/^-?\d+(\.\d+)?$/.test(path))return Number(path);var ps=path.split('.');for(var i=sc.length-1;i>=0;i--){if(sc[i]!=null&&ps[0] in sc[i]){var v=sc[i];for(var j=0;j<ps.length;j++){if(v==null)return undefined;v=v[ps[j]];}return v;}}return undefined;}
+function interp(s,sc){return s.replace(HOLE,function(_,p){var v=lookup(p,sc);return v==null?'':String(v);});}
+function kids(n,sc,parent){for(var c=n.firstChild;c;c=c.nextSibling)build(c,sc,parent);}
+function listen(el,ev){if(!el.__l)el.__l={};if(el.__l[ev])return;el.__l[ev]=1;el.addEventListener(ev,function(e){var f=el.__h&&el.__h[ev];if(f)return f(e);});}
+function build(n,sc,parent){
+ if(n.nodeType===3){parent.appendChild(document.createTextNode(interp(n.nodeValue,sc)));return;}
+ if(n.nodeType!==1)return;
+ var tag=n.localName;
+ if(tag==='sc-if'){var m0=WH.exec(n.getAttribute('value')||'');if(m0&&lookup(m0[1],sc))kids(n,sc,parent);return;}
+ if(tag==='sc-for'){var m1=WH.exec(n.getAttribute('list')||'');var list=(m1&&lookup(m1[1],sc))||[];var as=n.getAttribute('as');list.forEach(function(it,i){var s={};s[as]=it;s.$index=i;kids(n,sc.concat([s]),parent);});return;}
+ var el=document.createElementNS(n.namespaceURI,tag);el.__a={};el.__h={};
+ for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i],name=a.name,val=a.value;
+  if(name.indexOf('hint-')===0)continue;
+  var m=WH.exec(val);
+  if(/^on[a-z]/i.test(name)){if(m){var fn=lookup(m[1],sc);if(typeof fn==='function'){var ev=name.slice(2).toLowerCase();if(ev==='change'&&(tag==='textarea'||(tag==='input'&&n.getAttribute('type')!=='checkbox')))ev='input';el.__h[ev]=fn;}}continue;}
+  if(m){var v=lookup(m[1],sc);if(v===false||v==null)continue;el.__a[name]=v===true?'':String(v);continue;}
+  el.__a[name]=interp(val,sc);}
+ for(var k in el.__a)el.setAttribute(k,el.__a[k]);
+ for(var e2 in el.__h)listen(el,e2);
+ kids(n,sc,el);parent.appendChild(el);}
+// 前の画面の要素を残したまま、変わった所だけを書きかえる（動きが途切れない・入力した内容が残る）
+function sync(o,n){var oa=o.__a||{},na=n.__a||{},k;
+ for(k in oa){if(!(k in na))o.removeAttribute(k);}
+ for(k in na){if(oa[k]!==na[k])o.setAttribute(k,na[k]);}
+ o.__a=na;o.__h=n.__h||{};for(k in o.__h)listen(o,k);}
+function same(o,n){if(o.nodeType!==n.nodeType)return false;if(n.nodeType===3)return true;if(n.nodeType!==1)return false;return o.localName===n.localName&&o.namespaceURI===n.namespaceURI&&(o.id||'')===((n.__a&&n.__a.id)||'');}
+function morph(op,np){var o=op.firstChild,n=np.firstChild;
+ while(n){var nn=n.nextSibling;
+  if(!o){op.appendChild(n);}
+  else if(same(o,n)){if(n.nodeType===3){if(o.nodeValue!==n.nodeValue)o.nodeValue=n.nodeValue;}else{sync(o,n);morph(o,n);}o=o.nextSibling;}
+  else{var on=o.nextSibling;op.replaceChild(n,o);o=on;}
+  n=nn;}
+ while(o){var x=o.nextSibling;op.removeChild(o);o=x;}}
+var comp,tpl,root,booted=false;
+function render(){
+ var frag=document.createDocumentFragment();kids(tpl.content,[comp.renderVals()],frag);
+ if(!booted){root.appendChild(frag);booted=true;return;}
+ morph(root,frag);
+ if(comp.componentDidUpdate){try{comp.componentDidUpdate();}catch(_){}}
+}
+window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.getElementById('app');comp=new C();comp.props=PROPS;if(!comp.state)comp.state={};render();if(comp.componentDidMount)comp.componentDidMount();};
+})();
+
+class Component extends DCLogic {
+st() {
+return Object.assign({ screen: 'home', menu: false, cat: 'すべて', kind: '給湯器', want: '日程は相談したい', ferr: {}, doneLine: '' }, this.state || {});
+}
+componentDidMount() { this.fx(); }
+componentDidUpdate() { this.fx(); }
+fx() {
+try {
+var root = document.getElementById('top');
+if (!root || !('IntersectionObserver' in window)) { return; }
+var self = this;
+if (!this.io) {
+this.io = new IntersectionObserver(function (es) {
+es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); self.io.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+}
+root.classList.add('fx');
+var els = root.querySelectorAll('.rv:not(.in)');
+for (var i = 0; i < els.length; i++) { this.io.observe(els[i]); }
+} catch (e) {}
+}
+jump(id) {
+setTimeout(function () {
+try {
+var el = id ? document.getElementById(id) : null;
+if (el) { el.scrollIntoView({ block: 'start' }); } else { window.scrollTo(0, 0); }
+} catch (e) {}
+}, 80);
+}
+renderVals() {
+const self = this;
+const st = this.st();
+const sc = st.screen;
+const URGENT = '急いでいる（お湯が出ない・水漏れ）';
+const to = function (o, id) { return function () { self.setState(Object.assign({ menu: false }, o)); self.jump(id); }; };
+const chip = function (on) { return on ? { bg: '#17272B', fg: '#FFFFFF', pressed: 'true' } : { bg: '#FFFFFF', fg: '#17272B', pressed: 'false' }; };
+const one = function (key, list) { return list.map(function (t) { var c = chip(st[key] === t); var o = {}; o[key] = t; return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState(o); } }; }); };
+const ask = function (kind, want) { return function () { self.form = {}; self.setState({ screen: 'contact', menu: false, ferr: {}, kind: kind || st.kind, want: want || st.want }); self.jump(''); }; };
+const KINDS = ['給湯器', '浴室', 'キッチン', 'トイレ・洗面所', '水漏れ・つまり', '排水・下水道', 'そのほか'];
+const WORKS = [
+['給湯器', '給湯器の交換', 'ガス給湯器、エコキュート、電気温水器の交換と修理。今と同じ型への交換も、種類を替えるご相談も承ります。'],
+['浴室', '浴室', 'ユニットバスの入替え、在来の浴室からの改修、浴室暖房乾燥機、手すりの取付け。'],
+['キッチン', 'キッチン', 'システムキッチンの入替え、ガスコンロやIH、レンジフード、水栓の交換。'],
+['トイレ・洗面所', 'トイレ・洗面所', '便器と温水洗浄便座の交換、洗面化粧台の入替え。床と壁紙の張り替えも一緒に行えます。'],
+['水漏れ・つまり', '水漏れ・つまりの修理', '蛇口や配管からの水漏れ、排水のつまり、止まらないトイレ。蛇口1つから伺います。'],
+['排水・下水道', '排水設備・下水道への切り替え', '浄化槽やくみ取りから下水道への切り替え工事、排水管の引き直し、屋外の給排水の工事。']
+];
+const CASES = [
+['給湯器', '給湯器', '18年使ったガス給湯器を交換', 'img/m_heater.jpg', '住宅の外壁に取り付けた、新しい壁掛けのガス給湯器', 'お湯の温度が安定しなくなった給湯器を、同じ大きさの新しい機種に交換しました。朝に伺い、その日の夜からお湯が使えます。', '半日', '21万円'],
+['給湯器', '給湯器', '電気温水器から、エコキュートに交換', 'img/m_tank.jpg', '住宅の裏に据え付けた、エコキュートの貯湯タンクとヒートポンプ', '20年近く使った電気温水器を、エコキュートに交換しました。基礎の打ち直しと、補助金の申請もあわせて行いました。', '1日', '52万円'],
+['浴室・キッチン', '浴室', '約20年使ったユニットバスを入替え', 'img/h_bath.jpg', '石目調の壁の、新しいユニットバス', '冬に冷えやすかった浴室を、床と浴槽が冷めにくいユニットバスに入れ替えました。', '4日', '98万円'],
+['浴室・キッチン', 'キッチン', '古くなったキッチンを入替え', 'img/h_kitchen.jpg', '白い扉と木目の天板の、新しいキッチン', '水栓からの水漏れをきっかけに、収納の多いシステムキッチンに入れ替えました。', '3日', '92万円'],
+['トイレ・洗面所', 'トイレ・洗面所', 'トイレの交換と、床・壁紙の張り替え', 'img/m_toilet.jpg', '白い便器と小さな手洗い器のある、明るいトイレ', '水が止まりにくくなった便器を、節水型に交換しました。床と壁紙も一緒に張り替えています。', '1日', '24万円'],
+['トイレ・洗面所', 'トイレ・洗面所', '洗面化粧台を、収納の多い型に入替え', 'img/m_wash.jpg', '三面鏡と木目の引き出しがついた、新しい洗面化粧台', '排水のにおいと水漏れが気になっていた洗面台を、引き出し式の洗面化粧台に入れ替えました。', '半日', '17万円']
+];
+const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if (st.ferr[k] && String(e.target.value).trim()) { var fe = Object.assign({}, st.ferr); fe[k] = false; self.setState({ ferr: fe }); } }; };
+const submit = function () {
+const F = self.form || {};
+const ferr = { area: !String(F.area || '').trim(), name: !String(F.name || '').trim(), tel: !String(F.tel || '').trim() };
+if (ferr.area || ferr.name || ferr.tel) { self.setState({ ferr: ferr }); return; }
+const tail = st.want === URGENT ? 'お急ぎとのことですので、受付時間内は折り返しのお電話を優先します。' : '2営業日以内に、担当からお電話します。';
+const line = '「' + st.kind + '」のご相談を承りました。' + tail;
+self.form = {}; self.setState({ screen: 'done', ferr: {}, doneLine: line }); self.jump('');
+};
+const fab = sc === 'home';
+return {
+is: { home: sc === 'home', contact: sc === 'contact', done: sc === 'done', menu: st.menu, fab: fab },
+menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 'false',
+footPad: fab ? '96px' : '28px',
+facts: [
+{ k: '業務内容', v: '給湯・浴室・水まわりの設備工事' },
+{ k: '受付時間', v: '8:30〜18:00（日・祝日は休み）' },
+{ k: '対応地域', v: '◯◯市・◯◯市とその周辺' }
+],
+before: [
+['1', '水漏れのときは、水を止める', '蛇口やトイレの近くにある止水栓か、水道メーターの横の元栓を閉めてください。'],
+['2', 'リモコンに出ている番号を控える', 'お湯が出ないときは、給湯器のリモコンに2桁か3桁の番号が出ていないかご覧ください。'],
+['3', '機器の型番と、使っている年数', '給湯器は、本体の正面に貼ってあるシールに型番と製造年が書いてあります。写真でもかまいません。']
+].map(function (x) { return { n: x[0], k: x[1], v: x[2] }; }),
+works: WORKS.map(function (x, i) { return { k: x[1], v: x[2], dl: ((i % 3) * 0.1) + 's', ask: ask(x[0]) }; }),
+tabs: ['すべて', '給湯器', '浴室・キッチン', 'トイレ・洗面所'].map(function (t) { var c = chip(st.cat === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ cat: t }); } }; }),
+cases: CASES.filter(function (c) { return st.cat === 'すべて' || st.cat === c[0]; }).map(function (c) { return { cat: c[0], title: c[2], img: c[3], alt: c[4], body: c[5], term: c[6], cost: c[7], ask: ask(c[1]) }; }),
+signs: [
+'お湯の温度が安定しない。お湯になるまで時間がかかる。',
+'本体から水が漏れている。音が大きくなった。',
+'リモコンに、番号がたびたび出る。',
+'使い始めてから、10年を超えている。'
+].map(function (x) { return { t: x }; }),
+flow: [
+['1', 'ご相談', 'お電話か、このページから。今の様子と現場の地域をお知らせください。'],
+['2', '現地の確認', '機器と配管、搬入の道すじを拝見します。'],
+['3', 'お見積り', '機種と工事の内容、費用、工期を書面でお出しします。'],
+['4', '工事', '日程を決めて工事に入ります。水やお湯が使えない時間は、先にお伝えします。'],
+['5', 'お引き渡し', '仕上がりをご一緒に確かめ、使い方をご説明します。']
+].map(function (x) { return { n: x[0], k: x[1], v: x[2] }; }),
+faq: [
+['蛇口1つの交換や、小さな水漏れでも頼めますか。', 'はい。蛇口1つ、パッキン1つの交換から伺います。'],
+['給湯器が壊れました。何日でお湯が使えるようになりますか。', '同じ型の在庫があれば、早ければ当日か翌日に交換できます。取り寄せになる機種は、納期をお調べしてお伝えします。'],
+['見積だけでも頼めますか。', 'はい。お見積りは無料です。現地を拝見して、書面でお出しします。'],
+['ほかの会社で付けた機器でも、修理や交換を頼めますか。', 'はい。メーカーや取付けた会社を問わず、承ります。'],
+['どの地域まで来てもらえますか。', '◯◯市・◯◯市とその周辺に伺います。そのほかの地域も、ご相談ください。']
+].map(function (x) { return { q: x[0], a: x[1] }; }),
+company: [
+['会社名', '株式会社 ゆのはな住器'],
+['所在地', '〒000-0000　◯◯府◯◯市◯◯0丁目0-0（◯◯駅から徒歩約◯分）'],
+['電話番号', '000-000-0000'],
+['代表者', '代表取締役（お名前）'],
+['創業', '昭和◯年'],
+['業務内容', '給湯設備・浴室設備・水まわりの工事と修理、住宅リフォーム'],
+['登録・指定', '◯◯市 指定給水装置工事事業者／◯◯市 排水設備指定工事店（実際の登録に合わせて載せます）'],
+['受付時間', '8:30〜18:00（日・祝日は休み）']
+].map(function (x) { return { k: x[0], v: x[1] }; }),
+kinds: one('kind', KINDS),
+wants: one('want', [URGENT, '日程は相談したい', 'まず見積がほしい']),
+f: { area: setF('area'), body: setF('body'), name: setF('name'), tel: setF('tel'), mail: setF('mail') },
+ferr: { area: !!st.ferr.area, name: !!st.ferr.name, tel: !!st.ferr.tel },
+doneLine: st.doneLine || '',
+go: {
+home: to({ screen: 'home' }, ''), toggle: function () { self.setState({ menu: !st.menu }); },
+call: to({ screen: 'home' }, 'call'), works: to({ screen: 'home' }, 'works'), cases: to({ screen: 'home' }, 'cases'), guide: to({ screen: 'home' }, 'guide'), flow: to({ screen: 'home' }, 'flow'), faq: to({ screen: 'home' }, 'faq'), company: to({ screen: 'home' }, 'company'),
+ask: ask('', ''), askUrgent: ask('', URGENT), askHeater: ask('給湯器', ''), submit: submit
+}
+};
+}
+}
+window.__dcBoot(Component);
+</script>
+</body>
+</html>

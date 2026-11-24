@@ -53,12 +53,15 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <span class="star" style="left: {{s.x}}; top: {{s.y}}; width: {{s.s}}; height: {{s.s}}; animation-duration: {{s.d}}; animation-delay: {{s.dl}}"></span>
 </sc-for>
 </div>
-<div style="position: relative; max-width: 860px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<div style="position: relative; max-width: 860px; margin: 0 auto; padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
 <div style="display: flex; align-items: center; gap: 12px; min-width: 0">
 <svg viewBox="0 0 44 44" aria-hidden="true" style="width: 42px; height: 42px; flex: 0 0 auto"><circle cx="22" cy="22" r="20.5" fill="none" stroke="#D9B36A" stroke-width="1"></circle><path d="M28 10a12.5 12.5 0 1 0 0 24a15 15 0 0 1 0-24z" fill="#D9B36A"></path><circle cx="30" cy="22" r="2.6" fill="#D9B36A"></circle><path d="M30 16.4v2M30 25.6v2M24.4 22h2M33.6 22h2M26 18l1.4 1.4M32.6 24.6L34 26M34 18l-1.4 1.4M27.4 24.6L26 26" stroke="#D9B36A" stroke-width="1" stroke-linecap="round"></path></svg>
 <div style="min-width: 0; line-height: 1.3"><p class="gold" style="margin: 0; display: inline-block; font-family: 'Cormorant Garamond', 'Shippori Mincho', serif; font-size: 22px; font-weight: 600; letter-spacing: .22em">HIRO</p><h1 style="margin: 0; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 22px; font-weight: 500; letter-spacing: .14em">予約台帳</h1></div>
 </div>
-<button type="button" class="tap btn-gold" onClick="{{go.add}}" style="flex: 0 0 auto; min-height: 50px; padding: 0 20px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 16px; font-weight: 700; letter-spacing: .04em">＋ 予約を足す</button>
+<div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px">
+<button type="button" class="tap" onClick="{{go.set}}" style="flex: 0 0 auto; min-height: 50px; padding: 0 16px; border: 1px solid #D9B36A; border-radius: 999px; background: transparent; color: #EBD3A0; font-size: 15px; font-weight: 700">受付の設定</button>
+<button type="button" class="tap btn-gold" onClick="{{go.add}}" style="flex: 0 0 auto; min-height: 50px; padding: 0 18px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 16px; font-weight: 700; letter-spacing: .04em">＋ 予約を足す</button>
+</div>
 </div>
 </header>
 
@@ -106,7 +109,7 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <div style="margin-top: 10px; padding: 12px 14px; background: #1B1030; border: 1px dashed #A9D4FF; border-radius: 10px">
 <p style="margin: 0; font-size: 14px; font-weight: 700; color: #A9D4FF">届いたDM</p>
 <p style="margin: 2px 0 6px; font-size: 15px; line-height: 1.7">{{r.dm}}</p>
-<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #C9BDE3">（案）DMの文から、日にち・時間・長さを自動で読み取って、仮の予約として載せます。この機能は、まだ動いていません。</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #C9BDE3">Museが、このDMから日にちと時間を読み取って、仮の予約として載せました。内容を確かめて、確定してください。</p>
 </div>
 </sc-if>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px">
@@ -123,6 +126,7 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <li>ホームページのフォームから入った予約が、「返事待ち」で自動で載ります。</li>
 <li>InstagramのDMで決まった予約は、「＋ 予約を足す」から入れます。入口が「Instagram」で残ります。</li>
 <li>台帳に入っている日時は、ホームページのフォームで「予約済み」になり、同じ時間に重なりません。</li>
+<li>「受付の設定」で、曜日ごとの受付時間・お休みの日・祝日・何日先まで受けるかを決められます。ホームページでは、受け付けていない日時は選べません。</li>
 <li>本番では、HIROさんだけが開けるようにし、新しい予約が入ったらお知らせが届く形にします。</li>
 </ul>
 <button type="button" class="tap" onClick="{{go.reset}}" style="margin-top: 14px; min-height: 46px; padding: 0 18px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 15px; font-weight: 700">見本のデータに戻す</button>
@@ -150,7 +154,7 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <input id="a-date" type="date" onChange="{{f.date}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
 <p id="l-atime" style="margin: 16px 0 8px; font-size: 16px; font-weight: 700; color: #EBD3A0">始める時間</p>
 <div role="group" aria-labelledby="l-atime" style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{aTimes}}" as="t" hint-placeholder-count="6">
+<sc-for list="{{aTimes}}" as="t" hint-placeholder-count="9">
 <button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 76px; min-height: 48px; padding: 0 14px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
 </sc-for>
 </div>
@@ -178,6 +182,100 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 
 <button type="button" class="tap btn-gold" onClick="{{go.save}}" style="min-height: 58px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 18px; font-weight: 700; letter-spacing: .08em">台帳に足す</button>
 <button type="button" onClick="{{go.list}}" style="min-height: 48px; border: 0; background: transparent; color: #F1ECFA; font-size: 16px; text-decoration: underline">やめて一覧に戻る</button>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{is.set}}" hint-placeholder-val="{{false}}">
+<main class="intro" style="max-width: 720px; margin: 0 auto; padding: 26px 16px 68px">
+<div>
+<h2 style="margin: 0 0 4px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 28px; font-weight: 500; line-height: 1.5; letter-spacing: .08em">受付の設定</h2>
+<p style="margin: 0 0 18px; font-size: 15px; color: #E3DAF5">ホームページの予約フォームで選べる日時が、この設定のとおりになります。</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+
+<section style="padding: 20px 16px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
+<h3 style="margin: 0 0 4px; font-size: 17px; font-weight: 700; color: #EBD3A0">曜日ごとの受付時間</h3>
+<p style="margin: 0 0 12px; font-size: 14px; color: #C9BDE3">始める時間を押すと、受ける・受けないが切り替わります。色が付いている時間が、受け付ける時間です。</p>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{wk}}" as="w" hint-placeholder-count="7">
+<div style="padding: 12px 12px 14px; background: #1B1030; border: 1px solid #3A2A5C; border-radius: 12px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px">
+<p style="margin: 0; min-width: 0; font-size: 16px; font-weight: 700; line-height: 1.5">{{w.label}}<span style="display: block; font-size: 14px; font-weight: 500; color: {{w.sumFg}}">{{w.sum}}</span></p>
+<button type="button" class="tap" onClick="{{w.toggle}}" aria-pressed="{{w.pressed}}" style="flex: 0 0 auto; min-height: 46px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 14px; font-weight: 700">{{w.toggleLabel}}</button>
+</div>
+<div role="group" aria-label="{{w.label}}の受付時間" style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{w.times}}" as="t" hint-placeholder-count="9">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 64px; min-height: 46px; padding: 0 12px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+<button type="button" class="tap" onClick="{{go.copyMon}}" style="margin-top: 12px; min-height: 44px; padding: 0 16px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 14px; font-weight: 700">月曜の時間を、火〜金曜にもそろえる</button>
+</section>
+
+<section style="padding: 20px 16px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
+<h3 style="margin: 0 0 4px; font-size: 17px; font-weight: 700; color: #EBD3A0">お休みの日・閉じる時間</h3>
+<p style="margin: 0 0 12px; font-size: 14px; color: #C9BDE3">用事のある日や、一部の時間だけ閉じたいときに足します。</p>
+<label for="o-date" style="display: block; margin: 0 0 6px; font-size: 15px; font-weight: 700">日にち</label>
+<input id="o-date" type="date" onChange="{{f.odate}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
+<div role="group" aria-label="閉じ方" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px">
+<sc-for list="{{oModes}}" as="t" hint-placeholder-count="2">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 46px; padding: 0 12px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{is.oPart}}" hint-placeholder-val="{{false}}">
+<p style="margin: 10px 0 6px; font-size: 14px; color: #C9BDE3">閉じる時間を選んでください。</p>
+<div role="group" aria-label="閉じる時間" style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{oTimes}}" as="t" hint-placeholder-count="9">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 64px; min-height: 46px; padding: 0 12px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{is.oErr}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">{{oErr}}</p></sc-if>
+<button type="button" class="tap" onClick="{{go.addOff}}" style="margin-top: 12px; min-height: 46px; padding: 0 20px; border: 1px solid #D9B36A; border-radius: 999px; background: transparent; color: #EBD3A0; font-size: 15px; font-weight: 700">お休みに足す</button>
+<ul style="margin: 14px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{is.noOff}}" hint-placeholder-val="{{false}}"><li style="font-size: 14px; color: #C9BDE3">まだありません。</li></sc-if>
+<sc-for list="{{offs}}" as="o" hint-placeholder-count="2">
+<li style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 10px 12px; background: #1B1030; border: 1px solid #3A2A5C; border-radius: 10px">
+<span style="min-width: 0; font-size: 15px"><span style="font-weight: 700">{{o.day}}</span><span style="margin-left: 10px; color: #EBD3A0">{{o.what}}</span></span>
+<button type="button" class="tap" onClick="{{o.del}}" style="min-height: 44px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 14px; font-weight: 700">外す</button>
+</li>
+</sc-for>
+</ul>
+</section>
+
+<section style="padding: 20px 16px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
+<h3 style="margin: 0 0 12px; font-size: 17px; font-weight: 700; color: #EBD3A0">祝日・受付の期間・上限</h3>
+<sc-for list="{{opts}}" as="g" hint-placeholder-count="5">
+<div style="margin-bottom: 12px">
+<p style="margin: 0 0 6px; font-size: 15px; font-weight: 700">{{g.k}}</p>
+<div role="group" aria-label="{{g.k}}" style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{g.items}}" as="t" hint-placeholder-count="3">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 46px; padding: 0 12px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</section>
+
+<section style="padding: 20px 16px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
+<h3 style="margin: 0 0 4px; font-size: 17px; font-weight: 700; color: #EBD3A0">これから2週間の受付（この設定のとき）</h3>
+<p style="margin: 0 0 10px; font-size: 14px; color: #C9BDE3">ホームページで選べる時間です。予約が入っている時間は除いています。</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+<sc-for list="{{preview}}" as="p" hint-placeholder-count="14">
+<li style="display: flex; flex-wrap: wrap; gap: 2px 14px; padding: 8px 2px; border-bottom: 1px solid #3A2A5C; font-size: 15px; line-height: 1.6">
+<span style="flex: 0 0 7.5em; font-weight: 700">{{p.day}}</span>
+<span style="flex: 1 1 200px; min-width: 0; color: {{p.fg}}">{{p.v}}</span>
+</li>
+</sc-for>
+</ul>
+</section>
+
+<sc-if value="{{is.saved}}" hint-placeholder-val="{{false}}"><p role="status" style="margin: 0; padding: 10px 14px; background: rgba(110, 210, 160, .16); border-radius: 10px; color: #9FE3BF; font-size: 15px; font-weight: 700">保存しました。ホームページの予約フォームに反映されます。</p></sc-if>
+<button type="button" class="tap btn-gold" onClick="{{go.saveSet}}" style="min-height: 58px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 18px; font-weight: 700; letter-spacing: .08em">この設定を保存する</button>
+<button type="button" onClick="{{go.list}}" style="min-height: 48px; border: 0; background: transparent; color: #F1ECFA; font-size: 16px; text-decoration: underline">一覧に戻る</button>
 </div>
 </main>
 </sc-if>
@@ -311,9 +409,90 @@ rows.push({ id: 'm' + Date.now(), at: new Date().toISOString(), src: st.aSrc, da
 self.form = {}; bump({ screen: 'list', filter: 'これから', src: 'すべて', ferr: {} });
 try { window.scrollTo(0, 0); } catch (e) {}
 };
+const ALL_TIMES = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+const BASE = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00'];
+const DEF_SET = { week: { 0: [], 1: BASE.slice(), 2: BASE.slice(), 3: BASE.slice(), 4: BASE.slice(), 5: BASE.slice(), 6: [] }, off: {}, hol: true, nenmatsu: true, sameDay: false, ahead: 60, max: 0 };
+// 祝日（内閣府の公表どおり。振替休日を含む）
+const HOLI = { '2026-11-03': '文化の日', '2026-11-23': '勤労感謝の日', '2027-01-01': '元日', '2027-01-11': '成人の日', '2027-02-11': '建国記念の日', '2027-02-23': '天皇誕生日', '2027-03-21': '春分の日', '2027-03-22': '振替休日', '2027-04-29': '昭和の日', '2027-05-03': '憲法記念日', '2027-05-04': 'みどりの日', '2027-05-05': 'こどもの日', '2027-07-19': '海の日', '2027-08-11': '山の日', '2027-09-20': '敬老の日', '2027-09-23': '秋分の日', '2027-10-11': 'スポーツの日', '2027-11-03': '文化の日', '2027-11-23': '勤労感謝の日' };
+function normSet(s) {
+  s = s && typeof s === 'object' ? s : {};
+  var o = JSON.parse(JSON.stringify(DEF_SET));
+  if (s.week && typeof s.week === 'object') { for (var w = 0; w < 7; w++) { if (Array.isArray(s.week[w])) { o.week[w] = ALL_TIMES.filter(function (t) { return s.week[w].indexOf(t) >= 0; }); } } }
+  if (s.off && typeof s.off === 'object') { o.off = s.off; }
+  ['hol', 'nenmatsu', 'sameDay'].forEach(function (k) { if (typeof s[k] === 'boolean') { o[k] = s[k]; } });
+  if (+s.ahead > 0) { o.ahead = +s.ahead; }
+  if (+s.max >= 0) { o.max = +s.max; }
+  return o;
+}
+function ymdOf(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+function addDays(ymd, n) { var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(ymd); var d = new Date(+m[1], +m[2] - 1, +m[3]); d.setDate(d.getDate() + n); return ymdOf(d); }
+// その日に受け付ける時間。count＝その日の予約の件数（キャンセル以外）
+function dayRule(S, date, today, count) {
+  var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(String(date || ''));
+  if (!m) { return { ok: false, why: '日にちが正しくありません。', times: [] }; }
+  var d = new Date(+m[1], +m[2] - 1, +m[3]);
+  var first = S.sameDay ? today : addDays(today, 1), last = addDays(today, S.ahead);
+  if (date < first) { return { ok: false, why: S.sameDay ? '過ぎた日は選べません。' : '当日のご予約は受け付けていません。翌日以降をお選びください。', times: [] }; }
+  if (date > last) { return { ok: false, why: S.ahead + '日先までの受付です。', times: [] }; }
+  var md = date.slice(5);
+  if (S.nenmatsu && (md >= '12-29' || md <= '01-03')) { return { ok: false, why: '年末年始のお休みです。', times: [] }; }
+  if (S.hol && HOLI[date]) { return { ok: false, why: HOLI[date] + 'のためお休みです。', times: [] }; }
+  var off = S.off[date];
+  if (off === 'all') { return { ok: false, why: 'この日はお休みです。', times: [] }; }
+  var times = (S.week[d.getDay()] || []).slice();
+  if (!times.length) { return { ok: false, why: '日月火水木金土'.charAt(d.getDay()) + '曜日はお休みです。', times: [] }; }
+  if (Array.isArray(off)) { times = times.filter(function (t) { return off.indexOf(t) < 0; }); }
+  if (!times.length) { return { ok: false, why: 'この日は受付をしていません。', times: [] }; }
+  if (S.max > 0 && (count || 0) >= S.max) { return { ok: false, why: 'この日のご予約は、受付の上限に達しました。', times: [] }; }
+  return { ok: true, why: '', times: times };
+}
+
+const SKEY = 'hiro_settings_v1';
+const readSet = function () { try { return normSet(JSON.parse(localStorage.getItem(SKEY) || 'null')); } catch (e) { return normSet(null); } };
+if (!self.draft) { self.draft = readSet(); }
+const D = self.draft;
+self.oform = self.oform || { date: '', mode: 'all', times: [] };
+const O = self.oform;
+const re = function (o) { self.setState(Object.assign({ v: st.v + 1, saved: false }, o || {})); };
+const tchip = function (on, pick) { var c = chip(on); return { bg: c.bg, fg: c.fg, pressed: c.pressed, pick: pick }; };
+const WNAME = ['日曜', '月曜', '火曜', '水曜', '木曜', '金曜', '土曜'];
+const wk = [1, 2, 3, 4, 5, 6, 0].map(function (w) {
+  var on = D.week[w].length > 0;
+  return { label: WNAME[w], sum: on ? D.week[w].length + '枠（' + D.week[w][0] + '〜' + D.week[w][D.week[w].length - 1] + '）' : 'お休み', sumFg: on ? '#EBD3A0' : '#C9BDE3', pressed: on ? 'true' : 'false', toggleLabel: on ? '休みにする' : '受ける',
+    toggle: function () { D.week[w] = on ? [] : BASE.slice(); re(); },
+    times: ALL_TIMES.map(function (t) { var has = D.week[w].indexOf(t) >= 0; return Object.assign({ label: t }, tchip(has, function () { var a = D.week[w].filter(function (x) { return x !== t; }); if (!has) { a.push(t); } D.week[w] = ALL_TIMES.filter(function (x) { return a.indexOf(x) >= 0; }); re(); })); }) };
+});
+const offs = Object.keys(D.off).sort().filter(function (k) { return k >= today; }).map(function (k) { var v = D.off[k]; return { day: dayLabel(k), what: v === 'all' ? '終日お休み' : v.join('・') + ' を閉じる', del: function () { delete D.off[k]; re(); } }; });
+const countOn = function (date) { return rows.filter(function (r) { return open(r) && r.date === date; }).length; };
+const preview = [];
+for (var pi = 0; pi < 14; pi++) {
+  var dd = addDays(today, pi); var ru = dayRule(D, dd, today, countOn(dd));
+  var taken = rows.filter(function (r) { return open(r) && r.date === dd; }).map(function (r) { return r.time; });
+  var free = ru.times.filter(function (t) { return taken.indexOf(t) < 0; });
+  if (!ru.ok && dd === today && !D.sameDay) { ru.why = '当日は受け付けない設定'; }
+  preview.push({ day: dayLabel(dd), v: ru.ok ? (free.length ? free.join('・') : '空きなし（予約で埋まっています）') : ru.why.replace(/。$/, ''), fg: ru.ok && free.length ? '#F1ECFA' : '#C9BDE3' });
+}
+const optRow = function (k, list, cur, set) { return { k: k, items: list.map(function (x) { return Object.assign({ label: x[0] }, tchip(cur === x[1], function () { set(x[1]); re(); })); }) }; };
+const opts = [
+  optRow('祝日', [['お休みにする', true], ['受け付ける', false]], D.hol, function (v) { D.hol = v; }),
+  optRow('年末年始（12月29日〜1月3日）', [['お休みにする', true], ['受け付ける', false]], D.nenmatsu, function (v) { D.nenmatsu = v; }),
+  optRow('当日のご予約', [['受けない（翌日から）', false], ['受ける', true]], D.sameDay, function (v) { D.sameDay = v; }),
+  optRow('何日先まで受けるか', [['14日', 14], ['30日', 30], ['60日', 60], ['90日', 90]], D.ahead, function (v) { D.ahead = v; }),
+  optRow('1日に受ける件数', [['上限なし', 0], ['1件', 1], ['2件', 2], ['3件', 3], ['4件', 4]], D.max, function (v) { D.max = v; })
+];
+const addOff = function () {
+  if (!/^\d{4}-\d\d-\d\d$/.test(O.date)) { self.setState({ oErr: '日にちを選んでください。' }); return; }
+  if (O.date < today) { self.setState({ oErr: '過ぎた日は足せません。' }); return; }
+  if (O.mode === 'part' && !O.times.length) { self.setState({ oErr: '閉じる時間を選んでください。' }); return; }
+  D.off[O.date] = O.mode === 'all' ? 'all' : ALL_TIMES.filter(function (t) { return O.times.indexOf(t) >= 0; });
+  self.oform = { date: O.date, mode: O.mode, times: [] }; re({ oErr: '' });
+};
 const nNeeds = rows.filter(needs).length;
 return {
-is: { list: st.screen === 'list', add: st.screen === 'add', empty: shown.length === 0 },
+is: { list: st.screen === 'list', add: st.screen === 'add', set: st.screen === 'set', empty: shown.length === 0, oPart: O.mode === 'part', oErr: !!st.oErr, noOff: !offs.length, saved: !!st.saved },
+wk: wk, offs: offs, preview: preview, opts: opts, oErr: st.oErr || '',
+oModes: [['終日お休み', 'all'], ['一部の時間だけ閉じる', 'part']].map(function (x) { return Object.assign({ label: x[0] }, tchip(O.mode === x[1], function () { O.mode = x[1]; re({ oErr: '' }); })); }),
+oTimes: ALL_TIMES.map(function (t) { var on = O.times.indexOf(t) >= 0; return Object.assign({ label: t }, tchip(on, function () { if (on) { O.times = O.times.filter(function (x) { return x !== t; }); } else { O.times.push(t); } re(); })); }),
 stars: this.sky,
 phases: [
 { bg: 'transparent', sh: 'none', dl: '0s' },
@@ -339,14 +518,18 @@ else { o.a1Label = '確定に戻す'; o.a1 = setStatus(r, '確定'); o.a1Bg = 't
 return o;
 }),
 aSrcs: one('aSrc', ['Instagram', 'ホームページ', 'そのほか']),
-aTimes: one('aTime', ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00']),
+aTimes: one('aTime', ALL_TIMES),
 aLens: one('aLen', ['60分・対面', '60分・お電話']),
-f: { date: setF('date'), name: setF('name'), contact: setF('contact'), kinds: setF('kinds'), body: setF('body') },
+f: { date: setF('date'), name: setF('name'), contact: setF('contact'), kinds: setF('kinds'), body: setF('body'), odate: function (e) { O.date = e.target.value; self.setState({ oErr: '' }); } },
 ferr: { date: !!st.ferr.date, dup: !!st.ferr.dup, name: !!st.ferr.name },
 go: {
 add: function () { self.form = {}; self.setState({ screen: 'add', ferr: {} }); try { window.scrollTo(0, 0); } catch (e) {} },
-list: function () { self.setState({ screen: 'list', ferr: {} }); try { window.scrollTo(0, 0); } catch (e) {} },
+list: function () { self.draft = null; self.setState({ screen: 'list', ferr: {}, saved: false }); try { window.scrollTo(0, 0); } catch (e) {} },
 save: save,
+set: function () { self.draft = readSet(); self.oform = { date: '', mode: 'all', times: [] }; self.setState({ screen: 'set', saved: false, oErr: '' }); try { window.scrollTo(0, 0); } catch (e) {} },
+copyMon: function () { [2, 3, 4, 5].forEach(function (w) { D.week[w] = D.week[1].slice(); }); re(); },
+addOff: addOff,
+saveSet: function () { try { localStorage.setItem(SKEY, JSON.stringify(D)); } catch (e) {} self.setState({ saved: true, v: st.v + 1 }); },
 reset: function () { self.rows = self.seed(); bump({ filter: 'これから', src: 'すべて' }); }
 }
 };

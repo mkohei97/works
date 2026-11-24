@@ -28,16 +28,15 @@ p,li,dd{text-wrap:pretty}
 @media (min-width:760px){.sp-only{display:none !important}}
 .hero{display:flex;flex-wrap:wrap;align-items:stretch;max-width:1200px;margin:0 auto}
 .hero-text{flex:1 1 460px;min-width:0;box-sizing:border-box;padding:48px 16px 52px 24px;display:flex;flex-direction:column;justify-content:center;gap:18px}
-.hero-photo{flex:0 1 470px;min-width:0;position:relative;align-self:flex-end;box-sizing:border-box;padding:40px 12px 0 22px}
+.hero-photo{flex:0 1 470px;min-width:0;position:relative;align-self:flex-end;box-sizing:border-box;padding:36px 12px 0}
 .hero-photo img{position:relative;z-index:1;display:block;width:100%;height:auto}
-.hero-accent{position:absolute;left:0;bottom:0;width:62%;height:56%;background:#14215A}
-.hero-accent2{position:absolute;right:4px;top:34px;width:34%;height:6px;background:#C8261E}
+.hero-photo::before{content:"";position:absolute;left:50%;top:44%;width:92%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.85),rgba(255,255,255,.35) 55%,rgba(255,255,255,0));pointer-events:none}
 .sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
 .sec-photo{flex:0 1 380px;min-width:0}
 .sec-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
 .cta-photo{flex:0 0 150px}
 .cta-photo img{display:block;width:150px;height:150px;object-fit:cover;object-position:50% 22%;border-radius:50%;border:4px solid #FFFFFF}
-@media (max-width:759px){.hero-photo{order:-1;flex:1 1 100%;max-width:340px;margin:0 auto;padding:22px 8px 0 14px}.hero-accent2{right:8px;top:14px}.hero-text{padding:22px 16px 44px}.sec-photo{flex:1 1 100%}.cta-photo{flex:0 0 110px}.cta-photo img{width:110px;height:110px}}
+@media (max-width:759px){.hero-photo{order:-1;flex:1 1 100%;max-width:310px;margin:0 auto;padding:18px 6px 0}.hero-text{padding:26px 16px 44px;background:#FFFFFF;border-top:4px solid #14215A}.sec-photo{flex:1 1 100%}.cta-photo{flex:0 0 110px}.cta-photo img{width:110px;height:110px}}
 .pol{display:grid;grid-template-columns:1fr;gap:10px 40px;padding:28px 0;border-top:1px solid #D3DCE8}
 @media (min-width:860px){.pol{grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr)}}
 .msg{display:grid;grid-template-columns:1fr;gap:28px 64px}
@@ -121,7 +120,6 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 </div>
 </div>
 <div class="hero-photo">
-<span class="hero-accent" aria-hidden="true"></span><span class="hero-accent2" aria-hidden="true"></span>
 <img src="img/k_cut.webp" alt="黒川みのるの写真。紺のスーツに縞のネクタイで、ほほえんでいる">
 </div>
 </div>

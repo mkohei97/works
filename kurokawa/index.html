@@ -492,7 +492,7 @@ menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 
 footPad: fab ? '96px' : '28px',
 stats: [
 { n: '6', u: '期目', k: ['羽曳野市', '議会議員'] },
-{ n: '幹事長', u: '', k: ['自由民主党\u00a0', '羽曳野支部'] },
+{ n: '支部長', u: '', k: ['自由民主党\u00a0', '羽曳野支部'] },
 { n: '委員長', u: '', k: ['議会運営', '委員会'] }
 ],
 policies: [
@@ -517,7 +517,7 @@ profile: [
 ['議員歴', '羽曳野市議会議員|6期目'],
 ['議会', '議会運営委員会|委員長'],
 ['会派', '自由民主党|もっとはびきの議員団|幹事長'],
-['党', '自由民主党|羽曳野支部|幹事長'],
+['党', '自由民主党|羽曳野支部|支部長'],
 ['事務所', '羽曳野市|羽曳が丘3-5-33']
 ].map(function (x) { return { k: x[0], vp: x[1].split('|') }; }),
 topics: ['市政へのご意見', '地域の困りごと', 'そのほか'].map(function (t) { var c = chip(st.topic === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ topic: t }); } }; }),

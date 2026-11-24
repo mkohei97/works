@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1A2766">
+<title>黒川みのる｜羽曳野市議会議員</title>
+<meta name="description" content="羽曳野市議会議員 黒川みのるのホームページ。ごあいさつ、政策、地域での活動、プロフィール、事務所のご案内。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="黒川みのる｜羽曳野市議会議員">
+<meta property="og:description" content="羽曳野市議会議員 黒川みのるのホームページ。ごあいさつ、政策、地域での活動、プロフィール、事務所のご案内。">
+<meta property="og:image" content="https://mkohei97.github.io/works/kurokawa/img/k_face.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1259A8}a:hover{color:#1A2766}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #F2B705;outline-offset:2px}
+h1,h2,h3,dt,button{word-break:auto-phrase}
+p,li,dd{text-wrap:pretty}
+@media (max-width:759px){.pc-only{display:none !important}}
+@media (min-width:760px){.sp-only{display:none !important}}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes mk{from{background-size:0 100%}to{background-size:100% 100%}}
+@keyframes sky{from{background-position:0% 50%}to{background-position:100% 50%}}
+.intro>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+.intro>*:nth-child(2){animation-delay:.1s}.intro>*:nth-child(3){animation-delay:.2s}.intro>*:nth-child(4){animation-delay:.3s}.intro>*:nth-child(5){animation-delay:.4s}.intro>*:nth-child(6){animation-delay:.5s}
+.mk{animation:mk .9s .7s cubic-bezier(.2,.7,.2,1) both}
+.sky{background-size:200% 200%;animation:sky 18s ease-in-out infinite alternate}
+.tap{transition:transform .15s,background-color .15s,color .15s}.tap:active{transform:scale(.97)}
+.card{transition:transform .3s,box-shadow .3s}
+@media (hover:hover){.card:hover{box-shadow:0 10px 24px rgba(26,39,102,.12)}}
+.fx .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.fx .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.fx .rv{opacity:1;transform:none}}
+</style>
+<style>
+:root{color-scheme:light}
+html{-webkit-text-size-adjust:100%;background:#FFFFFF}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div id="top" style="background: #FFFFFF; color: #1A2766; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.9; line-break: strict; overflow-x: hidden">
+
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}">
+<div style="background: #1A2766; color: #FFFFFF; padding: 8px 16px; font-size: 14px; line-height: 1.6; text-align: center">公開前の確認用ページです。「確認待ち」と書いてある所は、仮の内容です。</div>
+</sc-if>
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #CFDDF0">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button type="button" class="tap" onClick="{{go.home}}" aria-label="トップページへ" style="display: flex; flex-direction: column; justify-content: center; min-height: 48px; min-width: 0; padding: 0; border: 0; background: transparent; color: #1A2766; text-align: left">
+<span style="font-size: 14px; font-weight: 700; line-height: 1.4; letter-spacing: .1em; color: #1259A8">羽曳野市議会議員</span>
+<span style="font-size: 24px; font-weight: 900; line-height: 1.3; letter-spacing: .08em; white-space: nowrap">黒川みのる</span>
+</button>
+<nav class="pc-only" aria-label="主なメニュー" style="display: flex; align-items: center; gap: 2px">
+<button type="button" class="tap" onClick="{{go.message}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #1A2766; font-size: 15px; font-weight: 500">ごあいさつ</button>
+<button type="button" class="tap" onClick="{{go.policy}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #1A2766; font-size: 15px; font-weight: 500">政策</button>
+<button type="button" class="tap" onClick="{{go.activity}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #1A2766; font-size: 15px; font-weight: 500">地域での活動</button>
+<button type="button" class="tap" onClick="{{go.profile}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #1A2766; font-size: 15px; font-weight: 500">プロフィール</button>
+<button type="button" class="tap" onClick="{{go.office}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #1A2766; font-size: 15px; font-weight: 500">事務所</button>
+</nav>
+<button type="button" class="pc-only tap" onClick="{{go.ask}}" style="min-height: 46px; padding: 0 22px; border: 0; border-radius: 6px; background: #1259A8; color: #FFFFFF; font-size: 15px; font-weight: 700">ご意見・ご相談</button>
+<button type="button" class="sp-only" onClick="{{go.toggle}}" aria-expanded="{{menuOpen}}" style="flex: 0 0 auto; min-width: 84px; min-height: 44px; border: 1px solid #1A2766; border-radius: 6px; background: #FFFFFF; color: #1A2766; font-size: 14px; font-weight: 700">{{menuLabel}}</button>
+</div>
+<sc-if value="{{is.menu}}" hint-placeholder-val="{{false}}">
+<nav class="sp-only" aria-label="メニュー" style="display: flex; flex-direction: column; border-top: 1px solid #CFDDF0">
+<button type="button" class="tap" onClick="{{go.message}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E4ECF7; background: #FFFFFF; color: #1A2766; font-size: 16px; text-align: left">ごあいさつ</button>
+<button type="button" class="tap" onClick="{{go.policy}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E4ECF7; background: #FFFFFF; color: #1A2766; font-size: 16px; text-align: left">政策</button>
+<button type="button" class="tap" onClick="{{go.activity}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E4ECF7; background: #FFFFFF; color: #1A2766; font-size: 16px; text-align: left">地域での活動</button>
+<button type="button" class="tap" onClick="{{go.profile}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E4ECF7; background: #FFFFFF; color: #1A2766; font-size: 16px; text-align: left">プロフィール</button>
+<button type="button" class="tap" onClick="{{go.office}}" style="min-height: 54px; padding: 0 18px; border: 0; background: #FFFFFF; color: #1A2766; font-size: 16px; text-align: left">事務所のご案内</button>
+</nav>
+</sc-if>
+</header>
+
+<sc-if value="{{is.home}}" hint-placeholder-val="{{true}}">
+<main>
+
+<section class="sky" style="background-image: linear-gradient(120deg, #E6F3FC 0%, #BFE0F7 45%, #E6F3FC 100%); padding: 40px 0 56px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px 44px; padding: 32px 28px; background: #FFFFFF; border-radius: 14px; border-top: 6px solid #1A2766; box-shadow: 0 8px 28px rgba(26, 39, 102, .08)">
+<div class="intro" style="flex: 1.4 1 340px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: .14em; color: #1259A8">羽曳野市議会議員</p>
+<h1 style="margin: 0; display: flex; flex-direction: column; line-height: 1.2"><span style="font-size: 15px; font-weight: 700; letter-spacing: .5em; color: #44527A">くろかわ</span><span style="font-size: clamp(44px, 7.4vw, 76px); font-weight: 900; letter-spacing: .06em">黒川みのる</span></h1>
+<p style="margin: 0; font-size: clamp(22px, 3.2vw, 30px); font-weight: 900; line-height: 1.6">みなさんと一緒につくる<br><span class="mk" style="color: #C2261D; background: linear-gradient(transparent 64%, #FCE38A 64%) no-repeat">誰もが住みたい街づくりを！</span></p>
+<p style="margin: 0; max-width: 32em; font-size: 17px">前向きに歩んでいく、夢のある羽曳野市を。市民目線で、皆さまのご意見を議会に届けます。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" class="tap" onClick="{{go.policy}}" style="min-height: 54px; padding: 0 28px; border: 0; border-radius: 6px; background: #1259A8; color: #FFFFFF; font-size: 17px; font-weight: 700">政策を見る</button>
+<button type="button" class="tap" onClick="{{go.ask}}" style="min-height: 54px; padding: 0 28px; border: 1px solid #1A2766; border-radius: 6px; background: #FFFFFF; color: #1A2766; font-size: 17px; font-weight: 700">ご意見・ご相談</button>
+</div>
+</div>
+<div style="flex: 0 1 300px; min-width: 220px; margin-inline: auto">
+<img src="img/k_face.jpg" alt="黒川みのるの写真。紺のスーツに縞のネクタイで、ほほえんでいる" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: 12px; background: #BFE0F7">
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 10px 0 0; padding: 8px 12px; border: 1px dashed #1259A8; border-radius: 8px; font-size: 14px; line-height: 1.6; color: #1259A8">確認待ち：写真はチラシから切り出した仮のものです。元の写真データをいただければ差し替えます。</p></sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<section id="message" style="padding: 72px 0 64px">
+<div class="rv" style="max-width: 820px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #1259A8; font-size: 14px; font-weight: 700; letter-spacing: .16em">メッセージ</p>
+<h2 style="margin: 4px 0 20px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">ごあいさつ</h2>
+<p style="margin: 0 0 16px">市議会議員として5期18年の間、多くのご相談やご提言をいただいてきました。</p>
+<p style="margin: 0 0 16px">その経験を生かし、何にでも賛成する議員ではなく、少しでも皆さんのご意見を市政に反映できるよう、必要な政策を提言し、訴えてまいります。</p>
+<p style="margin: 0 0 24px">羽曳野市の未来のために、進めたいことがたくさんあります。前向きに歩んでいく夢のある羽曳野市を、みなさんと一緒につくるため、全力を尽くします。</p>
+<p style="margin: 0; font-size: 18px; font-weight: 700; text-align: right">羽曳野市議会議員　黒川みのる</p>
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 18px 0 0; padding: 8px 14px; border: 1px dashed #1259A8; border-radius: 8px; font-size: 14px; line-height: 1.7; color: #1259A8">確認待ち：チラシの言葉をもとに、読みやすく整えました。言い回しのご希望があれば直します。</p></sc-if>
+</div>
+</section>
+
+<section id="policy" style="background: #EEF5FC; padding: 68px 0 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #1259A8; font-size: 14px; font-weight: 700; letter-spacing: .16em">政策</p>
+<h2 style="margin: 4px 0 8px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">誰もが住みたくなる街づくり</h2>
+<p style="margin: 0 0 28px; font-size: 17px">羽曳野市の未来のために、皆さんと一緒に進めたいことです。</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<sc-for list="{{policies}}" as="p" hint-placeholder-count="6">
+<article class="rv card" style="display: flex; flex-direction: column; gap: 10px; padding: 26px 24px; background: #FFFFFF; border-radius: 12px; border-top: 4px solid {{p.c}}; transition-delay: {{p.dl}}">
+<p style="margin: 0; font-size: 34px; font-weight: 900; line-height: 1.2; color: #1259A8">{{p.n}}</p>
+<h3 style="margin: 0; font-size: 22px; font-weight: 900; line-height: 1.5">{{p.k}}</h3>
+<ul style="margin: 4px 0 0; padding: 12px 0 0; list-style: none; border-top: 1px solid #CFDDF0; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{p.items}}" as="i" hint-placeholder-count="3">
+<li style="display: flex; gap: 10px; font-size: 16px; line-height: 1.75"><span aria-hidden="true" style="flex: 0 0 auto; width: 10px; height: 10px; margin-top: 9px; border-radius: 50%; background: #F2B705"></span><span style="min-width: 0">{{i}}</span></li>
+</sc-for>
+</ul>
+</article>
+</sc-for>
+</div>
+<div class="rv" style="margin-top: 24px; padding: 26px 24px; background: #1A2766; color: #FFFFFF; border-radius: 12px">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .16em; color: #CFE3F7">他にも</p>
+<h3 style="margin: 4px 0 10px; font-size: 22px; font-weight: 900; line-height: 1.5">新庁舎の建て替えを見直します</h3>
+<p style="margin: 0 0 10px; font-size: 16px; color: #E8F0FA">建て替えにかかる建設費と設計を見直し、耐震に強く、使いやすい新庁舎への建て替えを提案します。</p>
+<p style="margin: 0; font-size: 16px; color: #E8F0FA">少子高齢化が進む中、地域のコミュニティセンターなどの公共施設をネットワークで結び、市民に近い、利用しやすい行政サービスを優先します。</p>
+</div>
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 16px 0 0; padding: 8px 14px; border: 1px dashed #1259A8; border-radius: 8px; font-size: 14px; line-height: 1.7; color: #1259A8">確認待ち：2枚のチラシの政策を、6つにまとめました。くわしい数字（新庁舎の費用など）を載せるかどうか。</p></sc-if>
+</div>
+</section>
+
+<section id="activity" style="padding: 72px 0 64px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #1259A8; font-size: 14px; font-weight: 700; letter-spacing: .16em">活動</p>
+<h2 style="margin: 4px 0 28px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">地域での活動</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px">
+<sc-for list="{{acts}}" as="a" hint-placeholder-count="3">
+<article class="rv" style="display: flex; flex-direction: column; gap: 10px; transition-delay: {{a.dl}}">
+<div style="aspect-ratio: 4 / 3; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; border: 1px dashed #5B6E96; border-radius: 12px; background: #EEF5FC; color: #3E4C70; font-size: 15px; line-height: 1.7; text-align: center">ここに<br>活動の写真が<br>入ります</div>
+<h3 style="margin: 4px 0 0; font-size: 22px; font-weight: 900; line-height: 1.5">{{a.k}}</h3>
+<p style="margin: 0; font-size: 16px">{{a.v}}</p>
+</article>
+</sc-for>
+</div>
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 20px 0 0; padding: 8px 14px; border: 1px dashed #1259A8; border-radius: 8px; font-size: 14px; line-height: 1.7; color: #1259A8">確認待ち：活動の写真（チラシの写真は小さいため、元のデータをいただきたい。お子さんが写る写真は、顔が分からないものだけにします）。</p></sc-if>
+</div>
+</section>
+
+<section id="sns" style="background: #EEF5FC; padding: 64px 0 60px">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #1259A8; font-size: 14px; font-weight: 700; letter-spacing: .16em">SNS</p>
+<h2 style="margin: 4px 0 8px; font-size: clamp(24px, 3.2vw, 30px); font-weight: 900; line-height: 1.5">日々の活動は、SNSでもお伝えしています。</h2>
+<p style="margin: 0 0 20px; font-size: 16px">LINEでは、ご意見やご相談も受け付けています。</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+<sc-for list="{{sns}}" as="s" hint-placeholder-count="3">
+<a class="tap card" href="{{s.url}}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; justify-content: center; min-height: 84px; box-sizing: border-box; padding: 14px 20px; background: #FFFFFF; border: 1px solid #CFDDF0; border-radius: 12px; color: #1A2766; text-decoration: none"><span style="font-size: 19px; font-weight: 900; line-height: 1.4">{{s.k}}</span><span style="font-size: 15px; color: #3E4C70">{{s.v}}</span></a>
+</sc-for>
+</div>
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 16px 0 0; padding: 8px 14px; border: 1px dashed #1259A8; border-radius: 8px; font-size: 14px; line-height: 1.7; color: #1259A8">確認待ち：Instagramのアドレス（チラシの表記「MINORU.H.N.S.R」から作りました）。</p></sc-if>
+</div>
+</section>
+
+<section id="profile" style="padding: 68px 0 72px">
+<div class="rv" style="max-width: 1000px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #1259A8; font-size: 14px; font-weight: 700; letter-spacing: .16em">プロフィール</p>
+<h2 style="margin: 4px 0 26px; font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; line-height: 1.5">黒川みのる<span style="margin-left: 14px; font-size: 17px; font-weight: 500">くろかわ みのる</span></h2>
+<dl style="margin: 0; padding: 6px 24px; background: #EEF5FC; border-radius: 12px">
+<sc-for list="{{profile}}" as="s" hint-placeholder-count="6">
+<div style="display: flex; flex-wrap: wrap; gap: 2px 20px; padding: 14px 0; border-bottom: 1px solid #CFDDF0">
+<dt style="flex: 0 0 6em; font-size: 16px; font-weight: 700; color: #1259A8">{{s.k}}</dt>
+<dd style="flex: 1 1 220px; min-width: 0; margin: 0; font-size: 16px">{{s.v}}</dd>
+</div>
+</sc-for>
+</dl>
+<p style="margin: 20px 0 0; font-size: 18px; font-weight: 700">私は市民目線で、皆さまのご意見を議会に訴えていきます。</p>
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 16px 0 0; padding: 8px 14px; border: 1px dashed #1259A8; border-radius: 8px; font-size: 14px; line-height: 1.7; color: #1259A8">確認待ち：学歴・お仕事の経歴・地域での役（自治会など）・趣味など、ほかに載せたいこと。</p></sc-if>
+</div>
+</section>
+
+<section id="office" style="background: #EEF5FC; padding: 68px 0 72px">
+<div class="rv" style="max-width: 1000px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 28px 44px; align-items: center">
+<div style="flex: 1 1 340px; min-width: 0">
+<p style="margin: 0; color: #1259A8; font-size: 14px; font-weight: 700; letter-spacing: .16em">事務所のご案内</p>
+<h2 style="margin: 4px 0 14px; font-size: clamp(24px, 3.2vw, 30px); font-weight: 900; line-height: 1.5">黒川みのる事務所</h2>
+<p style="margin: 0 0 8px; font-size: 17px">羽曳野市羽曳が丘3-5-33</p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 0 18px; font-size: 17px"><a href="tel:0729588458" style="display: inline-flex; align-items: center; min-height: 44px; color: #1259A8; font-weight: 700">電話 072-958-8458</a><span style="display: inline-flex; align-items: center; min-height: 44px">FAX 072-958-8458</span></p>
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 10px 0 0; padding: 8px 14px; border: 1px dashed #1259A8; border-radius: 8px; font-size: 14px; line-height: 1.7; color: #1259A8">確認待ち：受付の時間、郵便番号、地図を載せるかどうか。</p></sc-if>
+</div>
+<div style="flex: 1 1 340px; min-width: 0; padding: 28px 24px; background: #1A2766; color: #FFFFFF; border-radius: 12px">
+<h3 style="margin: 0 0 8px; font-size: 22px; font-weight: 900; line-height: 1.5">ご意見・ご相談をお寄せください。</h3>
+<p style="margin: 0 0 18px; font-size: 16px; color: #E8F0FA">市政へのご意見や、地域の困りごとを、このページからお送りいただけます。</p>
+<button type="button" class="tap" onClick="{{go.ask}}" style="width: 100%; min-height: 54px; border: 0; border-radius: 6px; background: #FFFFFF; color: #1A2766; font-size: 17px; font-weight: 700">ご意見・ご相談のフォームへ</button>
+</div>
+</div>
+</section>
+
+</main>
+</sc-if>
+
+<sc-if value="{{is.contact}}" hint-placeholder-val="{{false}}">
+<main style="background: #EEF5FC; padding: 44px 0 72px">
+<div style="max-width: 720px; margin: 0 auto; padding: 0 16px">
+<h1 style="margin: 0 0 6px; font-size: clamp(28px, 4.4vw, 38px); font-weight: 900; line-height: 1.5">ご意見・ご相談</h1>
+<p style="margin: 0 0 24px; font-size: 16px">いただいた内容は、黒川みのる本人が拝見します。お返事までに、数日いただくことがあります。</p>
+<div style="display: flex; flex-direction: column; gap: 18px">
+
+<section style="padding: 22px 20px; background: #FFFFFF; border-radius: 12px">
+<p id="l-topic" style="margin: 0 0 8px; font-size: 17px; font-weight: 700">内容の種類</p>
+<div role="group" aria-labelledby="l-topic" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{topics}}" as="t" hint-placeholder-count="3">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #1A2766; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<label for="f-body" style="display: block; margin: 18px 0 6px; font-size: 17px; font-weight: 700">内容<span style="margin-left: 8px; color: #B42318; font-size: 14px">必須</span></label>
+<textarea id="f-body" rows="6" onChange="{{f.body}}" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid #5B6E96; border-radius: 8px; background: #FFFFFF; color: #1A2766; font-size: 17px; line-height: 1.7"></textarea>
+<sc-if value="{{ferr.body}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #B42318; font-size: 15px; font-weight: 700">内容をご入力ください。</p></sc-if>
+<label for="f-area" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700">お住まいの地域（任意）</label>
+<input id="f-area" type="text" onChange="{{f.area}}" placeholder="例：羽曳が丘" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5B6E96; border-radius: 8px; background: #FFFFFF; color: #1A2766; font-size: 17px">
+</section>
+
+<section style="padding: 22px 20px; background: #FFFFFF; border-radius: 12px">
+<label for="f-name" style="display: block; margin: 0 0 6px; font-size: 17px; font-weight: 700">お名前<span style="margin-left: 8px; color: #B42318; font-size: 14px">必須</span></label>
+<input id="f-name" type="text" autocomplete="name" onChange="{{f.name}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5B6E96; border-radius: 8px; background: #FFFFFF; color: #1A2766; font-size: 17px">
+<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #B42318; font-size: 15px; font-weight: 700">お名前をご入力ください。</p></sc-if>
+<p id="l-reply" style="margin: 18px 0 8px; font-size: 17px; font-weight: 700">お返事</p>
+<div role="group" aria-labelledby="l-reply" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{replies}}" as="t" hint-placeholder-count="2">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #1A2766; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{is.reply}}" hint-placeholder-val="{{true}}">
+<label for="f-contact" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700">ご連絡先（お電話番号かメールアドレス）<span style="margin-left: 8px; color: #B42318; font-size: 14px">必須</span></label>
+<input id="f-contact" type="text" onChange="{{f.contact}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #5B6E96; border-radius: 8px; background: #FFFFFF; color: #1A2766; font-size: 17px">
+<sc-if value="{{ferr.contact}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #B42318; font-size: 15px; font-weight: 700">ご連絡先をご入力ください。</p></sc-if>
+</sc-if>
+</section>
+
+<p style="margin: 0; font-size: 15px; color: #3E4C70">お預かりした個人情報は、お返事のためだけに使います。</p>
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 0; padding: 8px 14px; border: 1px dashed #1259A8; border-radius: 8px; font-size: 14px; line-height: 1.7; color: #1259A8">確認用のため、送った内容はどこにも届きません。本番では、事務所のメールなどに届くようにします（届け先は確認待ち）。</p></sc-if>
+<button type="button" class="tap" onClick="{{go.submit}}" style="min-height: 58px; border: 0; border-radius: 6px; background: #1259A8; color: #FFFFFF; font-size: 18px; font-weight: 700">この内容で送る</button>
+<button type="button" class="tap" onClick="{{go.home}}" style="min-height: 48px; border: 0; background: transparent; color: #1A2766; font-size: 16px; text-decoration: underline">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{is.done}}" hint-placeholder-val="{{false}}">
+<main style="background: #EEF5FC; padding: 56px 0 80px">
+<div style="max-width: 640px; margin: 0 auto; padding: 0 16px">
+<div style="padding: 32px 24px; background: #FFFFFF; border-radius: 12px; border-top: 6px solid #1A2766">
+<h1 style="margin: 0 0 10px; font-size: clamp(26px, 4vw, 34px); font-weight: 900; line-height: 1.5">お送りいただき、ありがとうございます。</h1>
+<p style="margin: 0 0 8px; font-size: 16px">内容を拝見し、お返事をご希望の方には、順にご連絡します。</p>
+<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 0 0 22px; font-size: 14px; color: #3E4C70">確認用のため、実際には送られていません。</p></sc-if>
+<button type="button" class="tap" onClick="{{go.home}}" style="width: 100%; min-height: 54px; border: 1px solid #1A2766; border-radius: 6px; background: #FFFFFF; color: #1A2766; font-size: 17px; font-weight: 700">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<footer style="background: #1A2766; color: #FFFFFF; padding: 40px 0 {{footPad}}">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 40px">
+<div style="min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .12em; color: #CFE3F7">羽曳野市議会議員</p>
+<p style="margin: 2px 0 0; font-size: 26px; font-weight: 900; letter-spacing: .08em">黒川みのる</p>
+<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.8; color: #E8F0FA">黒川みのる事務所　羽曳野市羽曳が丘3-5-33<br>電話・FAX 072-958-8458</p>
+</div>
+<p style="margin: 0; font-size: 14px; color: #CFE3F7">© 黒川みのる事務所</p>
+</div>
+</footer>
+
+<sc-if value="{{is.fab}}" hint-placeholder-val="{{false}}">
+<div class="sp-only" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: #FFFFFF; border-top: 1px solid #CFDDF0">
+<a href="tel:0729588458" class="tap" style="flex: 1 1 0; min-width: 0; min-height: 52px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 1px solid #1A2766; border-radius: 6px; background: #FFFFFF; color: #1A2766; font-size: 16px; font-weight: 700; text-decoration: none">電話する</a>
+<button type="button" class="tap" onClick="{{go.ask}}" style="flex: 1.3 1 0; min-width: 0; min-height: 52px; border: 0; border-radius: 6px; background: #1259A8; color: #FFFFFF; font-size: 16px; font-weight: 700">ご意見・ご相談</button>
+</div>
+</sc-if>
+
+</div>
+</template>
+<script>
+(function(){
+var PROPS={};
+function DCLogic(){this.props={};this.state={};}
+DCLogic.prototype.setState=function(o){var p=typeof o==='function'?o(this.state):o;for(var k in p){this.state[k]=p[k];}render();};
+DCLogic.prototype.forceUpdate=function(){render();};
+window.DCLogic=DCLogic;
+var WH=/^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/,HOLE=/\{\{\s*([^}]+?)\s*\}\}/g;
+function lookup(path,sc){path=path.trim();if(path==='true')return true;if(path==='false')return false;if(/^-?\d+(\.\d+)?$/.test(path))return Number(path);var ps=path.split('.');for(var i=sc.length-1;i>=0;i--){if(sc[i]!=null&&ps[0] in sc[i]){var v=sc[i];for(var j=0;j<ps.length;j++){if(v==null)return undefined;v=v[ps[j]];}return v;}}return undefined;}
+function interp(s,sc){return s.replace(HOLE,function(_,p){var v=lookup(p,sc);return v==null?'':String(v);});}
+function kids(n,sc,parent){for(var c=n.firstChild;c;c=c.nextSibling)build(c,sc,parent);}
+function listen(el,ev){if(!el.__l)el.__l={};if(el.__l[ev])return;el.__l[ev]=1;el.addEventListener(ev,function(e){var f=el.__h&&el.__h[ev];if(f)return f(e);});}
+function build(n,sc,parent){
+ if(n.nodeType===3){parent.appendChild(document.createTextNode(interp(n.nodeValue,sc)));return;}
+ if(n.nodeType!==1)return;
+ var tag=n.localName;
+ if(tag==='sc-if'){var m0=WH.exec(n.getAttribute('value')||'');if(m0&&lookup(m0[1],sc))kids(n,sc,parent);return;}
+ if(tag==='sc-for'){var m1=WH.exec(n.getAttribute('list')||'');var list=(m1&&lookup(m1[1],sc))||[];var as=n.getAttribute('as');list.forEach(function(it,i){var s={};s[as]=it;s.$index=i;kids(n,sc.concat([s]),parent);});return;}
+ var el=document.createElementNS(n.namespaceURI,tag);el.__a={};el.__h={};
+ for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i],name=a.name,val=a.value;
+  if(name.indexOf('hint-')===0)continue;
+  var m=WH.exec(val);
+  if(/^on[a-z]/i.test(name)){if(m){var fn=lookup(m[1],sc);if(typeof fn==='function'){var ev=name.slice(2).toLowerCase();if(ev==='change'&&(tag==='textarea'||(tag==='input'&&n.getAttribute('type')!=='checkbox')))ev='input';el.__h[ev]=fn;}}continue;}
+  if(m){var v=lookup(m[1],sc);if(v===false||v==null)continue;el.__a[name]=v===true?'':String(v);continue;}
+  el.__a[name]=interp(val,sc);}
+ for(var k in el.__a)el.setAttribute(k,el.__a[k]);
+ for(var e2 in el.__h)listen(el,e2);
+ kids(n,sc,el);parent.appendChild(el);}
+// 前の画面の要素を残したまま、変わった所だけを書きかえる（動きが途切れない・入力した内容が残る）
+function sync(o,n){var oa=o.__a||{},na=n.__a||{},k;
+ for(k in oa){if(!(k in na))o.removeAttribute(k);}
+ for(k in na){if(oa[k]!==na[k])o.setAttribute(k,na[k]);}
+ o.__a=na;o.__h=n.__h||{};for(k in o.__h)listen(o,k);}
+function same(o,n){if(o.nodeType!==n.nodeType)return false;if(n.nodeType===3)return true;if(n.nodeType!==1)return false;return o.localName===n.localName&&o.namespaceURI===n.namespaceURI&&(o.id||'')===((n.__a&&n.__a.id)||'');}
+function morph(op,np){var o=op.firstChild,n=np.firstChild;
+ while(n){var nn=n.nextSibling;
+  if(!o){op.appendChild(n);}
+  else if(same(o,n)){if(n.nodeType===3){if(o.nodeValue!==n.nodeValue)o.nodeValue=n.nodeValue;}else{sync(o,n);morph(o,n);}o=o.nextSibling;}
+  else{var on=o.nextSibling;op.replaceChild(n,o);o=on;}
+  n=nn;}
+ while(o){var x=o.nextSibling;op.removeChild(o);o=x;}}
+var comp,tpl,root,booted=false;
+function render(){
+ var frag=document.createDocumentFragment();kids(tpl.content,[comp.renderVals()],frag);
+ if(!booted){root.appendChild(frag);booted=true;return;}
+ morph(root,frag);
+ if(comp.componentDidUpdate){try{comp.componentDidUpdate();}catch(_){}}
+}
+window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.getElementById('app');comp=new C();comp.props=PROPS;if(!comp.state)comp.state={};render();if(comp.componentDidMount)comp.componentDidMount();};
+})();
+
+class Component extends DCLogic {
+st() {
+return Object.assign({ screen: 'home', menu: false, topic: '市政へのご意見', reply: '希望する', ferr: {} }, this.state || {});
+}
+componentDidMount() { this.fx(); }
+componentDidUpdate() { this.fx(); }
+fx() {
+try {
+var root = document.getElementById('top');
+if (!root || !('IntersectionObserver' in window)) { return; }
+var self = this;
+if (!this.io) {
+this.io = new IntersectionObserver(function (es) {
+es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); self.io.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+}
+root.classList.add('fx');
+var els = root.querySelectorAll('.rv:not(.in)');
+for (var i = 0; i < els.length; i++) { this.io.observe(els[i]); }
+} catch (e) {}
+}
+jump(id) {
+setTimeout(function () {
+try {
+var el = id ? document.getElementById(id) : null;
+if (el) { el.scrollIntoView({ block: 'start' }); } else { window.scrollTo(0, 0); }
+} catch (e) {}
+}, 80);
+}
+renderVals() {
+const self = this;
+const st = this.st();
+const sc = st.screen;
+// 本番の設定。staging を false にすると「確認待ち」の表示が消える。
+const CONFIG = { staging: true };
+const to = function (o, id) { return function () { self.setState(Object.assign({ menu: false }, o)); self.jump(id); }; };
+const chip = function (on) { return on ? { bg: '#1A2766', fg: '#FFFFFF', pressed: 'true' } : { bg: '#FFFFFF', fg: '#1A2766', pressed: 'false' }; };
+const needReply = st.reply === '希望する';
+const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if (st.ferr[k] && String(e.target.value).trim()) { var fe = Object.assign({}, st.ferr); fe[k] = false; self.setState({ ferr: fe }); } }; };
+const submit = function () {
+const F = self.form || {};
+const ferr = { body: !String(F.body || '').trim(), name: !String(F.name || '').trim(), contact: needReply && !String(F.contact || '').trim() };
+if (ferr.body || ferr.name || ferr.contact) { self.setState({ ferr: ferr }); return; }
+self.form = {}; self.setState({ screen: 'done', ferr: {} }); self.jump('');
+};
+const fab = sc === 'home';
+const C = ['#1259A8', '#2E8B57', '#C2261D', '#1259A8', '#2E8B57', '#C2261D'];
+return {
+is: { home: sc === 'home', contact: sc === 'contact', done: sc === 'done', menu: st.menu, fab: fab, reply: needReply, stg: CONFIG.staging },
+menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 'false',
+footPad: fab ? '96px' : '28px',
+policies: [
+['未来につなぐ、安全で安心な街づくり', ['上下水道の老朽化に合わせたライフラインの更新と耐震化を進め、災害に強い街に', '災害時の避難場所や備蓄の整備、物資を運ぶ幹線道路（八尾富田林線）と生活道路の整備', '休日・夜間の救急医療と、南河内圏内の医療の充実', '外国人の方との共生に向けたルールづくりと、日本と羽曳野市の文化を学ぶ場づくり', '市独自の空き家対策']],
+['子育て世代に優しい街づくり', ['夜間の小児救急医療を、南河内圏内の医療機関と連携して充実させる', '待機児童を出さないよう、保育園・認定こども園の保育事業を充実', '学校給食費の無償化を、国へ要請', '働きやすい環境と、子育ての悩みを気軽に相談できる場所づくり']],
+['子どもたちの教育・環境・居場所づくり', ['加配職員を充実させ、誰一人取り残さない教育環境と、教職員の負担軽減', 'いじめや犯罪を防ぐため、教育現場への防犯カメラの設置を要請', '不登校の児童や、悩みを抱える子どもたちの相談と居場所づくり']],
+['福祉の充実した街づくり', ['高齢の方が元気に暮らせるよう、介護予防を充実', '障害をお持ちの方が気軽に社会参加できる仕組みと、支え合いの取り組み', '循環バスなど公共交通と連携し、外出しやすい環境に']],
+['伝統文化を愛する街づくり', ['歴史あるだんじり祭りを、次の世代につなげる仕組みづくり', '古市古墳群や竹内街道の整備を進め、次の世代につなぐ', '羽曳野市花火大会の復活']],
+['町会・自治会の負担を軽く', ['町会・自治会の高齢化や共働きの世帯に配慮し、市の広報の配布を民間事業者に委託', '町会・自治会の組織を維持するための支援']]
+].map(function (x, i) { return { n: ('0' + (i + 1)).slice(-2), k: x[0], items: x[1], c: C[i], dl: ((i % 3) * 0.1) + 's' }; }),
+acts: [
+['朝の見守り', '子どもたちの通学のために、朝の見守りをしています。通学時の子どもたちのあいさつと安全のために、見守りをさせていただいています。'],
+['漏水と復旧工事の現場へ', '羽曳野市内で起きた漏水と、その復旧工事の現場に足を運び、状況を確かめています。'],
+['急な斜面の安全対策', '子どもたちの安全のため、急な斜面を通らないように対策をしました。']
+].map(function (x, i) { return { k: x[0], v: x[1], dl: (i * 0.12) + 's' }; }),
+sns: [
+['Facebook', '活動の様子を投稿しています', 'https://www.facebook.com/profile.php?id=100011436823306'],
+['LINE', 'ご意見・ご相談もこちらから', 'https://line.me/ti/p/orHb3qUpZp'],
+['Instagram', 'MINORU.H.N.S.R', 'https://www.instagram.com/minoru.h.n.s.r/']
+].map(function (x) { return { k: x[0], v: x[1], url: x[2] }; }),
+profile: [
+['生まれ', '昭和42年9月17日（乙女座・O型）'],
+['議員歴', '羽曳野市議会議員　5期（18年）'],
+['議会', '議会運営委員会　委員長'],
+['会派', '自由民主党　もっとはびきの議員団　幹事長'],
+['党', '自由民主党　羽曳野支部　幹事長'],
+['家族', '子ども5人の父、孫5人のおじいちゃんです。']
+].map(function (x) { return { k: x[0], v: x[1] }; }),
+topics: ['市政へのご意見', '地域の困りごと', 'そのほか'].map(function (t) { var c = chip(st.topic === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ topic: t }); } }; }),
+replies: ['希望する', '希望しない'].map(function (t) { var c = chip(st.reply === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ reply: t }); } }; }),
+f: { body: setF('body'), area: setF('area'), name: setF('name'), contact: setF('contact') },
+ferr: { body: !!st.ferr.body, name: !!st.ferr.name, contact: !!st.ferr.contact },
+go: {
+home: to({ screen: 'home' }, ''), toggle: function () { self.setState({ menu: !st.menu }); },
+message: to({ screen: 'home' }, 'message'), policy: to({ screen: 'home' }, 'policy'), activity: to({ screen: 'home' }, 'activity'), profile: to({ screen: 'home' }, 'profile'), office: to({ screen: 'home' }, 'office'),
+ask: function () { self.form = {}; self.setState({ screen: 'contact', menu: false, ferr: {} }); self.jump(''); },
+submit: submit
+}
+};
+}
+}
+window.__dcBoot(Component);
+</script>
+</body>
+</html>

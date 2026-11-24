@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1B1030">
+<title>TSUKINE｜ホームページの見本</title>
+<meta name="description" content="占い師のホームページの見本です。お名前・料金は仮のものです。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TSUKINE｜ホームページの見本">
+<meta property="og:description" content="占い師のホームページの見本です。お名前・料金は仮のものです。">
+<meta property="og:image" content="https://mkohei97.github.io/works/fortune-teller/img/u_hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Shippori+Mincho:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1B1030}
+a{color:#EBD3A0}a:hover{color:#FFFFFF}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #FFFFFF;outline-offset:2px}
+h1,h2,h3,h4,dt,button{word-break:auto-phrase}
+p,li,dd{text-wrap:pretty}
+@media (max-width:759px){.pc-only{display:none !important}
+.swipe{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:-16px !important;padding:6px 16px 16px !important;scroll-padding-inline:16px}
+.swipe::-webkit-scrollbar{display:none}
+.swipe>*{flex:0 0 78%;box-sizing:border-box;scroll-snap-align:start}}
+@media (min-width:760px){.sp-only{display:none !important}}
+@keyframes tw{0%,100%{opacity:.12;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes shimmer{from{background-position:120% 50%}to{background-position:-120% 50%}}
+@keyframes glow{0%,100%{box-shadow:0 0 14px rgba(217,179,106,.35)}50%{box-shadow:0 0 34px rgba(217,179,106,.8)}}
+@keyframes sweep{0%{transform:translateX(-140%) skewX(-20deg)}55%,100%{transform:translateX(380%) skewX(-20deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes aura{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.95;transform:scale(1.18)}}
+@keyframes rise1{0%{transform:translate3d(0,0,0);opacity:0}8%{opacity:.9}85%{opacity:.5}100%{transform:translate3d(40px,-112vh,0);opacity:0}}
+@keyframes rise2{0%{transform:translate3d(0,0,0);opacity:0}8%{opacity:.8}85%{opacity:.5}100%{transform:translate3d(-56px,-112vh,0);opacity:0}}
+@keyframes rise3{0%{transform:translate3d(0,0,0);opacity:0}8%{opacity:.9}50%{transform:translate3d(34px,-56vh,0)}85%{opacity:.4}100%{transform:translate3d(-12px,-112vh,0);opacity:0}}
+@keyframes shoot{0%{opacity:0;transform:translate3d(0,0,0) rotate(-28deg)}3%{opacity:1}14%{opacity:0;transform:translate3d(-460px,245px,0) rotate(-28deg)}100%{opacity:0;transform:translate3d(-460px,245px,0) rotate(-28deg)}}
+@keyframes phase{0%,100%{opacity:.4}50%{opacity:1}}
+.star{position:absolute;border-radius:50%;background:#FFF4D6;animation:tw 4s ease-in-out infinite;will-change:opacity,transform}
+.dust{position:absolute;bottom:-12px;border-radius:50%;background:#EBD3A0;box-shadow:0 0 6px 1px rgba(235,211,160,.7);animation:rise1 18s linear infinite;will-change:transform,opacity}
+.dust.b{animation-name:rise2}.dust.c{animation-name:rise3}
+.shoot{position:absolute;width:130px;height:2px;border-radius:2px;background:linear-gradient(90deg,#FFFFFF,rgba(255,255,255,0));opacity:0;animation:shoot 9s linear infinite}
+.kb{animation:kb 26s ease-in-out infinite alternate;will-change:transform}
+.intro>*{animation:up 1.1s cubic-bezier(.2,.7,.2,1) both}
+.intro>*:nth-child(2){animation-delay:.18s}.intro>*:nth-child(3){animation-delay:.36s}.intro>*:nth-child(4){animation-delay:.54s}.intro>*:nth-child(5){animation-delay:.72s}
+.gold{background:linear-gradient(100deg,#D9B36A 0%,#D9B36A 38%,#FFF6DC 50%,#D9B36A 62%,#D9B36A 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}
+.btn-gold{position:relative;overflow:hidden;animation:glow 3.4s ease-in-out infinite;transition:transform .15s}
+.btn-gold::after{content:"";position:absolute;top:0;bottom:0;left:0;width:34%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));animation:sweep 4.5s ease-in-out infinite;pointer-events:none}
+.btn-gold:active,.tap:active{transform:scale(.97)}
+.tap{transition:transform .15s,background-color .2s,color .2s}
+.ring{animation:spin 90s linear infinite}
+.fl{animation:float 5s ease-in-out infinite}
+.aura{animation:aura 9s ease-in-out infinite}
+.ph{animation:phase 4s ease-in-out infinite}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.card{transition:border-color .4s,box-shadow .4s,transform .4s}
+.card img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.card:hover{border-color:#D9B36A !important;box-shadow:0 0 28px rgba(217,179,106,.28);transform:translateY(-4px)}.card:hover img{transform:scale(1.07)}}
+.fx .rv{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.fx .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.fx .rv{opacity:1;transform:none}.shoot,.dust{display:none}}
+</style>
+<style>
+:root{color-scheme:dark}
+html{-webkit-text-size-adjust:100%;background:#1B1030}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div id="top" style="position: relative; background: #1B1030; color: #F1ECFA; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.95; line-break: strict; overflow-x: hidden">
+
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: 5; overflow: hidden; pointer-events: none">
+<sc-for list="{{dust}}" as="d" hint-placeholder-count="0">
+<span class="dust {{d.k}}" style="left: {{d.x}}; width: {{d.s}}; height: {{d.s}}; animation-duration: {{d.d}}; animation-delay: {{d.dl}}"></span>
+</sc-for>
+</div>
+
+<div style="background: #120A22; color: #EBD3A0; padding: 8px 16px; font-size: 14px; line-height: 1.6; text-align: center">見本のページです。お名前・料金・ご予約先は、仮のものです。</div>
+
+<header style="position: relative; z-index: 6; background: #1B1030; border-bottom: 1px solid #4B3A70">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button type="button" onClick="{{go.home}}" aria-label="トップページへ" style="display: flex; align-items: center; gap: 12px; min-height: 48px; min-width: 0; padding: 0; border: 0; background: transparent; color: #F1ECFA; text-align: left">
+<svg viewBox="0 0 44 44" aria-hidden="true" style="width: 42px; height: 42px; flex: 0 0 auto"><circle cx="22" cy="22" r="20.5" fill="none" stroke="#D9B36A" stroke-width="1"></circle><path d="M28 10a12.5 12.5 0 1 0 0 24a15 15 0 0 1 0-24z" fill="#D9B36A"></path><circle cx="30" cy="22" r="2.6" fill="#D9B36A"></circle><path d="M30 16.4v2M30 25.6v2M24.4 22h2M33.6 22h2M26 18l1.4 1.4M32.6 24.6L34 26M34 18l-1.4 1.4M27.4 24.6L26 26" stroke="#D9B36A" stroke-width="1" stroke-linecap="round"></path></svg>
+<span style="display: flex; flex-direction: column; min-width: 0"><span class="gold" style="font-family: 'Cormorant Garamond', 'Shippori Mincho', serif; font-size: 26px; font-weight: 600; line-height: 1.2; letter-spacing: .22em; white-space: nowrap">TSUKINE</span><span style="font-size: 13px; line-height: 1.5; letter-spacing: .2em; color: #C9BDE3">占い師 つきね</span></span>
+</button>
+<nav class="pc-only" aria-label="主なメニュー" style="display: flex; align-items: center; gap: 2px">
+<button type="button" class="tap" onClick="{{go.today}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #F1ECFA; font-size: 15px">今日の1枚</button>
+<button type="button" class="tap" onClick="{{go.menu}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #F1ECFA; font-size: 15px">占いのご案内</button>
+<button type="button" class="tap" onClick="{{go.care}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #F1ECFA; font-size: 15px">大切にしていること</button>
+<button type="button" class="tap" onClick="{{go.flow}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #F1ECFA; font-size: 15px">鑑定の流れ</button>
+<button type="button" class="tap" onClick="{{go.price}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #F1ECFA; font-size: 15px">料金・鑑定日</button>
+</nav>
+<button type="button" class="pc-only btn-gold" onClick="{{go.reserve}}" style="min-height: 46px; padding: 0 26px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 15px; font-weight: 700; letter-spacing: .08em">鑑定のご予約</button>
+<button type="button" class="sp-only tap" onClick="{{go.toggle}}" aria-expanded="{{menuOpen}}" style="flex: 0 0 auto; min-width: 84px; min-height: 44px; border: 1px solid #D9B36A; border-radius: 999px; background: transparent; color: #EBD3A0; font-size: 14px; font-weight: 700">{{menuLabel}}</button>
+</div>
+<sc-if value="{{is.menu}}" hint-placeholder-val="{{false}}">
+<nav class="sp-only" aria-label="メニュー" style="display: flex; flex-direction: column; border-top: 1px solid #4B3A70">
+<button type="button" onClick="{{go.today}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #3A2A5C; background: #1B1030; color: #F1ECFA; font-size: 16px; text-align: left">今日の1枚</button>
+<button type="button" onClick="{{go.menu}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #3A2A5C; background: #1B1030; color: #F1ECFA; font-size: 16px; text-align: left">占いのご案内</button>
+<button type="button" onClick="{{go.care}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #3A2A5C; background: #1B1030; color: #F1ECFA; font-size: 16px; text-align: left">大切にしていること</button>
+<button type="button" onClick="{{go.flow}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #3A2A5C; background: #1B1030; color: #F1ECFA; font-size: 16px; text-align: left">鑑定の流れ</button>
+<button type="button" onClick="{{go.price}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #3A2A5C; background: #1B1030; color: #F1ECFA; font-size: 16px; text-align: left">料金・鑑定日</button>
+<button type="button" onClick="{{go.profile}}" style="min-height: 54px; padding: 0 18px; border: 0; background: #1B1030; color: #F1ECFA; font-size: 16px; text-align: left">プロフィール</button>
+</nav>
+</sc-if>
+</header>
+
+<sc-if value="{{is.home}}" hint-placeholder-val="{{true}}">
+<main>
+
+<section style="position: relative; background: #1B1030; overflow: hidden">
+<div class="sp-only" style="overflow: hidden">
+<img class="kb" src="img/u_hero.jpg" alt="紫の夜空に金色の三日月と太陽。手前に水晶玉、アメジスト、灯したキャンドル、伏せたカード" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 78% 50%">
+</div>
+<img class="pc-only kb" src="img/u_hero.jpg" alt="紫の夜空に金色の三日月と太陽。手前に水晶玉、アメジスト、灯したキャンドル、伏せたカード" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%">
+<div class="pc-only" aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, #1B1030 0%, rgba(27, 16, 48, .88) 36%, rgba(27, 16, 48, 0) 68%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden; pointer-events: none">
+<sc-for list="{{stars}}" as="s" hint-placeholder-count="0">
+<span class="star" style="left: {{s.x}}; top: {{s.y}}; width: {{s.s}}; height: {{s.s}}; animation-duration: {{s.d}}; animation-delay: {{s.dl}}"></span>
+</sc-for>
+<span class="shoot" style="left: 72%; top: 6%; animation-delay: 2.5s"></span>
+<span class="shoot" style="left: 96%; top: 22%; animation-duration: 13s; animation-delay: 7s"></span>
+</div>
+<div style="position: relative; max-width: 1160px; margin: 0 auto; padding: clamp(32px, 9vw, 116px) 16px clamp(40px, 9vw, 116px)">
+<div class="intro" style="max-width: 600px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px">
+<p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.2vw, 20px); font-weight: 500; line-height: 1.4; letter-spacing: .2em">Tarot · Astrology · Numerology</p>
+<h1 style="margin: 0; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(28px, 4.6vw, 48px); font-weight: 500; line-height: 1.55; letter-spacing: .06em; text-shadow: 0 0 24px rgba(160, 120, 240, .55)">あなたの今に、<br>静かに寄り添う鑑定を。</h1>
+<p style="margin: 0; font-size: 17px; color: #E3DAF5">カードと、星と、数。いくつもの占いを重ねて、いまのあなたに必要な言葉をお届けします。</p>
+<p style="margin: 0; padding: 6px 18px; border: 1px solid #D9B36A; border-radius: 999px; font-size: 15px; line-height: 1.7; letter-spacing: .06em; color: #EBD3A0">完全予約制　平日 9:00〜14:00</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" class="btn-gold" onClick="{{go.reserve}}" style="min-height: 56px; padding: 0 32px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 17px; font-weight: 700; letter-spacing: .08em">鑑定を予約する</button>
+<button type="button" class="tap" onClick="{{go.today}}" style="min-height: 56px; padding: 0 28px; border: 1px solid #C9BDE3; border-radius: 999px; background: rgba(27, 16, 48, .6); color: #F1ECFA; font-size: 17px; font-weight: 500">今日の1枚を引く</button>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="鑑定で大切にしていること" style="background: #261744; border-top: 1px solid #4B3A70; border-bottom: 1px solid #4B3A70">
+<div style="max-width: 1160px; margin: 0 auto; padding: 20px 16px; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 4px 28px">
+<sc-for list="{{words}}" as="w" hint-placeholder-count="3">
+<p style="margin: 0; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Shippori Mincho', serif; font-size: 19px; font-weight: 500; letter-spacing: .14em; color: #EBD3A0"><svg class="ph" viewBox="0 0 20 20" aria-hidden="true" style="width: 16px; height: 16px; flex: 0 0 auto; animation-delay: {{w.dl}}"><path d="M10 0c.8 5.6 4.4 9.2 10 10c-5.6.8-9.2 4.400-10 10c-.8-5.6-4.400-9.200-10-10c5.600-.8 9.200-4.400 10-10z" fill="#D9B36A"></path></svg>{{w.t}}</p>
+</sc-for>
+</div>
+</section>
+
+<section id="today" style="position: relative; padding: 72px 0 68px; overflow: hidden">
+<div class="aura" aria-hidden="true" style="position: absolute; left: 50%; top: 46%; width: 560px; height: 560px; margin: -280px 0 0 -280px; border-radius: 50%; background: radial-gradient(circle, rgba(150, 100, 235, .4) 0%, rgba(150, 100, 235, 0) 66%); pointer-events: none"></div>
+<div class="rv" style="position: relative; max-width: 760px; margin: 0 auto; padding: 0 16px; text-align: center">
+<p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: .3em">Today's Card</p>
+<h2 style="margin: 2px 0 6px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(28px, 3.8vw, 38px); font-weight: 500; line-height: 1.5; letter-spacing: .1em">今日の1枚</h2>
+<p style="margin: 0 0 30px; font-size: 16px; color: #E3DAF5">深呼吸をひとつ。直感で、1枚お選びください。</p>
+<div style="display: flex; justify-content: center; gap: clamp(10px, 3.4vw, 30px)">
+<sc-for list="{{draws}}" as="c" hint-placeholder-count="3">
+<button type="button" class="{{c.cls}}" onClick="{{c.pick}}" aria-label="{{c.label}}" style="width: clamp(88px, 26vw, 168px); aspect-ratio: 5 / 8; padding: 0; border: 0; background: transparent; perspective: 900px; opacity: {{c.op}}; transition: opacity .6s; animation-delay: {{c.dl}}">
+<span style="display: block; position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .95s cubic-bezier(.3, .8, .2, 1); transform: rotateY({{c.rot}})">
+<span class="face" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; border: 1px solid #D9B36A; border-radius: 12px; background: #2F1D54; box-shadow: 0 0 22px rgba(150, 100, 235, .45)">
+<svg viewBox="0 0 60 96" aria-hidden="true" style="width: 100%; height: 100%"><rect x="5" y="5" width="50" height="86" rx="6" fill="none" stroke="#D9B36A" stroke-width=".8"></rect><path d="M34 34a13 13 0 1 0 0 26a17 17 0 0 1 0-26z" fill="#D9B36A"></path><path d="M41 44c.4 2.400 1.600 3.600 4 4c-2.400.4-3.600 1.600-4 4c-.4-2.400-1.600-3.600-4-4c2.400-.4 3.600-1.600 4-4zM30 14c.3 1.800 1.200 2.700 3 3c-1.800.3-2.700 1.200-3 3c-.3-1.800-1.200-2.700-3-3c1.800-.3 2.700-1.200 3-3zM30 76c.3 1.800 1.200 2.700 3 3c-1.800.3-2.700 1.200-3 3c-.3-1.800-1.200-2.700-3-3c1.800-.3 2.700-1.200 3-3z" fill="#EBD3A0"></path></svg>
+</span>
+<span class="face" style="position: absolute; inset: 0; transform: rotateY(180deg); box-sizing: border-box; padding: 8px 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: 2px solid #D9B36A; border-radius: 12px; background: #F6EEDC; color: #2A1846; box-shadow: 0 0 34px rgba(235, 211, 160, .7)">
+<span style="font-family: 'Cormorant Garamond', serif; font-size: clamp(13px, 2.6vw, 17px); font-weight: 600; line-height: 1.3; letter-spacing: .12em; color: #7A5A1E">{{c.en}}</span>
+<span style="font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(24px, 6vw, 40px); font-weight: 700; line-height: 1.3; letter-spacing: .08em">{{c.name}}</span>
+</span>
+</span>
+</button>
+</sc-for>
+</div>
+<div aria-live="polite" style="min-height: 136px; margin-top: 26px">
+<sc-if value="{{is.undrawn}}" hint-placeholder-val="{{true}}">
+<p class="ph" style="margin: 0; padding-top: 8px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 18px; letter-spacing: .12em; color: #EBD3A0">カードに触れると、ひと言が現れます。</p>
+</sc-if>
+<sc-if value="{{is.drawn}}" hint-placeholder-val="{{false}}">
+<div class="intro" style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+<h3 style="margin: 0; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 24px; font-weight: 500; letter-spacing: .12em; color: #EBD3A0">「{{drawn.name}}」のカード</h3>
+<p style="margin: 0; max-width: 30em; font-size: 17px">{{drawn.msg}}</p>
+<button type="button" class="tap" onClick="{{go.again}}" style="min-height: 48px; padding: 0 24px; border: 1px solid #C9BDE3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 16px">もう一度引く</button>
+</div>
+</sc-if>
+</div>
+<p style="margin: 6px 0 0; font-size: 14px; color: #C9BDE3">お楽しみのひと言です。鑑定では、お話を伺ってから読み解きます。</p>
+</div>
+</section>
+
+<section id="menu" style="background: #261744; padding: 80px 0 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<div class="rv" style="text-align: center; margin-bottom: 40px">
+<p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: .3em">Menu</p>
+<h2 style="margin: 2px 0 12px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(28px, 3.8vw, 38px); font-weight: 500; line-height: 1.5; letter-spacing: .1em">占いのご案内</h2>
+<div aria-hidden="true" style="display: flex; justify-content: center; gap: 12px">
+<sc-for list="{{phases}}" as="p" hint-placeholder-count="5"><span class="ph" style="width: 13px; height: 13px; border: 1px solid #D9B36A; border-radius: 50%; background: {{p.bg}}; box-shadow: {{p.sh}}; animation-delay: {{p.dl}}"></span></sc-for>
+</div>
+</div>
+
+<div class="rv">
+<h3 style="margin: 0 0 6px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 24px; font-weight: 500; letter-spacing: .1em; color: #EBD3A0">カードで読む</h3>
+<p style="margin: 0 0 4px; font-size: 16px; color: #C9BDE3">引いたカードの絵から、いまの状況と、これからの流れを読み解きます。</p>
+<p class="sp-only" style="margin: 0; font-size: 14px; color: #C9BDE3">横に動かして、3つのカードをご覧ください。</p>
+<div class="swipe" style="margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px">
+<sc-for list="{{cards}}" as="c" hint-placeholder-count="3">
+<article class="card" style="display: flex; flex-direction: column; background: #1B1030; border: 1px solid #4B3A70; border-radius: 14px; overflow: hidden">
+<div style="overflow: hidden"><img src="{{c.img}}" alt="{{c.alt}}" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover"></div>
+<div style="padding: 20px 22px 24px">
+<p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 500; letter-spacing: .22em; color: #D9B36A">{{c.en}}</p>
+<h4 style="margin: 0 0 6px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 23px; font-weight: 500; line-height: 1.5; letter-spacing: .06em">{{c.name}}</h4>
+<p style="margin: 0; font-size: 16px; line-height: 1.85; color: #E3DAF5">{{c.note}}</p>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+
+<div class="rv" style="margin-top: 52px">
+<h3 style="margin: 0 0 6px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 24px; font-weight: 500; letter-spacing: .1em; color: #EBD3A0">星と数で読む</h3>
+<p style="margin: 0; font-size: 16px; color: #C9BDE3">生年月日から、持って生まれた性質と、運気の流れを読み解きます。</p>
+<div class="swipe" style="margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px">
+<sc-for list="{{starMenu}}" as="s" hint-placeholder-count="4">
+<article class="card" style="padding: 26px 22px; background: #1B1030; border: 1px solid #4B3A70; border-radius: 14px">
+<p aria-hidden="true" style="position: relative; margin: 0 0 10px; width: 56px; height: 56px; font-family: 'Shippori Mincho', serif; font-size: 22px; line-height: 56px; text-align: center; color: #EBD3A0"><span class="ring" style="position: absolute; inset: 0; border: 1px dashed #D9B36A; border-radius: 50%; animation-duration: 24s"></span>{{s.mark}}</p>
+<h4 style="margin: 0 0 6px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 22px; font-weight: 500; line-height: 1.5; letter-spacing: .06em">{{s.name}}</h4>
+<p style="margin: 0; font-size: 16px; line-height: 1.85; color: #E3DAF5">{{s.note}}</p>
+</article>
+</sc-for>
+</div>
+<p style="margin: 20px 0 0; font-size: 16px; color: #C9BDE3">どの占いが合うか分からないときは、「おまかせ」でご予約ください。ご相談の内容に合わせて組み合わせます。</p>
+</div>
+</div>
+</section>
+
+<section id="care" style="position: relative; padding: 76px 0 72px; overflow: hidden">
+<div class="aura" aria-hidden="true" style="position: absolute; right: -180px; top: -120px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(217, 179, 106, .16) 0%, rgba(217, 179, 106, 0) 66%); pointer-events: none; animation-delay: -4s"></div>
+<div style="position: relative; max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<div class="rv" style="text-align: center; margin-bottom: 36px">
+<p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: .3em">Promise</p>
+<h2 style="margin: 2px 0 12px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(28px, 3.8vw, 38px); font-weight: 500; line-height: 1.5; letter-spacing: .1em">大切にしていること</h2>
+<div aria-hidden="true" style="display: flex; justify-content: center; gap: 12px">
+<sc-for list="{{phases}}" as="p" hint-placeholder-count="5"><span class="ph" style="width: 13px; height: 13px; border: 1px solid #D9B36A; border-radius: 50%; background: {{p.bg}}; box-shadow: {{p.sh}}; animation-delay: {{p.dl}}"></span></sc-for>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px">
+<sc-for list="{{cares}}" as="c" hint-placeholder-count="3">
+<article class="rv card" style="padding: 28px 24px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px; text-align: center; transition-delay: {{c.dl}}">
+<h3 style="margin: 0 0 8px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 24px; font-weight: 500; letter-spacing: .12em; color: #EBD3A0">{{c.k}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.9; text-align: left; color: #E3DAF5">{{c.v}}</p>
+</article>
+</sc-for>
+</div>
+<div class="rv" style="max-width: 820px; margin: 32px auto 0; padding: 24px 24px; border: 1px solid #D9B36A; border-radius: 14px; background: rgba(27, 16, 48, .7)">
+<h3 style="margin: 0 0 8px; font-size: 18px; font-weight: 700; color: #EBD3A0">お約束</h3>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+<sc-for list="{{rules}}" as="r" hint-placeholder-count="3">
+<li style="display: flex; gap: 12px; font-size: 16px; line-height: 1.85"><span aria-hidden="true" style="flex: 0 0 auto; width: 7px; height: 7px; margin-top: 12px; transform: rotate(45deg); background: #D9B36A"></span><span style="min-width: 0">{{r}}</span></li>
+</sc-for>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="flow" style="background: #261744; padding: 76px 0 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<div class="rv" style="text-align: center; margin-bottom: 30px">
+<p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: .3em">Flow</p>
+<h2 style="margin: 2px 0 12px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(28px, 3.8vw, 38px); font-weight: 500; line-height: 1.5; letter-spacing: .1em">鑑定の流れ</h2>
+<div aria-hidden="true" style="display: flex; justify-content: center; gap: 12px">
+<sc-for list="{{phases}}" as="p" hint-placeholder-count="5"><span class="ph" style="width: 13px; height: 13px; border: 1px solid #D9B36A; border-radius: 50%; background: {{p.bg}}; box-shadow: {{p.sh}}; animation-delay: {{p.dl}}"></span></sc-for>
+</div>
+</div>
+<ol class="rv swipe" style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px">
+<sc-for list="{{flow}}" as="f" hint-placeholder-count="4">
+<li style="padding: 24px 22px; border-top: 2px solid #D9B36A; background: #1B1030; border-radius: 0 0 14px 14px">
+<p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 500; line-height: 1.2; color: #D9B36A">{{f.n}}</p>
+<h3 style="margin: 4px 0 6px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 21px; font-weight: 500; letter-spacing: .06em">{{f.k}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.85; color: #E3DAF5">{{f.v}}</p>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<section id="price" style="padding: 76px 0 72px">
+<div style="max-width: 1000px; margin: 0 auto; padding: 0 16px">
+<div class="rv" style="text-align: center; margin-bottom: 30px">
+<p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: .3em">Price &amp; Schedule</p>
+<h2 style="margin: 2px 0 12px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(28px, 3.8vw, 38px); font-weight: 500; line-height: 1.5; letter-spacing: .1em">料金・鑑定日</h2>
+<div aria-hidden="true" style="display: flex; justify-content: center; gap: 12px">
+<sc-for list="{{phases}}" as="p" hint-placeholder-count="5"><span class="ph" style="width: 13px; height: 13px; border: 1px solid #D9B36A; border-radius: 50%; background: {{p.bg}}; box-shadow: {{p.sh}}; animation-delay: {{p.dl}}"></span></sc-for>
+</div>
+</div>
+<div class="rv swipe" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px">
+<sc-for list="{{prices}}" as="p" hint-placeholder-count="3">
+<article class="card" style="padding: 26px 22px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px; text-align: center">
+<h3 style="margin: 0; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 22px; font-weight: 500; letter-spacing: .08em">{{p.k}}</h3>
+<p style="margin: 6px 0; font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 600; line-height: 1.3; color: #EBD3A0">{{p.yen}}<span style="margin-left: 4px; font-family: 'Noto Sans JP', sans-serif; font-size: 16px; font-weight: 400">円</span></p>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #C9BDE3">{{p.v}}</p>
+</article>
+</sc-for>
+</div>
+<p style="margin: 14px 0 0; font-size: 15px; color: #C9BDE3">料金は税込です。お支払いの方法は、ご予約の際にご案内します。</p>
+<dl class="rv" style="margin: 32px 0 0; border-top: 1px solid #4B3A70">
+<sc-for list="{{sched}}" as="s" hint-placeholder-count="4">
+<div style="display: flex; flex-wrap: wrap; gap: 2px 20px; padding: 16px 4px; border-bottom: 1px solid #4B3A70">
+<dt style="flex: 0 0 7em; font-size: 16px; font-weight: 700; color: #EBD3A0">{{s.k}}</dt>
+<dd style="flex: 1 1 240px; min-width: 0; margin: 0; font-size: 17px">{{s.v}}</dd>
+</div>
+</sc-for>
+</dl>
+</div>
+</section>
+
+<section id="profile" style="background: #261744; padding: 76px 0 72px">
+<div class="rv" style="max-width: 900px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 28px 44px; align-items: center">
+<div style="position: relative; flex: 0 1 220px; min-width: 180px; margin-inline: auto; aspect-ratio: 1 / 1; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; color: #C9BDE3; font-size: 15px; line-height: 1.7; text-align: center"><span class="ring" aria-hidden="true" style="position: absolute; inset: 0; border: 1px dashed #D9B36A; border-radius: 50%"></span><span class="ring" aria-hidden="true" style="position: absolute; inset: 12px; border: 1px solid #4B3A70; border-radius: 50%; animation-direction: reverse"></span>ここに<br>お写真かロゴが<br>入ります</div>
+<div style="flex: 1.6 1 340px; min-width: 0">
+<p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: .3em">Profile</p>
+<h2 style="margin: 2px 0 14px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(26px, 3.6vw, 34px); font-weight: 500; line-height: 1.5; letter-spacing: .1em">占い師　TSUKINE<span style="margin-left: 12px; font-size: 17px">つきね</span></h2>
+<p style="margin: 0 0 12px; color: #E3DAF5">タロット、オラクル、ルノルマンの3つのカードと、宿曜占星術、数秘術、星座を組み合わせて鑑定しています。</p>
+<p style="margin: 0; color: #E3DAF5">答えを決めるのは、ご本人です。占いは、そのための材料をお渡しするもの。鑑定のあと、少し気持ちが軽くなっていることを目指しています。</p>
+</div>
+</div>
+</section>
+
+<section style="position: relative; background: #2F1D54; border-top: 1px solid #4B3A70; padding: 76px 0 80px; overflow: hidden">
+<svg class="ring" viewBox="0 0 200 200" aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; margin: -280px 0 0 -280px; opacity: .32; pointer-events: none"><g fill="none" stroke="#D9B36A" stroke-width=".5"><circle cx="100" cy="100" r="96"></circle><circle cx="100" cy="100" r="74"></circle><circle cx="100" cy="100" r="52" stroke-dasharray="1 3"></circle><path d="M100.0 22.0L100.0 8.0M139.0 32.5L146.0 20.3M167.5 61.0L179.7 54.0M178.0 100.0L192.0 100.0M167.5 139.0L179.7 146.0M139.0 167.5L146.0 179.7M100.0 178.0L100.0 192.0M61.0 167.5L54.0 179.7M32.5 139.0L20.3 146.0M22.0 100.0L8.0 100.0M32.5 61.0L20.3 54.0M61.0 32.5L54.0 20.3"></path></g><g fill="#D9B36A"><circle cx="122.0" cy="17.9" r="1.4"></circle><circle cx="160.1" cy="39.9" r="1.4"></circle><circle cx="182.1" cy="78.0" r="1.4"></circle><circle cx="182.1" cy="122.0" r="1.4"></circle><circle cx="160.1" cy="160.1" r="1.4"></circle><circle cx="122.0" cy="182.1" r="1.4"></circle><circle cx="78.0" cy="182.1" r="1.4"></circle><circle cx="39.9" cy="160.1" r="1.4"></circle><circle cx="17.9" cy="122.0" r="1.4"></circle><circle cx="17.9" cy="78.0" r="1.4"></circle><circle cx="39.9" cy="39.9" r="1.4"></circle><circle cx="78.0" cy="17.9" r="1.4"></circle></g></svg>
+<div class="rv" style="position: relative; max-width: 760px; margin: 0 auto; padding: 0 16px; text-align: center">
+<svg class="fl" viewBox="0 0 120 40" aria-hidden="true" style="width: 120px; height: 40px"><path d="M34 7a14 14 0 1 0 0 26a18 18 0 0 1 0-26z" fill="#D9B36A"></path><circle cx="88" cy="20" r="7" fill="#D9B36A"></circle><path d="M88 6v4M88 30v4M74 20h4M98 20h4M78.100 10.100l2.800 2.800M95.100 27.100l2.800 2.800M97.900 10.100l-2.800 2.800M80.900 27.100l-2.800 2.800" stroke="#D9B36A" stroke-width="1.6" stroke-linecap="round"></path><path d="M60 14c.5 3.400 2.600 5.500 6 6c-3.400.5-5.500 2.600-6 6c-.5-3.400-2.600-5.500-6-6c3.400-.5 5.500-2.600 6-6z" fill="#EBD3A0"></path></svg>
+<h2 style="margin: 12px 0 10px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(26px, 3.6vw, 34px); font-weight: 500; line-height: 1.6; letter-spacing: .08em">ご予約をお待ちしています。</h2>
+<p style="margin: 0 0 24px; font-size: 16px; color: #E3DAF5">完全予約制です。ご希望の日時を、このページからお送りください。</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+<button type="button" class="btn-gold" onClick="{{go.reserve}}" style="min-height: 56px; padding: 0 36px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 17px; font-weight: 700; letter-spacing: .08em">鑑定を予約する</button>
+<span style="display: inline-flex; align-items: center; min-height: 56px; box-sizing: border-box; padding: 0 26px; border: 1px solid #C9BDE3; border-radius: 999px; background: rgba(27, 16, 48, .5); font-size: 16px">Instagram（リンクが入ります）</span>
+</div>
+</div>
+</section>
+
+</main>
+</sc-if>
+
+<sc-if value="{{is.reserve}}" hint-placeholder-val="{{false}}">
+<main style="position: relative; padding: 48px 0 76px">
+<div class="intro" style="max-width: 720px; margin: 0 auto; padding: 0 16px">
+<div>
+<p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: .3em">Reservation</p>
+<h1 style="margin: 2px 0 8px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(28px, 4.4vw, 38px); font-weight: 500; line-height: 1.5; letter-spacing: .08em">鑑定のご予約</h1>
+<p style="margin: 0 0 26px; font-size: 16px; color: #E3DAF5">ご希望をお送りいただいたあと、こちらから日時の確定のご連絡を差し上げます。</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px">
+
+<section style="padding: 24px 20px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
+<p id="l-len" style="margin: 0 0 8px; font-size: 17px; font-weight: 700; color: #EBD3A0">鑑定の時間</p>
+<div role="group" aria-labelledby="l-len" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{lens}}" as="t" hint-placeholder-count="2">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 20px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<p id="l-kind" style="margin: 20px 0 2px; font-size: 17px; font-weight: 700; color: #EBD3A0">ご希望の占い</p>
+<p style="margin: 0 0 8px; font-size: 15px; color: #C9BDE3">いくつでも選べます。</p>
+<div role="group" aria-labelledby="l-kind" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{kinds}}" as="t" hint-placeholder-count="7">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 24px 20px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
+<label for="f-d1" style="display: block; margin: 0 0 2px; font-size: 17px; font-weight: 700; color: #EBD3A0">ご希望の日（第1希望）<span style="margin-left: 8px; color: #FFC9BD; font-size: 14px">必須</span></label>
+<p style="margin: 0 0 6px; font-size: 15px; color: #C9BDE3">平日からお選びください。</p>
+<input id="f-d1" type="date" onChange="{{f.d1}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
+<sc-if value="{{ferr.d1}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">ご希望の日をお選びください。</p></sc-if>
+<sc-if value="{{ferr.d1w}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">土曜・日曜はお休みです。平日をお選びください。</p></sc-if>
+<label for="f-d2" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700; color: #EBD3A0">第2希望（任意）</label>
+<input id="f-d2" type="date" onChange="{{f.d2}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
+<p id="l-time" style="margin: 18px 0 2px; font-size: 17px; font-weight: 700; color: #EBD3A0">始める時間</p>
+<p style="margin: 0 0 8px; font-size: 15px; color: #C9BDE3">平日 9:00〜14:00（最終の鑑定は13:00から）</p>
+<div role="group" aria-labelledby="l-time" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{times}}" as="t" hint-placeholder-count="5">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 84px; min-height: 48px; padding: 0 16px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 24px 20px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
+<label for="f-name" style="display: block; margin: 0 0 6px; font-size: 17px; font-weight: 700; color: #EBD3A0">お名前（ニックネームでも構いません）<span style="margin-left: 8px; color: #FFC9BD; font-size: 14px">必須</span></label>
+<input id="f-name" type="text" autocomplete="nickname" onChange="{{f.name}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px">
+<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">お名前をご入力ください。</p></sc-if>
+<label for="f-contact" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700; color: #EBD3A0">メールアドレス<span style="margin-left: 8px; color: #FFC9BD; font-size: 14px">必須</span></label>
+<input id="f-contact" type="email" inputmode="email" autocomplete="email" onChange="{{f.contact}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px">
+<sc-if value="{{ferr.contact}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">メールアドレスをご入力ください。</p></sc-if>
+<label for="f-birth" style="display: block; margin: 16px 0 2px; font-size: 17px; font-weight: 700; color: #EBD3A0">生年月日（任意）</label>
+<p style="margin: 0 0 6px; font-size: 15px; color: #C9BDE3">宿曜占星術・数秘術・星座の鑑定で使います。</p>
+<input id="f-birth" type="date" autocomplete="bday" onChange="{{f.birth}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
+<label for="f-body" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700; color: #EBD3A0">ご相談の内容（任意）</label>
+<textarea id="f-body" rows="4" onChange="{{f.body}}" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px; line-height: 1.7"></textarea>
+</section>
+
+<p style="margin: 0; font-size: 15px; color: #C9BDE3">お預かりした内容は、鑑定とご連絡のためだけに使います。</p>
+<button type="button" class="btn-gold" onClick="{{go.submit}}" style="min-height: 58px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 18px; font-weight: 700; letter-spacing: .08em">この内容で予約を申し込む</button>
+<button type="button" onClick="{{go.home}}" style="min-height: 48px; border: 0; background: transparent; color: #F1ECFA; font-size: 16px; text-decoration: underline">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{is.done}}" hint-placeholder-val="{{false}}">
+<main style="position: relative; padding: 60px 0 84px; overflow: hidden">
+<div class="aura" aria-hidden="true" style="position: absolute; left: 50%; top: 40%; width: 560px; height: 560px; margin: -280px 0 0 -280px; border-radius: 50%; background: radial-gradient(circle, rgba(150, 100, 235, .4) 0%, rgba(150, 100, 235, 0) 66%); pointer-events: none"></div>
+<div style="position: relative; max-width: 640px; margin: 0 auto; padding: 0 16px">
+<div class="intro" style="padding: 36px 24px; background: #261744; border: 1px solid #D9B36A; border-radius: 14px; text-align: center">
+<svg class="fl" viewBox="0 0 20 20" aria-hidden="true" style="width: 30px; height: 30px"><path d="M10 0c.8 5.6 4.4 9.2 10 10c-5.6.8-9.2 4.400-10 10c-.8-5.6-4.400-9.200-10-10c5.600-.8 9.200-4.400 10-10z" fill="#D9B36A"></path></svg>
+<h1 style="margin: 8px 0 10px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(26px, 4vw, 34px); font-weight: 500; line-height: 1.6; letter-spacing: .06em">お申し込みを受け付けました。</h1>
+<p style="margin: 0 0 8px; font-size: 16px; text-align: left; color: #E3DAF5">{{doneLine}}日時の確定のご連絡を、2日以内に差し上げます。当日お会いできることを、楽しみにしています。</p>
+<p style="margin: 0 0 22px; font-size: 14px; color: #C9BDE3">見本のため、実際には送信されていません。</p>
+<button type="button" class="tap" onClick="{{go.home}}" style="width: 100%; min-height: 54px; border: 1px solid #D9B36A; border-radius: 999px; background: transparent; color: #EBD3A0; font-size: 17px; font-weight: 700">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<footer style="position: relative; background: #120A22; color: #F1ECFA; border-top: 1px solid #4B3A70; padding: 40px 0 {{footPad}}">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px">
+<div style="min-width: 0">
+<p class="gold" style="margin: 0; display: inline-block; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: .22em">TSUKINE</p>
+<p style="margin: 4px 0 0; font-size: 15px; line-height: 1.8; color: #C9BDE3">占い師 つきね　完全予約制　平日 9:00〜14:00（最終の鑑定は13:00から）</p>
+</div>
+<p style="margin: 0; font-size: 14px; color: #C9BDE3">© TSUKINE（見本のための架空の占い師です）</p>
+</div>
+</footer>
+
+<sc-if value="{{is.fab}}" hint-placeholder-val="{{false}}">
+<div class="sp-only" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: #120A22; border-top: 1px solid #4B3A70">
+<button type="button" class="btn-gold" onClick="{{go.reserve}}" style="flex: 1 1 0; min-width: 0; min-height: 52px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 17px; font-weight: 700; letter-spacing: .08em">鑑定を予約する</button>
+</div>
+</sc-if>
+
+</div>
+</template>
+<script>
+(function(){
+var PROPS={};
+function DCLogic(){this.props={};this.state={};}
+DCLogic.prototype.setState=function(o){var p=typeof o==='function'?o(this.state):o;for(var k in p){this.state[k]=p[k];}render();};
+DCLogic.prototype.forceUpdate=function(){render();};
+window.DCLogic=DCLogic;
+var WH=/^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/,HOLE=/\{\{\s*([^}]+?)\s*\}\}/g;
+function lookup(path,sc){path=path.trim();if(path==='true')return true;if(path==='false')return false;if(/^-?\d+(\.\d+)?$/.test(path))return Number(path);var ps=path.split('.');for(var i=sc.length-1;i>=0;i--){if(sc[i]!=null&&ps[0] in sc[i]){var v=sc[i];for(var j=0;j<ps.length;j++){if(v==null)return undefined;v=v[ps[j]];}return v;}}return undefined;}
+function interp(s,sc){return s.replace(HOLE,function(_,p){var v=lookup(p,sc);return v==null?'':String(v);});}
+function kids(n,sc,parent){for(var c=n.firstChild;c;c=c.nextSibling)build(c,sc,parent);}
+function listen(el,ev){if(!el.__l)el.__l={};if(el.__l[ev])return;el.__l[ev]=1;el.addEventListener(ev,function(e){var f=el.__h&&el.__h[ev];if(f)return f(e);});}
+function build(n,sc,parent){
+ if(n.nodeType===3){parent.appendChild(document.createTextNode(interp(n.nodeValue,sc)));return;}
+ if(n.nodeType!==1)return;
+ var tag=n.localName;
+ if(tag==='sc-if'){var m0=WH.exec(n.getAttribute('value')||'');if(m0&&lookup(m0[1],sc))kids(n,sc,parent);return;}
+ if(tag==='sc-for'){var m1=WH.exec(n.getAttribute('list')||'');var list=(m1&&lookup(m1[1],sc))||[];var as=n.getAttribute('as');list.forEach(function(it,i){var s={};s[as]=it;s.$index=i;kids(n,sc.concat([s]),parent);});return;}
+ var el=document.createElementNS(n.namespaceURI,tag);el.__a={};el.__h={};
+ for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i],name=a.name,val=a.value;
+  if(name.indexOf('hint-')===0)continue;
+  var m=WH.exec(val);
+  if(/^on[a-z]/i.test(name)){if(m){var fn=lookup(m[1],sc);if(typeof fn==='function'){var ev=name.slice(2).toLowerCase();if(ev==='change'&&(tag==='textarea'||(tag==='input'&&n.getAttribute('type')!=='checkbox')))ev='input';el.__h[ev]=fn;}}continue;}
+  if(m){var v=lookup(m[1],sc);if(v===false||v==null)continue;el.__a[name]=v===true?'':String(v);continue;}
+  el.__a[name]=interp(val,sc);}
+ for(var k in el.__a)el.setAttribute(k,el.__a[k]);
+ for(var e2 in el.__h)listen(el,e2);
+ kids(n,sc,el);parent.appendChild(el);}
+// 前の画面の要素を残したまま、変わった所だけを書きかえる（動きが途切れない・入力した内容が残る）
+function sync(o,n){var oa=o.__a||{},na=n.__a||{},k;
+ for(k in oa){if(!(k in na))o.removeAttribute(k);}
+ for(k in na){if(oa[k]!==na[k])o.setAttribute(k,na[k]);}
+ o.__a=na;o.__h=n.__h||{};for(k in o.__h)listen(o,k);}
+function same(o,n){if(o.nodeType!==n.nodeType)return false;if(n.nodeType===3)return true;if(n.nodeType!==1)return false;return o.localName===n.localName&&o.namespaceURI===n.namespaceURI&&(o.id||'')===((n.__a&&n.__a.id)||'');}
+function morph(op,np){var o=op.firstChild,n=np.firstChild;
+ while(n){var nn=n.nextSibling;
+  if(!o){op.appendChild(n);}
+  else if(same(o,n)){if(n.nodeType===3){if(o.nodeValue!==n.nodeValue)o.nodeValue=n.nodeValue;}else{sync(o,n);morph(o,n);}o=o.nextSibling;}
+  else{var on=o.nextSibling;op.replaceChild(n,o);o=on;}
+  n=nn;}
+ while(o){var x=o.nextSibling;op.removeChild(o);o=x;}}
+var comp,tpl,root,booted=false;
+function render(){
+ var frag=document.createDocumentFragment();kids(tpl.content,[comp.renderVals()],frag);
+ if(!booted){root.appendChild(frag);booted=true;return;}
+ morph(root,frag);
+ if(comp.componentDidUpdate){try{comp.componentDidUpdate();}catch(_){}}
+}
+window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.getElementById('app');comp=new C();comp.props=PROPS;if(!comp.state)comp.state={};render();if(comp.componentDidMount)comp.componentDidMount();};
+})();
+
+class Component extends DCLogic {
+st() {
+return Object.assign({ screen: 'home', menu: false, len: '60分', kinds: ['おまかせ'], time: '10:00', ferr: {}, draw: null, doneLine: '' }, this.state || {});
+}
+componentDidMount() { this.fx(); }
+componentDidUpdate() { this.fx(); }
+fx() {
+try {
+var root = document.getElementById('top');
+if (!root || !('IntersectionObserver' in window)) { return; }
+var self = this;
+if (!this.io) {
+this.io = new IntersectionObserver(function (es) {
+es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); self.io.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+}
+root.classList.add('fx');
+var els = root.querySelectorAll('.rv:not(.in)');
+for (var i = 0; i < els.length; i++) { this.io.observe(els[i]); }
+} catch (e) {}
+}
+jump(id) {
+setTimeout(function () {
+try {
+var el = id ? document.getElementById(id) : null;
+if (el) { el.scrollIntoView({ block: 'start' }); } else { window.scrollTo(0, 0); }
+} catch (e) {}
+}, 80);
+}
+renderVals() {
+const self = this;
+const st = this.st();
+const sc = st.screen;
+const to = function (o, id) { return function () { self.setState(Object.assign({ menu: false }, o)); self.jump(id); }; };
+const chip = function (on) { return on ? { bg: '#D9B36A', fg: '#1B1030', pressed: 'true' } : { bg: 'transparent', fg: '#F1ECFA', pressed: 'false' }; };
+const one = function (key, list) { return list.map(function (t) { var c = chip(st[key] === t); var o = {}; o[key] = t; return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState(o); } }; }); };
+if (!this.sky) {
+var seed = 7; var rnd = function () { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+var stars = []; for (var i = 0; i < 46; i++) { var s = (1 + rnd() * 2.2).toFixed(1) + 'px'; stars.push({ x: (rnd() * 100).toFixed(1) + '%', y: (rnd() * 100).toFixed(1) + '%', s: s, d: (2.4 + rnd() * 3.6).toFixed(1) + 's', dl: '-' + (rnd() * 6).toFixed(1) + 's' }); }
+var dust = []; for (var j = 0; j < 16; j++) { var z = (2 + rnd() * 2.5).toFixed(1) + 'px'; dust.push({ k: ['a', 'b', 'c'][j % 3], x: (3 + rnd() * 94).toFixed(1) + '%', s: z, d: (14 + rnd() * 14).toFixed(1) + 's', dl: '-' + (rnd() * 28).toFixed(1) + 's' }); }
+this.sky = { stars: stars, dust: dust };
+}
+const POOL = [
+['The Sun', '太陽', '明るい見通しの日です。迷っていたことに、光が当たります。'],
+['The Star', '星', '願いを言葉にしてみてください。小さな一歩が、道しるべになります。'],
+['The Moon', '月', '答えを急がなくて大丈夫です。気持ちの揺れを、そのまま眺めてみましょう。'],
+['Clover', '四つ葉', '身近なところに、小さな幸運があります。見過ごしていたものに、目を向けてみてください。'],
+['Ship', '船', '新しい動きが始まります。行きたい方向を、思い描いてみてください。'],
+['Key', '鍵', 'きっかけは、もう手の中にあります。気になっていた扉を、たたいてみましょう。']
+];
+const draw = st.draw;
+const cur = draw ? POOL[draw.k] : POOL[0];
+const toggleKind = function (t) { return function () {
+var ks = (st.kinds || []).slice();
+if (t === 'おまかせ') { ks = ['おまかせ']; }
+else { ks = ks.filter(function (k) { return k !== 'おまかせ'; }); var i = ks.indexOf(t); if (i >= 0) { ks.splice(i, 1); } else { ks.push(t); } if (!ks.length) { ks = ['おまかせ']; } }
+self.setState({ kinds: ks });
+}; };
+const dayOf = function (v) { var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(String(v || '')); if (!m) { return null; } return { d: new Date(+m[1], +m[2] - 1, +m[3]), mo: +m[2], da: +m[3] }; };
+const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if ((st.ferr[k] || (k === 'd1' && st.ferr.d1w)) && String(e.target.value).trim()) { var fe = Object.assign({}, st.ferr); fe[k] = false; if (k === 'd1') { fe.d1w = false; } self.setState({ ferr: fe }); } }; };
+const submit = function () {
+const F = self.form || {};
+const d1 = dayOf(F.d1);
+const wk = !!d1 && (d1.d.getDay() === 0 || d1.d.getDay() === 6);
+const ferr = { d1: !d1, d1w: wk, name: !String(F.name || '').trim(), contact: !String(F.contact || '').trim() };
+if (ferr.d1 || ferr.d1w || ferr.name || ferr.contact) { self.setState({ ferr: ferr }); return; }
+const line = '第1希望は ' + d1.mo + '月' + d1.da + '日（' + '日月火水木金土'.charAt(d1.d.getDay()) + '）' + st.time + 'から、' + st.len + 'で承りました。';
+self.form = {}; self.setState({ screen: 'done', ferr: {}, doneLine: line }); self.jump('');
+};
+const fab = sc === 'home';
+return {
+is: { home: sc === 'home', reserve: sc === 'reserve', done: sc === 'done', menu: st.menu, fab: fab, drawn: !!draw, undrawn: !draw },
+menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 'false',
+footPad: fab ? '96px' : '28px',
+stars: this.sky.stars, dust: this.sky.dust,
+phases: [
+{ bg: 'transparent', sh: 'none', dl: '0s' },
+{ bg: 'transparent', sh: 'inset -5px 0 0 0 #D9B36A', dl: '.5s' },
+{ bg: '#D9B36A', sh: '0 0 10px rgba(217, 179, 106, .8)', dl: '1s' },
+{ bg: 'transparent', sh: 'inset 5px 0 0 0 #D9B36A', dl: '1.5s' },
+{ bg: 'transparent', sh: 'none', dl: '2s' }
+],
+words: [{ t: '丁寧な鑑定', dl: '0s' }, { t: '寄り添う対話', dl: '1.3s' }, { t: '安心できる時間', dl: '2.6s' }],
+draws: [0, 1, 2].map(function (i) {
+var mine = !!draw && draw.i === i;
+return { en: cur[0], name: cur[1], rot: mine ? '180deg' : '0deg', op: draw && !mine ? '.28' : '1', cls: draw ? '' : 'fl', dl: (i * 0.6) + 's', label: draw ? (mine ? '選んだカード：' + cur[1] : 'カード') : (i + 1) + '枚目のカードを引く', pick: function () { if (self.st().draw) { return; } self.setState({ draw: { i: i, k: Math.floor(Math.random() * POOL.length) } }); } };
+}),
+drawn: { name: cur[1], msg: cur[2] },
+cards: [
+['Tarot', 'タロットカード', 'img/u_tarot.jpg', '紫の布の上に、太陽・星・三日月の絵のカードが3枚並んでいる', '78枚のカードで、いまの状況と気持ち、これからの流れを読み解きます。'],
+['Oracle', 'オラクルカード', 'img/u_oracle.jpg', '紫の布の上に、光と雲の絵のカードが3枚並び、まわりに淡い桃色の石がある', 'いまのあなたへのメッセージを受け取ります。背中をそっと押してほしいときに。'],
+['Lenormand', 'ルノルマンカード', 'img/u_lenor.jpg', '紫の布の上に、四つ葉・帆船・鍵の絵の小さなカードが3枚並んでいる', '身近な絵柄の36枚のカードで、出来事を具体的に読み解きます。']
+].map(function (x) { return { en: x[0], name: x[1], img: x[2], alt: x[3], note: x[4] }; }),
+starMenu: [
+['宿', '宿曜占星術', '生まれた日の月の位置から、性質と人との相性、日々の運気を読み解きます。'],
+['数', '数秘術', '生年月日の数から、持って生まれた性質と、年ごとの流れを読み解きます。'],
+['陽', '太陽星座', '表に現れるあなたらしさと、進んでいく方向を読み解きます。'],
+['月', '月星座', '内側にある気持ちと、心が落ち着く形を読み解きます。']
+].map(function (x) { return { mark: x[0], name: x[1], note: x[2] }; }),
+cares: [
+['丁寧な鑑定', 'ひとつの占いで決めつけず、カードと星と数を重ねて、ていねいに読み解きます。', '0s'],
+['寄り添う対話', 'お話を伺いながら進めます。話したくないことは、話さなくて構いません。', '.15s'],
+['安心できる時間', '完全予約制で、おひとりずつお迎えします。ほかの方と顔を合わせることはありません。', '.3s']
+].map(function (x) { return { k: x[0], v: x[1], dl: x[2] }; }),
+rules: [
+'ご相談の内容を、ほかの方にお話しすることはありません。',
+'不安をあおる言い方や、物品のおすすめはしません。',
+'病気の診断、法律や投資の判断は、占いではお答えしていません。専門の窓口をご利用ください。'
+],
+flow: [
+['01', 'ご予約', 'このページから、ご希望の日時と占いをお送りください。'],
+['02', '日時の確定', '2日以内に、こちらから日時の確定のご連絡を差し上げます。'],
+['03', '鑑定', 'はじめにお話を伺い、カードや生年月日から読み解いていきます。'],
+['04', '鑑定のあと', '気になったことは、その場でご質問ください。結果のメモもお渡しします。']
+].map(function (x) { return { n: x[0], k: x[1], v: x[2] }; }),
+prices: [
+['30分', '3,000', 'ひとつのご相談を、じっくりと。'],
+['60分', '5,500', 'いくつかのご相談や、占いを組み合わせたいときに。'],
+['延長 10分', '1,000', '当日のご希望で、延長できます。']
+].map(function (x) { return { k: x[0], yen: x[1], v: x[2] }; }),
+sched: [
+['鑑定日', '月曜〜金曜（土曜・日曜・祝日は休み）'],
+['時間', '9:00〜14:00（最終の鑑定は13:00から）'],
+['ご予約', '完全予約制です。前日までにお申し込みください。'],
+['場所', '（対面・オンラインなど、実際の形が入ります）']
+].map(function (x) { return { k: x[0], v: x[1] }; }),
+lens: one('len', ['30分', '60分']),
+times: one('time', ['9:00', '10:00', '11:00', '12:00', '13:00']),
+kinds: ['おまかせ', 'タロット', 'オラクル', 'ルノルマン', '宿曜占星術', '数秘術', '星座'].map(function (t) { var c = chip((st.kinds || []).indexOf(t) >= 0); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: toggleKind(t) }; }),
+f: { d1: setF('d1'), d2: setF('d2'), name: setF('name'), contact: setF('contact'), birth: setF('birth'), body: setF('body') },
+ferr: { d1: !!st.ferr.d1, d1w: !!st.ferr.d1w, name: !!st.ferr.name, contact: !!st.ferr.contact },
+doneLine: st.doneLine || '',
+go: {
+home: to({ screen: 'home' }, ''), toggle: function () { self.setState({ menu: !st.menu }); },
+today: to({ screen: 'home' }, 'today'), menu: to({ screen: 'home' }, 'menu'), care: to({ screen: 'home' }, 'care'), flow: to({ screen: 'home' }, 'flow'), price: to({ screen: 'home' }, 'price'), profile: to({ screen: 'home' }, 'profile'),
+again: function () { self.setState({ draw: null }); },
+reserve: function () { self.form = {}; self.setState({ screen: 'reserve', menu: false, ferr: {} }); self.jump(''); },
+submit: submit
+}
+};
+}
+}
+window.__dcBoot(Component);
+</script>
+</body>
+</html>

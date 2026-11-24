@@ -95,10 +95,10 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <div class="hero-text intro">
 <p style="margin: 0; align-self: flex-start; padding: 2px 12px; background: #14215A; color: #FFFFFF; font-size: 15px; font-weight: 700; letter-spacing: .12em">羽曳野市議会議員</p>
 <h1 style="margin: 0; display: flex; flex-direction: column; color: #14215A; line-height: 1.1"><span style="font-size: 16px; font-weight: 700; letter-spacing: .62em; color: #4A5570">くろかわ</span><span style="font-size: clamp(54px, 9vw, 104px); font-weight: 900; letter-spacing: .02em">黒川みのる</span></h1>
-<p class="min" style="margin: 0; font-size: clamp(23px, 3.2vw, 32px); font-weight: 700; line-height: 1.6; color: #14215A">みなさんと一緒につくる<br><span style="color: #C8261E">誰もが住みたい街づくりを。</span></p>
+<p class="min" style="margin: 0; font-size: clamp(23px, 3.2vw, 32px); font-weight: 700; line-height: 1.6; color: #14215A"><span style="display: inline-block">みなさんと</span><span style="display: inline-block">一緒につくる</span><br><span style="color: #C8261E"><span style="display: inline-block">誰もが</span><span style="display: inline-block">住みたい</span><span style="display: inline-block">街づくりを。</span></span></p>
 <dl style="margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 14px 0">
 <sc-for list="{{stats}}" as="s" hint-placeholder-count="3">
-<div style="padding: 0 22px 0 0; margin-right: 22px; border-right: 1px solid #9FB6CF; display: flex; flex-direction: column-reverse">
+<div style="padding: 0 clamp(12px, 2.4vw, 22px) 0 0; margin-right: clamp(12px, 2.4vw, 22px); border-right: 1px solid #9FB6CF; display: flex; flex-direction: column-reverse">
 <dt style="font-size: 14px; font-weight: 500; line-height: 1.5; color: #4A5570">{{s.k}}</dt>
 <dd style="margin: 0; font-size: 30px; font-weight: 900; line-height: 1.25; color: #14215A">{{s.n}}<span style="margin-left: 2px; font-size: 16px; font-weight: 700">{{s.u}}</span></dd>
 </div>
@@ -119,7 +119,7 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <div class="rv msg" style="max-width: 1100px; margin: 0 auto; padding: 0 16px; align-items: start">
 <div>
 <p style="margin: 0 0 18px; font-size: 15px; font-weight: 700; letter-spacing: .14em; color: #C8261E">ごあいさつ</p>
-<p class="min" style="margin: 0; padding-left: 22px; border-left: 4px solid #14215A; font-size: clamp(26px, 3.4vw, 36px); font-weight: 700; line-height: 1.65; color: #14215A">何にでも賛成する議員ではなく、皆さんの声を、市政に届ける議員でありたい。</p>
+<p class="min" style="margin: 0; padding-left: 22px; border-left: 4px solid #14215A; font-size: clamp(26px, 3.4vw, 36px); font-weight: 700; line-height: 1.65; color: #14215A"><span style="display: inline-block">何にでも賛成する</span><span style="display: inline-block">議員ではなく、</span><span style="display: inline-block">皆さんの声を、</span><span style="display: inline-block">市政に届ける</span><span style="display: inline-block">議員でありたい。</span></p>
 </div>
 <div>
 <p style="margin: 0 0 18px">市議会議員として5期18年の間、多くのご相談やご提言をいただいてきました。</p>
@@ -134,13 +134,13 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <div style="max-width: 1100px; margin: 0 auto; padding: 0 16px">
 <div class="rv" style="margin-bottom: 20px">
 <p style="margin: 0 0 6px; font-size: 15px; font-weight: 700; letter-spacing: .14em; color: #C8261E">政策</p>
-<h2 style="margin: 0; font-size: clamp(27px, 3.8vw, 40px); font-weight: 900; line-height: 1.45; color: #14215A">羽曳野の未来のために、<br class="sp-only">進めたいこと。</h2>
+<h2 style="margin: 0; font-size: clamp(27px, 3.8vw, 40px); font-weight: 900; line-height: 1.45; color: #14215A"><span style="display: inline-block">羽曳野の</span><span style="display: inline-block">未来のために、</span><span style="display: inline-block">進めたいこと。</span></h2>
 </div>
 <sc-for list="{{policies}}" as="p" hint-placeholder-count="6">
 <article class="rv pol">
 <div style="display: flex; align-items: baseline; gap: 16px">
 <span class="min" aria-hidden="true" style="flex: 0 0 auto; font-size: 40px; font-weight: 700; line-height: 1; color: #1F5FAF">{{p.n}}</span>
-<h3 style="margin: 0; font-size: clamp(21px, 2.4vw, 25px); font-weight: 900; line-height: 1.5; color: #14215A">{{p.k}}</h3>
+<h3 style="margin: 0; font-size: clamp(21px, 2.4vw, 25px); font-weight: 900; line-height: 1.5; color: #14215A"><sc-for list="{{p.kp}}" as="w" hint-placeholder-count="2"><span style="display: inline-block">{{w}}</span></sc-for></h3>
 </div>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
 <sc-for list="{{p.items}}" as="i" hint-placeholder-count="3">
@@ -166,14 +166,14 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <div style="max-width: 1100px; margin: 0 auto; padding: 0 16px">
 <div class="rv" style="margin-bottom: 28px">
 <p style="margin: 0 0 6px; font-size: 15px; font-weight: 700; letter-spacing: .14em; color: #C8261E">活動</p>
-<h2 style="margin: 0; font-size: clamp(27px, 3.8vw, 40px); font-weight: 900; line-height: 1.45; color: #14215A">地域を歩き、<br class="sp-only">現場で確かめる。</h2>
+<h2 style="margin: 0; font-size: clamp(27px, 3.8vw, 40px); font-weight: 900; line-height: 1.45; color: #14215A"><span style="display: inline-block">地域を歩き、</span><span style="display: inline-block">現場で確かめる。</span></h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); gap: 32px 28px">
 <sc-for list="{{acts}}" as="a" hint-placeholder-count="3">
 <article class="rv" style="display: flex; flex-direction: column; gap: 8px; transition-delay: {{a.dl}}">
 <div class="ph" style="overflow: hidden; border-radius: 4px"><img src="{{a.img}}" alt="{{a.alt}}" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover"></div>
 <p style="margin: 8px 0 0; font-size: 14px; font-weight: 700; letter-spacing: .08em; color: #1F5FAF">{{a.tag}}</p>
-<h3 style="margin: 0; font-size: 21px; font-weight: 900; line-height: 1.5; color: #14215A">{{a.k}}</h3>
+<h3 style="margin: 0; font-size: 21px; font-weight: 900; line-height: 1.5; color: #14215A"><sc-for list="{{a.kp}}" as="w" hint-placeholder-count="2"><span style="display: inline-block">{{w}}</span></sc-for></h3>
 <p style="margin: 0; font-size: 16px; line-height: 1.85">{{a.v}}</p>
 </article>
 </sc-for>
@@ -185,7 +185,7 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <section aria-label="ご意見・ご相談" style="background: linear-gradient(100deg, #E9F4FC 0%, #CFE6F7 100%); padding: 56px 0">
 <div class="rv" style="max-width: 1100px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
 <div style="min-width: 0; flex: 1 1 380px">
-<h2 class="min" style="margin: 0 0 6px; font-size: clamp(25px, 3.4vw, 34px); font-weight: 700; line-height: 1.5; color: #14215A">皆さまの声を、議会へ。</h2>
+<h2 class="min" style="margin: 0 0 6px; font-size: clamp(25px, 3.4vw, 34px); font-weight: 700; line-height: 1.5; color: #14215A"><span style="display: inline-block">皆さまの声を、</span><span style="display: inline-block">議会へ。</span></h2>
 <p style="margin: 0; font-size: 16px">市政へのご意見や、身近な困りごとをお聞かせください。LINEからも受け付けています。</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -200,8 +200,8 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <div>
 <p style="margin: 0 0 6px; font-size: 15px; font-weight: 700; letter-spacing: .14em; color: #C8261E">プロフィール</p>
 <h2 style="margin: 0; display: flex; flex-direction: column; color: #14215A; line-height: 1.3"><span style="font-size: 15px; font-weight: 700; letter-spacing: .4em; color: #4A5570">くろかわ みのる</span><span class="min" style="font-size: clamp(34px, 4.4vw, 46px); font-weight: 700; letter-spacing: .08em">黒川みのる</span></h2>
-<p style="margin: 14px 0 0; font-size: 16px">昭和42年9月17日生まれ。子ども5人の父、孫5人のおじいちゃんです。</p>
-<p class="min" style="margin: 22px 0 0; font-size: 20px; font-weight: 700; line-height: 1.8; color: #14215A">私は市民目線で、皆さまのご意見を議会に訴えていきます。</p>
+<p style="margin: 14px 0 0; font-size: 16px"><span style="display: inline-block">昭和42年9月17日生まれ。</span><span style="display: inline-block">子ども5人の父、</span><span style="display: inline-block">孫5人のおじいちゃんです。</span></p>
+<p class="min" style="margin: 22px 0 0; font-size: 20px; font-weight: 700; line-height: 1.8; color: #14215A"><span style="display: inline-block">私は市民目線で、</span><span style="display: inline-block">皆さまのご意見を</span><span style="display: inline-block">議会に訴えていきます。</span></p>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px">
 <sc-for list="{{sns}}" as="s" hint-placeholder-count="3">
 <a class="tap" href="{{s.url}}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 46px; box-sizing: border-box; padding: 0 18px; border: 1px solid #C5D2E2; border-radius: 999px; color: #14215A; font-size: 15px; font-weight: 700; text-decoration: none">{{s.k}}</a>
@@ -212,7 +212,7 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <sc-for list="{{profile}}" as="s" hint-placeholder-count="5">
 <div style="display: flex; flex-wrap: wrap; gap: 2px 24px; padding: 16px 0; border-bottom: 1px solid #DDE4EE">
 <dt style="flex: 0 0 6em; font-size: 15px; font-weight: 700; color: #4A5570">{{s.k}}</dt>
-<dd style="flex: 1 1 240px; min-width: 0; margin: 0; font-size: 17px; font-weight: 500; color: #1B2540">{{s.v}}</dd>
+<dd style="flex: 1 1 240px; min-width: 0; margin: 0; font-size: 17px; font-weight: 500; color: #1B2540"><sc-for list="{{s.vp}}" as="w" hint-placeholder-count="2"><span style="display: inline-block; margin-right: .6em">{{w}}</span></sc-for></dd>
 </div>
 </sc-for>
 </dl>
@@ -303,7 +303,7 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <div style="min-width: 0">
 <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .1em; color: #B9CCE6">羽曳野市議会議員</p>
 <p class="min" style="margin: 2px 0 0; font-size: 30px; font-weight: 700; letter-spacing: .1em">黒川みのる</p>
-<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.8; color: #E3ECF7">黒川みのる事務所　羽曳野市羽曳が丘3-5-33<br>電話・FAX 072-958-8458</p>
+<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.8; color: #E3ECF7"><span style="display: inline-block; margin-right: .8em">黒川みのる事務所</span><span style="display: inline-block; margin-right: .8em">羽曳野市羽曳が丘3-5-33</span><br>電話・FAX 072-958-8458</p>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 4px 18px">
 <sc-for list="{{sns}}" as="s" hint-placeholder-count="3">
@@ -425,35 +425,35 @@ is: { home: sc === 'home', contact: sc === 'contact', done: sc === 'done', menu:
 menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 'false',
 footPad: fab ? '96px' : '28px',
 stats: [
-{ n: '5', u: '期', k: '羽曳野市議会議員' },
+{ n: '5', u: '期', k: '市議会議員' },
 { n: '18', u: '年', k: '議員として' },
 { n: '委員長', u: '', k: '議会運営委員会' }
 ],
 policies: [
-['未来につなぐ、安全で安心な街づくり', ['上下水道の老朽化に合わせたライフラインの更新と耐震化を進め、災害に強い街に', '災害時の避難場所や備蓄の整備、物資を運ぶ幹線道路（八尾富田林線）と生活道路の整備', '休日・夜間の救急医療と、南河内圏内の医療の充実', '外国人の方との共生に向けたルールづくりと、日本と羽曳野市の文化を学ぶ場づくり', '市独自の空き家対策']],
-['子育て世代に優しい街づくり', ['夜間の小児救急医療を、南河内圏内の医療機関と連携して充実させる', '待機児童を出さないよう、保育園・認定こども園の保育事業を充実', '学校給食費の無償化を、国へ要請', '働きやすい環境と、子育ての悩みを気軽に相談できる場所づくり']],
-['子どもたちの教育・環境・居場所づくり', ['加配職員を充実させ、誰一人取り残さない教育環境と、教職員の負担軽減', 'いじめや犯罪を防ぐため、教育現場への防犯カメラの設置を要請', '不登校の児童や、悩みを抱える子どもたちの相談と居場所づくり']],
-['福祉の充実した街づくり', ['高齢の方が元気に暮らせるよう、介護予防を充実', '障害をお持ちの方が気軽に社会参加できる仕組みと、支え合いの取り組み', '循環バスなど公共交通と連携し、外出しやすい環境に']],
-['伝統文化を愛する街づくり', ['歴史あるだんじり祭りを、次の世代につなげる仕組みづくり', '古市古墳群や竹内街道の整備を進め、次の世代につなぐ', '羽曳野市花火大会の復活']],
-['町会・自治会の負担を軽く', ['町会・自治会の高齢化や共働きの世帯に配慮し、市の広報の配布を民間事業者に委託', '町会・自治会の組織を維持するための支援']]
-].map(function (x, i) { return { n: ('0' + (i + 1)).slice(-2), k: x[0], items: x[1] }; }),
+['未来につなぐ、|安全で安心な|街づくり', ['上下水道の老朽化に合わせたライフラインの更新と耐震化を進め、災害に強い街に', '災害時の避難場所や備蓄の整備、物資を運ぶ幹線道路（八尾富田林線）と生活道路の整備', '休日・夜間の救急医療と、南河内圏内の医療の充実', '外国人の方との共生に向けたルールづくりと、日本と羽曳野市の文化を学ぶ場づくり', '市独自の空き家対策']],
+['子育て世代に|優しい街づくり', ['夜間の小児救急医療を、南河内圏内の医療機関と連携して充実させる', '待機児童を出さないよう、保育園・認定こども園の保育事業を充実', '学校給食費の無償化を、国へ要請', '働きやすい環境と、子育ての悩みを気軽に相談できる場所づくり']],
+['子どもたちの|教育・環境・|居場所づくり', ['加配職員を充実させ、誰一人取り残さない教育環境と、教職員の負担軽減', 'いじめや犯罪を防ぐため、教育現場への防犯カメラの設置を要請', '不登校の児童や、悩みを抱える子どもたちの相談と居場所づくり']],
+['福祉の充実した|街づくり', ['高齢の方が元気に暮らせるよう、介護予防を充実', '障害をお持ちの方が気軽に社会参加できる仕組みと、支え合いの取り組み', '循環バスなど公共交通と連携し、外出しやすい環境に']],
+['伝統文化を愛する|街づくり', ['歴史あるだんじり祭りを、次の世代につなげる仕組みづくり', '古市古墳群や竹内街道の整備を進め、次の世代につなぐ', '羽曳野市花火大会の復活']],
+['町会・自治会の|負担を軽く', ['町会・自治会の高齢化や共働きの世帯に配慮し、市の広報の配布を民間事業者に委託', '町会・自治会の組織を維持するための支援']]
+].map(function (x, i) { return { n: ('0' + (i + 1)).slice(-2), kp: x[0].split('|'), items: x[1] }; }),
 acts: [
 ['子どもの安全', '朝の見守り', '子どもたちの通学のために、朝の見守りをしています。通学時の子どもたちのあいさつと安全のために、見守りをさせていただいています。', 'img/k_act_mimamori.jpg', '朝の住宅街の横断歩道で、黄色いベストの見守りの人が小旗を持って立っている'],
-['暮らしの基盤', '漏水と復旧工事の現場へ', '羽曳野市内で起きた漏水と、その復旧工事の現場に足を運び、状況を確かめています。', 'img/k_act_rousui.jpg', '住宅街の道路で、舗装を直したばかりの所と、三角コーンが並んでいる'],
-['地域の安全', '急な斜面の安全対策', '子どもたちの安全のため、急な斜面を通らないように対策をしました。', 'img/k_act_shamen.jpg', '住宅地の横の草の斜面に、杭とロープで柵が張られている']
-].map(function (x, i) { return { tag: x[0], k: x[1], v: x[2], img: x[3], alt: x[4], dl: (i * 0.1) + 's' }; }),
+['暮らしの基盤', '漏水と復旧工事の|現場へ', '羽曳野市内で起きた漏水と、その復旧工事の現場に足を運び、状況を確かめています。', 'img/k_act_rousui.jpg', '住宅街の道路で、舗装を直したばかりの所と、三角コーンが並んでいる'],
+['地域の安全', '急な斜面の|安全対策', '子どもたちの安全のため、急な斜面を通らないように対策をしました。', 'img/k_act_shamen.jpg', '住宅地の横の草の斜面に、杭とロープで柵が張られている']
+].map(function (x, i) { return { tag: x[0], kp: x[1].split('|'), v: x[2], img: x[3], alt: x[4], dl: (i * 0.1) + 's' }; }),
 sns: [
 ['Facebook', 'https://www.facebook.com/profile.php?id=100011436823306'],
 ['LINE', 'https://line.me/ti/p/orHb3qUpZp'],
 ['Instagram', 'https://www.instagram.com/minoru.h.n.s.r/']
 ].map(function (x) { return { k: x[0], url: x[1] }; }),
 profile: [
-['議員歴', '羽曳野市議会議員　5期（18年）'],
-['議会', '議会運営委員会　委員長'],
-['会派', '自由民主党　もっとはびきの議員団　幹事長'],
-['党', '自由民主党　羽曳野支部　幹事長'],
-['事務所', '羽曳野市羽曳が丘3-5-33']
-].map(function (x) { return { k: x[0], v: x[1] }; }),
+['議員歴', '羽曳野市議会議員|5期（18年）'],
+['議会', '議会運営委員会|委員長'],
+['会派', '自由民主党|もっとはびきの議員団|幹事長'],
+['党', '自由民主党|羽曳野支部|幹事長'],
+['事務所', '羽曳野市|羽曳が丘3-5-33']
+].map(function (x) { return { k: x[0], vp: x[1].split('|') }; }),
 topics: ['市政へのご意見', '地域の困りごと', 'そのほか'].map(function (t) { var c = chip(st.topic === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ topic: t }); } }; }),
 replies: ['希望する', '希望しない'].map(function (t) { var c = chip(st.reply === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ reply: t }); } }; }),
 f: { body: setF('body'), area: setF('area'), name: setF('name'), contact: setF('contact') },

@@ -6,7 +6,10 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#1B1030">
 <title>HIRO 予約台帳（見本）</title>
-<meta name="description" content="予約台帳の見本です。お名前は架空で、内容は端末の中だけに保存されます。">
+<meta name="description" content="HIROの予約台帳の見本（公開前の確認用）。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HIRO 予約台帳（見本）">
+<meta property="og:description" content="HIROの予約台帳の見本（公開前の確認用）。">
 <style>body{margin:0}img{max-width:100%}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Shippori+Mincho:wght@500;700&amp;display=swap" rel="stylesheet">
@@ -147,11 +150,11 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <input id="a-date" type="date" onChange="{{f.date}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
 <p id="l-atime" style="margin: 16px 0 8px; font-size: 16px; font-weight: 700; color: #EBD3A0">始める時間</p>
 <div role="group" aria-labelledby="l-atime" style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{aTimes}}" as="t" hint-placeholder-count="5">
+<sc-for list="{{aTimes}}" as="t" hint-placeholder-count="6">
 <button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 76px; min-height: 48px; padding: 0 14px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
 </sc-for>
 </div>
-<p id="l-alen" style="margin: 16px 0 8px; font-size: 16px; font-weight: 700; color: #EBD3A0">時間</p>
+<p id="l-alen" style="margin: 16px 0 8px; font-size: 16px; font-weight: 700; color: #EBD3A0">鑑定の方法</p>
 <div role="group" aria-labelledby="l-alen" style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{aLens}}" as="t" hint-placeholder-count="2">
 <button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 76px; min-height: 48px; padding: 0 14px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
@@ -234,7 +237,7 @@ window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.get
 
 class Component extends DCLogic {
 st() {
-return Object.assign({ screen: 'list', filter: 'これから', src: 'すべて', aSrc: 'Instagram', aTime: '10:00', aLen: '60分', ferr: {}, v: 0 }, this.state || {});
+return Object.assign({ screen: 'list', filter: 'これから', src: 'すべて', aSrc: 'Instagram', aTime: '10:00', aLen: '60分・対面', ferr: {}, v: 0 }, this.state || {});
 }
 ymd(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
 weekday(n) {
@@ -246,17 +249,17 @@ return this.ymd(d);
 seed() {
 var d3 = this.weekday(3); var md = /-(\d\d)-(\d\d)$/.exec(d3); var dmDay = (+md[1]) + '月' + (+md[2]) + '日';
 return [
-{ id: 's1', src: 'Instagram', date: this.weekday(1), time: '10:00', len: '60分', kinds: 'タロット・数秘術', name: '見本 さくら', contact: '@mihon_sakura', body: 'お仕事のこと。DMでやり取り済み。', status: '確定' },
-{ id: 's2', src: 'ホームページ', date: this.weekday(1), time: '13:00', len: '30分', kinds: 'おまかせ', name: '見本 みどり', contact: 'midori@example.com', body: 'はじめてです。よろしくお願いします。', status: '返事待ち' },
-{ id: 's3', src: 'Instagram', date: this.weekday(2), time: '9:00', len: '60分', kinds: '宿曜占星術', name: '見本 あおい', contact: '@mihon_aoi', body: '相性を見てほしい。', status: '返事待ち' },
+{ id: 's1', src: 'Instagram', date: this.weekday(1), time: '10:00', len: '60分・対面', kinds: 'タロット・数秘術', name: '見本 さくら', contact: '@mihon_sakura', body: 'お仕事のこと。DMでやり取り済み。', status: '確定' },
+{ id: 's2', src: 'ホームページ', date: this.weekday(1), time: '14:00', len: '60分・対面', kinds: 'おまかせ', name: '見本 みどり', contact: 'midori@example.com', body: 'はじめてです。よろしくお願いします。', status: '返事待ち' },
+{ id: 's3', src: 'Instagram', date: this.weekday(2), time: '9:00', len: '60分・お電話', kinds: '宿曜占星術', name: '見本 あおい', contact: '@mihon_aoi', body: '相性を見てほしい。', status: '返事待ち' },
 { id: 's6', src: 'Instagram', date: d3, time: '10:00', len: '60分', kinds: 'おまかせ', name: '見本 ひなた', contact: '@mihon_hinata', body: '', status: '仮', dm: dmDay + 'の10時って空いてますか？60分でお願いしたいです。' },
-{ id: 's4', src: 'そのほか', date: this.weekday(4), time: '11:00', len: '30分', kinds: 'ルノルマン', name: '見本 ゆかり', contact: 'ご紹介（お電話）', body: '', status: '確定' },
+{ id: 's4', src: 'そのほか', date: this.weekday(4), time: '11:00', len: '60分・お電話', kinds: 'ルノルマン', name: '見本 ゆかり', contact: 'ご紹介（お電話）', body: '', status: '確定' },
 { id: 's5', src: 'Instagram', date: this.weekday(-2), time: '10:00', len: '60分', kinds: 'タロット', name: '見本 かえで', contact: '@mihon_kaede', body: '', status: '済み' }
 ];
 }
 load() {
 if (this.rows) { return this.rows; }
-var KEY = 'hiro_yoyaku_v1'; var rows = null;
+var KEY = 'hiro_yoyaku_v2'; var rows = null;
 try { var raw = localStorage.getItem(KEY); if (raw) { rows = JSON.parse(raw); } } catch (e) {}
 // 見本の予約（idが s で始まる）は、日にちが古くなったら作り直す。フォームや手入力で足した分は残す。
 var today = this.ymd(new Date());
@@ -269,7 +272,7 @@ rows = seeds.concat(mine);
 this.rows = rows; this.store();
 return rows;
 }
-store() { try { localStorage.setItem('hiro_yoyaku_v1', JSON.stringify(this.rows)); } catch (e) {} }
+store() { try { localStorage.setItem('hiro_yoyaku_v2', JSON.stringify(this.rows)); } catch (e) {} }
 renderVals() {
 const self = this;
 const st = this.st();
@@ -336,8 +339,8 @@ else { o.a1Label = '確定に戻す'; o.a1 = setStatus(r, '確定'); o.a1Bg = 't
 return o;
 }),
 aSrcs: one('aSrc', ['Instagram', 'ホームページ', 'そのほか']),
-aTimes: one('aTime', ['9:00', '10:00', '11:00', '12:00', '13:00']),
-aLens: one('aLen', ['30分', '60分']),
+aTimes: one('aTime', ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00']),
+aLens: one('aLen', ['60分・対面', '60分・お電話']),
 f: { date: setF('date'), name: setF('name'), contact: setF('contact'), kinds: setF('kinds'), body: setF('body') },
 ferr: { date: !!st.ferr.date, dup: !!st.ferr.dup, name: !!st.ferr.name },
 go: {

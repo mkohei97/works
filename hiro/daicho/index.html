@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<title>HIRO 予約台帳（見本）</title>
+<meta name="description" content="予約台帳の見本です。お名前は架空で、内容は端末の中だけに保存されます。">
+<style>body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F5F2FA}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #B8860B;outline-offset:2px}
+h1,h2,h3,button{word-break:auto-phrase}
+p,li,dd{text-wrap:pretty}
+.tap{transition:transform .15s,background-color .15s,color .15s}.tap:active{transform:scale(.97)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+</style>
+<style>
+:root{color-scheme:light}
+html{-webkit-text-size-adjust:100%;background:#F5F2FA}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div id="top" style="min-height: 100vh; background: #F5F2FA; color: #1F1633; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.8; line-break: strict; overflow-x: hidden">
+
+<div style="background: #2A1A4A; color: #F1ECFA; padding: 8px 16px; font-size: 14px; line-height: 1.6; text-align: center">見本の予約台帳です。お客様のお名前は架空で、内容はこの端末の中だけに保存されます。</div>
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DCD3EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<div style="min-width: 0; line-height: 1.4"><p style="margin: 0; font-size: 14px; letter-spacing: .14em; color: #5A4A7A">HIRO</p><h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: .04em">予約台帳</h1></div>
+<button type="button" class="tap" onClick="{{go.add}}" style="flex: 0 0 auto; min-height: 48px; padding: 0 18px; border: 0; border-radius: 10px; background: #4B2E83; color: #FFFFFF; font-size: 16px; font-weight: 700">＋ 予約を足す</button>
+</div>
+</header>
+
+<sc-if value="{{is.list}}" hint-placeholder-val="{{true}}">
+<main style="max-width: 860px; margin: 0 auto; padding: 18px 16px 56px">
+
+<section aria-label="いまの状況" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{tiles}}" as="t" hint-placeholder-count="3">
+<div style="padding: 12px 12px; background: #FFFFFF; border: 1px solid #DCD3EC; border-radius: 12px; line-height: 1.4"><p style="margin: 0; font-size: 14px; color: #5A4A7A">{{t.k}}</p><p style="margin: 2px 0 0; font-size: 26px; font-weight: 700; color: {{t.fg}}">{{t.n}}<span style="margin-left: 3px; font-size: 14px; font-weight: 500; color: #5A4A7A">件</span></p></div>
+</sc-for>
+</section>
+
+<section style="margin-top: 18px">
+<div role="group" aria-label="表示する予約" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{filters}}" as="t" hint-placeholder-count="3">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 46px; padding: 0 16px; border: 1px solid #4B2E83; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<div role="group" aria-label="入口で絞り込む" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px">
+<span style="font-size: 14px; color: #5A4A7A">入口</span>
+<sc-for list="{{srcs}}" as="t" hint-placeholder-count="4">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 44px; padding: 0 14px; border: 1px solid #A99BC6; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 14px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+</section>
+
+<section aria-label="予約の一覧" style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px">
+<sc-if value="{{is.empty}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 22px 16px; background: #FFFFFF; border: 1px dashed #A99BC6; border-radius: 12px; font-size: 15px; color: #5A4A7A; text-align: center">当てはまる予約はありません。</p></sc-if>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
+<article style="padding: 16px 16px 14px; background: #FFFFFF; border: 1px solid #DCD3EC; border-left: 6px solid {{r.bar}}; border-radius: 12px; opacity: {{r.op}}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px">
+<p style="margin: 0; font-size: 18px; font-weight: 700; line-height: 1.5">{{r.day}}<span style="margin-left: 10px">{{r.time}}〜</span><span style="margin-left: 8px; font-size: 15px; font-weight: 500; color: #5A4A7A">{{r.len}}</span></p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px"><span style="padding: 0 10px; border-radius: 999px; background: {{r.srcBg}}; color: {{r.srcFg}}; font-size: 14px; font-weight: 700; line-height: 2">{{r.src}}</span><span style="padding: 0 10px; border-radius: 999px; background: {{r.stBg}}; color: {{r.stFg}}; font-size: 14px; font-weight: 700; line-height: 2">{{r.status}}</span></p>
+</div>
+<p style="margin: 6px 0 0; font-size: 17px; font-weight: 700">{{r.name}}<span style="margin-left: 4px; font-size: 14px; font-weight: 500">さま</span></p>
+<dl style="margin: 4px 0 0; display: grid; grid-template-columns: 5.2em minmax(0, 1fr); gap: 2px 10px; font-size: 15px; line-height: 1.7">
+<dt style="color: #5A4A7A">占い</dt><dd style="margin: 0">{{r.kinds}}</dd>
+<dt style="color: #5A4A7A">ご連絡先</dt><dd style="margin: 0; overflow-wrap: anywhere">{{r.contact}}</dd>
+<dt style="color: #5A4A7A">メモ</dt><dd style="margin: 0">{{r.body}}</dd>
+</dl>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px">
+<button type="button" class="tap" onClick="{{r.a1}}" style="flex: 1 1 140px; min-height: 46px; border: 0; border-radius: 10px; background: {{r.a1Bg}}; color: #FFFFFF; font-size: 15px; font-weight: 700">{{r.a1Label}}</button>
+<button type="button" class="tap" onClick="{{r.a2}}" style="flex: 1 1 110px; min-height: 46px; border: 1px solid #A99BC6; border-radius: 10px; background: #FFFFFF; color: #1F1633; font-size: 15px; font-weight: 700; display: {{r.a2Disp}}">{{r.a2Label}}</button>
+</div>
+</article>
+</sc-for>
+</section>
+
+<section style="margin-top: 26px; padding: 18px 18px; background: #FFFFFF; border: 1px solid #DCD3EC; border-radius: 12px">
+<h2 style="margin: 0 0 6px; font-size: 18px; font-weight: 700; line-height: 1.6">この台帳でできること</h2>
+<ul style="margin: 0; padding: 0 0 0 1.2em; font-size: 15px; line-height: 1.9">
+<li>ホームページのフォームから入った予約が、「返事待ち」で自動で載ります。</li>
+<li>InstagramのDMで決まった予約は、「＋ 予約を足す」から入れます。入口が「Instagram」で残ります。</li>
+<li>台帳に入っている日時は、ホームページのフォームで「予約済み」になり、同じ時間に重なりません。</li>
+<li>本番では、HIROさんだけが開けるようにし、新しい予約が入ったらお知らせが届く形にします。</li>
+</ul>
+<button type="button" class="tap" onClick="{{go.reset}}" style="margin-top: 12px; min-height: 46px; padding: 0 16px; border: 1px solid #A99BC6; border-radius: 10px; background: #FFFFFF; color: #1F1633; font-size: 15px; font-weight: 700">見本のデータに戻す</button>
+</section>
+
+</main>
+</sc-if>
+
+<sc-if value="{{is.add}}" hint-placeholder-val="{{false}}">
+<main style="max-width: 640px; margin: 0 auto; padding: 22px 16px 64px">
+<h2 style="margin: 0 0 4px; font-size: 24px; font-weight: 700; line-height: 1.5">予約を足す</h2>
+<p style="margin: 0 0 16px; font-size: 15px; color: #5A4A7A">InstagramのDMなど、ホームページの外で決まった予約を入れます。</p>
+<div style="display: flex; flex-direction: column; gap: 14px">
+
+<section style="padding: 18px 16px; background: #FFFFFF; border: 1px solid #DCD3EC; border-radius: 12px">
+<p id="l-src" style="margin: 0 0 8px; font-size: 16px; font-weight: 700">入口</p>
+<div role="group" aria-labelledby="l-src" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{aSrcs}}" as="t" hint-placeholder-count="3">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 16px; border: 1px solid #4B2E83; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<label for="a-date" style="display: block; margin: 16px 0 6px; font-size: 16px; font-weight: 700">日にち<span style="margin-left: 8px; color: #A32A14; font-size: 14px">必須</span></label>
+<input id="a-date" type="date" onChange="{{f.date}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #7B6AA3; border-radius: 10px; background: #FFFFFF; color: #1F1633; font-size: 17px">
+<p id="l-atime" style="margin: 16px 0 8px; font-size: 16px; font-weight: 700">始める時間</p>
+<div role="group" aria-labelledby="l-atime" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{aTimes}}" as="t" hint-placeholder-count="5">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 76px; min-height: 48px; padding: 0 14px; border: 1px solid #4B2E83; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<p id="l-alen" style="margin: 16px 0 8px; font-size: 16px; font-weight: 700">時間</p>
+<div role="group" aria-labelledby="l-alen" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{aLens}}" as="t" hint-placeholder-count="2">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 76px; min-height: 48px; padding: 0 14px; border: 1px solid #4B2E83; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{ferr.date}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">日にちをお選びください。</p></sc-if>
+<sc-if value="{{ferr.dup}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">その日時には、もう予約が入っています。</p></sc-if>
+</section>
+
+<section style="padding: 18px 16px; background: #FFFFFF; border: 1px solid #DCD3EC; border-radius: 12px">
+<label for="a-name" style="display: block; margin: 0 0 6px; font-size: 16px; font-weight: 700">お名前<span style="margin-left: 8px; color: #A32A14; font-size: 14px">必須</span></label>
+<input id="a-name" type="text" onChange="{{f.name}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #7B6AA3; border-radius: 10px; background: #FFFFFF; color: #1F1633; font-size: 17px">
+<label for="a-contact" style="display: block; margin: 14px 0 6px; font-size: 16px; font-weight: 700">ご連絡先（任意）</label>
+<input id="a-contact" type="text" autocapitalize="off" placeholder="例：Instagramのユーザーネーム" onChange="{{f.contact}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #7B6AA3; border-radius: 10px; background: #FFFFFF; color: #1F1633; font-size: 17px">
+<label for="a-kinds" style="display: block; margin: 14px 0 6px; font-size: 16px; font-weight: 700">占い（任意）</label>
+<input id="a-kinds" type="text" placeholder="例：タロット・数秘術" onChange="{{f.kinds}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #7B6AA3; border-radius: 10px; background: #FFFFFF; color: #1F1633; font-size: 17px">
+<label for="a-body" style="display: block; margin: 14px 0 6px; font-size: 16px; font-weight: 700">メモ（任意）</label>
+<textarea id="a-body" rows="3" onChange="{{f.body}}" style="width: 100%; box-sizing: border-box; padding: 10px 14px; border: 1px solid #7B6AA3; border-radius: 10px; background: #FFFFFF; color: #1F1633; font-size: 17px; line-height: 1.7"></textarea>
+<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">お名前をご入力ください。</p></sc-if>
+</section>
+
+<button type="button" class="tap" onClick="{{go.save}}" style="min-height: 56px; border: 0; border-radius: 10px; background: #4B2E83; color: #FFFFFF; font-size: 17px; font-weight: 700">台帳に足す</button>
+<button type="button" onClick="{{go.list}}" style="min-height: 48px; border: 0; background: transparent; color: #1F1633; font-size: 16px; text-decoration: underline">やめて一覧に戻る</button>
+</div>
+</main>
+</sc-if>
+
+</div>
+</template>
+<script>
+(function(){
+var PROPS={};
+function DCLogic(){this.props={};this.state={};}
+DCLogic.prototype.setState=function(o){var p=typeof o==='function'?o(this.state):o;for(var k in p){this.state[k]=p[k];}render();};
+DCLogic.prototype.forceUpdate=function(){render();};
+window.DCLogic=DCLogic;
+var WH=/^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/,HOLE=/\{\{\s*([^}]+?)\s*\}\}/g;
+function lookup(path,sc){path=path.trim();if(path==='true')return true;if(path==='false')return false;if(/^-?\d+(\.\d+)?$/.test(path))return Number(path);var ps=path.split('.');for(var i=sc.length-1;i>=0;i--){if(sc[i]!=null&&ps[0] in sc[i]){var v=sc[i];for(var j=0;j<ps.length;j++){if(v==null)return undefined;v=v[ps[j]];}return v;}}return undefined;}
+function interp(s,sc){return s.replace(HOLE,function(_,p){var v=lookup(p,sc);return v==null?'':String(v);});}
+function kids(n,sc,parent){for(var c=n.firstChild;c;c=c.nextSibling)build(c,sc,parent);}
+function listen(el,ev){if(!el.__l)el.__l={};if(el.__l[ev])return;el.__l[ev]=1;el.addEventListener(ev,function(e){var f=el.__h&&el.__h[ev];if(f)return f(e);});}
+function build(n,sc,parent){
+ if(n.nodeType===3){parent.appendChild(document.createTextNode(interp(n.nodeValue,sc)));return;}
+ if(n.nodeType!==1)return;
+ var tag=n.localName;
+ if(tag==='sc-if'){var m0=WH.exec(n.getAttribute('value')||'');if(m0&&lookup(m0[1],sc))kids(n,sc,parent);return;}
+ if(tag==='sc-for'){var m1=WH.exec(n.getAttribute('list')||'');var list=(m1&&lookup(m1[1],sc))||[];var as=n.getAttribute('as');list.forEach(function(it,i){var s={};s[as]=it;s.$index=i;kids(n,sc.concat([s]),parent);});return;}
+ var el=document.createElementNS(n.namespaceURI,tag);el.__a={};el.__h={};
+ for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i],name=a.name,val=a.value;
+  if(name.indexOf('hint-')===0)continue;
+  var m=WH.exec(val);
+  if(/^on[a-z]/i.test(name)){if(m){var fn=lookup(m[1],sc);if(typeof fn==='function'){var ev=name.slice(2).toLowerCase();if(ev==='change'&&(tag==='textarea'||(tag==='input'&&n.getAttribute('type')!=='checkbox')))ev='input';el.__h[ev]=fn;}}continue;}
+  if(m){var v=lookup(m[1],sc);if(v===false||v==null)continue;el.__a[name]=v===true?'':String(v);continue;}
+  el.__a[name]=interp(val,sc);}
+ for(var k in el.__a)el.setAttribute(k,el.__a[k]);
+ for(var e2 in el.__h)listen(el,e2);
+ kids(n,sc,el);parent.appendChild(el);}
+// 前の画面の要素を残したまま、変わった所だけを書きかえる（動きが途切れない・入力した内容が残る）
+function sync(o,n){var oa=o.__a||{},na=n.__a||{},k;
+ for(k in oa){if(!(k in na))o.removeAttribute(k);}
+ for(k in na){if(oa[k]!==na[k])o.setAttribute(k,na[k]);}
+ o.__a=na;o.__h=n.__h||{};for(k in o.__h)listen(o,k);}
+function same(o,n){if(o.nodeType!==n.nodeType)return false;if(n.nodeType===3)return true;if(n.nodeType!==1)return false;return o.localName===n.localName&&o.namespaceURI===n.namespaceURI&&(o.id||'')===((n.__a&&n.__a.id)||'');}
+function morph(op,np){var o=op.firstChild,n=np.firstChild;
+ while(n){var nn=n.nextSibling;
+  if(!o){op.appendChild(n);}
+  else if(same(o,n)){if(n.nodeType===3){if(o.nodeValue!==n.nodeValue)o.nodeValue=n.nodeValue;}else{sync(o,n);morph(o,n);}o=o.nextSibling;}
+  else{var on=o.nextSibling;op.replaceChild(n,o);o=on;}
+  n=nn;}
+ while(o){var x=o.nextSibling;op.removeChild(o);o=x;}}
+var comp,tpl,root,booted=false;
+function render(){
+ var frag=document.createDocumentFragment();kids(tpl.content,[comp.renderVals()],frag);
+ if(!booted){root.appendChild(frag);booted=true;return;}
+ morph(root,frag);
+ if(comp.componentDidUpdate){try{comp.componentDidUpdate();}catch(_){}}
+}
+window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.getElementById('app');comp=new C();comp.props=PROPS;if(!comp.state)comp.state={};render();if(comp.componentDidMount)comp.componentDidMount();};
+})();
+
+class Component extends DCLogic {
+st() {
+return Object.assign({ screen: 'list', filter: 'これから', src: 'すべて', aSrc: 'Instagram', aTime: '10:00', aLen: '60分', ferr: {}, v: 0 }, this.state || {});
+}
+ymd(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+weekday(n) {
+// 今日から数えて n 番目の平日（n が負なら、さかのぼる）
+var d = new Date(); d.setHours(0, 0, 0, 0); var step = n < 0 ? -1 : 1; var left = Math.abs(n);
+while (left > 0) { d.setDate(d.getDate() + step); if (d.getDay() !== 0 && d.getDay() !== 6) { left--; } }
+return this.ymd(d);
+}
+seed() {
+return [
+{ id: 's1', src: 'Instagram', date: this.weekday(1), time: '10:00', len: '60分', kinds: 'タロット・数秘術', name: '見本 さくら', contact: '@mihon_sakura', body: 'お仕事のこと。DMでやり取り済み。', status: '確定' },
+{ id: 's2', src: 'ホームページ', date: this.weekday(1), time: '13:00', len: '30分', kinds: 'おまかせ', name: '見本 みどり', contact: 'midori@example.com', body: 'はじめてです。よろしくお願いします。', status: '返事待ち' },
+{ id: 's3', src: 'Instagram', date: this.weekday(2), time: '9:00', len: '60分', kinds: '宿曜占星術', name: '見本 あおい', contact: '@mihon_aoi', body: '相性を見てほしい。', status: '返事待ち' },
+{ id: 's4', src: 'そのほか', date: this.weekday(4), time: '11:00', len: '30分', kinds: 'ルノルマン', name: '見本 ゆかり', contact: 'ご紹介（お電話）', body: '', status: '確定' },
+{ id: 's5', src: 'Instagram', date: this.weekday(-2), time: '10:00', len: '60分', kinds: 'タロット', name: '見本 かえで', contact: '@mihon_kaede', body: '', status: '済み' }
+];
+}
+load() {
+if (this.rows) { return this.rows; }
+var KEY = 'hiro_yoyaku_v1'; var rows = null;
+try { var raw = localStorage.getItem(KEY); if (raw) { rows = JSON.parse(raw); } } catch (e) {}
+// 見本の予約（idが s で始まる）は、日にちが古くなったら作り直す。フォームや手入力で足した分は残す。
+var today = this.ymd(new Date());
+var all = (rows || []).filter(function (r) { return !!r; });
+var mine = all.filter(function (r) { return String(r.id).charAt(0) !== 's'; });
+var seeds = all.filter(function (r) { return String(r.id).charAt(0) === 's'; });
+if (!seeds.length || !seeds.some(function (r) { return String(r.date) >= today; })) { seeds = this.seed(); }
+rows = seeds.concat(mine);
+this.rows = rows; this.store();
+return rows;
+}
+store() { try { localStorage.setItem('hiro_yoyaku_v1', JSON.stringify(this.rows)); } catch (e) {} }
+renderVals() {
+const self = this;
+const st = this.st();
+const rows = this.load();
+const today = this.ymd(new Date());
+const bump = function (o) { self.store(); self.setState(Object.assign({ v: st.v + 1 }, o || {})); };
+const chip = function (on) { return on ? { bg: '#4B2E83', fg: '#FFFFFF', pressed: 'true' } : { bg: '#FFFFFF', fg: '#1F1633', pressed: 'false' }; };
+const one = function (key, list) { return list.map(function (t) { var c = chip(st[key] === t); var o = {}; o[key] = t; return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState(o); } }; }); };
+const dayLabel = function (v) { var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(String(v || '')); if (!m) { return '日にち未定'; } var d = new Date(+m[1], +m[2] - 1, +m[3]); return (+m[2]) + '月' + (+m[3]) + '日（' + '日月火水木金土'.charAt(d.getDay()) + '）'; };
+const mins = function (t) { var p = String(t || '0:00').split(':'); return (+p[0]) * 60 + (+p[1] || 0); };
+const open = function (r) { return r.status === '返事待ち' || r.status === '確定'; };
+const upcoming = function (r) { return open(r) && String(r.date) >= today; };
+const SRC = { 'ホームページ': ['#E9E1F7', '#3B2270'], 'Instagram': ['#FCE4EF', '#8A1C4F'], 'そのほか': ['#ECEAF0', '#3F3A4B'] };
+const STA = { '返事待ち': ['#FFF1D6', '#7A4A00', '#D08A00'], '確定': ['#E0F3E8', '#0F5B33', '#1E8A52'], '済み': ['#ECEAF0', '#3F3A4B', '#A99BC6'], 'キャンセル': ['#ECEAF0', '#3F3A4B', '#A99BC6'] };
+const setStatus = function (r, s) { return function () { r.status = s; bump(); }; };
+const shown = rows.filter(function (r) {
+if (st.src !== 'すべて' && r.src !== st.src) { return false; }
+if (st.filter === 'これから') { return upcoming(r); }
+if (st.filter === '返事待ち') { return r.status === '返事待ち'; }
+return !upcoming(r);
+}).sort(function (a, b) { var x = String(a.date) + ('0000' + mins(a.time)).slice(-4), y = String(b.date) + ('0000' + mins(b.time)).slice(-4); var c = x < y ? -1 : (x > y ? 1 : 0); return st.filter === '終わった分' ? -c : c; });
+const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if (st.ferr[k] || (k === 'date' && st.ferr.dup)) { var fe = Object.assign({}, st.ferr); fe[k] = false; fe.dup = false; self.setState({ ferr: fe }); } }; };
+const save = function () {
+const F = self.form || {};
+const dup = !!F.date && rows.some(function (r) { return open(r) && r.date === F.date && r.time === st.aTime; });
+const ferr = { date: !F.date, dup: dup, name: !String(F.name || '').trim() };
+if (ferr.date || ferr.dup || ferr.name) { self.setState({ ferr: ferr }); return; }
+rows.push({ id: 'm' + Date.now(), at: new Date().toISOString(), src: st.aSrc, date: F.date, time: st.aTime, len: st.aLen, kinds: String(F.kinds || '').trim() || 'おまかせ', name: String(F.name).trim(), contact: String(F.contact || '').trim(), body: String(F.body || '').trim(), status: '確定' });
+self.form = {}; bump({ screen: 'list', filter: 'これから', src: 'すべて', ferr: {} });
+try { window.scrollTo(0, 0); } catch (e) {}
+};
+return {
+is: { list: st.screen === 'list', add: st.screen === 'add', empty: shown.length === 0 },
+tiles: [
+{ k: '返事待ち', n: rows.filter(function (r) { return r.status === '返事待ち'; }).length, fg: '#7A4A00' },
+{ k: '今日', n: rows.filter(function (r) { return open(r) && r.date === today; }).length, fg: '#1F1633' },
+{ k: 'これから', n: rows.filter(upcoming).length, fg: '#1F1633' }
+],
+filters: one('filter', ['これから', '返事待ち', '終わった分']),
+srcs: one('src', ['すべて', 'ホームページ', 'Instagram', 'そのほか']),
+rows: shown.map(function (r) {
+var s = SRC[r.src] || SRC['そのほか']; var a = STA[r.status] || STA['済み']; var done = !open(r);
+var o = { day: dayLabel(r.date), time: r.time, len: r.len || '', src: r.src || 'そのほか', status: r.status, name: r.name, kinds: r.kinds || 'おまかせ', contact: r.contact || '（なし）', body: r.body || '（なし）', srcBg: s[0], srcFg: s[1], stBg: a[0], stFg: a[1], bar: a[2], op: r.status === 'キャンセル' ? '.6' : '1' };
+if (r.status === '返事待ち') { o.a1Label = '確定にする'; o.a1 = setStatus(r, '確定'); o.a1Bg = '#1E7A4A'; o.a2Label = 'キャンセル'; o.a2 = setStatus(r, 'キャンセル'); o.a2Disp = 'block'; }
+else if (r.status === '確定') { o.a1Label = '済みにする'; o.a1 = setStatus(r, '済み'); o.a1Bg = '#4B2E83'; o.a2Label = 'キャンセル'; o.a2 = setStatus(r, 'キャンセル'); o.a2Disp = 'block'; }
+else { o.a1Label = '確定に戻す'; o.a1 = setStatus(r, '確定'); o.a1Bg = '#5A4A7A'; o.a2Label = ''; o.a2 = function () {}; o.a2Disp = 'none'; }
+return o;
+}),
+aSrcs: one('aSrc', ['Instagram', 'ホームページ', 'そのほか']),
+aTimes: one('aTime', ['9:00', '10:00', '11:00', '12:00', '13:00']),
+aLens: one('aLen', ['30分', '60分']),
+f: { date: setF('date'), name: setF('name'), contact: setF('contact'), kinds: setF('kinds'), body: setF('body') },
+ferr: { date: !!st.ferr.date, dup: !!st.ferr.dup, name: !!st.ferr.name },
+go: {
+add: function () { self.form = {}; self.setState({ screen: 'add', ferr: {} }); try { window.scrollTo(0, 0); } catch (e) {} },
+list: function () { self.setState({ screen: 'list', ferr: {} }); try { window.scrollTo(0, 0); } catch (e) {} },
+save: save,
+reset: function () { self.rows = self.seed(); bump({ filter: 'これから', src: 'すべて' }); }
+}
+};
+}
+}
+window.__dcBoot(Component);
+</script>
+</body>
+</html>

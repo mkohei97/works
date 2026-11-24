@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<title>ふみえの餃子｜ホームページの見本</title>
+<meta name="description" content="餃子専門店のホームページの見本です。店名・価格・住所は仮のものです。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ふみえの餃子｜ホームページの見本">
+<meta property="og:description" content="餃子専門店のホームページの見本です。店名・価格・住所は仮のものです。">
+<meta property="og:image" content="https://mkohei97.github.io/works/gyoza-shop/img/g_hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Zen+Maru+Gothic:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1E3A5F}a:hover{color:#B93A20}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+:focus-visible{outline:3px solid #E0962B;outline-offset:2px}
+h1,h2,h3,dt,button{word-break:auto-phrase}
+p,li,dd{text-wrap:pretty}
+@media (max-width:759px){.pc-only{display:none !important}
+.m-first{order:-1}
+.swipe{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-inline:-16px !important;padding:4px 16px 14px !important;scroll-padding-inline:16px}
+.swipe::-webkit-scrollbar{display:none}
+.swipe>*{flex:0 0 76%;box-sizing:border-box;scroll-snap-align:start}}
+@media (min-width:760px){.sp-only{display:none !important}}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes steam{0%{opacity:0;transform:translate3d(0,12px,0) scale(.8)}25%{opacity:.8}100%{opacity:0;transform:translate3d(14px,-96px,0) scale(1.6)}}
+.kb{animation:kb 22s ease-in-out infinite alternate;will-change:transform}
+.steam{position:absolute;width:56px;height:92px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,255,255,.75),rgba(255,255,255,0) 68%);filter:blur(6px);opacity:0;animation:steam 5.5s ease-out infinite;pointer-events:none}
+.intro>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
+.intro>*:nth-child(2){animation-delay:.12s}.intro>*:nth-child(3){animation-delay:.24s}.intro>*:nth-child(4){animation-delay:.36s}
+.tap{transition:transform .15s,background-color .15s,color .15s}.tap:active{transform:scale(.97)}
+.card{transition:transform .3s,box-shadow .3s}
+@media (hover:hover){.card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(35,24,21,.12)}}
+.fx .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.fx .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}.fx .rv{opacity:1;transform:none}.steam{display:none}}
+</style>
+<style>
+:root{color-scheme:light}
+html{-webkit-text-size-adjust:100%;background:#FFFFFF}
+@media (prefers-reduced-motion:no-preference){button{transition:background-color .15s,color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div id="top" style="background: #FFFFFF; color: #231815; font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; font-weight: 400; font-size: 17px; line-height: 1.9; line-break: strict; overflow-x: hidden">
+
+<div style="background: #231815; color: #FFFFFF; padding: 8px 16px; font-size: 14px; line-height: 1.6; text-align: center">見本のページです。店名・価格・住所・電話番号は、仮のものです。</div>
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #DDD5C6">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<button type="button" class="tap" onClick="{{go.home}}" aria-label="トップページへ" style="display: flex; align-items: center; gap: 12px; min-height: 48px; min-width: 0; padding: 0; border: 0; background: transparent; color: #231815; text-align: left">
+<svg viewBox="0 0 44 44" aria-hidden="true" style="width: 42px; height: 42px; flex: 0 0 auto"><circle cx="22" cy="22" r="21" fill="#1E3A5F"></circle><path d="M9 26a13 13 0 0 1 26 0z" fill="#FFFFFF"></path><path d="M14 18.5l1.6 3.2M19 15.6l.9 3.6M25 15.6l-.9 3.6M30 18.5l-1.6 3.2" fill="none" stroke="#1E3A5F" stroke-width="1.8" stroke-linecap="round"></path></svg>
+<span style="display: flex; flex-direction: column; min-width: 0"><span style="font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: 22px; font-weight: 700; line-height: 1.3; letter-spacing: .06em; white-space: nowrap">ふみえの餃子</span><span style="font-size: 13px; line-height: 1.4; letter-spacing: .12em; color: #5E5248">ときわ町の餃子専門店</span></span>
+</button>
+<nav class="pc-only" aria-label="主なメニュー" style="display: flex; align-items: center; gap: 2px">
+<button type="button" class="tap" onClick="{{go.about}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #231815; font-size: 15px">こだわり</button>
+<button type="button" class="tap" onClick="{{go.menu}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #231815; font-size: 15px">お品書き</button>
+<button type="button" class="tap" onClick="{{go.cook}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #231815; font-size: 15px">焼き方</button>
+<button type="button" class="tap" onClick="{{go.how}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #231815; font-size: 15px">ご注文の方法</button>
+<button type="button" class="tap" onClick="{{go.shop}}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #231815; font-size: 15px">店舗案内</button>
+</nav>
+<button type="button" class="pc-only" onClick="{{go.order}}" style="min-height: 46px; padding: 0 22px; border: 0; border-radius: 999px; background: #B93A20; color: #FFFFFF; font-size: 15px; font-weight: 700">受け取りを予約する</button>
+<button type="button" class="sp-only" onClick="{{go.toggle}}" aria-expanded="{{menuOpen}}" style="flex: 0 0 auto; min-width: 84px; min-height: 44px; border: 1px solid #231815; border-radius: 999px; background: #FFFFFF; color: #231815; font-size: 14px; font-weight: 700">{{menuLabel}}</button>
+</div>
+<sc-if value="{{is.menu}}" hint-placeholder-val="{{false}}">
+<nav class="sp-only" aria-label="メニュー" style="display: flex; flex-direction: column; border-top: 1px solid #DDD5C6">
+<button type="button" class="tap" onClick="{{go.about}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #EDE7DB; background: #FFFFFF; color: #231815; font-size: 16px; text-align: left">こだわり</button>
+<button type="button" class="tap" onClick="{{go.menu}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #EDE7DB; background: #FFFFFF; color: #231815; font-size: 16px; text-align: left">お品書き</button>
+<button type="button" class="tap" onClick="{{go.cook}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #EDE7DB; background: #FFFFFF; color: #231815; font-size: 16px; text-align: left">おいしい焼き方</button>
+<button type="button" class="tap" onClick="{{go.how}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #EDE7DB; background: #FFFFFF; color: #231815; font-size: 16px; text-align: left">ご注文の方法</button>
+<button type="button" class="tap" onClick="{{go.shop}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #EDE7DB; background: #FFFFFF; color: #231815; font-size: 16px; text-align: left">店舗案内</button>
+<button type="button" class="tap" onClick="{{go.news}}" style="min-height: 54px; padding: 0 18px; border: 0; background: #FFFFFF; color: #231815; font-size: 16px; text-align: left">お知らせ</button>
+</nav>
+</sc-if>
+</header>
+
+<sc-if value="{{is.home}}" hint-placeholder-val="{{true}}">
+<main>
+
+<section style="background: #F5F1E8; display: flex; flex-wrap: wrap; align-items: stretch">
+<div class="intro" style="flex: 1 1 400px; min-width: 0; box-sizing: border-box; padding: clamp(28px, 5vw, 52px) 20px clamp(32px, 5vw, 48px) max(20px, calc((100vw - 1160px) / 2 + 16px)); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 18px">
+<p style="margin: 0; padding: 4px 14px; border: 1px solid #1E3A5F; border-radius: 999px; color: #1E3A5F; font-size: 14px; font-weight: 700; line-height: 1.6; letter-spacing: .08em">ときわ町の餃子専門店</p>
+<h1 style="margin: 0; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(38px, 6vw, 64px); font-weight: 700; line-height: 1.3; letter-spacing: .04em">毎朝、<br>店で包む。</h1>
+<p style="margin: 0; max-width: 30em; font-size: 17px">その日の分だけを、朝から手で包んでいます。生餃子のお持ち帰りと、冷凍餃子の発送を承ります。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<button type="button" class="tap" onClick="{{go.order}}" style="min-height: 54px; padding: 0 28px; border: 0; border-radius: 999px; background: #B93A20; color: #FFFFFF; font-size: 17px; font-weight: 700">受け取りを予約する</button>
+<button type="button" class="tap" onClick="{{go.menu}}" style="min-height: 54px; padding: 0 28px; border: 1px solid #231815; border-radius: 999px; background: #FFFFFF; color: #231815; font-size: 17px; font-weight: 700">お品書きを見る</button>
+</div>
+</div>
+<div class="m-first" style="flex: 1.25 1 420px; min-width: 0; min-height: clamp(230px, 62vw, 300px); position: relative; overflow: hidden">
+<img class="kb" src="img/g_hero.jpg" alt="焼き色のついた羽根つきの焼き餃子が、丸い皿に輪の形に盛られている" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 80% 50%">
+<span class="steam" aria-hidden="true" style="left: 66%; top: 26%"></span>
+<span class="steam" aria-hidden="true" style="left: 74%; top: 22%; animation-delay: 1.8s"></span>
+<span class="steam" aria-hidden="true" style="left: 81%; top: 28%; animation-delay: 3.6s"></span>
+</div>
+</section>
+
+<section aria-label="本日のご案内" style="background: #1E3A5F; color: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; padding: 18px 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 28px">
+<sc-for list="{{facts}}" as="f" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; line-height: 1.6"><span style="font-size: 14px; letter-spacing: .08em; color: #D6E2F0">{{f.k}}</span><span style="font-size: 18px; font-weight: 700">{{f.v}}</span></div>
+</sc-for>
+</div>
+</section>
+
+<section id="about" style="padding: 72px 0 64px">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 36px 48px; align-items: center">
+<div style="flex: 1 1 340px; min-width: 0">
+<img src="img/g_raw.jpg" alt="木の盆に、包んだばかりの生餃子が列になって並んでいる" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px">
+</div>
+<div style="flex: 1.1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div>
+<p style="margin: 0; color: #B93A20; font-size: 14px; font-weight: 700; letter-spacing: .14em">こだわり</p>
+<h2 style="margin: 4px 0 0; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; line-height: 1.5">包みたてを、ご家庭の食卓へ。</h2>
+</div>
+<sc-for list="{{points}}" as="p" hint-placeholder-count="3">
+<div style="display: flex; gap: 16px; align-items: flex-start">
+<span aria-hidden="true" style="flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%; background: #F5F1E8; color: #1E3A5F; font-family: 'Zen Maru Gothic', sans-serif; font-size: 20px; font-weight: 700; line-height: 44px; text-align: center">{{p.n}}</span>
+<div style="min-width: 0"><h3 style="margin: 0; font-size: 19px; font-weight: 700; line-height: 1.6">{{p.k}}</h3><p style="margin: 2px 0 0; font-size: 16px; color: #3F342C">{{p.v}}</p></div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="menu" style="background: #F5F1E8; padding: 68px 0 72px">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p class="rv" style="margin: 0; color: #B93A20; font-size: 14px; font-weight: 700; letter-spacing: .14em">お品書き</p>
+<h2 style="margin: 4px 0 6px; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; line-height: 1.5">餃子と、たれ。</h2>
+<p style="margin: 0 0 28px; font-size: 16px; color: #3F342C">価格はすべて税込です。売り切れることがありますので、ご予約をおすすめします。</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px">
+<sc-for list="{{items}}" as="it" hint-placeholder-count="6">
+<article class="rv card" style="display: flex; flex-direction: column; gap: 8px; padding: 22px 22px 22px; background: #FFFFFF; border-radius: 16px">
+<p style="margin: 0; align-self: flex-start; padding: 1px 12px; border-radius: 999px; background: #E8EEF5; color: #1E3A5F; font-size: 14px; font-weight: 700">{{it.kind}}</p>
+<h3 style="margin: 0; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: 22px; font-weight: 700; line-height: 1.5">{{it.name}}</h3>
+<p style="margin: 0; flex: 1 1 auto; font-size: 16px; line-height: 1.8; color: #3F342C">{{it.note}}</p>
+<p style="margin: 0; font-size: 26px; font-weight: 700; line-height: 1.4">{{it.yen}}<span style="font-size: 15px; font-weight: 400">円</span></p>
+<button type="button" class="tap" onClick="{{it.pick}}" style="min-height: 48px; border: 1px solid #1E3A5F; border-radius: 999px; background: #FFFFFF; color: #1E3A5F; font-size: 16px; font-weight: 700">この商品を予約する</button>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="cook" style="padding: 72px 0 64px">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #B93A20; font-size: 14px; font-weight: 700; letter-spacing: .14em">おいしい焼き方</p>
+<h2 style="margin: 4px 0 6px; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; line-height: 1.5">ご家庭のフライパンで、4つの手順。</h2>
+<p style="margin: 0 0 6px; font-size: 16px; color: #3F342C">冷凍餃子は、解凍せずに凍ったまま焼いてください。</p>
+<p class="sp-only" style="margin: 0; font-size: 14px; color: #5E5248">横に動かして、手順を順にご覧ください。</p>
+<ol class="swipe" style="margin: 20px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px">
+<sc-for list="{{cook}}" as="c" hint-placeholder-count="4">
+<li style="padding: 22px 20px; border: 1px solid #DDD5C6; border-radius: 16px">
+<p style="margin: 0; color: #1E3A5F; font-family: 'Zen Maru Gothic', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .1em">手順 {{c.n}}</p>
+<h3 style="margin: 2px 0 6px; font-size: 19px; font-weight: 700; line-height: 1.6">{{c.k}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #3F342C">{{c.v}}</p>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<section id="how" style="background: #F5F1E8; padding: 68px 0 72px">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 36px 48px; align-items: center">
+<div style="flex: 1.1 1 380px; min-width: 0">
+<p style="margin: 0; color: #B93A20; font-size: 14px; font-weight: 700; letter-spacing: .14em">ご注文の方法</p>
+<h2 style="margin: 4px 0 22px; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; line-height: 1.5">店頭でも、ご予約でも、発送でも。</h2>
+<dl style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<sc-for list="{{ways}}" as="w" hint-placeholder-count="3">
+<div style="padding: 18px 20px; background: #FFFFFF; border-radius: 16px">
+<dt style="font-size: 19px; font-weight: 700; line-height: 1.6">{{w.k}}</dt>
+<dd style="margin: 2px 0 0; font-size: 16px; line-height: 1.8; color: #3F342C">{{w.v}}</dd>
+</div>
+</sc-for>
+</dl>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px">
+<button type="button" class="tap" onClick="{{go.order}}" style="min-height: 54px; padding: 0 28px; border: 0; border-radius: 999px; background: #B93A20; color: #FFFFFF; font-size: 17px; font-weight: 700">受け取りを予約する</button>
+</div>
+</div>
+<div style="flex: 1 1 340px; min-width: 0">
+<img src="img/g_pack.jpg" alt="無地の紙箱に、冷凍の生餃子が列になって入っている" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px">
+</div>
+</div>
+</section>
+
+<section id="shop" style="padding: 72px 0 64px">
+<div class="rv" style="max-width: 1160px; margin: 0 auto; padding: 0 16px">
+<p style="margin: 0; color: #B93A20; font-size: 14px; font-weight: 700; letter-spacing: .14em">店舗案内</p>
+<h2 style="margin: 4px 0 26px; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; line-height: 1.5">ときわ駅から、歩いて3分。</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start">
+<div style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<img src="img/g_shop.jpg" alt="白い壁に木の窓口、藍色ののれんが掛かった小さな店の外観" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px">
+<div style="min-height: 150px; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; border: 1px dashed #8A7C6C; border-radius: 16px; background: #FAF8F3; color: #5E5248; font-size: 15px; text-align: center">ここに地図が入ります（Googleマップ）</div>
+</div>
+<dl style="flex: 1.1 1 380px; min-width: 0; margin: 0; border-top: 1px solid #DDD5C6">
+<sc-for list="{{shop}}" as="s" hint-placeholder-count="7">
+<div style="display: flex; flex-wrap: wrap; gap: 2px 20px; padding: 14px 0; border-bottom: 1px solid #DDD5C6">
+<dt style="flex: 0 0 7em; font-size: 16px; font-weight: 700">{{s.k}}</dt>
+<dd style="flex: 1 1 220px; min-width: 0; margin: 0; font-size: 16px">{{s.v}}</dd>
+</div>
+</sc-for>
+</dl>
+</div>
+</div>
+</section>
+
+<section id="news" style="background: #F5F1E8; padding: 60px 0 64px">
+<div class="rv" style="max-width: 860px; margin: 0 auto; padding: 0 16px">
+<h2 style="margin: 0 0 18px; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(24px, 3.2vw, 30px); font-weight: 700; line-height: 1.5">お知らせ</h2>
+<ul style="margin: 0; padding: 0; list-style: none; border-top: 1px solid #DDD5C6">
+<sc-for list="{{news}}" as="n" hint-placeholder-count="3">
+<li style="display: flex; flex-wrap: wrap; gap: 2px 20px; padding: 16px 0; border-bottom: 1px solid #DDD5C6"><span style="flex: 0 0 auto; font-size: 15px; color: #5E5248">{{n.d}}</span><span style="flex: 1 1 260px; min-width: 0; font-size: 16px">{{n.t}}</span></li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+</main>
+</sc-if>
+
+<sc-if value="{{is.order}}" hint-placeholder-val="{{false}}">
+<main style="background: #F5F1E8; padding: 44px 0 72px">
+<div style="max-width: 720px; margin: 0 auto; padding: 0 16px">
+<h1 style="margin: 0 0 6px; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(28px, 4.4vw, 38px); font-weight: 700; line-height: 1.5">受け取りのご予約</h1>
+<p style="margin: 0 0 24px; font-size: 16px">店頭での受け取りを、前日までにご予約いただけます。お支払いは、受け取りの際に店頭でお願いします。</p>
+
+<div style="display: flex; flex-direction: column; gap: 18px">
+
+<section aria-labelledby="l-items" style="padding: 22px 20px; background: #FFFFFF; border-radius: 16px">
+<h2 id="l-items" style="margin: 0 0 6px; font-size: 19px; font-weight: 700">1　商品と数</h2>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="5">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 12px 0; border-bottom: 1px solid #EDE7DB">
+<div style="flex: 1 1 200px; min-width: 0; line-height: 1.6"><div style="font-size: 17px; font-weight: 700">{{r.name}}</div><div style="font-size: 15px; color: #5E5248">{{r.yen}}円</div></div>
+<div style="display: flex; align-items: center; gap: 6px">
+<button type="button" class="tap" onClick="{{r.minus}}" aria-label="{{r.minusLabel}}" style="width: 48px; height: 48px; border: 1px solid #231815; border-radius: 50%; background: #FFFFFF; color: #231815; font-size: 24px; line-height: 1">−</button>
+<span aria-live="polite" style="min-width: 44px; font-size: 20px; font-weight: 700; text-align: center">{{r.q}}</span>
+<button type="button" class="tap" onClick="{{r.plus}}" aria-label="{{r.plusLabel}}" style="width: 48px; height: 48px; border: 1px solid #231815; border-radius: 50%; background: #231815; color: #FFFFFF; font-size: 24px; line-height: 1">＋</button>
+</div>
+</div>
+</sc-for>
+<p style="margin: 14px 0 0; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 16px"><span>合計（税込）</span><span style="font-size: 26px; font-weight: 700">{{total}}<span style="font-size: 15px; font-weight: 400">円</span></span></p>
+<sc-if value="{{ferr.items}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">商品を1つ以上お選びください。</p></sc-if>
+</section>
+
+<section style="padding: 22px 20px; background: #FFFFFF; border-radius: 16px">
+<h2 style="margin: 0 0 12px; font-size: 19px; font-weight: 700">2　受け取りの日時</h2>
+<p id="l-day" style="margin: 0 0 8px; font-size: 16px; font-weight: 700">受け取りの日</p>
+<div role="group" aria-labelledby="l-day" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{days}}" as="d" hint-placeholder-count="3">
+<button type="button" class="tap" onClick="{{d.pick}}" aria-pressed="{{d.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #231815; border-radius: 999px; background: {{d.bg}}; color: {{d.fg}}; font-size: 16px; font-weight: 700">{{d.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{is.later}}" hint-placeholder-val="{{false}}">
+<label for="f-date" style="display: block; margin: 14px 0 6px; font-size: 16px; font-weight: 700">ご希望の日</label>
+<input id="f-date" type="date" onChange="{{f.date}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8A7C6C; border-radius: 10px; background: #FFFFFF; color: #231815; font-size: 17px">
+</sc-if>
+<p id="l-time" style="margin: 18px 0 8px; font-size: 16px; font-weight: 700">受け取りの時間</p>
+<div role="group" aria-labelledby="l-time" style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{times}}" as="t" hint-placeholder-count="4">
+<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 18px; border: 1px solid #231815; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 22px 20px; background: #FFFFFF; border-radius: 16px">
+<h2 style="margin: 0 0 12px; font-size: 19px; font-weight: 700">3　お客様のこと</h2>
+<label for="f-name" style="display: block; margin: 0 0 6px; font-size: 16px; font-weight: 700">お名前<span style="margin-left: 8px; color: #A32A14; font-size: 14px">必須</span></label>
+<input id="f-name" type="text" autocomplete="name" onChange="{{f.name}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8A7C6C; border-radius: 10px; background: #FFFFFF; color: #231815; font-size: 17px">
+<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">お名前をご入力ください。</p></sc-if>
+<label for="f-tel" style="display: block; margin: 16px 0 6px; font-size: 16px; font-weight: 700">お電話番号<span style="margin-left: 8px; color: #A32A14; font-size: 14px">必須</span></label>
+<input id="f-tel" type="tel" autocomplete="tel" onChange="{{f.tel}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8A7C6C; border-radius: 10px; background: #FFFFFF; color: #231815; font-size: 17px">
+<sc-if value="{{ferr.tel}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #A32A14; font-size: 15px; font-weight: 700">お電話番号をご入力ください。</p></sc-if>
+<label for="f-body" style="display: block; margin: 16px 0 6px; font-size: 16px; font-weight: 700">ご要望（任意）</label>
+<textarea id="f-body" rows="3" onChange="{{f.body}}" style="width: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid #8A7C6C; border-radius: 10px; background: #FFFFFF; color: #231815; font-size: 17px; line-height: 1.7"></textarea>
+</section>
+
+<button type="button" class="tap" onClick="{{go.submit}}" style="min-height: 58px; border: 0; border-radius: 999px; background: #B93A20; color: #FFFFFF; font-size: 18px; font-weight: 700">この内容で予約する</button>
+<button type="button" class="tap" onClick="{{go.home}}" style="min-height: 48px; border: 0; background: transparent; color: #231815; font-size: 16px; text-decoration: underline">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<sc-if value="{{is.done}}" hint-placeholder-val="{{false}}">
+<main style="background: #F5F1E8; padding: 56px 0 80px">
+<div style="max-width: 640px; margin: 0 auto; padding: 0 16px">
+<div style="padding: 32px 24px; background: #FFFFFF; border-radius: 16px">
+<h1 style="margin: 0 0 10px; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: clamp(26px, 4vw, 34px); font-weight: 700; line-height: 1.5">ご予約を承りました。</h1>
+<p style="margin: 0 0 18px; font-size: 16px">確認のお電話を差し上げることがあります。当日は、店頭でお名前をお伝えください。</p>
+<dl style="margin: 0; border-top: 1px solid #DDD5C6">
+<sc-for list="{{summary}}" as="s" hint-placeholder-count="3">
+<div style="display: flex; flex-wrap: wrap; gap: 2px 20px; padding: 12px 0; border-bottom: 1px solid #DDD5C6"><dt style="flex: 0 0 6em; font-size: 16px; font-weight: 700">{{s.k}}</dt><dd style="flex: 1 1 200px; min-width: 0; margin: 0; font-size: 16px; white-space: pre-line">{{s.v}}</dd></div>
+</sc-for>
+</dl>
+<p style="margin: 16px 0 22px; font-size: 14px; color: #5E5248">見本のため、実際には送信されていません。</p>
+<button type="button" class="tap" onClick="{{go.home}}" style="width: 100%; min-height: 54px; border: 1px solid #231815; border-radius: 999px; background: #FFFFFF; color: #231815; font-size: 17px; font-weight: 700">トップページへ戻る</button>
+</div>
+</div>
+</main>
+</sc-if>
+
+<footer style="background: #231815; color: #FFFFFF; padding: 40px 0 {{footPad}}">
+<div style="max-width: 1160px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 40px">
+<div style="min-width: 0">
+<p style="margin: 0; font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: .06em">ふみえの餃子</p>
+<p style="margin: 6px 0 0; font-size: 15px; line-height: 1.8; color: #E4DCD0">大阪府◯◯市ときわ町0-0-0<br>営業 11:00〜19:00（売り切れ次第終了）／定休日 月曜</p>
+</div>
+<div style="min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+<span style="font-size: 14px; color: #E4DCD0">お電話でのご予約</span>
+<span style="font-size: 28px; font-weight: 700; line-height: 1.3; letter-spacing: .04em">00-0000-0000</span>
+</div>
+</div>
+<p style="max-width: 1160px; margin: 26px auto 0; padding: 0 16px; font-size: 14px; color: #E4DCD0">© ふみえの餃子（見本のための架空の店です）</p>
+</footer>
+
+<sc-if value="{{is.fab}}" hint-placeholder-val="{{false}}">
+<div class="sp-only" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: #FFFFFF; border-top: 1px solid #DDD5C6">
+<button type="button" class="tap" onClick="{{go.shop}}" style="flex: 1 1 0; min-width: 0; min-height: 52px; border: 1px solid #231815; border-radius: 999px; background: #FFFFFF; color: #231815; font-size: 16px; font-weight: 700">電話する</button>
+<button type="button" class="tap" onClick="{{go.order}}" style="flex: 1.3 1 0; min-width: 0; min-height: 52px; border: 0; border-radius: 999px; background: #B93A20; color: #FFFFFF; font-size: 16px; font-weight: 700">受け取り予約</button>
+</div>
+</sc-if>
+
+</div>
+</template>
+<script>
+(function(){
+var PROPS={};
+function DCLogic(){this.props={};this.state={};}
+DCLogic.prototype.setState=function(o){var p=typeof o==='function'?o(this.state):o;for(var k in p){this.state[k]=p[k];}render();};
+DCLogic.prototype.forceUpdate=function(){render();};
+window.DCLogic=DCLogic;
+var WH=/^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/,HOLE=/\{\{\s*([^}]+?)\s*\}\}/g;
+function lookup(path,sc){path=path.trim();if(path==='true')return true;if(path==='false')return false;if(/^-?\d+(\.\d+)?$/.test(path))return Number(path);var ps=path.split('.');for(var i=sc.length-1;i>=0;i--){if(sc[i]!=null&&ps[0] in sc[i]){var v=sc[i];for(var j=0;j<ps.length;j++){if(v==null)return undefined;v=v[ps[j]];}return v;}}return undefined;}
+function interp(s,sc){return s.replace(HOLE,function(_,p){var v=lookup(p,sc);return v==null?'':String(v);});}
+function kids(n,sc,parent){for(var c=n.firstChild;c;c=c.nextSibling)build(c,sc,parent);}
+function listen(el,ev){if(!el.__l)el.__l={};if(el.__l[ev])return;el.__l[ev]=1;el.addEventListener(ev,function(e){var f=el.__h&&el.__h[ev];if(f)return f(e);});}
+function build(n,sc,parent){
+ if(n.nodeType===3){parent.appendChild(document.createTextNode(interp(n.nodeValue,sc)));return;}
+ if(n.nodeType!==1)return;
+ var tag=n.localName;
+ if(tag==='sc-if'){var m0=WH.exec(n.getAttribute('value')||'');if(m0&&lookup(m0[1],sc))kids(n,sc,parent);return;}
+ if(tag==='sc-for'){var m1=WH.exec(n.getAttribute('list')||'');var list=(m1&&lookup(m1[1],sc))||[];var as=n.getAttribute('as');list.forEach(function(it,i){var s={};s[as]=it;s.$index=i;kids(n,sc.concat([s]),parent);});return;}
+ var el=document.createElementNS(n.namespaceURI,tag);el.__a={};el.__h={};
+ for(var i=0;i<n.attributes.length;i++){var a=n.attributes[i],name=a.name,val=a.value;
+  if(name.indexOf('hint-')===0)continue;
+  var m=WH.exec(val);
+  if(/^on[a-z]/i.test(name)){if(m){var fn=lookup(m[1],sc);if(typeof fn==='function'){var ev=name.slice(2).toLowerCase();if(ev==='change'&&(tag==='textarea'||(tag==='input'&&n.getAttribute('type')!=='checkbox')))ev='input';el.__h[ev]=fn;}}continue;}
+  if(m){var v=lookup(m[1],sc);if(v===false||v==null)continue;el.__a[name]=v===true?'':String(v);continue;}
+  el.__a[name]=interp(val,sc);}
+ for(var k in el.__a)el.setAttribute(k,el.__a[k]);
+ for(var e2 in el.__h)listen(el,e2);
+ kids(n,sc,el);parent.appendChild(el);}
+// 前の画面の要素を残したまま、変わった所だけを書きかえる（動きが途切れない・入力した内容が残る）
+function sync(o,n){var oa=o.__a||{},na=n.__a||{},k;
+ for(k in oa){if(!(k in na))o.removeAttribute(k);}
+ for(k in na){if(oa[k]!==na[k])o.setAttribute(k,na[k]);}
+ o.__a=na;o.__h=n.__h||{};for(k in o.__h)listen(o,k);}
+function same(o,n){if(o.nodeType!==n.nodeType)return false;if(n.nodeType===3)return true;if(n.nodeType!==1)return false;return o.localName===n.localName&&o.namespaceURI===n.namespaceURI&&(o.id||'')===((n.__a&&n.__a.id)||'');}
+function morph(op,np){var o=op.firstChild,n=np.firstChild;
+ while(n){var nn=n.nextSibling;
+  if(!o){op.appendChild(n);}
+  else if(same(o,n)){if(n.nodeType===3){if(o.nodeValue!==n.nodeValue)o.nodeValue=n.nodeValue;}else{sync(o,n);morph(o,n);}o=o.nextSibling;}
+  else{var on=o.nextSibling;op.replaceChild(n,o);o=on;}
+  n=nn;}
+ while(o){var x=o.nextSibling;op.removeChild(o);o=x;}}
+var comp,tpl,root,booted=false;
+function render(){
+ var frag=document.createDocumentFragment();kids(tpl.content,[comp.renderVals()],frag);
+ if(!booted){root.appendChild(frag);booted=true;return;}
+ morph(root,frag);
+ if(comp.componentDidUpdate){try{comp.componentDidUpdate();}catch(_){}}
+}
+window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.getElementById('app');comp=new C();comp.props=PROPS;if(!comp.state)comp.state={};render();if(comp.componentDidMount)comp.componentDidMount();};
+})();
+
+class Component extends DCLogic {
+st() {
+return Object.assign({ screen: 'home', menu: false, qty: {}, day: '明日', time: '15:00〜17:00', ferr: {}, sum: [] }, this.state || {});
+}
+componentDidMount() { this.fx(); }
+componentDidUpdate() { this.fx(); }
+fx() {
+try {
+var root = document.getElementById('top');
+if (!root || !('IntersectionObserver' in window)) { return; }
+var self = this;
+if (!this.io) {
+this.io = new IntersectionObserver(function (es) {
+es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); self.io.unobserve(e.target); } });
+}, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+}
+root.classList.add('fx');
+var els = root.querySelectorAll('.rv:not(.in)');
+for (var i = 0; i < els.length; i++) { this.io.observe(els[i]); }
+} catch (e) {}
+}
+jump(id) {
+setTimeout(function () {
+try {
+var el = id ? document.getElementById(id) : null;
+if (el) { el.scrollIntoView({ block: 'start' }); } else { window.scrollTo(0, 0); }
+} catch (e) {}
+}, 80);
+}
+renderVals() {
+const self = this;
+const st = this.st();
+const sc = st.screen;
+const yen = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+const to = function (o, id) { return function () { self.setState(Object.assign({ menu: false }, o)); self.jump(id); }; };
+const chip = function (on) { return on ? { bg: '#231815', fg: '#FFFFFF', pressed: 'true' } : { bg: '#FFFFFF', fg: '#231815', pressed: 'false' }; };
+const ITEMS = [
+['nama20', '生餃子', '生餃子 20個', 780, '当日の朝に包んだ餃子です。2〜3人分。冷蔵で、当日中にお召し上がりください。'],
+['nama30', '生餃子', '生餃子 30個', 1100, 'ご家族での夕食に。3〜4人分です。'],
+['shiso20', '生餃子', 'しそ餃子 20個', 880, '大葉を加えた、さっぱりとした味わいです。'],
+['yuzu20', '冬季限定', 'ゆず餃子 20個', 980, 'ゆずの皮を加えた、冬だけの餃子です。数に限りがあります。'],
+['reito30', '冷凍', '冷凍餃子 30個', 1150, '包んですぐに冷凍しています。冷凍庫で1か月ほど保存できます。発送も承ります。'],
+['tare', 'たれ', '自家製のたれ 1本', 300, '酢と醤油に、香味野菜を合わせたたれです。']
+];
+const qty = st.qty || {};
+const setQ = function (id, d) { return function () { var q = Object.assign({}, qty); q[id] = Math.max(0, Math.min(20, (q[id] || 0) + d)); var fe = Object.assign({}, st.ferr, { items: false }); self.setState({ qty: q, ferr: fe }); }; };
+const openOrder = function (id) { return function () { var q = Object.assign({}, qty); if (id && !q[id]) { q[id] = 1; } self.form = self.form || {}; self.setState({ screen: 'order', menu: false, qty: q, ferr: {} }); self.jump(''); }; };
+let total = 0; ITEMS.forEach(function (x) { total += (qty[x[0]] || 0) * x[3]; });
+const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if (st.ferr[k] && String(e.target.value).trim()) { var fe = Object.assign({}, st.ferr); fe[k] = false; self.setState({ ferr: fe }); } }; };
+const submit = function () {
+const F = self.form || {};
+const ferr = { items: total === 0, name: !String(F.name || '').trim(), tel: !String(F.tel || '').trim() };
+if (ferr.items || ferr.name || ferr.tel) { self.setState({ ferr: ferr }); return; }
+const lines = ITEMS.filter(function (x) { return qty[x[0]]; }).map(function (x) { return x[2] + ' × ' + qty[x[0]]; }).join('\n');
+const dm = /^(\d{4})-(\d\d)-(\d\d)$/.exec(String(F.date || ''));
+const dtxt = dm ? (+dm[2]) + '月' + (+dm[3]) + '日（' + '日月火水木金土'.charAt(new Date(+dm[1], +dm[2] - 1, +dm[3]).getDay()) + '）' : '';
+const day = st.day === 'そのほかの日' ? (dtxt || '日にちはお電話で確認します') : st.day;
+const sum = [{ k: 'ご注文', v: lines }, { k: '合計', v: yen(total) + '円（税込）' }, { k: '受け取り', v: day + '　' + st.time }];
+self.form = {}; self.setState({ screen: 'done', qty: {}, ferr: {}, sum: sum }); self.jump('');
+};
+const fab = sc === 'home';
+return {
+is: { home: sc === 'home', order: sc === 'order', done: sc === 'done', menu: st.menu, fab: fab, later: st.day === 'そのほかの日' },
+menuLabel: st.menu ? '閉じる' : 'メニュー', menuOpen: st.menu ? 'true' : 'false',
+footPad: fab ? '96px' : '28px',
+facts: [
+{ k: '営業時間', v: '11:00〜19:00（売り切れ次第終了）' },
+{ k: '定休日', v: '月曜' },
+{ k: '場所', v: 'ときわ駅から歩いて3分' }
+],
+points: [
+['1', 'その日の分だけ、朝に包む', '作り置きをせず、毎朝、店で包んでいます。'],
+['2', '野菜をたっぷり', 'キャベツとにらを多めに合わせた、軽い口あたりです。'],
+['3', '薄めの皮で、焼き目はぱりっと', 'ご家庭のフライパンでも、きれいな焼き色がつきます。']
+].map(function (x) { return { n: x[0], k: x[1], v: x[2] }; }),
+items: ITEMS.map(function (x) { return { kind: x[1], name: x[2], yen: yen(x[3]), note: x[4], pick: openOrder(x[0]) }; }),
+cook: [
+['1', '並べる', 'フライパンに油を薄くひき、火をつける前に餃子を並べます。'],
+['2', '焼き色をつける', '中火にかけ、底にうすく焼き色がつくまで焼きます。'],
+['3', '蒸し焼きにする', '水を80mlほど注いでふたをし、4〜5分蒸し焼きにします。'],
+['4', '仕上げる', 'ふたを取って水分を飛ばし、ごま油を少し回しかけて焼き上げます。']
+].map(function (x) { return { n: x[0], k: x[1], v: x[2] }; }),
+ways: [
+['店頭でのお持ち帰り', '営業時間内に、そのままお越しください。売り切れの際はご容赦ください。'],
+['受け取りのご予約', 'このページか、お電話で前日までにご予約いただくと、確実にご用意できます。'],
+['冷凍餃子の発送', 'クール便でお届けします。送料とお届け日は、お電話でご案内します。']
+].map(function (x) { return { k: x[0], v: x[1] }; }),
+shop: [
+['店名', 'ふみえの餃子'],
+['住所', '大阪府◯◯市ときわ町0-0-0'],
+['電話番号', '00-0000-0000'],
+['営業時間', '11:00〜19:00（売り切れ次第終了）'],
+['定休日', '月曜（祝日の場合は翌日）'],
+['駐車場', '店の前に2台'],
+['お支払い', '現金、電子マネー、QRコード決済']
+].map(function (x) { return { k: x[0], v: x[1] }; }),
+news: [
+['2026年11月20日', '年末年始の営業日のお知らせ（12月31日は15時まで、1月1日〜4日は休みます）'],
+['2026年11月1日', '冬季限定「ゆず餃子」のご予約を始めました。'],
+['2026年10月10日', '冷凍餃子の発送の受付時間が変わりました。']
+].map(function (x) { return { d: x[0], t: x[1] }; }),
+rows: ITEMS.map(function (x) { return { name: x[2], yen: yen(x[3]), q: qty[x[0]] || 0, minus: setQ(x[0], -1), plus: setQ(x[0], 1), minusLabel: x[2] + 'を1つ減らす', plusLabel: x[2] + 'を1つ増やす' }; }),
+total: yen(total),
+days: ['明日', '明後日', 'そのほかの日'].map(function (d) { var c = chip(st.day === d); return { label: d, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ day: d }); } }; }),
+times: ['11:00〜13:00', '13:00〜15:00', '15:00〜17:00', '17:00〜19:00'].map(function (t) { var c = chip(st.time === t); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState({ time: t }); } }; }),
+f: { date: setF('date'), name: setF('name'), tel: setF('tel'), body: setF('body') },
+ferr: { items: !!st.ferr.items, name: !!st.ferr.name, tel: !!st.ferr.tel },
+summary: st.sum || [],
+go: {
+home: to({ screen: 'home' }, ''), toggle: function () { self.setState({ menu: !st.menu }); },
+about: to({ screen: 'home' }, 'about'), menu: to({ screen: 'home' }, 'menu'), cook: to({ screen: 'home' }, 'cook'), how: to({ screen: 'home' }, 'how'), shop: to({ screen: 'home' }, 'shop'), news: to({ screen: 'home' }, 'news'),
+order: openOrder(''), submit: submit
+}
+};
+}
+}
+window.__dcBoot(Component);
+</script>
+</body>
+</html>

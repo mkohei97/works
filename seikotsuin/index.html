@@ -34,7 +34,7 @@ p,li,dd{text-wrap:pretty}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(23,104,90,.55)}70%{box-shadow:0 0 0 10px rgba(23,104,90,0)}100%{box-shadow:0 0 0 0 rgba(23,104,90,0)}}
 .kb{animation:kb 24s ease-in-out infinite alternate;will-change:transform}
 .intro>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both}
-.intro>*:nth-child(2){animation-delay:.1s}.intro>*:nth-child(3){animation-delay:.2s}.intro>*:nth-child(4){animation-delay:.3s}.intro>*:nth-child(5){animation-delay:.4s}
+.intro>*:nth-child(2){animation-delay:.1s}.intro>*:nth-child(3){animation-delay:.2s}.intro>*:nth-child(4){animation-delay:.3s}.intro>*:nth-child(5){animation-delay:.4s}.intro>*:nth-child(6){animation-delay:.5s}
 .dot{animation:pulse 2.2s ease-out infinite}
 .tap{transition:transform .15s,background-color .15s,color .15s}.tap:active{transform:scale(.97)}
 .fx .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -76,6 +76,7 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <sc-if value="{{is.menu}}" hint-placeholder-val="{{false}}">
 <nav class="sp-only" aria-label="メニュー" style="display: flex; flex-direction: column; border-top: 1px solid #CFE0DA">
 <button type="button" onClick="{{go.hours}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E3EEEA; background: #FFFFFF; color: #1D2B2A; font-size: 16px; text-align: left">受付時間</button>
+<button type="button" onClick="{{go.greet}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E3EEEA; background: #FFFFFF; color: #1D2B2A; font-size: 16px; text-align: left">院長より</button>
 <button type="button" onClick="{{go.first}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E3EEEA; background: #FFFFFF; color: #1D2B2A; font-size: 16px; text-align: left">はじめての方へ</button>
 <button type="button" onClick="{{go.insurance}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E3EEEA; background: #FFFFFF; color: #1D2B2A; font-size: 16px; text-align: left">保険と料金</button>
 <button type="button" onClick="{{go.inside}}" style="min-height: 54px; padding: 0 18px; border: 0; border-bottom: 1px solid #E3EEEA; background: #FFFFFF; color: #1D2B2A; font-size: 16px; text-align: left">院内のご案内</button>
@@ -90,9 +91,13 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 
 <section style="background: #EEF6F3; display: flex; flex-wrap: wrap; align-items: stretch">
 <div class="intro" style="flex: 1 1 400px; min-width: 0; box-sizing: border-box; padding: clamp(26px, 5vw, 56px) 20px clamp(30px, 5vw, 52px) max(20px, calc((100vw - 1160px) / 2 + 16px)); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px">
-<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: .1em; color: #17685A">◯◯市◯◯町・◯◯駅から歩いて5分</p>
-<h1 style="margin: 0; font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif; font-size: clamp(34px, 5.4vw, 56px); font-weight: 700; line-height: 1.35; letter-spacing: .04em">こやぎ整骨院</h1>
-<p style="margin: 0; max-width: 30em; font-size: 17px">柔道整復師（国家資格）が施術する、ほねつぎです。予約優先でご案内しています。駐車場は3台分あります。</p>
+<p style="margin: 0; font-size: 15px; font-weight: 700; letter-spacing: .08em; color: #17685A">こやぎ整骨院｜◯◯駅から歩いて5分</p>
+<h1 style="margin: 0; font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif; font-size: clamp(24px, 3vw, 34px); font-weight: 700; line-height: 1.55; letter-spacing: .02em">ひねった、ぶつけた、転んだ。<br>お気軽にご相談ください。</h1>
+<button type="button" class="tap" onClick="{{go.greet}}" style="display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 4px 18px 4px 4px; border: 1px solid #CFE0DA; border-radius: 999px; background: #FFFFFF; color: #1D2B2A; text-align: left">
+<img src="img/s_face.jpg" alt="院長の似顔絵（見本）" style="width: 56px; height: 56px; flex: 0 0 auto; border-radius: 50%; object-fit: cover">
+<span style="display: flex; flex-direction: column; min-width: 0; line-height: 1.5"><span style="font-size: 14px; color: #4A5C59">院長・柔道整復師（国家資格）</span><span style="font-size: 17px; font-weight: 700">（院長のお名前）が伺います</span></span>
+</button>
+<p style="margin: 0; max-width: 30em; font-size: 17px">「これくらいで行っていいのかな」と迷ったら、どうぞそのままお越しください。お話を伺ってから、施術します。</p>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 12px 16px; background: #FFFFFF; border-radius: 12px">
 <span style="display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; color: {{now.fg}}"><span class="{{now.dot}}" aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: {{now.fg}}"></span>{{now.label}}</span>
 <span style="font-size: 16px">{{now.today}}</span>
@@ -112,19 +117,19 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <p style="margin: 0; color: #17685A; font-size: 14px; font-weight: 700; letter-spacing: .14em">受付時間</p>
 <h2 style="margin: 4px 0 18px; font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif; font-size: clamp(26px, 3.6vw, 34px); font-weight: 700; line-height: 1.5">施術日と受付時間</h2>
 <div role="table" aria-label="曜日ごとの受付時間" style="text-align: center; font-size: 16px; border-radius: 10px; overflow: hidden">
-<div role="row" style="display: grid; grid-template-columns: minmax(104px, 2.2fr) repeat(7, minmax(0, 1fr))">
+<div role="row" style="display: grid; grid-template-columns: minmax(118px, 2.2fr) repeat(7, minmax(0, 1fr)); white-space: nowrap">
 <div role="columnheader" style="padding: 10px 4px; background: #17685A; color: #FFFFFF; font-weight: 700">受付時間</div>
 <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
 <div role="columnheader" style="padding: 10px 2px; background: {{d.hbg}}; color: {{d.hfg}}; font-weight: 700">{{d.name}}</div>
 </sc-for>
 </div>
-<div role="row" style="display: grid; grid-template-columns: minmax(104px, 2.2fr) repeat(7, minmax(0, 1fr)); border-bottom: 1px solid #CFE0DA">
+<div role="row" style="display: grid; grid-template-columns: minmax(118px, 2.2fr) repeat(7, minmax(0, 1fr)); white-space: nowrap; border-bottom: 1px solid #CFE0DA">
 <div role="rowheader" style="padding: 14px 4px; font-weight: 700; line-height: 1.6">9:00〜12:00</div>
 <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
 <div role="cell" style="padding: 12px 2px; background: {{d.bg}}; font-size: 18px; font-weight: 700; color: {{d.amc}}">{{d.am}}</div>
 </sc-for>
 </div>
-<div role="row" style="display: grid; grid-template-columns: minmax(104px, 2.2fr) repeat(7, minmax(0, 1fr)); border-bottom: 1px solid #CFE0DA">
+<div role="row" style="display: grid; grid-template-columns: minmax(118px, 2.2fr) repeat(7, minmax(0, 1fr)); white-space: nowrap; border-bottom: 1px solid #CFE0DA">
 <div role="rowheader" style="padding: 14px 4px; font-weight: 700; line-height: 1.6">16:00〜20:00</div>
 <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
 <div role="cell" style="padding: 12px 2px; background: {{d.bg}}; font-size: 18px; font-weight: 700; color: {{d.pmc}}">{{d.pm}}</div>
@@ -136,6 +141,22 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <sc-for list="{{points}}" as="p" hint-placeholder-count="3">
 <div style="padding: 16px 18px; background: #EEF6F3; border-radius: 12px; line-height: 1.6"><div style="font-size: 18px; font-weight: 700">{{p.k}}</div><div style="font-size: 15px; color: #4A5C59">{{p.v}}</div></div>
 </sc-for>
+</div>
+</div>
+</section>
+
+<section id="greet" style="padding: 4px 16px 64px">
+<div class="rv" style="max-width: 940px; box-sizing: border-box; margin: 0 auto; padding: clamp(24px, 4vw, 40px) clamp(18px, 4vw, 44px); background: #EEF6F3; border-radius: 20px; display: flex; flex-wrap: wrap; gap: 24px 44px; align-items: center">
+<figure style="flex: 0 1 240px; min-width: 180px; margin: 0 auto">
+<img src="img/s_face.jpg" alt="院長の似顔絵（見本）。白い施術着で、やわらかく笑っている" loading="lazy" decoding="async" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 50%; border: 6px solid #FFFFFF">
+<figcaption style="margin-top: 8px; font-size: 14px; line-height: 1.6; color: #4A5C59; text-align: center">見本のイラストです。<br>実際は、院長のお写真が入ります。</figcaption>
+</figure>
+<div style="flex: 1.6 1 360px; min-width: 0">
+<p style="margin: 0; color: #17685A; font-size: 14px; font-weight: 700; letter-spacing: .14em">院長より</p>
+<h2 style="margin: 4px 0 14px; font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif; font-size: clamp(26px, 3.6vw, 34px); font-weight: 700; line-height: 1.5">迷ったら、まず声をかけてください。</h2>
+<p style="margin: 0 0 12px; font-size: 17px">けがをしたとき、「これくらいで行っていいのかな」と迷う方は少なくありません。そんなときこそ、お気軽にご相談ください。</p>
+<p style="margin: 0 0 16px; font-size: 17px">はじめにお話をよく伺い、施術の内容をご説明してから進めます。医療機関での検査が必要だと考えたときは、その場でお伝えします。</p>
+<p style="margin: 0; line-height: 1.7"><span style="display: block; font-size: 15px; color: #4A5C59">院長・柔道整復師（国家資格）</span><span style="font-size: 21px; font-weight: 700">（院長のお名前）</span></p>
 </div>
 </div>
 </section>
@@ -199,10 +220,6 @@ html{-webkit-text-size-adjust:100%;background:#FFFFFF}
 <li style="display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.8"><svg viewBox="0 0 20 20" aria-hidden="true" style="width: 20px; height: 20px; flex: 0 0 auto; margin-top: 5px"><circle cx="10" cy="10" r="10" fill="#17685A"></circle><path d="M5.5 10.300l3 3l6-6.600" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="min-width: 0">{{i}}</span></li>
 </sc-for>
 </ul>
-<div style="display: flex; gap: 16px; align-items: center; margin-top: 22px; padding: 16px 18px; background: #FFFFFF; border-radius: 12px">
-<div style="flex: 0 0 76px; height: 76px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 1px dashed #6B807B; border-radius: 50%; color: #4A5C59; font-size: 13px; line-height: 1.4; text-align: center">お写真</div>
-<div style="min-width: 0; line-height: 1.7"><div style="font-size: 15px; color: #4A5C59">院長・柔道整復師（国家資格）</div><div style="font-size: 20px; font-weight: 700">（院長のお名前）</div></div>
-</div>
 </div>
 </div>
 </section>
@@ -489,7 +506,7 @@ ferr: { date: !!st.ferr.date, closed: !!st.ferr.closed, name: !!st.ferr.name, te
 closedMsg: st.closedMsg || '', doneLine: st.doneLine || '',
 go: {
 home: to({ screen: 'home' }, ''), toggle: function () { self.setState({ menu: !st.menu }); },
-hours: to({ screen: 'home' }, 'hours'), first: to({ screen: 'home' }, 'first'), insurance: to({ screen: 'home' }, 'insurance'), inside: to({ screen: 'home' }, 'inside'), faq: to({ screen: 'home' }, 'faq'), access: to({ screen: 'home' }, 'access'),
+hours: to({ screen: 'home' }, 'hours'), greet: to({ screen: 'home' }, 'greet'), first: to({ screen: 'home' }, 'first'), insurance: to({ screen: 'home' }, 'insurance'), inside: to({ screen: 'home' }, 'inside'), faq: to({ screen: 'home' }, 'faq'), access: to({ screen: 'home' }, 'access'),
 reserve: function () { self.form = {}; self.setState({ screen: 'reserve', menu: false, ferr: {} }); self.jump(''); },
 submit: submit
 }

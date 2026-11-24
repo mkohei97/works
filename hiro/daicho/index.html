@@ -30,6 +30,9 @@ p,li,dd{text-wrap:pretty}
 .btn-gold{animation:glow 3.4s ease-in-out infinite}
 .ph{animation:phase 4s ease-in-out infinite}
 .tap{transition:transform .15s,background-color .2s,color .2s}.tap:active{transform:scale(.97)}
+.sel{-webkit-appearance:none;appearance:none;display:block;width:100%;box-sizing:border-box;min-height:50px;margin:0;padding:0 36px 0 14px;border:1px solid #8E7DB3;border-radius:10px;background:#FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231B1030' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center/12px 8px;color:#1B1030;color-scheme:light;font-family:inherit;font-size:16px;font-weight:500;line-height:1.4;cursor:pointer}
+.sel:disabled{background-color:#CFC6E0;color:#3A2A5C;cursor:default}
+.fl{display:block;margin:0 0 6px;font-size:15px;font-weight:700;color:#EBD3A0}
 .intro>*{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
 .intro>*:nth-child(2){animation-delay:.08s}.intro>*:nth-child(3){animation-delay:.16s}.intro>*:nth-child(4){animation-delay:.24s}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
@@ -60,7 +63,7 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 </div>
 <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px">
 <button type="button" class="tap" onClick="{{go.set}}" style="flex: 0 0 auto; min-height: 50px; padding: 0 16px; border: 1px solid #D9B36A; border-radius: 999px; background: transparent; color: #EBD3A0; font-size: 15px; font-weight: 700">受付の設定</button>
-<button type="button" class="tap btn-gold" onClick="{{go.add}}" style="flex: 0 0 auto; min-height: 50px; padding: 0 18px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 16px; font-weight: 700; letter-spacing: .04em">＋ 予約を足す</button>
+<button type="button" class="tap btn-gold" onClick="{{go.add}}" style="flex: 0 0 auto; min-height: 50px; padding: 0 18px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 16px; font-weight: 700; letter-spacing: .04em">＋ 予約を登録</button>
 </div>
 </div>
 </header>
@@ -68,7 +71,7 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <sc-if value="{{is.list}}" hint-placeholder-val="{{true}}">
 <main class="intro" style="max-width: 860px; margin: 0 auto; padding: 20px 16px 60px">
 
-<section aria-label="いまの状況" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<section aria-label="現在の状況" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
 <sc-for list="{{tiles}}" as="t" hint-placeholder-count="3">
 <div style="padding: 12px 10px 10px; background: #261744; border: 1px solid {{t.bd}}; border-radius: 14px; text-align: center; line-height: 1.4"><p style="margin: 0; font-size: 14px; color: #E3DAF5">{{t.k}}</p><p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 600; line-height: 1.15; color: {{t.fg}}">{{t.n}}<span style="margin-left: 4px; font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 500; color: #C9BDE3">件</span></p></div>
 </sc-for>
@@ -78,43 +81,36 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <div aria-hidden="true" style="display: flex; justify-content: center; gap: 10px; margin: 0 0 14px">
 <sc-for list="{{phases}}" as="p" hint-placeholder-count="5"><span class="ph" style="width: 11px; height: 11px; border-radius: 50%; border: 1px solid #D9B36A; background: {{p.bg}}; box-shadow: {{p.sh}}; animation-delay: {{p.dl}}"></span></sc-for>
 </div>
-<div role="group" aria-label="表示する予約" style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{filters}}" as="t" hint-placeholder-count="3">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 46px; padding: 0 18px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
-</sc-for>
-</div>
-<div role="group" aria-label="入口で絞り込む" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px">
-<span style="font-size: 14px; color: #C9BDE3">入口</span>
-<sc-for list="{{srcs}}" as="t" hint-placeholder-count="4">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 44px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 14px; font-weight: 700">{{t.label}}</button>
-</sc-for>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+<div><label for="f-view" class="fl">表示する予約</label><select id="f-view" class="sel" onChange="{{f.view}}"><sc-for list="{{viewOpts}}" as="o" hint-placeholder-count="3"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select></div>
+<div><label for="f-src" class="fl">受付経路</label><select id="f-src" class="sel" onChange="{{f.src}}"><sc-for list="{{srcOpts}}" as="o" hint-placeholder-count="4"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select></div>
 </div>
 </section>
 
 <section aria-label="予約の一覧" style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px">
-<sc-if value="{{is.empty}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 24px 16px; background: #261744; border: 1px dashed #8E7DB3; border-radius: 14px; font-size: 15px; color: #C9BDE3; text-align: center">当てはまる予約はありません。</p></sc-if>
+<sc-if value="{{is.empty}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 24px 16px; background: #261744; border: 1px dashed #8E7DB3; border-radius: 14px; font-size: 15px; color: #C9BDE3; text-align: center">該当する予約はありません。</p></sc-if>
 <sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
 <article style="padding: 16px 16px 14px; background: #261744; border: 1px solid #4B3A70; border-left: 5px solid {{r.bar}}; border-radius: 14px; opacity: {{r.op}}">
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px">
-<p style="margin: 0; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 20px; font-weight: 500; line-height: 1.5; letter-spacing: .04em">{{r.day}}<span style="margin-left: 10px; color: #EBD3A0">{{r.time}}〜</span><span style="margin-left: 8px; font-family: 'Noto Sans JP', sans-serif; font-size: 15px; color: #C9BDE3">{{r.len}}</span></p>
+<p style="margin: 0; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 20px; font-weight: 500; line-height: 1.5; letter-spacing: .04em">{{r.day}}<span style="display: inline-block; margin-left: 10px; color: #EBD3A0">{{r.time}}〜</span><span style="display: inline-block; margin-left: 8px; font-family: 'Noto Sans JP', sans-serif; font-size: 15px; color: #C9BDE3">{{r.len}}</span></p>
 <p style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px"><span style="padding: 0 10px; border: 1px solid {{r.srcFg}}; border-radius: 999px; color: {{r.srcFg}}; font-size: 14px; font-weight: 700; line-height: 1.9">{{r.src}}</span><span style="padding: 0 10px; border-radius: 999px; background: {{r.stBg}}; color: {{r.stFg}}; font-size: 14px; font-weight: 700; line-height: 2">{{r.status}}</span></p>
 </div>
 <p style="margin: 6px 0 0; font-size: 18px; font-weight: 700">{{r.name}}<span style="margin-left: 4px; font-size: 14px; font-weight: 500; color: #E3DAF5">さま</span></p>
 <dl style="margin: 4px 0 0; display: grid; grid-template-columns: 5.2em minmax(0, 1fr); gap: 2px 10px; font-size: 15px; line-height: 1.7">
-<dt style="color: #C9BDE3">占い</dt><dd style="margin: 0">{{r.kinds}}</dd>
+<dt style="color: #C9BDE3">占術</dt><dd style="margin: 0">{{r.kinds}}</dd>
 <dt style="color: #C9BDE3">ご連絡先</dt><dd style="margin: 0; overflow-wrap: anywhere">{{r.contact}}</dd>
 <dt style="color: #C9BDE3">メモ</dt><dd style="margin: 0">{{r.body}}</dd>
 </dl>
 <sc-if value="{{r.hasDm}}" hint-placeholder-val="{{false}}">
 <div style="margin-top: 10px; padding: 12px 14px; background: #1B1030; border: 1px dashed #A9D4FF; border-radius: 10px">
-<p style="margin: 0; font-size: 14px; font-weight: 700; color: #A9D4FF">届いたDM</p>
+<p style="margin: 0; font-size: 14px; font-weight: 700; color: #A9D4FF">受信したDM</p>
 <p style="margin: 2px 0 6px; font-size: 15px; line-height: 1.7">{{r.dm}}</p>
-<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #C9BDE3">Museが、このDMから日にちと時間を読み取って、仮の予約として載せました。内容を確かめて、確定してください。</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #C9BDE3">Museが、このDMから日付と時間を読み取り、仮予約として登録しました。内容を確認のうえ、確定してください。</p>
 </div>
 </sc-if>
 <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px">
-<button type="button" class="tap" onClick="{{r.a1}}" style="flex: 1 1 140px; min-height: 46px; border: 1px solid #D9B36A; border-radius: 999px; background: {{r.a1Bg}}; color: {{r.a1Fg}}; font-size: 15px; font-weight: 700">{{r.a1Label}}</button>
-<button type="button" class="tap" onClick="{{r.a2}}" style="flex: 1 1 110px; min-height: 46px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 15px; font-weight: 700; display: {{r.a2Disp}}">{{r.a2Label}}</button>
+<button type="button" class="tap" onClick="{{r.a1}}" style="flex: 1 1 160px; min-height: 50px; padding: 0 14px; border: 1px solid #D9B36A; border-radius: 999px; background: {{r.a1Bg}}; color: {{r.a1Fg}}; font-size: 15px; font-weight: 700">{{r.a1Label}}</button>
+<div style="flex: 1 1 160px; min-width: 0"><select aria-label="{{r.name}}さまの予約の状態を変更" class="sel" onChange="{{r.chg}}"><sc-for list="{{r.stOpts}}" as="o" hint-placeholder-count="4"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select></div>
 </div>
 </article>
 </sc-for>
@@ -123,13 +119,13 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <section style="margin-top: 28px; padding: 20px 18px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
 <h2 style="margin: 0 0 8px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 20px; font-weight: 500; line-height: 1.6; letter-spacing: .06em; color: #EBD3A0">この台帳でできること</h2>
 <ul style="margin: 0; padding: 0 0 0 1.2em; font-size: 15px; line-height: 1.9; color: #E3DAF5">
-<li>ホームページのフォームから入った予約が、「返事待ち」で自動で載ります。</li>
-<li>InstagramのDMで決まった予約は、「＋ 予約を足す」から入れます。入口が「Instagram」で残ります。</li>
-<li>台帳に入っている日時は、ホームページのフォームで「予約済み」になり、同じ時間に重なりません。</li>
-<li>「受付の設定」で、曜日ごとの受付時間・お休みの日・祝日・何日先まで受けるかを決められます。ホームページでは、受け付けていない日時は選べません。</li>
-<li>本番では、HIROさんだけが開けるようにし、新しい予約が入ったらお知らせが届く形にします。</li>
+<li>ホームページのフォームから届いた予約は、「返信待ち」として自動で登録されます。</li>
+<li>InstagramのDMで決まった予約は、「＋ 予約を登録」から登録できます。受付経路は「Instagram」として残ります。</li>
+<li>台帳に登録された日時は、ホームページのフォームで「予約済み」と表示され、同じ時間に予約が重なりません。</li>
+<li>「受付の設定」で、曜日ごとの受付時間・臨時休業・祝日・受付期間を設定できます。ホームページでは、受付していない日時は選択できません。</li>
+<li>本番では、HIROさんだけが開けるようにし、新しい予約があれば通知が届く形にします。</li>
 </ul>
-<button type="button" class="tap" onClick="{{go.reset}}" style="margin-top: 14px; min-height: 46px; padding: 0 18px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 15px; font-weight: 700">見本のデータに戻す</button>
+<button type="button" class="tap" onClick="{{go.reset}}" style="margin-top: 14px; min-height: 46px; padding: 0 18px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 15px; font-weight: 700">見本データに戻す</button>
 </section>
 
 </main>
@@ -138,50 +134,38 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <sc-if value="{{is.add}}" hint-placeholder-val="{{false}}">
 <main class="intro" style="max-width: 640px; margin: 0 auto; padding: 26px 16px 68px">
 <div>
-<h2 style="margin: 0 0 4px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 28px; font-weight: 500; line-height: 1.5; letter-spacing: .08em">予約を足す</h2>
-<p style="margin: 0 0 18px; font-size: 15px; color: #E3DAF5">InstagramのDMなど、ホームページの外で決まった予約を入れます。</p>
+<h2 style="margin: 0 0 4px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 28px; font-weight: 500; line-height: 1.5; letter-spacing: .08em">予約の登録</h2>
+<p style="margin: 0 0 18px; font-size: 15px; color: #E3DAF5">InstagramのDMなど、ホームページ以外で決まった予約を登録します。</p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px">
 
 <section style="padding: 22px 18px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
-<p id="l-src" style="margin: 0 0 8px; font-size: 16px; font-weight: 700; color: #EBD3A0">入口</p>
-<div role="group" aria-labelledby="l-src" style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{aSrcs}}" as="t" hint-placeholder-count="3">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 48px; padding: 0 16px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
-</sc-for>
+<label for="a-src" class="fl">受付経路</label>
+<select id="a-src" class="sel" onChange="{{f.aSrc}}"><sc-for list="{{aSrcOpts}}" as="o" hint-placeholder-count="3"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select>
+<label for="a-date" class="fl" style="margin-top: 16px">日付<span style="margin-left: 8px; color: #FFC9BD; font-size: 14px">必須</span></label>
+<input id="a-date" type="date" onChange="{{f.date}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px; color-scheme: light">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 16px">
+<div><label for="a-time" class="fl">開始時間</label><select id="a-time" class="sel" onChange="{{f.aTime}}"><sc-for list="{{aTimeOpts}}" as="o" hint-placeholder-count="9"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select></div>
+<div><label for="a-len" class="fl">鑑定方法</label><select id="a-len" class="sel" onChange="{{f.aLen}}"><sc-for list="{{aLenOpts}}" as="o" hint-placeholder-count="2"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select></div>
 </div>
-<label for="a-date" style="display: block; margin: 16px 0 6px; font-size: 16px; font-weight: 700; color: #EBD3A0">日にち<span style="margin-left: 8px; color: #FFC9BD; font-size: 14px">必須</span></label>
-<input id="a-date" type="date" onChange="{{f.date}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
-<p id="l-atime" style="margin: 16px 0 8px; font-size: 16px; font-weight: 700; color: #EBD3A0">始める時間</p>
-<div role="group" aria-labelledby="l-atime" style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{aTimes}}" as="t" hint-placeholder-count="9">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 76px; min-height: 48px; padding: 0 14px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
-</sc-for>
-</div>
-<p id="l-alen" style="margin: 16px 0 8px; font-size: 16px; font-weight: 700; color: #EBD3A0">鑑定の方法</p>
-<div role="group" aria-labelledby="l-alen" style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{aLens}}" as="t" hint-placeholder-count="2">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 76px; min-height: 48px; padding: 0 14px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
-</sc-for>
-</div>
-<sc-if value="{{ferr.date}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">日にちをお選びください。</p></sc-if>
-<sc-if value="{{ferr.dup}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">その日時には、もう予約が入っています。</p></sc-if>
+<sc-if value="{{ferr.date}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">日付を選択してください。</p></sc-if>
+<sc-if value="{{ferr.dup}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">その日時には、すでに予約が入っています。</p></sc-if>
 </section>
 
 <section style="padding: 22px 18px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
-<label for="a-name" style="display: block; margin: 0 0 6px; font-size: 16px; font-weight: 700; color: #EBD3A0">お名前<span style="margin-left: 8px; color: #FFC9BD; font-size: 14px">必須</span></label>
+<label for="a-name" class="fl">お名前<span style="margin-left: 8px; color: #FFC9BD; font-size: 14px">必須</span></label>
 <input id="a-name" type="text" onChange="{{f.name}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px">
-<label for="a-contact" style="display: block; margin: 14px 0 6px; font-size: 16px; font-weight: 700; color: #EBD3A0">ご連絡先（任意）</label>
+<label for="a-contact" class="fl" style="margin-top: 14px">ご連絡先（任意）</label>
 <input id="a-contact" type="text" autocapitalize="off" placeholder="例：Instagramのユーザーネーム" onChange="{{f.contact}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px">
-<label for="a-kinds" style="display: block; margin: 14px 0 6px; font-size: 16px; font-weight: 700; color: #EBD3A0">占い（任意）</label>
+<label for="a-kinds" class="fl" style="margin-top: 14px">ご希望の占術（任意）</label>
 <input id="a-kinds" type="text" placeholder="例：タロット・数秘術" onChange="{{f.kinds}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px">
-<label for="a-body" style="display: block; margin: 14px 0 6px; font-size: 16px; font-weight: 700; color: #EBD3A0">メモ（任意）</label>
+<label for="a-body" class="fl" style="margin-top: 14px">メモ（任意）</label>
 <textarea id="a-body" rows="3" onChange="{{f.body}}" style="width: 100%; box-sizing: border-box; padding: 10px 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px; line-height: 1.7"></textarea>
-<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">お名前をご入力ください。</p></sc-if>
+<sc-if value="{{ferr.name}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">お名前を入力してください。</p></sc-if>
 </section>
 
-<button type="button" class="tap btn-gold" onClick="{{go.save}}" style="min-height: 58px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 18px; font-weight: 700; letter-spacing: .08em">台帳に足す</button>
-<button type="button" onClick="{{go.list}}" style="min-height: 48px; border: 0; background: transparent; color: #F1ECFA; font-size: 16px; text-decoration: underline">やめて一覧に戻る</button>
+<button type="button" class="tap btn-gold" onClick="{{go.save}}" style="min-height: 58px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 18px; font-weight: 700; letter-spacing: .08em">台帳に登録する</button>
+<button type="button" onClick="{{go.list}}" style="min-height: 48px; border: 0; background: transparent; color: #F1ECFA; font-size: 16px; text-decoration: underline">登録せずに一覧に戻る</button>
 </div>
 </main>
 </sc-if>
@@ -190,79 +174,68 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <main class="intro" style="max-width: 720px; margin: 0 auto; padding: 26px 16px 68px">
 <div>
 <h2 style="margin: 0 0 4px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: 28px; font-weight: 500; line-height: 1.5; letter-spacing: .08em">受付の設定</h2>
-<p style="margin: 0 0 18px; font-size: 15px; color: #E3DAF5">ホームページの予約フォームで選べる日時が、この設定のとおりになります。</p>
+<p style="margin: 0 0 18px; font-size: 15px; color: #E3DAF5">ホームページの予約フォームで選択できる日時が、この設定のとおりになります。</p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px">
 
 <section style="padding: 20px 16px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
 <h3 style="margin: 0 0 4px; font-size: 17px; font-weight: 700; color: #EBD3A0">曜日ごとの受付時間</h3>
-<p style="margin: 0 0 12px; font-size: 14px; color: #C9BDE3">始める時間を押すと、受ける・受けないが切り替わります。色が付いている時間が、受け付ける時間です。</p>
-<div style="display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0 0 12px; font-size: 14px; color: #C9BDE3">曜日ごとに、最初の枠と最後の枠を選択します。受付しない曜日は「休業」を選択します。</p>
+<div style="display: flex; flex-direction: column; gap: 10px">
 <sc-for list="{{wk}}" as="w" hint-placeholder-count="7">
 <div style="padding: 12px 12px 14px; background: #1B1030; border: 1px solid #3A2A5C; border-radius: 12px">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px">
-<p style="margin: 0; min-width: 0; font-size: 16px; font-weight: 700; line-height: 1.5">{{w.label}}<span style="display: block; font-size: 14px; font-weight: 500; color: {{w.sumFg}}">{{w.sum}}</span></p>
-<button type="button" class="tap" onClick="{{w.toggle}}" aria-pressed="{{w.pressed}}" style="flex: 0 0 auto; min-height: 46px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 14px; font-weight: 700">{{w.toggleLabel}}</button>
-</div>
-<div role="group" aria-label="{{w.label}}の受付時間" style="display: flex; flex-wrap: wrap; gap: 6px">
-<sc-for list="{{w.times}}" as="t" hint-placeholder-count="9">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 64px; min-height: 46px; padding: 0 12px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
-</sc-for>
+<p style="margin: 0 0 8px; font-size: 16px; font-weight: 700; line-height: 1.5">{{w.label}}<span style="margin-left: 10px; font-size: 14px; font-weight: 500; color: {{w.sumFg}}">{{w.sum}}</span></p>
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px">
+<select aria-label="{{w.label}}の最初の枠" class="sel" onChange="{{w.setStart}}"><sc-for list="{{w.startOpts}}" as="o" hint-placeholder-count="10"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select>
+<span aria-hidden="true" style="color: #C9BDE3">〜</span>
+<select aria-label="{{w.label}}の最後の枠" class="sel" onChange="{{w.setEnd}}" disabled="{{w.off}}"><sc-for list="{{w.endOpts}}" as="o" hint-placeholder-count="9"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select>
 </div>
 </div>
 </sc-for>
 </div>
-<button type="button" class="tap" onClick="{{go.copyMon}}" style="margin-top: 12px; min-height: 44px; padding: 0 16px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 14px; font-weight: 700">月曜の時間を、火〜金曜にもそろえる</button>
+<button type="button" class="tap" onClick="{{go.copyMon}}" style="margin-top: 12px; min-height: 46px; padding: 0 16px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 14px; font-weight: 700">月曜の受付時間を火〜金曜にも適用</button>
 </section>
 
 <section style="padding: 20px 16px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
-<h3 style="margin: 0 0 4px; font-size: 17px; font-weight: 700; color: #EBD3A0">お休みの日・閉じる時間</h3>
-<p style="margin: 0 0 12px; font-size: 14px; color: #C9BDE3">用事のある日や、一部の時間だけ閉じたいときに足します。</p>
-<label for="o-date" style="display: block; margin: 0 0 6px; font-size: 15px; font-weight: 700">日にち</label>
-<input id="o-date" type="date" onChange="{{f.odate}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
-<div role="group" aria-label="閉じ方" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px">
-<sc-for list="{{oModes}}" as="t" hint-placeholder-count="2">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 46px; padding: 0 12px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
-</sc-for>
-</div>
+<h3 style="margin: 0 0 4px; font-size: 17px; font-weight: 700; color: #EBD3A0">臨時休業・受付停止</h3>
+<p style="margin: 0 0 12px; font-size: 14px; color: #C9BDE3">臨時休業の日や、一部の時間だけ受付を停止する日を登録します。</p>
+<label for="o-date" class="fl">日付</label>
+<input id="o-date" type="date" onChange="{{f.odate}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; font-size: 17px; color-scheme: light">
+<label for="o-mode" class="fl" style="margin-top: 12px">休業の範囲</label>
+<select id="o-mode" class="sel" onChange="{{f.omode}}"><sc-for list="{{oModeOpts}}" as="o" hint-placeholder-count="2"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select>
 <sc-if value="{{is.oPart}}" hint-placeholder-val="{{false}}">
-<p style="margin: 10px 0 6px; font-size: 14px; color: #C9BDE3">閉じる時間を選んでください。</p>
-<div role="group" aria-label="閉じる時間" style="display: flex; flex-wrap: wrap; gap: 6px">
-<sc-for list="{{oTimes}}" as="t" hint-placeholder-count="9">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-width: 64px; min-height: 46px; padding: 0 12px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
-</sc-for>
+<p id="l-opart" class="fl" style="margin-top: 12px">受付を停止する時間</p>
+<div role="group" aria-labelledby="l-opart" style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px">
+<select aria-label="停止の開始" class="sel" onChange="{{f.ofrom}}"><sc-for list="{{oFromOpts}}" as="o" hint-placeholder-count="9"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select>
+<span aria-hidden="true" style="color: #C9BDE3">〜</span>
+<select aria-label="停止の終了" class="sel" onChange="{{f.oto}}"><sc-for list="{{oToOpts}}" as="o" hint-placeholder-count="9"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select>
 </div>
 </sc-if>
 <sc-if value="{{is.oErr}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 8px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">{{oErr}}</p></sc-if>
-<button type="button" class="tap" onClick="{{go.addOff}}" style="margin-top: 12px; min-height: 46px; padding: 0 20px; border: 1px solid #D9B36A; border-radius: 999px; background: transparent; color: #EBD3A0; font-size: 15px; font-weight: 700">お休みに足す</button>
+<button type="button" class="tap" onClick="{{go.addOff}}" style="margin-top: 12px; min-height: 46px; padding: 0 22px; border: 1px solid #D9B36A; border-radius: 999px; background: transparent; color: #EBD3A0; font-size: 15px; font-weight: 700">登録する</button>
 <ul style="margin: 14px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
-<sc-if value="{{is.noOff}}" hint-placeholder-val="{{false}}"><li style="font-size: 14px; color: #C9BDE3">まだありません。</li></sc-if>
+<sc-if value="{{is.noOff}}" hint-placeholder-val="{{false}}"><li style="font-size: 14px; color: #C9BDE3">登録はありません。</li></sc-if>
 <sc-for list="{{offs}}" as="o" hint-placeholder-count="2">
 <li style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 10px 12px; background: #1B1030; border: 1px solid #3A2A5C; border-radius: 10px">
 <span style="min-width: 0; font-size: 15px"><span style="font-weight: 700">{{o.day}}</span><span style="margin-left: 10px; color: #EBD3A0">{{o.what}}</span></span>
-<button type="button" class="tap" onClick="{{o.del}}" style="min-height: 44px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 14px; font-weight: 700">外す</button>
+<button type="button" class="tap" onClick="{{o.del}}" style="min-height: 44px; padding: 0 16px; border: 1px solid #8E7DB3; border-radius: 999px; background: transparent; color: #F1ECFA; font-size: 14px; font-weight: 700">削除</button>
 </li>
 </sc-for>
 </ul>
 </section>
 
 <section style="padding: 20px 16px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
-<h3 style="margin: 0 0 12px; font-size: 17px; font-weight: 700; color: #EBD3A0">祝日・受付の期間・上限</h3>
+<h3 style="margin: 0 0 12px; font-size: 17px; font-weight: 700; color: #EBD3A0">祝日・受付期間・上限</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px">
 <sc-for list="{{opts}}" as="g" hint-placeholder-count="5">
-<div style="margin-bottom: 12px">
-<p style="margin: 0 0 6px; font-size: 15px; font-weight: 700">{{g.k}}</p>
-<div role="group" aria-label="{{g.k}}" style="display: flex; flex-wrap: wrap; gap: 6px">
-<sc-for list="{{g.items}}" as="t" hint-placeholder-count="3">
-<button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="min-height: 46px; padding: 0 12px; border: 1px solid #D9B36A; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 700">{{t.label}}</button>
+<div><label for="{{g.id}}" class="fl" style="color: #F1ECFA">{{g.k}}</label><select id="{{g.id}}" class="sel" onChange="{{g.chg}}"><sc-for list="{{g.items}}" as="o" hint-placeholder-count="3"><option value="{{o.v}}" selected="{{o.sel}}">{{o.label}}</option></sc-for></select></div>
 </sc-for>
 </div>
-</div>
-</sc-for>
 </section>
 
 <section style="padding: 20px 16px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
-<h3 style="margin: 0 0 4px; font-size: 17px; font-weight: 700; color: #EBD3A0">これから2週間の受付（この設定のとき）</h3>
-<p style="margin: 0 0 10px; font-size: 14px; color: #C9BDE3">ホームページで選べる時間です。予約が入っている時間は除いています。</p>
+<h3 style="margin: 0 0 4px; font-size: 17px; font-weight: 700; color: #EBD3A0">今後2週間の受付状況（この設定の場合）</h3>
+<p style="margin: 0 0 10px; font-size: 14px; color: #C9BDE3">ホームページで選択できる時間です。予約済みの時間は除いています。</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
 <sc-for list="{{preview}}" as="p" hint-placeholder-count="14">
 <li style="display: flex; flex-wrap: wrap; gap: 2px 14px; padding: 8px 2px; border-bottom: 1px solid #3A2A5C; font-size: 15px; line-height: 1.6">
@@ -274,8 +247,8 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 </section>
 
 <sc-if value="{{is.saved}}" hint-placeholder-val="{{false}}"><p role="status" style="margin: 0; padding: 10px 14px; background: rgba(110, 210, 160, .16); border-radius: 10px; color: #9FE3BF; font-size: 15px; font-weight: 700">保存しました。ホームページの予約フォームに反映されます。</p></sc-if>
-<button type="button" class="tap btn-gold" onClick="{{go.saveSet}}" style="min-height: 58px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 18px; font-weight: 700; letter-spacing: .08em">この設定を保存する</button>
-<button type="button" onClick="{{go.list}}" style="min-height: 48px; border: 0; background: transparent; color: #F1ECFA; font-size: 16px; text-decoration: underline">一覧に戻る</button>
+<button type="button" class="tap btn-gold" onClick="{{go.saveSet}}" style="min-height: 58px; border: 0; border-radius: 999px; background: #D9B36A; color: #1B1030; font-size: 18px; font-weight: 700; letter-spacing: .08em">この設定を保存</button>
+<button type="button" onClick="{{go.list}}" style="min-height: 48px; border: 0; background: transparent; color: #F1ECFA; font-size: 16px; text-decoration: underline">保存せずに一覧に戻る</button>
 </div>
 </main>
 </sc-if>
@@ -314,7 +287,7 @@ function build(n,sc,parent){
 function sync(o,n){var oa=o.__a||{},na=n.__a||{},k;
  for(k in oa){if(!(k in na))o.removeAttribute(k);}
  for(k in na){if(oa[k]!==na[k])o.setAttribute(k,na[k]);}
- o.__a=na;o.__h=n.__h||{};for(k in o.__h)listen(o,k);}
+ o.__a=na;o.__h=n.__h||{};for(k in o.__h)listen(o,k);if(o.localName==='option'){var sl='selected' in na;if(o.selected!==sl)o.selected=sl;}}
 function same(o,n){if(o.nodeType!==n.nodeType)return false;if(n.nodeType===3)return true;if(n.nodeType!==1)return false;return o.localName===n.localName&&o.namespaceURI===n.namespaceURI&&(o.id||'')===((n.__a&&n.__a.id)||'');}
 function morph(op,np){var o=op.firstChild,n=np.firstChild;
  while(n){var nn=n.nextSibling;
@@ -335,7 +308,7 @@ window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.get
 
 class Component extends DCLogic {
 st() {
-return Object.assign({ screen: 'list', filter: 'これから', src: 'すべて', aSrc: 'Instagram', aTime: '10:00', aLen: '60分・対面', ferr: {}, v: 0 }, this.state || {});
+return Object.assign({ screen: 'list', filter: 'up', src: 'all', aSrc: 'Instagram', aTime: '10:00', aLen: '60分・対面', ferr: {}, v: 0 }, this.state || {});
 }
 ymd(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
 weekday(n) {
@@ -351,7 +324,7 @@ return [
 { id: 's2', src: 'ホームページ', date: this.weekday(1), time: '14:00', len: '60分・対面', kinds: 'おまかせ', name: '見本 みどり', contact: 'midori@example.com', body: 'はじめてです。よろしくお願いします。', status: '返事待ち' },
 { id: 's3', src: 'Instagram', date: this.weekday(2), time: '9:00', len: '60分・お電話', kinds: '宿曜占星術', name: '見本 あおい', contact: '@mihon_aoi', body: '相性を見てほしい。', status: '返事待ち' },
 { id: 's6', src: 'Instagram', date: d3, time: '10:00', len: '60分', kinds: 'おまかせ', name: '見本 ひなた', contact: '@mihon_hinata', body: '', status: '仮', dm: dmDay + 'の10時って空いてますか？60分でお願いしたいです。' },
-{ id: 's4', src: 'そのほか', date: this.weekday(4), time: '11:00', len: '60分・お電話', kinds: 'ルノルマン', name: '見本 ゆかり', contact: 'ご紹介（お電話）', body: '', status: '確定' },
+{ id: 's4', src: 'その他', date: this.weekday(4), time: '11:00', len: '60分・お電話', kinds: 'ルノルマン', name: '見本 ゆかり', contact: 'ご紹介（お電話）', body: '', status: '確定' },
 { id: 's5', src: 'Instagram', date: this.weekday(-2), time: '10:00', len: '60分', kinds: 'タロット', name: '見本 かえで', contact: '@mihon_kaede', body: '', status: '済み' }
 ];
 }
@@ -367,6 +340,7 @@ var mine = all.filter(function (r) { return String(r.id).charAt(0) !== 's'; });
 var seeds = all.filter(function (r) { return String(r.id).charAt(0) === 's'; });
 if (seeds.length !== fresh.length || !seeds.some(function (r) { return String(r.date) >= today; })) { seeds = fresh; }
 rows = seeds.concat(mine);
+rows.forEach(function (r) { if (r.src === 'そのほか') { r.src = 'その他'; } });
 this.rows = rows; this.store();
 return rows;
 }
@@ -382,23 +356,23 @@ var stars = []; for (var i = 0; i < 22; i++) { stars.push({ x: (rnd() * 100).toF
 this.sky = stars;
 }
 const bump = function (o) { self.store(); self.setState(Object.assign({ v: st.v + 1 }, o || {})); };
-const chip = function (on) { return on ? { bg: '#D9B36A', fg: '#1B1030', pressed: 'true' } : { bg: 'transparent', fg: '#F1ECFA', pressed: 'false' }; };
-const one = function (key, list) { return list.map(function (t) { var c = chip(st[key] === t); var o = {}; o[key] = t; return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState(o); } }; }); };
-const dayLabel = function (v) { var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(String(v || '')); if (!m) { return '日にち未定'; } var d = new Date(+m[1], +m[2] - 1, +m[3]); return (+m[2]) + '月' + (+m[3]) + '日（' + '日月火水木金土'.charAt(d.getDay()) + '）'; };
+const dayLabel = function (v) { var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(String(v || '')); if (!m) { return '日付未定'; } var d = new Date(+m[1], +m[2] - 1, +m[3]); return (+m[2]) + '月' + (+m[3]) + '日（' + '日月火水木金土'.charAt(d.getDay()) + '）'; };
 const mins = function (t) { var p = String(t || '0:00').split(':'); return (+p[0]) * 60 + (+p[1] || 0); };
 const open = function (r) { return r.status === '返事待ち' || r.status === '確定' || r.status === '仮'; };
 const needs = function (r) { return r.status === '返事待ち' || r.status === '仮'; };
 const upcoming = function (r) { return open(r) && String(r.date) >= today; };
-const SRC = { 'ホームページ': '#EBD3A0', 'Instagram': '#F7BBD6', 'そのほか': '#D6CCEB' };
+const SRC = { 'ホームページ': '#EBD3A0', 'Instagram': '#F7BBD6', 'その他': '#D6CCEB' };
 const STA = { '返事待ち': ['rgba(255, 190, 80, .18)', '#FFD27A', '#E9B949'], '仮': ['rgba(120, 180, 255, .18)', '#A9D4FF', '#7DB7F5'], '確定': ['rgba(110, 210, 160, .16)', '#9FE3BF', '#5FCB97'], '済み': ['rgba(201, 189, 227, .12)', '#C9BDE3', '#6B5A93'], 'キャンセル': ['rgba(201, 189, 227, .12)', '#C9BDE3', '#6B5A93'] };
-const LABEL = { '仮': '仮（DMから）' };
+const LABEL = { '返事待ち': '返信待ち', '仮': '仮予約（DM）', '済み': '鑑定済み' };
+const opt = function (list, cur) { return list.map(function (x) { return { v: String(x[1]), label: x[0], sel: String(cur) === String(x[1]) }; }); };
+const pickTo = function (key) { return function (e) { var o = {}; o[key] = e.target.value; self.setState(o); }; };
 const setStatus = function (r, s) { return function () { r.status = s; bump(); }; };
 const shown = rows.filter(function (r) {
-if (st.src !== 'すべて' && r.src !== st.src) { return false; }
-if (st.filter === 'これから') { return upcoming(r); }
-if (st.filter === '確認が要る') { return needs(r); }
+if (st.src !== 'all' && r.src !== st.src) { return false; }
+if (st.filter === 'up') { return upcoming(r); }
+if (st.filter === 'need') { return needs(r); }
 return !upcoming(r);
-}).sort(function (a, b) { var x = String(a.date) + ('0000' + mins(a.time)).slice(-4), y = String(b.date) + ('0000' + mins(b.time)).slice(-4); var c = x < y ? -1 : (x > y ? 1 : 0); return st.filter === '終わった分' ? -c : c; });
+}).sort(function (a, b) { var x = String(a.date) + ('0000' + mins(a.time)).slice(-4), y = String(b.date) + ('0000' + mins(b.time)).slice(-4); var c = x < y ? -1 : (x > y ? 1 : 0); return st.filter === 'past' ? -c : c; });
 const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if (st.ferr[k] || (k === 'date' && st.ferr.dup)) { var fe = Object.assign({}, st.ferr); fe[k] = false; fe.dup = false; self.setState({ ferr: fe }); } }; };
 const save = function () {
 const F = self.form || {};
@@ -406,7 +380,7 @@ const dup = !!F.date && rows.some(function (r) { return open(r) && r.date === F.
 const ferr = { date: !F.date, dup: dup, name: !String(F.name || '').trim() };
 if (ferr.date || ferr.dup || ferr.name) { self.setState({ ferr: ferr }); return; }
 rows.push({ id: 'm' + Date.now(), at: new Date().toISOString(), src: st.aSrc, date: F.date, time: st.aTime, len: st.aLen, kinds: String(F.kinds || '').trim() || 'おまかせ', name: String(F.name).trim(), contact: String(F.contact || '').trim(), body: String(F.body || '').trim(), status: '確定' });
-self.form = {}; bump({ screen: 'list', filter: 'これから', src: 'すべて', ferr: {} });
+self.form = {}; bump({ screen: 'list', filter: 'up', src: 'all', ferr: {} });
 try { window.scrollTo(0, 0); } catch (e) {}
 };
 const ALL_TIMES = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
@@ -451,48 +425,53 @@ const SKEY = 'hiro_settings_v1';
 const readSet = function () { try { return normSet(JSON.parse(localStorage.getItem(SKEY) || 'null')); } catch (e) { return normSet(null); } };
 if (!self.draft) { self.draft = readSet(); }
 const D = self.draft;
-self.oform = self.oform || { date: '', mode: 'all', times: [] };
+self.oform = self.oform || { date: '', mode: 'all', from: '13:00', to: '14:00' };
 const O = self.oform;
 const re = function (o) { self.setState(Object.assign({ v: st.v + 1, saved: false }, o || {})); };
-const tchip = function (on, pick) { var c = chip(on); return { bg: c.bg, fg: c.fg, pressed: c.pressed, pick: pick }; };
 const WNAME = ['日曜', '月曜', '火曜', '水曜', '木曜', '金曜', '土曜'];
 const wk = [1, 2, 3, 4, 5, 6, 0].map(function (w) {
-  var on = D.week[w].length > 0;
-  return { label: WNAME[w], sum: on ? D.week[w].length + '枠（' + D.week[w][0] + '〜' + D.week[w][D.week[w].length - 1] + '）' : 'お休み', sumFg: on ? '#EBD3A0' : '#C9BDE3', pressed: on ? 'true' : 'false', toggleLabel: on ? '休みにする' : '受ける',
-    toggle: function () { D.week[w] = on ? [] : BASE.slice(); re(); },
-    times: ALL_TIMES.map(function (t) { var has = D.week[w].indexOf(t) >= 0; return Object.assign({ label: t }, tchip(has, function () { var a = D.week[w].filter(function (x) { return x !== t; }); if (!has) { a.push(t); } D.week[w] = ALL_TIMES.filter(function (x) { return a.indexOf(x) >= 0; }); re(); })); }) };
+  var cur = D.week[w]; var on = cur.length > 0; var a0 = on ? cur[0] : 'off', a1 = on ? cur[cur.length - 1] : '';
+  var range = function (f, t) { var i = ALL_TIMES.indexOf(f), j = ALL_TIMES.indexOf(t); if (j < i) { j = i; } return ALL_TIMES.slice(i, j + 1); };
+  return { label: WNAME[w], sum: on ? cur.length + '枠' : '休業', sumFg: on ? '#EBD3A0' : '#C9BDE3', off: !on,
+    startOpts: opt([['休業', 'off']].concat(ALL_TIMES.map(function (t) { return [t, t]; })), a0),
+    endOpts: on ? opt(ALL_TIMES.filter(function (t) { return ALL_TIMES.indexOf(t) >= ALL_TIMES.indexOf(a0); }).map(function (t) { return [t, t]; }), a1) : opt([['—', '']], ''),
+    setStart: function (e) { var v = e.target.value; if (v === 'off') { D.week[w] = []; } else { var vi = ALL_TIMES.indexOf(v); var end = on && ALL_TIMES.indexOf(a1) >= vi ? a1 : ALL_TIMES[Math.min(vi + 5, ALL_TIMES.length - 1)]; D.week[w] = range(v, end); } re(); },
+    setEnd: function (e) { if (on) { D.week[w] = range(a0, e.target.value); re(); } } };
 });
-const offs = Object.keys(D.off).sort().filter(function (k) { return k >= today; }).map(function (k) { var v = D.off[k]; return { day: dayLabel(k), what: v === 'all' ? '終日お休み' : v.join('・') + ' を閉じる', del: function () { delete D.off[k]; re(); } }; });
+const offs = Object.keys(D.off).sort().filter(function (k) { return k >= today; }).map(function (k) { var v = D.off[k]; var contig = v !== 'all' && v.length && ALL_TIMES.indexOf(v[v.length - 1]) - ALL_TIMES.indexOf(v[0]) === v.length - 1; return { day: dayLabel(k), what: v === 'all' ? '終日休業' : (contig ? v[0] + '〜' + v[v.length - 1] : v.join('・')) + ' の受付を停止', del: function () { delete D.off[k]; re(); } }; });
 const countOn = function (date) { return rows.filter(function (r) { return open(r) && r.date === date; }).length; };
 const preview = [];
 for (var pi = 0; pi < 14; pi++) {
   var dd = addDays(today, pi); var ru = dayRule(D, dd, today, countOn(dd));
   var taken = rows.filter(function (r) { return open(r) && r.date === dd; }).map(function (r) { return r.time; });
   var free = ru.times.filter(function (t) { return taken.indexOf(t) < 0; });
-  if (!ru.ok && dd === today && !D.sameDay) { ru.why = '当日は受け付けない設定'; }
-  preview.push({ day: dayLabel(dd), v: ru.ok ? (free.length ? free.join('・') : '空きなし（予約で埋まっています）') : ru.why.replace(/。$/, ''), fg: ru.ok && free.length ? '#F1ECFA' : '#C9BDE3' });
+  if (!ru.ok && dd === today && !D.sameDay) { ru.why = '当日は受付しない設定'; }
+  else if (!ru.ok) { ru.why = ru.why.replace(/^年末年始のお休みです。$/, '年末年始の休業').replace(/^この日はお休みです。$/, '臨時休業').replace(/^この日は受付をしていません。$/, '受付停止').replace(/^(.)曜日はお休みです。$/, '$1曜日は休業').replace(/のためお休みです。$/, 'のため休業').replace(/^\d+日先までの受付です。$/, '受付期間外').replace(/^この日のご予約は、受付の上限に達しました。$/, '1日の上限に達しています'); }
+  preview.push({ day: dayLabel(dd), v: ru.ok ? (free.length ? free.join('・') : '満枠（すべて予約済み）') : ru.why.replace(/。$/, ''), fg: ru.ok && free.length ? '#F1ECFA' : '#C9BDE3' });
 }
-const optRow = function (k, list, cur, set) { return { k: k, items: list.map(function (x) { return Object.assign({ label: x[0] }, tchip(cur === x[1], function () { set(x[1]); re(); })); }) }; };
+const optRow = function (id, k, list, cur, set) { return { id: id, k: k, items: opt(list, cur), chg: function (e) { var x = list.filter(function (y) { return String(y[1]) === e.target.value; })[0]; if (x) { set(x[1]); re(); } } }; };
 const opts = [
-  optRow('祝日', [['お休みにする', true], ['受け付ける', false]], D.hol, function (v) { D.hol = v; }),
-  optRow('年末年始（12月29日〜1月3日）', [['お休みにする', true], ['受け付ける', false]], D.nenmatsu, function (v) { D.nenmatsu = v; }),
-  optRow('当日のご予約', [['受けない（翌日から）', false], ['受ける', true]], D.sameDay, function (v) { D.sameDay = v; }),
-  optRow('何日先まで受けるか', [['14日', 14], ['30日', 30], ['60日', 60], ['90日', 90]], D.ahead, function (v) { D.ahead = v; }),
-  optRow('1日に受ける件数', [['上限なし', 0], ['1件', 1], ['2件', 2], ['3件', 3], ['4件', 4]], D.max, function (v) { D.max = v; })
+  optRow('s-hol', '祝日', [['休業', true], ['受付', false]], D.hol, function (v) { D.hol = v; }),
+  optRow('s-nen', '年末年始（12月29日〜1月3日）', [['休業', true], ['受付', false]], D.nenmatsu, function (v) { D.nenmatsu = v; }),
+  optRow('s-same', '当日の予約', [['受け付けない（翌日以降）', false], ['受け付ける', true]], D.sameDay, function (v) { D.sameDay = v; }),
+  optRow('s-ahead', '受付期間', [['14日先まで', 14], ['30日先まで', 30], ['60日先まで', 60], ['90日先まで', 90]], D.ahead, function (v) { D.ahead = v; }),
+  optRow('s-max', '1日の受付上限', [['上限なし', 0], ['1件', 1], ['2件', 2], ['3件', 3], ['4件', 4]], D.max, function (v) { D.max = v; })
 ];
 const addOff = function () {
-  if (!/^\d{4}-\d\d-\d\d$/.test(O.date)) { self.setState({ oErr: '日にちを選んでください。' }); return; }
-  if (O.date < today) { self.setState({ oErr: '過ぎた日は足せません。' }); return; }
-  if (O.mode === 'part' && !O.times.length) { self.setState({ oErr: '閉じる時間を選んでください。' }); return; }
-  D.off[O.date] = O.mode === 'all' ? 'all' : ALL_TIMES.filter(function (t) { return O.times.indexOf(t) >= 0; });
-  self.oform = { date: O.date, mode: O.mode, times: [] }; re({ oErr: '' });
+  if (!/^\d{4}-\d\d-\d\d$/.test(O.date)) { self.setState({ oErr: '日付を選択してください。' }); return; }
+  if (O.date < today) { self.setState({ oErr: '過去の日付は登録できません。' }); return; }
+  var fi = ALL_TIMES.indexOf(O.from), ti = ALL_TIMES.indexOf(O.to);
+  if (O.mode === 'part' && ti < fi) { self.setState({ oErr: '終了は、開始と同じか後の時間を選択してください。' }); return; }
+  D.off[O.date] = O.mode === 'all' ? 'all' : ALL_TIMES.slice(fi, ti + 1);
+  self.oform = { date: O.date, mode: O.mode, from: O.from, to: O.to }; re({ oErr: '' });
 };
 const nNeeds = rows.filter(needs).length;
 return {
 is: { list: st.screen === 'list', add: st.screen === 'add', set: st.screen === 'set', empty: shown.length === 0, oPart: O.mode === 'part', oErr: !!st.oErr, noOff: !offs.length, saved: !!st.saved },
 wk: wk, offs: offs, preview: preview, opts: opts, oErr: st.oErr || '',
-oModes: [['終日お休み', 'all'], ['一部の時間だけ閉じる', 'part']].map(function (x) { return Object.assign({ label: x[0] }, tchip(O.mode === x[1], function () { O.mode = x[1]; re({ oErr: '' }); })); }),
-oTimes: ALL_TIMES.map(function (t) { var on = O.times.indexOf(t) >= 0; return Object.assign({ label: t }, tchip(on, function () { if (on) { O.times = O.times.filter(function (x) { return x !== t; }); } else { O.times.push(t); } re(); })); }),
+oModeOpts: opt([['終日休業', 'all'], ['一部の時間のみ受付を停止', 'part']], O.mode),
+oFromOpts: opt(ALL_TIMES.map(function (t) { return [t, t]; }), O.from),
+oToOpts: opt(ALL_TIMES.map(function (t) { return [t, t]; }), O.to),
 stars: this.sky,
 phases: [
 { bg: 'transparent', sh: 'none', dl: '0s' },
@@ -502,35 +481,39 @@ phases: [
 { bg: 'transparent', sh: 'none', dl: '2s' }
 ],
 tiles: [
-{ k: '確認が要る', n: nNeeds, fg: nNeeds ? '#FFD27A' : '#EBD3A0', bd: nNeeds ? '#E9B949' : '#4B3A70' },
-{ k: '今日', n: rows.filter(function (r) { return open(r) && r.date === today; }).length, fg: '#EBD3A0', bd: '#4B3A70' },
-{ k: 'これから', n: rows.filter(upcoming).length, fg: '#EBD3A0', bd: '#4B3A70' }
+{ k: '未確定', n: nNeeds, fg: nNeeds ? '#FFD27A' : '#EBD3A0', bd: nNeeds ? '#E9B949' : '#4B3A70' },
+{ k: '本日', n: rows.filter(function (r) { return open(r) && r.date === today; }).length, fg: '#EBD3A0', bd: '#4B3A70' },
+{ k: '今後', n: rows.filter(upcoming).length, fg: '#EBD3A0', bd: '#4B3A70' }
 ],
-filters: one('filter', ['これから', '確認が要る', '終わった分']),
-srcs: one('src', ['すべて', 'ホームページ', 'Instagram', 'そのほか']),
+viewOpts: opt([['今後の予約', 'up'], ['未確定の予約（返信待ち・仮予約）', 'need'], ['過去・キャンセルの予約', 'past']], st.filter),
+srcOpts: opt([['すべての受付経路', 'all'], ['ホームページ', 'ホームページ'], ['Instagram', 'Instagram'], ['その他', 'その他']], st.src),
 rows: shown.map(function (r) {
 var a = STA[r.status] || STA['済み'];
-var o = { day: dayLabel(r.date), time: r.time, len: r.len || '', src: r.src || 'そのほか', status: LABEL[r.status] || r.status, name: r.name, kinds: r.kinds || 'おまかせ', contact: r.contact || '（なし）', body: r.body || '（なし）', srcFg: SRC[r.src] || SRC['そのほか'], stBg: a[0], stFg: a[1], bar: a[2], op: r.status === 'キャンセル' ? '.6' : '1', hasDm: r.status === '仮' && !!r.dm, dm: r.dm || '' };
-if (r.status === '返事待ち') { o.a1Label = '確定にする'; o.a1 = setStatus(r, '確定'); o.a1Bg = '#D9B36A'; o.a1Fg = '#1B1030'; o.a2Label = 'キャンセル'; o.a2 = setStatus(r, 'キャンセル'); o.a2Disp = 'block'; }
-else if (r.status === '仮') { o.a1Label = 'この内容で確定'; o.a1 = setStatus(r, '確定'); o.a1Bg = '#D9B36A'; o.a1Fg = '#1B1030'; o.a2Label = '予約ではない'; o.a2 = setStatus(r, 'キャンセル'); o.a2Disp = 'block'; }
-else if (r.status === '確定') { o.a1Label = '済みにする'; o.a1 = setStatus(r, '済み'); o.a1Bg = 'transparent'; o.a1Fg = '#EBD3A0'; o.a2Label = 'キャンセル'; o.a2 = setStatus(r, 'キャンセル'); o.a2Disp = 'block'; }
-else { o.a1Label = '確定に戻す'; o.a1 = setStatus(r, '確定'); o.a1Bg = 'transparent'; o.a1Fg = '#EBD3A0'; o.a2Label = ''; o.a2 = function () {}; o.a2Disp = 'none'; }
+var o = { day: dayLabel(r.date), time: r.time, len: r.len || '', src: r.src || 'その他', status: LABEL[r.status] || r.status, name: r.name, kinds: r.kinds || 'おまかせ', contact: r.contact || '（なし）', body: r.body || '（なし）', srcFg: SRC[r.src] || SRC['その他'], stBg: a[0], stFg: a[1], bar: a[2], op: r.status === 'キャンセル' ? '.6' : '1', hasDm: r.status === '仮' && !!r.dm, dm: r.dm || '' };
+var prim = r.status === '返事待ち' ? ['確定にする', '確定'] : r.status === '仮' ? ['この内容で確定する', '確定'] : r.status === '確定' ? ['鑑定済みにする', '済み'] : ['確定に戻す', '確定'];
+var hot = r.status === '返事待ち' || r.status === '仮';
+o.a1Label = prim[0]; o.a1 = setStatus(r, prim[1]); o.a1Bg = hot ? '#D9B36A' : 'transparent'; o.a1Fg = hot ? '#1B1030' : '#EBD3A0';
+var acts = [['返信待ちに戻す', '返事待ち'], ['確定にする', '確定'], ['鑑定済みにする', '済み'], [r.status === '仮' ? 'キャンセルにする（予約ではない）' : 'キャンセルにする', 'キャンセル']].filter(function (x) { return x[1] !== r.status && x[1] !== prim[1] && !(x[1] === '返事待ち' && r.status === '仮'); });
+o.stOpts = opt([['ほかの状態に変更…', '']].concat(acts), '');
+o.chg = function (e) { var v = e.target.value; if (v) { r.status = v; bump(); } };
 return o;
 }),
-aSrcs: one('aSrc', ['Instagram', 'ホームページ', 'そのほか']),
-aTimes: one('aTime', ALL_TIMES),
-aLens: one('aLen', ['60分・対面', '60分・お電話']),
-f: { date: setF('date'), name: setF('name'), contact: setF('contact'), kinds: setF('kinds'), body: setF('body'), odate: function (e) { O.date = e.target.value; self.setState({ oErr: '' }); } },
+aSrcOpts: opt([['Instagram', 'Instagram'], ['ホームページ', 'ホームページ'], ['その他', 'その他']], st.aSrc),
+aTimeOpts: opt(ALL_TIMES.map(function (t) { return [t, t]; }), st.aTime),
+aLenOpts: opt([['対面（60分）', '60分・対面'], ['お電話（60分）', '60分・お電話']], st.aLen),
+f: { date: setF('date'), name: setF('name'), contact: setF('contact'), kinds: setF('kinds'), body: setF('body'), odate: function (e) { O.date = e.target.value; self.setState({ oErr: '' }); },
+view: pickTo('filter'), src: pickTo('src'), aSrc: pickTo('aSrc'), aTime: pickTo('aTime'), aLen: pickTo('aLen'),
+omode: function (e) { O.mode = e.target.value; re({ oErr: '' }); }, ofrom: function (e) { O.from = e.target.value; if (ALL_TIMES.indexOf(O.to) < ALL_TIMES.indexOf(O.from)) { O.to = O.from; } re({ oErr: '' }); }, oto: function (e) { O.to = e.target.value; re({ oErr: '' }); } },
 ferr: { date: !!st.ferr.date, dup: !!st.ferr.dup, name: !!st.ferr.name },
 go: {
 add: function () { self.form = {}; self.setState({ screen: 'add', ferr: {} }); try { window.scrollTo(0, 0); } catch (e) {} },
 list: function () { self.draft = null; self.setState({ screen: 'list', ferr: {}, saved: false }); try { window.scrollTo(0, 0); } catch (e) {} },
 save: save,
-set: function () { self.draft = readSet(); self.oform = { date: '', mode: 'all', times: [] }; self.setState({ screen: 'set', saved: false, oErr: '' }); try { window.scrollTo(0, 0); } catch (e) {} },
+set: function () { self.draft = readSet(); self.oform = { date: '', mode: 'all', from: '13:00', to: '14:00' }; self.setState({ screen: 'set', saved: false, oErr: '' }); try { window.scrollTo(0, 0); } catch (e) {} },
 copyMon: function () { [2, 3, 4, 5].forEach(function (w) { D.week[w] = D.week[1].slice(); }); re(); },
 addOff: addOff,
 saveSet: function () { try { localStorage.setItem(SKEY, JSON.stringify(D)); } catch (e) {} self.setState({ saved: true, v: st.v + 1 }); },
-reset: function () { self.rows = self.seed(); bump({ filter: 'これから', src: 'すべて' }); }
+reset: function () { self.rows = self.seed(); bump({ filter: 'up', src: 'all' }); }
 }
 };
 }

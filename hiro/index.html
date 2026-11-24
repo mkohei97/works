@@ -328,7 +328,7 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 
 <section id="profile" style="background: #261744; padding: 76px 0 72px">
 <div class="rv" style="max-width: 900px; margin: 0 auto; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 28px 44px; align-items: center">
-<div style="position: relative; flex: 0 1 220px; min-width: 180px; margin-inline: auto; aspect-ratio: 1 / 1; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center; color: #C9BDE3; font-size: 15px; line-height: 1.7; text-align: center"><span class="ring" aria-hidden="true" style="position: absolute; inset: 0; border: 1px dashed #D9B36A; border-radius: 50%"></span><span class="ring" aria-hidden="true" style="position: absolute; inset: 12px; border: 1px solid #4B3A70; border-radius: 50%; animation-direction: reverse"></span>ここに<br>お写真かロゴが<br>入ります</div>
+<div style="position: relative; flex: 0 1 240px; min-width: 200px; margin-inline: auto; aspect-ratio: 1 / 1; box-sizing: border-box; padding: 14px"><span class="ring" aria-hidden="true" style="position: absolute; inset: 0; border: 1px dashed #D9B36A; border-radius: 50%"></span><img src="img/h_profile.jpg" alt="紫の布の上にカードが3枚並び、手がそっとカードを置いている" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%"></div>
 <div style="flex: 1.6 1 340px; min-width: 0">
 <p class="gold" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; letter-spacing: .3em">Profile</p>
 <h2 style="margin: 2px 0 14px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(26px, 3.6vw, 34px); font-weight: 500; line-height: 1.5; letter-spacing: .1em">ライトワーカー　HIRO</h2>
@@ -434,7 +434,7 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 <svg class="fl" viewBox="0 0 20 20" aria-hidden="true" style="width: 30px; height: 30px"><path d="M10 0c.8 5.6 4.4 9.2 10 10c-5.6.8-9.2 4.400-10 10c-.8-5.6-4.400-9.200-10-10c5.600-.8 9.200-4.400 10-10z" fill="#D9B36A"></path></svg>
 <h1 style="margin: 8px 0 10px; font-family: 'Shippori Mincho', 'Yu Mincho', serif; font-size: clamp(26px, 4vw, 34px); font-weight: 500; line-height: 1.6; letter-spacing: .06em">お申し込みを受け付けました。</h1>
 <p style="margin: 0 0 8px; font-size: 16px; text-align: left; color: #E3DAF5">{{doneLine}}こちらから、日時の確定のご連絡を差し上げます。当日お会いできることを、楽しみにしています。</p>
-<sc-if value="{{is.stg}}" hint-placeholder-val="{{true}}"><p style="margin: 0 0 14px; padding: 8px 14px; border: 1px dashed #EBD3A0; border-radius: 10px; font-size: 14px; line-height: 1.7; text-align: left; color: #EBD3A0">確認用のため、HIROさんには届いていません。いまの内容は、この端末の「予約台帳の見本」に入りました。<a href="https://mkohei97.github.io/works/hiro/daicho/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; color: #EBD3A0; font-weight: 700">予約台帳の見本を開く</a></p></sc-if>
+<sc-if value="{{is.preview}}" hint-placeholder-val="{{true}}"><p style="margin: 0 0 14px; font-size: 14px; line-height: 1.7; text-align: left; color: #C9BDE3">（公開前のページのため、HIROさんには届いていません。送った内容は、この端末の予約台帳の見本で確かめられます）<a href="https://mkohei97.github.io/works/hiro/daicho/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; color: #EBD3A0; font-weight: 700">予約台帳の見本を開く</a></p></sc-if>
 <div style="height: 14px"></div>
 <button type="button" class="tap" onClick="{{go.home}}" style="width: 100%; min-height: 54px; border: 1px solid #D9B36A; border-radius: 999px; background: transparent; color: #EBD3A0; font-size: 17px; font-weight: 700">トップページへ戻る</button>
 </div>
@@ -573,7 +573,7 @@ const self = this;
 const st = this.st();
 const sc = st.screen;
 // 本番の設定。staging を false にすると「確認待ち」の表示が消える。endpoint に予約台帳の受け口のURLを入れると、そこへ送る。
-const CONFIG = { staging: true, endpoint: '', storeKey: 'hiro_yoyaku_v2' };
+const CONFIG = { staging: false, preview: true, endpoint: '', storeKey: 'hiro_yoyaku_v2' };
 const readBook = function () { try { return JSON.parse(localStorage.getItem(CONFIG.storeKey) || '[]') || []; } catch (e) { return []; } };
 const takenOn = function (date) { var o = {}; if (!date) { return o; } readBook().forEach(function (r) { if (r && r.date === date && r.status !== 'キャンセル') { o[r.time] = 1; } }); return o; };
 const taken = takenOn(st.d1);
@@ -624,7 +624,7 @@ finish();
 };
 const fab = sc === 'home';
 return {
-is: { home: sc === 'home', reserve: sc === 'reserve', done: sc === 'done', privacy: sc === 'privacy', menu: st.menu, fab: fab, drawn: !!draw, undrawn: !draw, stg: CONFIG.staging, sendErr: !!st.sendErr },
+is: { preview: CONFIG.preview, home: sc === 'home', reserve: sc === 'reserve', done: sc === 'done', privacy: sc === 'privacy', menu: st.menu, fab: fab, drawn: !!draw, undrawn: !draw, stg: CONFIG.staging, sendErr: !!st.sendErr },
 submitLabel: st.sending ? '送信しています…' : 'この内容で予約を申し込む',
 policy: [
 ['お預かりする内容', 'お名前（ニックネームでも構いません）、ご連絡先、ご希望の日時と占いの種類。生年月日とご相談の内容は、ご記入いただいた場合だけお預かりします。'],

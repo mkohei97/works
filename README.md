@@ -5,5 +5,7 @@
 - `gyoza-shop/` 餃子専門店のホームページの見本
 - `fortune-teller/` 占い師のホームページの見本
 - `city-councillor/` 市議会議員のホームページの見本
+- `seikotsuin/` 整骨院のホームページの見本
+- `window-exterior/` 窓・玄関・外まわりの工事の会社のホームページの見本
 - `car-dealer/` 自動車の販売・整備会社のホームページの見本
 - `recruit-clinic/` クリニックの採用サイトの見本

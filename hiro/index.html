@@ -386,20 +386,21 @@ html{-webkit-text-size-adjust:100%;background:#1B1030}
 
 <section style="padding: 24px 20px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
 <label for="f-d1" style="display: block; margin: 0 0 2px; font-size: 17px; font-weight: 700; color: #EBD3A0">ご希望の日（第1希望）<span style="margin-left: 8px; color: #FFC9BD; font-size: 14px">必須</span></label>
-<p style="margin: 0 0 6px; font-size: 15px; color: #C9BDE3">平日からお選びください。</p>
-<input id="f-d1" type="date" onChange="{{f.d1}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
+<p style="margin: 0 0 6px; font-size: 15px; color: #C9BDE3">{{dHint}}</p>
+<input id="f-d1" type="date" min="{{dMin}}" max="{{dMax}}" onChange="{{f.d1}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
 <sc-if value="{{ferr.d1}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">ご希望の日をお選びください。</p></sc-if>
-<sc-if value="{{ferr.d1w}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">土曜・日曜はお休みです。平日をお選びください。</p></sc-if>
+<sc-if value="{{is.closed}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">{{closedMsg}}ほかの日をお選びください。</p></sc-if>
 <label for="f-d2" style="display: block; margin: 16px 0 6px; font-size: 17px; font-weight: 700; color: #EBD3A0">第2希望（任意）</label>
 <input id="f-d2" type="date" onChange="{{f.d2}}" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid #8E7DB3; border-radius: 10px; background: #FFFFFF; color: #1B1030; color-scheme: light; font-size: 17px">
 <p id="l-time" style="margin: 18px 0 2px; font-size: 17px; font-weight: 700; color: #EBD3A0">始める時間</p>
-<p style="margin: 0 0 8px; font-size: 15px; color: #C9BDE3">平日 9:00〜15:00（最終の鑑定は14:00から）。ご予約が入っている時間は、選べません。</p>
+<p style="margin: 0 0 8px; font-size: 15px; color: #C9BDE3">{{tHint}}</p>
 <div role="group" aria-labelledby="l-time" style="display: flex; flex-wrap: wrap; gap: 8px">
-<sc-for list="{{times}}" as="t" hint-placeholder-count="6">
+<sc-for list="{{times}}" as="t" hint-placeholder-count="0">
 <button type="button" class="tap" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" disabled="{{t.dis}}" style="min-width: 84px; min-height: 48px; padding: 0 16px; border: 1px solid {{t.bd}}; border-radius: 999px; background: {{t.bg}}; color: {{t.fg}}; font-size: 16px; font-weight: 700">{{t.label}}</button>
 </sc-for>
 </div>
 <sc-if value="{{ferr.time}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">その時間は、ご予約が入っています。ほかの時間をお選びください。</p></sc-if>
+<sc-if value="{{ferr.notime}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin: 6px 0 0; color: #FFC9BD; font-size: 15px; font-weight: 700">始める時間をお選びください。</p></sc-if>
 </section>
 
 <section style="padding: 24px 20px; background: #261744; border: 1px solid #4B3A70; border-radius: 14px">
@@ -541,7 +542,7 @@ window.__dcBoot=function(C){tpl=document.getElementById('tpl');root=document.get
 
 class Component extends DCLogic {
 st() {
-return Object.assign({ screen: 'home', menu: false, len: '60分・対面', kinds: ['おまかせ'], time: '10:00', d1: '', ferr: {}, draw: null, doneLine: '', sending: false, sendErr: false }, this.state || {});
+return Object.assign({ screen: 'home', menu: false, len: '60分・対面', kinds: ['おまかせ'], time: '', d1: '', ferr: {}, draw: null, doneLine: '', sending: false, sendErr: false }, this.state || {});
 }
 componentDidMount() { this.fx(); }
 componentDidUpdate() { this.fx(); }
@@ -577,6 +578,49 @@ const CONFIG = { staging: false, preview: true, endpoint: '', storeKey: 'hiro_yo
 const readBook = function () { try { return JSON.parse(localStorage.getItem(CONFIG.storeKey) || '[]') || []; } catch (e) { return []; } };
 const takenOn = function (date) { var o = {}; if (!date) { return o; } readBook().forEach(function (r) { if (r && r.date === date && r.status !== 'キャンセル') { o[r.time] = 1; } }); return o; };
 const taken = takenOn(st.d1);
+const ALL_TIMES = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+const BASE = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00'];
+const DEF_SET = { week: { 0: [], 1: BASE.slice(), 2: BASE.slice(), 3: BASE.slice(), 4: BASE.slice(), 5: BASE.slice(), 6: [] }, off: {}, hol: true, nenmatsu: true, sameDay: false, ahead: 60, max: 0 };
+// 祝日（内閣府の公表どおり。振替休日を含む）
+const HOLI = { '2026-11-03': '文化の日', '2026-11-23': '勤労感謝の日', '2027-01-01': '元日', '2027-01-11': '成人の日', '2027-02-11': '建国記念の日', '2027-02-23': '天皇誕生日', '2027-03-21': '春分の日', '2027-03-22': '振替休日', '2027-04-29': '昭和の日', '2027-05-03': '憲法記念日', '2027-05-04': 'みどりの日', '2027-05-05': 'こどもの日', '2027-07-19': '海の日', '2027-08-11': '山の日', '2027-09-20': '敬老の日', '2027-09-23': '秋分の日', '2027-10-11': 'スポーツの日', '2027-11-03': '文化の日', '2027-11-23': '勤労感謝の日' };
+function normSet(s) {
+  s = s && typeof s === 'object' ? s : {};
+  var o = JSON.parse(JSON.stringify(DEF_SET));
+  if (s.week && typeof s.week === 'object') { for (var w = 0; w < 7; w++) { if (Array.isArray(s.week[w])) { o.week[w] = ALL_TIMES.filter(function (t) { return s.week[w].indexOf(t) >= 0; }); } } }
+  if (s.off && typeof s.off === 'object') { o.off = s.off; }
+  ['hol', 'nenmatsu', 'sameDay'].forEach(function (k) { if (typeof s[k] === 'boolean') { o[k] = s[k]; } });
+  if (+s.ahead > 0) { o.ahead = +s.ahead; }
+  if (+s.max >= 0) { o.max = +s.max; }
+  return o;
+}
+function ymdOf(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+function addDays(ymd, n) { var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(ymd); var d = new Date(+m[1], +m[2] - 1, +m[3]); d.setDate(d.getDate() + n); return ymdOf(d); }
+// その日に受け付ける時間。count＝その日の予約の件数（キャンセル以外）
+function dayRule(S, date, today, count) {
+  var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(String(date || ''));
+  if (!m) { return { ok: false, why: '日にちが正しくありません。', times: [] }; }
+  var d = new Date(+m[1], +m[2] - 1, +m[3]);
+  var first = S.sameDay ? today : addDays(today, 1), last = addDays(today, S.ahead);
+  if (date < first) { return { ok: false, why: S.sameDay ? '過ぎた日は選べません。' : '当日のご予約は受け付けていません。翌日以降をお選びください。', times: [] }; }
+  if (date > last) { return { ok: false, why: S.ahead + '日先までの受付です。', times: [] }; }
+  var md = date.slice(5);
+  if (S.nenmatsu && (md >= '12-29' || md <= '01-03')) { return { ok: false, why: '年末年始のお休みです。', times: [] }; }
+  if (S.hol && HOLI[date]) { return { ok: false, why: HOLI[date] + 'のためお休みです。', times: [] }; }
+  var off = S.off[date];
+  if (off === 'all') { return { ok: false, why: 'この日はお休みです。', times: [] }; }
+  var times = (S.week[d.getDay()] || []).slice();
+  if (!times.length) { return { ok: false, why: '日月火水木金土'.charAt(d.getDay()) + '曜日はお休みです。', times: [] }; }
+  if (Array.isArray(off)) { times = times.filter(function (t) { return off.indexOf(t) < 0; }); }
+  if (!times.length) { return { ok: false, why: 'この日は受付をしていません。', times: [] }; }
+  if (S.max > 0 && (count || 0) >= S.max) { return { ok: false, why: 'この日のご予約は、受付の上限に達しました。', times: [] }; }
+  return { ok: true, why: '', times: times };
+}
+
+const todayS = ymdOf(new Date());
+const SET = (function () { try { return normSet(JSON.parse(localStorage.getItem('hiro_settings_v1') || 'null')); } catch (e) { return normSet(null); } })();
+const countOn = function (date) { return Object.keys(takenOn(date)).length; };
+const ruleOf = function (date) { return dayRule(SET, date, todayS, countOn(date)); };
+const R1 = st.d1 ? ruleOf(st.d1) : null;
 const to = function (o, id) { return function () { self.setState(Object.assign({ menu: false }, o)); self.jump(id); }; };
 const chip = function (on) { return on ? { bg: '#D9B36A', fg: '#1B1030', pressed: 'true' } : { bg: 'transparent', fg: '#F1ECFA', pressed: 'false' }; };
 const one = function (key, list) { return list.map(function (t) { var c = chip(st[key] === t); var o = {}; o[key] = t; return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: function () { self.setState(o); } }; }); };
@@ -603,14 +647,14 @@ else { ks = ks.filter(function (k) { return k !== 'おまかせ'; }); var i = ks
 self.setState({ kinds: ks });
 }; };
 const dayOf = function (v) { var m = /^(\d{4})-(\d\d)-(\d\d)$/.exec(String(v || '')); if (!m) { return null; } return { d: new Date(+m[1], +m[2] - 1, +m[3]), mo: +m[2], da: +m[3] }; };
-const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if (k === 'd1') { var f1 = Object.assign({}, st.ferr); f1.d1 = false; f1.d1w = false; f1.time = false; self.setState({ d1: e.target.value, ferr: f1 }); return; } if ((st.ferr[k] || (k === 'd1' && st.ferr.d1w)) && String(e.target.value).trim()) { var fe = Object.assign({}, st.ferr); fe[k] = false; if (k === 'd1') { fe.d1w = false; } self.setState({ ferr: fe }); } }; };
+const setF = function (k) { return function (e) { self.form = self.form || {}; self.form[k] = e.target.value; if (k === 'd1') { var f1 = Object.assign({}, st.ferr); f1.d1 = false; f1.time = false; f1.notime = false; self.setState({ d1: e.target.value, time: '', ferr: f1 }); return; } if ((st.ferr[k] || (k === 'd1' && st.ferr.d1w)) && String(e.target.value).trim()) { var fe = Object.assign({}, st.ferr); fe[k] = false; if (k === 'd1') { fe.d1w = false; } self.setState({ ferr: fe }); } }; };
 const submit = function () {
 const F = self.form || {};
 const d1 = dayOf(F.d1);
-const wk = !!d1 && (d1.d.getDay() === 0 || d1.d.getDay() === 6);
+const ru = d1 ? ruleOf(F.d1) : null;
 if (st.sending) { return; }
-const ferr = { d1: !d1, d1w: wk, time: !!d1 && !!takenOn(F.d1)[st.time], name: !String(F.name || '').trim(), contact: !String(F.contact || '').trim() };
-if (ferr.d1 || ferr.d1w || ferr.time || ferr.name || ferr.contact) { self.setState({ ferr: ferr }); return; }
+const ferr = { d1: !d1, closed: !!ru && !ru.ok, notime: !!ru && ru.ok && ru.times.indexOf(st.time) < 0, time: !!ru && ru.ok && !!takenOn(F.d1)[st.time], name: !String(F.name || '').trim(), contact: !String(F.contact || '').trim() };
+if (ferr.d1 || ferr.closed || ferr.notime || ferr.time || ferr.name || ferr.contact) { self.setState({ ferr: ferr }); return; }
 const line = '第1希望は ' + d1.mo + '月' + d1.da + '日（' + '日月火水木金土'.charAt(d1.d.getDay()) + '）' + st.time + 'から、' + (st.len.indexOf('お電話') >= 0 ? 'お電話での遠隔鑑定（60分）' : '対面の鑑定（60分）') + 'で承りました。';
 const rec = { id: 'w' + Date.now(), at: new Date().toISOString(), src: 'ホームページ', date: F.d1, date2: F.d2 || '', time: st.time, len: st.len, kinds: (st.kinds || []).join('・'), name: String(F.name).trim(), contact: String(F.contact).trim(), birth: F.birth || '', body: String(F.body || '').trim(), status: '返事待ち' };
 const finish = function () { self.form = {}; self.setState({ screen: 'done', ferr: {}, d1: '', sending: false, sendErr: false, doneLine: line }); self.jump(''); };
@@ -624,7 +668,7 @@ finish();
 };
 const fab = sc === 'home';
 return {
-is: { preview: CONFIG.preview, home: sc === 'home', reserve: sc === 'reserve', done: sc === 'done', privacy: sc === 'privacy', menu: st.menu, fab: fab, drawn: !!draw, undrawn: !draw, stg: CONFIG.staging, sendErr: !!st.sendErr },
+is: { closed: !!R1 && !R1.ok, preview: CONFIG.preview, home: sc === 'home', reserve: sc === 'reserve', done: sc === 'done', privacy: sc === 'privacy', menu: st.menu, fab: fab, drawn: !!draw, undrawn: !draw, stg: CONFIG.staging, sendErr: !!st.sendErr },
 submitLabel: st.sending ? '送信しています…' : 'この内容で予約を申し込む',
 policy: [
 ['お預かりする内容', 'お名前（ニックネームでも構いません）、ご連絡先、ご希望の日時と占いの種類。生年月日とご相談の内容は、ご記入いただいた場合だけお預かりします。'],
@@ -686,16 +730,20 @@ sched: [
 ].map(function (x) { return { k: x[0], vp: x[1].split('|') }; }),
 lens: one('len', ['60分・対面', '60分・お電話']).map(function (x) { x.label = x.label.indexOf('お電話') >= 0 ? 'お電話で（遠隔鑑定）' : 'お会いして（対面）'; return x; }),
 topics: ['人生の目的や使命', '恋愛', '仕事', '家庭', '人間関係', '前世', 'ブロック解放', '潜在意識', 'チャクラ'],
-times: ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00'].map(function (t) { var full = !!taken[t]; var c = chip(st.time === t && !full); return { label: full ? t + ' 予約済み' : t, bg: full ? 'transparent' : c.bg, fg: full ? '#A99BC6' : c.fg, bd: full ? '#4B3A70' : '#D9B36A', pressed: c.pressed, dis: full, pick: function () { if (full) { return; } var f2 = Object.assign({}, st.ferr); f2.time = false; self.setState({ time: t, ferr: f2 }); } }; }),
+dMin: SET.sameDay ? todayS : addDays(todayS, 1), dMax: addDays(todayS, SET.ahead),
+dHint: (SET.sameDay ? '本日' : '明日') + 'から' + SET.ahead + '日先までの日を、お選びください。',
+tHint: !st.d1 ? '日にちを選ぶと、受け付けている時間が出ます。' : (R1 && R1.ok ? 'ご予約が入っている時間は、選べません。' : ''),
+closedMsg: R1 && !R1.ok ? R1.why : '',
+times: (R1 && R1.ok ? R1.times : []).map(function (t) { var full = !!taken[t]; var c = chip(st.time === t && !full); return { label: full ? t + ' 予約済み' : t, bg: full ? 'transparent' : c.bg, fg: full ? '#A99BC6' : c.fg, bd: full ? '#4B3A70' : '#D9B36A', pressed: c.pressed, dis: full, pick: function () { if (full) { return; } var f2 = Object.assign({}, st.ferr); f2.time = false; self.setState({ time: t, ferr: f2 }); } }; }),
 kinds: ['おまかせ', 'タロット', 'オラクル', 'ルノルマン', '宿曜占星術', '数秘術'].map(function (t) { var c = chip((st.kinds || []).indexOf(t) >= 0); return { label: t, bg: c.bg, fg: c.fg, pressed: c.pressed, pick: toggleKind(t) }; }),
 f: { d1: setF('d1'), d2: setF('d2'), name: setF('name'), contact: setF('contact'), birth: setF('birth'), body: setF('body') },
-ferr: { d1: !!st.ferr.d1, d1w: !!st.ferr.d1w, time: !!st.ferr.time, name: !!st.ferr.name, contact: !!st.ferr.contact },
+ferr: { d1: !!st.ferr.d1, time: !!st.ferr.time, notime: !!st.ferr.notime, name: !!st.ferr.name, contact: !!st.ferr.contact },
 doneLine: st.doneLine || '',
 go: {
 home: to({ screen: 'home' }, ''), toggle: function () { self.setState({ menu: !st.menu }); },
 today: to({ screen: 'home' }, 'today'), menu: to({ screen: 'home' }, 'menu'), care: to({ screen: 'home' }, 'care'), flow: to({ screen: 'home' }, 'flow'), price: to({ screen: 'home' }, 'price'), profile: to({ screen: 'home' }, 'profile'),
 again: function () { self.setState({ draw: null }); },
-reserve: function () { self.form = {}; self.setState({ screen: 'reserve', menu: false, ferr: {}, d1: '', sendErr: false }); self.jump(''); },
+reserve: function () { self.form = {}; self.setState({ screen: 'reserve', menu: false, ferr: {}, d1: '', time: '', sendErr: false }); self.jump(''); },
 privacy: function () { self.setState({ screen: 'privacy', menu: false }); self.jump(''); },
 submit: submit
 }
